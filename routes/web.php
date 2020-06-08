@@ -17,10 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/cms', function() {
+	return view('cms.index');
+});
 
-Route::get('/test', function() {
+Route::get('/cms/subscriptores', function() {
 	$subscriptores = Subscriber::all();
-	return view('index')->with(compact('subscriptores'));
+	return view('cms.subscriptores')->with(compact('subscriptores'));
+});
+
+Route::get('/cms/club', function() {
+	$subscriptores = Subscriber::all();
+	return view('cms.club')->with(compact('subscriptores'));
+});
+
+Route::get('/cms/informacion', function() {
+	return view('cms.informacion');
 });
 Auth::routes();
 

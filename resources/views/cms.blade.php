@@ -56,30 +56,30 @@
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link active" href="/cms">
               <span data-feather="home"></span>
               Dashboard <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/cms/informacion">
               <span data-feather="file"></span>
-              Orders
+              Informacion
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/cms/subscriptores">
               <span data-feather="shopping-cart"></span>
-              Products
+              Subscriptores
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/cms/club">
               <span data-feather="users"></span>
-              Customers
+              Club CEACA
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="bar-chart-2"></span>
               Reports
@@ -123,7 +123,7 @@
               <span data-feather="file-text"></span>
               Year-end sale
             </a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </nav>
@@ -142,26 +142,7 @@
           </button>
         </div>
       </div>
-
-      <h2>Section title</h2>
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($subscriptores as $subscriptor)
-              <tr>
-                <td>{{$subscriptor->id}}</td>
-                <td>{{$subscriptor->email}}</td>
-              </tr>
-            @endforeach
-          </tbody>
-        </table>
-      </div>
+      @yield('content')
     </main>
   </div>
 </div>
