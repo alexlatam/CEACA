@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Subscriber;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/test', function() {
+	$subscriptores = Subscriber::all();
+	return view('index')->with(compact('subscriptores'));
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
