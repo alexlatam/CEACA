@@ -22,4 +22,18 @@ class CategoryController extends Controller
 
     	return back();
     }
+
+    public function getCategory(Request $request, $id){
+    	$categoria = Category::find($id);
+
+    	return $categoria;
+    }
+
+    public function editCategory(Request $request, $id){
+    	$categoria = Category::find($id);
+    	$categoria->name = $request->category_update;
+    	$categoria->save();
+
+    	return back();
+    }
 }

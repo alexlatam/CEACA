@@ -29,7 +29,7 @@
             <td>{{$categoria->id}}</td>
             <td>{{$categoria->name}}</td>
             <td class="d-flex ">
-              <a href="#" type="button" class="btn btn-sm btn-outline-secondary mr-2">Editar</a>
+              <button type="button" id="{{ $categoria->id }}" class="btn btn-sm btn-outline-secondary mr-2 editar"  data-toggle="modal" data-target="#modalCategoriaEditar">Editar</button>
               <form action="/cms/categoria/delete/{{$categoria->id}}" method="POST">
                 @csrf
                 <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-secondary">
@@ -42,7 +42,7 @@
   </div>
 </section>
 
-
+<!-- Modal Crear categorias -->
 <div class="modal fade" id="modalCategoria" tabindex="-1" role="dialog" aria-labelledby="modalSubscriptor" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -66,11 +66,56 @@
   </div>
 </div>
 
+<!-- Modal editar categorias -->
+<div class="modal fade" id="modalCategoriaEditar" tabindex="-1" role="dialog" aria-labelledby="modalCategoriaEditar" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCategoriaEditar">Editar Categoria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/cms/categoria/edit" method="POST" id="form_edit_category">
+          @csrf
+          <input class="form-control" id="input_editar_categoria" type="text" name="category_update" placeholder="Nombre Categoria">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="editarCategoria">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
   let formulario = document.getElementById('form_create_category');
+  let botonesEditar = document.querySelectorAll('.editar');
+  let formEdit = document.getElementById('form_edit_category');
 
   document.getElementById('agregarCategoria').addEventListener('click', () => {
     formulario.submit();
   });
+
+  document.getElementById('editarCategoria').addEventListener('click', () => {
+    formEdit.submit();
+  });
+
+  botonesEditar.forEach(boton => {
+    boton.addEventListener('click', (e) =>{
+      let input = document.getElementById('input_editar_categoria');
+      
+
+      formEdit.action =  `/cms/categoria/edit/${e.target.id}` 
+
+      axios.get(`/cms/categoria/${e.target.id}`)
+        .then(response => {
+          input.value = response.data.name
+        })
+    })
+  });
+
 </script>
 @endsection
