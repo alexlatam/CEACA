@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Subscriber;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,23 +18,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cms', function() {
-	return view('cms.index');
-});
+/* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
+Route::get('/cms', 'CmsController@index');
+Route::get('/cms/subscriptores', 'CmsController@subscribersView' );
+Route::get('/cms/club', 'CmsController@clubView');
+Route::get('/cms/informacion', 'CmsController@informationView');
 
-Route::get('/cms/subscriptores', function() {
-	$subscriptores = Subscriber::all();
-	return view('cms.subscriptores')->with(compact('subscriptores'));
-});
+	/* ----------  RUTA CLUB CONTROLLADOR ---------*/ 
+Route::post('/club/user/pause/{id}', 'ClubController@pauseClubMember');
 
-Route::get('/cms/club', function() {
-	$subscriptores = Subscriber::all();
-	return view('cms.club')->with(compact('subscriptores'));
-});
+/*------------------------------------ END --------------------------*/
 
-Route::get('/cms/informacion', function() {
-	return view('cms.informacion');
-});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
