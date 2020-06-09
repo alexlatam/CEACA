@@ -18,4 +18,12 @@ class ClubController extends Controller
 
     	return back();
     }
+
+    public function activeClubMember(Request $request, $id){
+    	$user = User::find($id);
+    	$user->status = 'activo';
+    	$user->save();
+
+    	return back();
+    }
 }

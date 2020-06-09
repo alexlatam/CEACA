@@ -33,10 +33,17 @@
             <td>{{$user->email}}</td>
             <td>{{$user->status}}</td>
             <td>
-            	<form action="/club/user/pause/{{$user->id}}" method="POST">
-            		@csrf
-            		<input type="submit" value="Pausar" class="btn btn-sm btn-outline-secondary">
-            	</form>
+            	@if($user->status === 'activo')
+                <form action="/club/user/pause/{{$user->id}}" method="POST">
+                  @csrf
+                  <input type="submit" value="Pausar" class="btn btn-sm btn-outline-secondary">
+                </form>
+              @else
+                <form action="/club/user/active/{{$user->id}}" method="POST">
+                  @csrf
+                  <input type="submit" value="Activar" class="btn btn-sm btn-outline-secondary">
+                </form>
+              @endif
             </td>
           </tr>
         @endforeach
