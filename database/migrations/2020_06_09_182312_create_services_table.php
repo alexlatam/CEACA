@@ -17,12 +17,10 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('categoria_id');
             $table->string('titulo');
-            $table->string('descripcion')
+            $table->string('descripcion');
             $table->string('imagen');
             $table->timestamps();
 
-
-            $table->foreign('categoria_id')->references('id')->on('categories');
         });
     }
 
