@@ -29,6 +29,7 @@ Route::get('/cms/informacion', 'CmsController@informationView');
 Route::post('/club/user/pause/{id}', 'ClubController@pauseClubMember');
 Route::post('/club/user/active/{id}', 'ClubController@activeClubMember');
 
+	/* ----------  RUTA CATEGORIAS CONTROLLADOR ---------*/ 
 Route::get('cms/categoria/{id}', 'CategoryController@getCategory');
 Route::post('cms/categoria/create', 'CategoryController@createCategory');
 Route::post('cms/categoria/edit/{id}', 'CategoryController@editCategory');
