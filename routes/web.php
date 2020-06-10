@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
+
 Route::get('/cms', 'CmsController@index');
 Route::get('/cms/subscriptores', 'CmsController@subscribersView' );
 Route::get('/cms/club', 'CmsController@clubView');
@@ -35,7 +36,7 @@ Route::post('cms/categoria/create', 'CategoryController@createCategory');
 Route::post('cms/categoria/edit/{id}', 'CategoryController@editCategory');
 Route::post('cms/categoria/delete/{id}', 'CategoryController@deleteCategory');
 
-
+	/* ----------  RUTA SERVICIOS CONTROLLADOR ---------*/ 
 Route::get('/cms/servicios', 'ServicioController@index');
 Route::get('/cms/editar/servicio/{id}', 'ServicioController@editarServicio');
 Route::post('/cms/actualizar/servicio/{id}', 'ServicioController@actualizarServicio');
@@ -43,6 +44,9 @@ Route::get('/cms/crear/servicios', 'ServicioController@crearServicio');
 Route::post('/cms/guardar/servicio', 'ServicioController@guardarServicio');
 Route::post('/cms/eliminar/servicio/{id}', 'ServicioController@eliminarServicio');
 
+	/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/ 
+Route::get('/cms/publicidades', 'PublicidadController@index');
+Route::get('/cms/crear/publicidad', 'PublicidadController@crearPublicidad');
 
 /*------------------------------------ END --------------------------*/
 

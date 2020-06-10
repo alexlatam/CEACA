@@ -1,0 +1,18 @@
+
+
+/*------------- vista publicidades -----------*/
+
+.publicidades_card-main{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 1rem;
+}
+
+.publicidades_card-img{
+	width: 100%;
+	height: 380px;
+}
+
+.publicidades_card-body{
+
+}
