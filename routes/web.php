@@ -29,10 +29,12 @@ Route::middleware('auth')->group(function () {
 	Route::get('/cms/informacion', 'CmsController@informationView');
 	Route::get('/cms/servicios', 'ServicioController@index');
 	Route::get('/cms/publicidades', 'PublicidadController@index');
+	Route::get('/cms/cursos', 'CursoController@index');
 	Route::get('/cms/crear/usuario', 'UserController@index');
 
 		/* ----------  RUTA USUARIOS CONTROLLADOR ---------*/ 
 	Route::post('cms/guardar/usuario', 'UserController@crearUsuario');
+
 		/* ----------  RUTA CLUB CONTROLLADOR ---------*/ 
 	Route::post('/club/user/pause/{id}', 'ClubController@pauseClubMember');
 	Route::post('/club/user/active/{id}', 'ClubController@activeClubMember');
@@ -56,6 +58,16 @@ Route::middleware('auth')->group(function () {
 	Route::post('/cms/guardar/publicidad', 'PublicidadController@guardarPublicidad');
 	Route::post('/cms/actualizar/publicidad/{id}', 'PublicidadController@actualizarPublicidad');
 	Route::post('/cms/actualizar/imagen/publicidad/{id}', 'PublicidadController@actualizarImagenPublicidad');
+	Route::post('/cms/eliminar/publicidad/{id}', 'PublicidadController@eliminarPublicidad');
+
+	/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/ 
+
+	Route::get('/cms/crear/curso', 'CursoController@crearCurso');
+	Route::post('/cms/guardar/curso', 'CursoController@guardarCurso');
+	Route::get('/cms/editar/curso/{id}', 'CursoController@editarCurso');
+	Route::post('/cms/actualizar/curso/{id}', 'CursoController@actualizarCurso');
+	Route::post('/cms/actualizar/imagen/curso/{id}', 'CursoController@actualizarImagenCurso');
+	Route::post('/cms/eliminar/curso/{id}', 'CursoController@eliminarCurso');
 });
 
 /*------------------------------------ END --------------------------*/

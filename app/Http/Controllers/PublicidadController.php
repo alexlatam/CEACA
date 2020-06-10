@@ -90,4 +90,13 @@ class PublicidadController extends Controller
         }
 
     }
+
+    public function eliminarPublicidad(Request $request, $id){
+        $publicidad = Publicidad::find($id);
+
+        $publicidad->delete();
+
+        return back()->with('message','Publicidad eliminada con éxito');
+    }
+
 }
