@@ -98,6 +98,12 @@
               Publicidad
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cms/crear/usuario">
+              <span data-feather="users"></span>
+              Crear Usuarios
+            </a>
+          </li>
           <!-- <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="bar-chart-2"></span>

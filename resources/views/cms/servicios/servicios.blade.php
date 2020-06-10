@@ -40,7 +40,11 @@
             <td>{{$servicio->descripcion}}</td>
             <td>{{$servicio->categoria->name}}</td>
             <td>
-              <img src="{{$servicio->imagen}}" style="width: 60px; height: 60px;">
+              @if(substr($servicio->imagen, 0, 4) === 'http')
+                  <img src="{{ $servicio->imagen }}" class="publicidades_card-img" alt="" style="width: 60px; height: 60px;">
+              @elseif($servicio->imagen)
+                   <img src="{{ asset('servicios_imagen/'. $servicio->imagen) }}" alt="" style="width: 60px; height: 60px;">
+              @endif
             </td>
             <td class="d-flex">
               <a href="/cms/editar/servicio/{{$servicio->id}}"class="btn btn-sm btn-outline-secondary mr-2 editar">Editar</a>

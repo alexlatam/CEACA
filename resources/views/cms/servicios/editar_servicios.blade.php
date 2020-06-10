@@ -15,7 +15,20 @@
           {{session('message')}}
         </div>
       @endif
-      <form action="/cms/actualizar/servicio/{{$servicio->id}}" method="POST">
+
+      <form action="/cms/actualizar/imagen/servicio/{{$servicio->id}}" method="POST" class="mb-5" enctype="multipart/form-data">
+        @csrf
+
+        <div class="form-group">
+          <h5>Cambiar Imagen</h5>
+          <input type="file" name="imagen_servicio">
+        </div>
+        <input type="submit" class="btn btn-primary btn-sm" value="Guardar Imagen">
+
+      </form>
+
+
+      <form action="/cms/actualizar/servicio/{{$servicio->id}}" method="POST" >
         @csrf
         <div class="row">
           <div class="col-12 mb-4">
@@ -26,10 +39,7 @@
             <label>Descripción</label>
             <input class="form-control" type="text" name="descripcion_servicio" value="{{$servicio->descripcion}}" placeholder="Descripción">
           </div>
-          <div class="col-12 mb-4">
-            <label>Imagen</label>
-            <input class="form-control" type="text" name="imagen_servicio" value="{{$servicio->imagen}}" placeholder="Descripción">
-          </div>
+          
           <div class="col-12 mb-4">
             <label>Categoría</label>
             <select name="categoria_servicio" class="form-control form-control">
@@ -40,10 +50,12 @@
             </select>
           </div>
           <div class="col-12 mb-5">
-            <input type="submit" class="btn btn-primary" value="Crear">
+            <input type="submit" class="btn btn-primary" value="Guardar">
           </div>
         </div>
       </form>
+
+
   </div>
 </section>
 

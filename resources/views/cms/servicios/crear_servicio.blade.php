@@ -15,7 +15,7 @@
           {{session('message')}}
         </div>
       @endif
-      <form action="/cms/guardar/servicio" method="POST">
+      <form action="/cms/guardar/servicio" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
           <div class="col-12 mb-4">
@@ -27,8 +27,8 @@
             <input class="form-control" type="text" name="descripcion_servicio" value="" placeholder="Descripción">
           </div>
           <div class="col-12 mb-4">
-            <label>Imagen</label>
-            <input class="form-control" type="text" name="imagen_servicio" value="" placeholder="Descripción">
+            <label style="display: block">Imagen</label>
+            <input type="file" name="imagen_servicio">
           </div>
           <div class="col-12 mb-4">
             <label>Categoría</label>
