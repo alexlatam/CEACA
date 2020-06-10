@@ -7,7 +7,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
     <title>Dashboard Template · Bootstrap</title>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
 
     <!-- Bootstrap core CSS -->
@@ -77,6 +77,18 @@
             <a class="nav-link" href="/cms/club">
               <span data-feather="users"></span>
               Club CEACA
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cms/categorias">
+              <span data-feather="users"></span>
+              Categorias
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cms/servicios">
+              <span data-feather="users"></span>
+              Servicios
             </a>
           </li>
           <!-- <li class="nav-item">
