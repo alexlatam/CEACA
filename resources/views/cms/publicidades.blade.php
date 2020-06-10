@@ -42,15 +42,14 @@
 							</div>
 							<div class="form-group">
 								<h5>descripción</h5>
-								<input type="text" name="publicidad_descripcion" value="{{$publicidad->descripción}}" placeholder="Descripcion..." class="form-control" name="">
+								<input type="text" name="publicidad_descripcion" value="{{$publicidad->descripcion}}" placeholder="Descripcion..." class="form-control" name="">
 							</div>
 							
 							<div class="form-group">
 								<h5>Tipo</h5>
 								<select name="publicidad_tipo" class="form-control form-control">
-								  <option>Seleccionar Tipo de publicidad</option>
-								  <option value="1">Principal</option>
-								  <option value="2">Secundaria</option>
+								  <option value="1" <?php if($publicidad->tipo == 1) echo 'selected'?>>Principal</option>
+								  <option value="2" <?php if($publicidad->tipo == 2) echo 'selected'?> >Secundaria</option>
 								</select>
 							</div>
 							<input type="submit" class="btn btn-primary btn-sm" value="Guardar" name="">
@@ -87,14 +86,14 @@
 							</div>
 							<div class="form-group">
 								<h5>descripción</h5>
-								<input type="text" name="publicidad_descripcion" value="{{$publicidad->descripción}}" placeholder="Descripcion..." class="form-control">
+								<input type="text" name="publicidad_descripcion" value="{{$publicidad->descripcion}}" placeholder="Descripcion..." class="form-control">
 							</div>
 							<div class="form-group">
 								<h5>Tipo</h5>
 								<select name="publicidad_tipo" class="form-control form-control">
-								  <option>Seleccionar Tipo de publicidad</option>
+								  <option value="2" <?php if($publicidad->tipo == 2) echo 'selected'?> >Secundaria</option>
 								  <option value="1" <?php if($publicidad->tipo == 1) echo 'selected'?>>Principal</option>
-								  <option value="2" <?php if($publicidad->tipo == 1) echo 'selected'?> >Secundaria</option>
+								  
 								</select>
 							</div>
 							<input type="submit" class="btn btn-primary btn-sm" value="Guardar">

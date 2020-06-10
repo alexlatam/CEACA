@@ -22,7 +22,7 @@ class PublicidadController extends Controller
 
     	$publicidad = new Publicidad;
     	$publicidad->titulo = $request->publicidad_titulo;
-    	$publicidad->descripción = $request->publicidad_descripcion;
+    	$publicidad->descripcion = $request->publicidad_descripcion;
     	$publicidad->tipo = $request->publicidad_tipo;
 
     	 //verificamos que la imagen exista
@@ -46,7 +46,7 @@ class PublicidadController extends Controller
         $publicidad = Publicidad::find($id);
 
         $publicidad->titulo = $request->publicidad_titulo;
-        $publicidad->descripción = $request->publicidad_descripcion;
+        $publicidad->descripcion = $request->publicidad_descripcion;
         $publicidad->tipo = $request->publicidad_tipo;
         $publicidad->save();
 

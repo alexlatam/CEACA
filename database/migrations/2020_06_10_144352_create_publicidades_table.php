@@ -17,7 +17,7 @@ class CreatePublicidadesTable extends Migration
             $table->id();
             $table->string('imagen');
             $table->string('titulo');
-            $table->string('descripción');
+            $table->string('descripcion');
             $table->integer('tipo');
             $table->timestamps();
         });
