@@ -66,7 +66,7 @@
 
     <!-- SECTIONS
     ================================================== -->
-    @@include("partials/pages/welcome.html")
+    @include("partials.pages.welcome")
 
     <!-- FOOTER
     ================================================== -->
@@ -74,7 +74,7 @@
 
     <!-- JAVASCRIPT
     ================================================== -->
-    @@include("partials.scripts")
+    @include("partials.scripts")
 
   </body>
 </html>

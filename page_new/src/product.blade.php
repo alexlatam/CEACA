@@ -1,10 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    @@include("partials/head.html", {
-      "css": "theme-brown",
-      "title": "Incline | Product"
-    })
+    @include("partials.head")
   </head>
   <body>
 
