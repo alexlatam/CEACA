@@ -54,20 +54,56 @@ class ServicioController extends Controller
     }
 
     public function actualizarServicio(Request $request, $id){
+        $file = $request->file('imagen_servicio');
         $servicio = Service::find($id);
 
         $servicio->titulo = $request->titulo_servicio;
         $servicio->categoria_id = $request->categoria_servicio; 
         $servicio->descripcion =$request->descripcion_servicio;
-        $servicio->save();
+        
+        if($file){
 
-        return back()->with('message','Actualizado con éxito');
+            if($servicio->imagen){
+                if(substr($servicio->imagen, 0, 4)  === "http"){
+                    $deleted = true;
+                } else {
+                    $fullpath = public_path() . '/servicios_imagen/' . $servicio->imagen;
+                    $deleted = File::delete($fullpath);
+                }
+            }
+            
+            //verificacion de que se haya eliminado la imagen o que no exista el en el campo
+            if(isset($deleted) || $servicio->imagen === null){
+
+                //verificamos que la imagen exista
+                if($file){
+                    $path = public_path() . '/servicios_imagen';
+                    $fileName = uniqid() . $file->getClientOriginalName();
+                    $moved = $file->move($path, $fileName);
+            
+                    //verificamos que la imagen haya sido movida y guardamos la ruta
+                    if($moved){
+                        $servicio->imagen = $fileName;
+                        $servicio->save();
+                    }
+
+                    return back()->with('message','Servicio actualizado con éxito');
+                    // return back();
+                } else {
+                    return back()->with('message','No se pudo actualizar la imagen con éxito');
+                }
+            }
+        } else {
+            $servicio->save();
+            return back()->with('message','Actualizado con éxito');
+        }
+
+        
     }
 
-    public function actualizarImagenServicio(Request $request, $id){
-        $file = $request->file('imagen_servicio');
-        $servicio = Service::find($id);
 
+    public function eliminarServicio(Request $request, $id){
+        $servicio = Service::find($id);
         if($servicio->imagen){
             if(substr($servicio->imagen, 0, 4)  === "http"){
                 $deleted = true;
@@ -76,33 +112,12 @@ class ServicioController extends Controller
                 $deleted = File::delete($fullpath);
             }
         }
-        
-        //verificacion de que se haya eliminado la imagen o que no exista el en el campo
-        if(isset($deleted) || $servicio->imagen === null){
-
-            //verificamos que la imagen exista
-            if($file){
-                $path = public_path() . '/servicios_imagen';
-                $fileName = uniqid() . $file->getClientOriginalName();
-                $moved = $file->move($path, $fileName);
-    
-                //verificamos que la imagen haya sido movida y guardamos la ruta
-                if($moved){
-                    $servicio->imagen = $fileName;
-                    $servicio->save();
-                }
-
-                return back()->with('message','Imagen actualizada con éxito');
-                // return back();
-            } else {
-                return back()->with('message','No se pudo actualizar la imagen con éxito');
-            }
+        if($deleted || $servicio->imagen === null){
+            $servicio->delete();
+            return back()->with('message','Eliminado con éxito');
+        } else {
+            return back()->with('message','No se pudo eliminar el servicio');
         }
-    }
-
-    public function eliminarServicio(Request $request, $id){
-        $servicio = Service::find($id);
-        $servicio->delete();
-        return back()->with('message','Eliminado con éxito');
+        
     }
 }

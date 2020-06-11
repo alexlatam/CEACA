@@ -17,21 +17,21 @@
       @endif
       <form action="/cms/guardar/servicio" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="row">
+        <div class="row col-md-6">
           <div class="col-12 mb-4">
-            <label>Titulo</label>
+            <h5>Titulo</h5>
             <input class="form-control" type="text" name="titulo_servicio" value="" placeholder="Titulo">
           </div>
           <div class="col-12 mb-4">
-            <label>Descripción</label>
-            <input class="form-control" type="text" name="descripcion_servicio" value="" placeholder="Descripción">
+            <h5>Descripción</h5>
+            <textarea class="form-control" name="descripcion_servicio"></textarea>
           </div>
           <div class="col-12 mb-4">
-            <label style="display: block">Imagen</label>
+            <h5 style="display: block">Imagen</h5>
             <input type="file" name="imagen_servicio">
           </div>
           <div class="col-12 mb-4">
-            <label>Categoría</label>
+            <h5>Categoría</h5>
             <select name="categoria_servicio" class="form-control form-control">
               <option>Seleccionar Categoria</option>
               @foreach($categorias as $categoria)

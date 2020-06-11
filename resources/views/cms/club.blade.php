@@ -22,6 +22,8 @@
           <th>Nombre</th>
           <th>Email</th>
           <th>Status</th>
+          <th>País</th>
+          <th>Empresa</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -32,6 +34,8 @@
             <td>{{$user->name }}</td>
             <td>{{$user->email}}</td>
             <td>{{$user->status}}</td>
+            <td>{{$user->pais}}</td>
+            <td>{{$user->empresa}}</td>
             <td>
             	@if($user->status === 'activo')
                 <form action="/club/user/pause/{{$user->id}}" method="POST">

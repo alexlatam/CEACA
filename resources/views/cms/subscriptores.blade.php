@@ -19,14 +19,20 @@
       <thead>
         <tr>
           <th>#</th>
+          <th>Nombre</th>
           <th>Email</th>
+          <th>Empresa</th>
+          <th>País</th>
         </tr>
       </thead>
       <tbody>
         @foreach($subscriptores as $subscriptor)
           <tr>
             <td>{{$subscriptor->id}}</td>
+            <td>{{$subscriptor->nombre}}</td>
             <td>{{$subscriptor->email}}</td>
+            <td>{{$subscriptor->empresa}}</td>
+            <td>{{$subscriptor->pais}}</td>
           </tr>
         @endforeach
       </tbody>
@@ -46,12 +52,23 @@
       </div>
       <div class="modal-body">
         <form>
-          <input class="form-control" type="email" name="email" placeholder="Subscriptor email">
+          <div class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="Subscriptor email">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="name" placeholder="Subscriptor Nombre">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="pais" placeholder="Subscriptor País">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="empresa" placeholder="Subscriptor Empresa">
+          </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Agregar</button>
+        <button type="button" class="btn btn-primary">Agregar Subscriptor</button>
       </div>
     </div>
   </div>

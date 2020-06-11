@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 	Route::get('/cms/subscriptores', 'CmsController@subscribersView' );
 	Route::get('/cms/club', 'CmsController@clubView');
 	Route::get('/cms/categorias', 'CmsController@categoryView');
-	Route::get('/cms/informacion', 'CmsController@informationView');
+	Route::get('/cms/informacion', 'InformationController@index');
 	Route::get('/cms/servicios', 'ServicioController@index');
 	Route::get('/cms/publicidades', 'PublicidadController@index');
 	Route::get('/cms/cursos', 'CursoController@index');
@@ -48,13 +48,12 @@ Route::middleware('auth')->group(function () {
 		/* ----------  RUTA SERVICIOS CONTROLLADOR ---------*/ 
 	Route::get('/cms/editar/servicio/{id}', 'ServicioController@editarServicio');
 	Route::post('/cms/actualizar/servicio/{id}', 'ServicioController@actualizarServicio');
-	Route::post('/cms/actualizar/imagen/servicio/{id}', 'ServicioController@actualizarImagenServicio');
 	Route::get('/cms/crear/servicios', 'ServicioController@crearServicio');
 	Route::post('/cms/guardar/servicio', 'ServicioController@guardarServicio');
 	Route::post('/cms/eliminar/servicio/{id}', 'ServicioController@eliminarServicio');
 
 		/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/ 
-	Route::get('/cms/crear/publicidad', 'PublicidadController@crearPublicidad');
+	Route::get('/cms/crear/publicidad/{tipo}', 'PublicidadController@crearPublicidad');
 	Route::post('/cms/guardar/publicidad', 'PublicidadController@guardarPublicidad');
 	Route::post('/cms/actualizar/publicidad/{id}', 'PublicidadController@actualizarPublicidad');
 	Route::post('/cms/actualizar/imagen/publicidad/{id}', 'PublicidadController@actualizarImagenPublicidad');
@@ -68,6 +67,9 @@ Route::middleware('auth')->group(function () {
 	Route::post('/cms/actualizar/curso/{id}', 'CursoController@actualizarCurso');
 	Route::post('/cms/actualizar/imagen/curso/{id}', 'CursoController@actualizarImagenCurso');
 	Route::post('/cms/eliminar/curso/{id}', 'CursoController@eliminarCurso');
+
+	/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/ 
+	Route::post('/cms/guardar/informacion', 'InformationController@actualizarInformacion');
 });
 
 /*------------------------------------ END --------------------------*/
