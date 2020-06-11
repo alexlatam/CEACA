@@ -9,6 +9,7 @@
     <title>Dashboard Template · Bootstrap</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -89,6 +90,24 @@
             <a class="nav-link" href="/cms/servicios">
               <span data-feather="users"></span>
               Servicios
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cms/publicidades">
+              <span data-feather="users"></span>
+              Publicidad
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cms/cursos">
+              <span data-feather="users"></span>
+              Cursos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cms/crear/usuario">
+              <span data-feather="users"></span>
+              Crear Usuarios
             </a>
           </li>
           <!-- <li class="nav-item">

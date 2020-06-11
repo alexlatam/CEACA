@@ -19,30 +19,56 @@ Route::get('/', function () {
 });
 
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
-Route::get('/cms', 'CmsController@index');
-Route::get('/cms/subscriptores', 'CmsController@subscribersView' );
-Route::get('/cms/club', 'CmsController@clubView');
-Route::get('/cms/categorias', 'CmsController@categoryView');
-Route::get('/cms/informacion', 'CmsController@informationView');
 
-	/* ----------  RUTA CLUB CONTROLLADOR ---------*/ 
-Route::post('/club/user/pause/{id}', 'ClubController@pauseClubMember');
-Route::post('/club/user/active/{id}', 'ClubController@activeClubMember');
+Route::middleware('auth')->group(function () {
 
-	/* ----------  RUTA CATEGORIAS CONTROLLADOR ---------*/ 
-Route::get('cms/categoria/{id}', 'CategoryController@getCategory');
-Route::post('cms/categoria/create', 'CategoryController@createCategory');
-Route::post('cms/categoria/edit/{id}', 'CategoryController@editCategory');
-Route::post('cms/categoria/delete/{id}', 'CategoryController@deleteCategory');
+	Route::get('/cms', 'CmsController@index');
+	Route::get('/cms/subscriptores', 'CmsController@subscribersView' );
+	Route::get('/cms/club', 'CmsController@clubView');
+	Route::get('/cms/categorias', 'CmsController@categoryView');
+	Route::get('/cms/informacion', 'CmsController@informationView');
+	Route::get('/cms/servicios', 'ServicioController@index');
+	Route::get('/cms/publicidades', 'PublicidadController@index');
+	Route::get('/cms/cursos', 'CursoController@index');
+	Route::get('/cms/crear/usuario', 'UserController@index');
 
+		/* ----------  RUTA USUARIOS CONTROLLADOR ---------*/ 
+	Route::post('cms/guardar/usuario', 'UserController@crearUsuario');
 
-Route::get('/cms/servicios', 'ServicioController@index');
-Route::get('/cms/editar/servicio/{id}', 'ServicioController@editarServicio');
-Route::post('/cms/actualizar/servicio/{id}', 'ServicioController@actualizarServicio');
-Route::get('/cms/crear/servicios', 'ServicioController@crearServicio');
-Route::post('/cms/guardar/servicio', 'ServicioController@guardarServicio');
-Route::post('/cms/eliminar/servicio/{id}', 'ServicioController@eliminarServicio');
+		/* ----------  RUTA CLUB CONTROLLADOR ---------*/ 
+	Route::post('/club/user/pause/{id}', 'ClubController@pauseClubMember');
+	Route::post('/club/user/active/{id}', 'ClubController@activeClubMember');
 
+		/* ----------  RUTA CATEGORIAS CONTROLLADOR ---------*/ 
+	Route::get('cms/categoria/{id}', 'CategoryController@getCategory');
+	Route::post('cms/categoria/create', 'CategoryController@createCategory');
+	Route::post('cms/categoria/edit/{id}', 'CategoryController@editCategory');
+	Route::post('cms/categoria/delete/{id}', 'CategoryController@deleteCategory');
+
+		/* ----------  RUTA SERVICIOS CONTROLLADOR ---------*/ 
+	Route::get('/cms/editar/servicio/{id}', 'ServicioController@editarServicio');
+	Route::post('/cms/actualizar/servicio/{id}', 'ServicioController@actualizarServicio');
+	Route::post('/cms/actualizar/imagen/servicio/{id}', 'ServicioController@actualizarImagenServicio');
+	Route::get('/cms/crear/servicios', 'ServicioController@crearServicio');
+	Route::post('/cms/guardar/servicio', 'ServicioController@guardarServicio');
+	Route::post('/cms/eliminar/servicio/{id}', 'ServicioController@eliminarServicio');
+
+		/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/ 
+	Route::get('/cms/crear/publicidad', 'PublicidadController@crearPublicidad');
+	Route::post('/cms/guardar/publicidad', 'PublicidadController@guardarPublicidad');
+	Route::post('/cms/actualizar/publicidad/{id}', 'PublicidadController@actualizarPublicidad');
+	Route::post('/cms/actualizar/imagen/publicidad/{id}', 'PublicidadController@actualizarImagenPublicidad');
+	Route::post('/cms/eliminar/publicidad/{id}', 'PublicidadController@eliminarPublicidad');
+
+	/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/ 
+
+	Route::get('/cms/crear/curso', 'CursoController@crearCurso');
+	Route::post('/cms/guardar/curso', 'CursoController@guardarCurso');
+	Route::get('/cms/editar/curso/{id}', 'CursoController@editarCurso');
+	Route::post('/cms/actualizar/curso/{id}', 'CursoController@actualizarCurso');
+	Route::post('/cms/actualizar/imagen/curso/{id}', 'CursoController@actualizarImagenCurso');
+	Route::post('/cms/eliminar/curso/{id}', 'CursoController@eliminarCurso');
+});
 
 /*------------------------------------ END --------------------------*/
 
