@@ -1,20 +1,17 @@
 <!doctype html>
 <html lang="en">
   <head>
-    @@include("partials/head.html", {
-      "css": "theme",
-      "title": "Incline | Real estate"
-    })
+    @include("partials.head")
   </head>
   <body>
 
     <!-- MODALS
     ================================================== -->
-    @@include("partials/modals.html")
+    @include("partials.modals")
 
     <!-- NAVBAR
     ================================================= -->
-    @@include("partials/navbar.html", {
+    <!-- @@include("partials/navbar.html", {
       "togglable": true,
       "type": "dark",
       "page": "real-estate.html",
@@ -22,7 +19,7 @@
         "url": "https://themes.getbootstrap.com/product/incline-landing-page-set/",
         "text": "Purchase now"
       }
-    })
+    }) -->
 
     <!-- HERO
     ================================================== -->
@@ -503,11 +500,11 @@
     
     <!-- FOOTER
     ================================================== -->
-    @@include("partials/footer.html")
+    @include("partials.footer")
 
     <!-- JAVASCRIPT
     ================================================== -->
-    @@include("partials/scripts.html")
+    @include("partials.scripts")
 
   </body>
 </html>

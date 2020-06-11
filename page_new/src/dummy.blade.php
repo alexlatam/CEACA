@@ -1,16 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    @@include("partials/head.html", {
-      "css": "theme",
-      "title": "Incline | Dummy"
-    })
+    @include("partials.head")
   </head>
   <body>
 
     <!-- NAVBAR
     ================================================= -->
-    @@include("partials/navbar.html", {
+    <!-- @@include("partials/navbar.html", {
       "togglable": false,
       "type": "light",
       "page": "dummy.html",
@@ -19,7 +16,7 @@
         "text": "Purchase now"
       }
     })
-
+ -->
     <!-- BREADCRUMBS
     ================================================== -->
     <nav class="breadcrumb">
@@ -50,11 +47,11 @@
 
     <!-- FOOTER
     ================================================== -->
-    @@include("partials/footer.html")
+    @include("partials.footer")
 
     <!-- JAVASCRIPT
     ================================================== -->
-    @@include("partials/scripts.html")
+    @include("partials.scripts")
 
   </body>
 </html>

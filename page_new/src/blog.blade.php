@@ -1,10 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    @@include("partials/head.html", {
-      "css": "theme",
-      "title": "Incline | Blog"
-    })
+    @include("partials.head")
   </head>
   <body>
 
@@ -432,11 +429,11 @@
 
     <!-- FOOTER
     ================================================== -->
-    @@include("partials/footer.html")
+    @include("partials.footer")
 
     <!-- JAVASCRIPT
     ================================================== -->
-    @@include("partials/scripts.html")
+    @include("partials.scripts")
 
   </body>
 </html>

@@ -1,31 +1,25 @@
 <!doctype html>
 <html lang="en">
   <head>
-    @@include("partials/head.html", {
-      "css": "theme",
-      "title": "Incline | Welcome"
-    })
+    @include("partials.head")
   </head>
   <body>
 
     <!-- NAVBAR
     ================================================= -->
-    @@include("partials/navbar.html", {
+    <!-- @@include("partials/navbar.html", {
       "togglable": true,
       "type": "dark",
-      "page": "index.html",
+      "page": "index-header-parallax.html",
       "button": {
         "url": "https://themes.getbootstrap.com/product/incline-landing-page-set/",
         "text": "Purchase now"
       }
-    })
+    }) -->
 
     <!-- HERO
     ================================================== -->
-    <section class="section section-top section-full">
-
-      <!-- Cover -->
-      <div class="bg-cover" style="background-image: url(assets/img/42.jpg);"></div>
+    <section class="section section-top section-full" data-parallax="scroll" data-image-src="assets/img/50.jpg">
 
       <!-- Overlay -->
       <div class="bg-overlay"></div>
@@ -69,15 +63,15 @@
 
     <!-- SECTIONS
     ================================================== -->
-    @@include("partials/pages/welcome.html")
+    @include("partials.pages.welcome")
 
     <!-- FOOTER
     ================================================== -->
-    @@include("partials/footer.html")
+    @include("partials.footer")
 
     <!-- JAVASCRIPT
     ================================================== -->
-    @@include("partials/scripts.html")
+    @include("partials.scripts")
 
   </body>
 </html>

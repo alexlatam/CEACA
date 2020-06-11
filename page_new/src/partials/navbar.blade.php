@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xl navbar-@@type @@if ( togglable ) { navbar-togglable } fixed-top">
+<nav class="navbar navbar-expand-xl navbar-@@type @if ( togglable ) { navbar-togglable } fixed-top">
   <div class="container">
 
     <!-- Brand -->

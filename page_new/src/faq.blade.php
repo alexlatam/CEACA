@@ -10,7 +10,7 @@
 
     <!-- NAVBAR
     ================================================= -->
-    @@include("partials/navbar.html", {
+    <!-- @@include("partials/navbar.html", {
       "togglable": false,
       "type": "light",
       "page": "faq.html",
@@ -19,7 +19,7 @@
         "text": "Purchase now"
       }
     })
-
+ -->
     <!-- BREADCRUMB
     ================================================== -->
     <nav class="breadcrumb">
@@ -311,11 +311,11 @@
 
     <!-- FOOTER
     ================================================== -->
-    @@include("partials/footer.html")
+    @include("partials.footer")
 
     <!-- JAVASCRIPT
     ================================================== -->
-    @@include("partials/scripts.html")
+    @include("partials.scripts")
 
   </body>
 </html>

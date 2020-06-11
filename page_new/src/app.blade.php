@@ -1,16 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    @@include("partials/head.html", {
-      "css": "theme-brown",
-      "title": "Incline | App"
-    })
+    @include("partials.head)
   </head>
   <body>
 
     <!-- NAVBAR
     ================================================== -->
-    @@include("partials/navbar.html", {
+    <!-- @@include("partials/navbar.html", {
       "togglable": true,
       "type": "dark",
       "page": "app.html",
@@ -18,7 +15,7 @@
         "url": "https://themes.getbootstrap.com/product/incline-landing-page-set/",
         "text": "Purchase now"
       }
-    })
+    }) -->
 
     <!-- HERO
     ================================================== -->
@@ -787,11 +784,11 @@
 
     <!-- FOOTER
     ================================================== -->
-    @@include("partials/footer.html")
+    @include("partials.footer")
 
     <!-- JAVASCRIPT
     ================================================== -->
-    @@include("partials/scripts.html")
+    include("partials.scripts")
 
   </body>
 </html>

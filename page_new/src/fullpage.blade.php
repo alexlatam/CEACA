@@ -1,16 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    @@include("partials/head.html", {
-      "css": "theme",
-      "title": "Incline | Fullpage"
-    })
+    @include("partials.head")
   </head>
   <body>
 
     <!-- NAVBAR
     ================================================= -->
-    @@include("partials/navbar.html", {
+    <!-- @@include("partials/navbar.html", {
       "togglable": true,
       "type": "dark",
       "page": "fullpage.html",
@@ -18,7 +15,7 @@
         "url": "https://themes.getbootstrap.com/product/incline-landing-page-set/",
         "text": "Purchase now"
       }
-    })
+    }) -->
 
     <!-- FULLPAGE
     ================================================== -->
@@ -632,14 +629,14 @@
       <!-- FOOTER
       ================================================== -->
       <section class="fp-section fp-auto-height">
-        @@include("partials/footer.html")
+        @include("partials.footer")
       </section>
 
     </main>
 
     <!-- JAVASCRIPT
     ================================================== -->
-    @@include("partials/scripts.html")
+    @include("partials.scripts")
 
   </body>
 </html>

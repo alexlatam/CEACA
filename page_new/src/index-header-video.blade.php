@@ -1,28 +1,33 @@
 <!doctype html>
 <html lang="en">
   <head>
-    @@include("partials/head.html", {
-      "css": "theme",
-      "title": "Incline | Welcome"
-    })
+    @include("partials.head")
   </head>
   <body>
 
     <!-- NAVBAR
     ================================================= -->
-    @@include("partials/navbar.html", {
+    <!-- @@include("partials/navbar.html", {
       "togglable": true,
       "type": "dark",
-      "page": "index-header-parallax.html",
+      "page": "idnex-header-video.html",
       "button": {
         "url": "https://themes.getbootstrap.com/product/incline-landing-page-set/",
         "text": "Purchase now"
       }
-    })
+    }) -->
 
     <!-- HERO
     ================================================== -->
-    <section class="section section-top section-full" data-parallax="scroll" data-image-src="assets/img/50.jpg">
+    <section class="section section-top section-full">
+
+      <!-- Video -->
+      <div class="bg-video">
+        <video class="bg-video-media" autoplay playsinline muted>
+          <source src="assets/video/1.mp4" type="video/mp4">
+          HTML video is not supported by your browser.
+        </video>
+      </div>
 
       <!-- Overlay -->
       <div class="bg-overlay"></div>
@@ -66,15 +71,15 @@
 
     <!-- SECTIONS
     ================================================== -->
-    @@include("partials/pages/welcome.html")
+    @include("partials.pages.welcome")
 
     <!-- FOOTER
     ================================================== -->
-    @@include("partials/footer.html")
+    @include("partials.footer")
 
     <!-- JAVASCRIPT
     ================================================== -->
-    @@include("partials/scripts.html")
+    @include("partials.scripts")
 
   </body>
 </html>

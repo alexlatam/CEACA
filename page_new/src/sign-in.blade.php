@@ -1,24 +1,21 @@
 <!doctype html>
 <html lang="en">
   <head>
-    @@include("partials/head.html", {
-      "css": "theme",
-      "title": "Incline | Sign Up"
-    })
+    @include("partials.head")
   </head>
   <body>
 
     <!-- NAVBAR
     ================================================= -->
-    @@include("partials/navbar.html", {
+    <!-- @@include("partials/navbar.html", {
       "togglable": false,
       "type": "light",
-      "page": "sign-up.html",
+      "page": "sign-in.html",
       "button": {
         "url": "https://themes.getbootstrap.com/product/incline-landing-page-set/",
         "text": "Purchase now"
       }
-    })
+    }) -->
     
     <!-- FULLPAGE
     ================================================== -->
@@ -34,33 +31,13 @@
 
               <!-- Heading -->
               <h4 class="text-center mb-4">
-                Create an account
+                Welcome back
               </h4>
 
               <!-- Subheading -->
               <p class="text-center text-muted mb-5">
-                Please fill out the form below to sign up.
+                Please fill out the form below to sign in to your account.
               </p>
-
-              <!-- Password -->
-              <div class="form-group">
-                
-                <!-- Name -->
-                <label>Full name</label>
-                <div class="input-group">
-                  <input type="text" class="form-control order-1">
-                  <div class="input-group-append order-0">
-                    <div class="input-group-text">
-                      <svg class="input-group-icon icon-offset icon icon-person" viewBox="0 0 106 106" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path transform="translate(3 3)" d="
-                          M0 100 A 50 50 0 0 1 50 60 A 20 20 0 0 1 50 0 A 20 20 0 0 1 50 60 A 50 50 0 0 1 100 100">
-                        </path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
 
               <!-- Email -->
               <div class="form-group">
@@ -110,7 +87,7 @@
                   <div class="custom-control custom-checkbox mb-3 mb-md-0">
                     <input type="checkbox" class="custom-control-input" id="sign-in-checkbox">
                     <label class="custom-control-label" for="sign-in-checkbox">
-                      I agree to <a href="#!">terms and conditions</a>
+                      Remember me
                     </label>
                   </div>
 
@@ -120,7 +97,7 @@
                   <!-- Button -->
                   <div class="text-center text-md-right">
                     <button type="submit" class="btn btn-outline-primary">
-                      Sign up now
+                      Sign in now
                     </button>
                   </div>
 
@@ -130,7 +107,7 @@
               <!-- Link -->
               <p class="text-center text-muted mt-5 mb-0">
                 <small>
-                  Already a member? <a href="sign-in.html">Sign in</a>.
+                  Not a member yet? <a href="sign-up.html">Sign up</a>.
                 </small>
               </p>
 
@@ -144,11 +121,11 @@
 
     <!-- FOOTER
     ================================================== -->
-    @@include("partials/footer.html")
+    @include("partials.footer")
 
     <!-- JAVASCRIPT
     ================================================== -->
-    @@include("partials/scripts.html")
+    @include("partials.scripts")
 
   </body>
 </html>

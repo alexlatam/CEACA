@@ -1,36 +1,28 @@
 <!doctype html>
 <html lang="en">
   <head>
-    @@include("partials/head.html", {
-      "css": "theme",
-      "title": "Incline | Welcome"
-    })
+    @include('partials.head')
   </head>
   <body>
 
     <!-- NAVBAR
     ================================================= -->
-    @@include("partials/navbar.html", {
+    <!-- @include("partials.navbar", {
       "togglable": true,
       "type": "dark",
-      "page": "idnex-header-video.html",
+      "page": "index.html",
       "button": {
         "url": "https://themes.getbootstrap.com/product/incline-landing-page-set/",
         "text": "Purchase now"
       }
-    })
+    }) -->
 
     <!-- HERO
     ================================================== -->
     <section class="section section-top section-full">
 
-      <!-- Video -->
-      <div class="bg-video">
-        <video class="bg-video-media" autoplay playsinline muted>
-          <source src="assets/video/1.mp4" type="video/mp4">
-          HTML video is not supported by your browser.
-        </video>
-      </div>
+      <!-- Cover -->
+      <div class="bg-cover" style="background-image: url(assets/img/42.jpg);"></div>
 
       <!-- Overlay -->
       <div class="bg-overlay"></div>
@@ -78,11 +70,11 @@
 
     <!-- FOOTER
     ================================================== -->
-    @@include("partials/footer.html")
+    @include("partials.footer")
 
     <!-- JAVASCRIPT
     ================================================== -->
-    @@include("partials/scripts.html")
+    @@include("partials.scripts")
 
   </body>
 </html>
