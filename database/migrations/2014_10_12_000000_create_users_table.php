@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('status')->default('activo');
-            $table->$table->unsignedBigInteger('plan_id');
+            $table->unsignedBigInteger('plan_id');
             $table->rememberToken();
             $table->timestamps();
         });

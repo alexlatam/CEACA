@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePublicidadesTable extends Migration
+class CreateAdsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -30,6 +30,6 @@ class CreatePublicidadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('publicidades');
+        Schema::dropIfExists('ads');
     }
 }
