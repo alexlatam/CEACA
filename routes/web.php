@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function(){
+	return view('page_new.src.service');
+});
+
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
 
 Route::middleware('auth')->group(function () {
