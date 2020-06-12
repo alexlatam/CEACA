@@ -14,6 +14,9 @@ class SubscriberSeeder extends Seeder
     {
         DB::table('subscribers')->insert([
         	'email' => 'usertest@example.com',
+            'nombre' => 'juan',
+            'pais' => 'venezuela',
+            'empresa' => 'eutuxia',
         ]);
     }
 }
