@@ -113,6 +113,12 @@
               Crear Usuarios
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cms/slider/image">
+              <span data-feather="users"></span>
+              Imagenes Slider
+            </a>
+          </li>
           <!-- <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="bar-chart-2"></span>

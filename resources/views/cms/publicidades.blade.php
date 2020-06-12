@@ -3,7 +3,7 @@
 
 @section('content')
 <section class="publicidades">
-	<div class="publicidades-tipo-1 mb-5">
+	<!-- <div class="publicidades-tipo-1 mb-5">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 			<h3 class="h2">Publicidades Principales</h3>
 			<div class="btn-toolbar mb-2 mb-md-0">
@@ -47,13 +47,13 @@
 				</div>
 			</div>
 		@endforeach
-	</div>
+	</div> -->
 	<div class="publicidades-tipo-2">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-			<h3 class="h2">Publicidades Secundarias</h3>
+			<h3 class="h2">Publicidades</h3>
 			<div class="btn-toolbar mb-2 mb-md-0">
 			  <div class="btn-group mr-2">
-			    <a href="/cms/crear/publicidad/secundaria" type="button" class="btn btn-sm btn-outline-secondary">Agregar Publicidad Secundaria</a>
+			    <a href="/cms/crear/publicidad/secundaria" type="button" class="btn btn-sm btn-outline-secondary">Agregar Publicidad</a>
 			  </div>
 			</div>	
 		</div>

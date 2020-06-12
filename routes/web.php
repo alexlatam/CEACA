@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
 	Route::get('/cms/servicios', 'ServicioController@index');
 	Route::get('/cms/publicidades', 'PublicidadController@index');
 	Route::get('/cms/cursos', 'CursoController@index');
+	Route::get('/cms/slider/image', 'SliderImageController@index');
 	Route::get('/cms/crear/usuario', 'UserController@index');
 
 		/* ----------  RUTA USUARIOS CONTROLLADOR ---------*/ 
@@ -74,6 +75,10 @@ Route::middleware('auth')->group(function () {
 
 	/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/ 
 	Route::post('/cms/guardar/informacion', 'InformationController@actualizarInformacion');
+
+	/* ----------  RUTA IMAGENES SLIDER CONTROLLADOR ---------*/ 
+	Route::get('/cms/crear/slider/image/{tipo}', 'SliderImageController@crearImageSlider');
+	Route::post('/cms/guardar/slider/image', 'SliderImageController@guardarImageSlider');
 });
 
 /*------------------------------------ END --------------------------*/
