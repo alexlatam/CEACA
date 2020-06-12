@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePublicidadesTable extends Migration
+class CreateCourseRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreatePublicidadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('publicidades', function (Blueprint $table) {
+        Schema::create('course_requests_', function (Blueprint $table) {
             $table->id();
-            $table->string('imagen');
-            $table->string('titulo');
-            $table->string('descripcion');
-            $table->integer('tipo');
+            $table->string('nombre');
+            $table->string('correo');
+            $table->string('pais');
+            $table->string('empresa');
+            $table->string('fecha');
+            $table->unsignedBigInteger('course_id');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreatePublicidadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('publicidades');
+        Schema::dropIfExists('course_requests_');
     }
 }
