@@ -24,13 +24,35 @@
           </div>
           <div class="col-12 mb-4">
             <label>Descripción</label>
-            <input class="form-control" type="text" name="descripcion_curso" value="" placeholder="Descripción">
+            <textarea class="form-control" name="descripcion_curso"></textarea>
           </div>
+          <div class="col-12 mb-4">
+            <label>Duración</label>
+            <input class="form-control" type="number" name="duracion_curso" value="" placeholder="Duracion">
+          </div>
+          <div class="col-12 mb-4">
+            <label>Fecha de inicio</label>
+            <input class="form-control" type="date" name="fecha_curso" value="" placeholder="Fecha de inicio">
+          </div>
+          <div class="col-12 mb-4">
+            <label>instructor</label>
+            <input class="form-control" type="text" name="instructor_curso" value="" placeholder="Instructor">
+          </div>
+
           <div class="col-12 mb-4">
             <label style="display: block">Imagen</label>
             <input type="file" name="imagen_curso">
           </div>
 
+          <div class="col-12 mb-4">
+            <label>Categoría</label>
+            <select name="categoria_curso" class="form-control form-control">
+              <option>Seleccionar Categoria</option>
+              @foreach($categorias as $categoria)
+              <option value="{{$categoria->id}}">{{$categoria->titulo}}</option>
+              @endforeach
+            </select>
+          </div>
           <div class="col-12 mb-5">
             <input type="submit" class="btn btn-primary" value="Crear">
           </div>

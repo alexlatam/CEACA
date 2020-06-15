@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Service;
-use App\Category;
+use App\Service_Category;
 use File;
 
 class ServicioController extends Controller
@@ -15,7 +15,7 @@ class ServicioController extends Controller
     }
 
     public function crearServicio(){
-    	$categorias = Category::all();
+    	$categorias = Service_Category::all();
     	return view('cms.servicios.crear_servicio')->with(compact('categorias'));
     }
 
@@ -25,7 +25,7 @@ class ServicioController extends Controller
 
     	$servicio = new Service;
     	$servicio->titulo = $request->titulo_servicio;
-    	$servicio->categoria_id = $request->categoria_servicio; 
+    	$servicio->service_category_id = $request->categoria_servicio; 
     	$servicio->descripcion =$request->descripcion_servicio;
 
          //verificamos que la imagen exista
@@ -49,7 +49,7 @@ class ServicioController extends Controller
 
     public function editarServicio(Request $request, $id){
         $servicio = Service::find($id);
-        $categorias = Category::all();
+        $categorias = Service_Category::all();
         return view('cms.servicios.editar_servicios')->with(compact('servicio', 'categorias'));
     }
 
@@ -58,7 +58,7 @@ class ServicioController extends Controller
         $servicio = Service::find($id);
 
         $servicio->titulo = $request->titulo_servicio;
-        $servicio->categoria_id = $request->categoria_servicio; 
+        $servicio->service_category_id = $request->categoria_servicio; 
         $servicio->descripcion =$request->descripcion_servicio;
         
         if($file){

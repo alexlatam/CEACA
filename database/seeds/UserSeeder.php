@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
         	'email' => 'example@example.com',
             'pais' => 'venezuela',
             'empresa' => 'ceaca',
+            'plan_id' => 1, 
         	'password' =>  Hash::make('123admin'),
         ]);
     }

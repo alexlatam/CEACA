@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Publicidad;
+use App\Ads;
 use File;
 
 class PublicidadController extends Controller
 {
     public function index(){
-    	$publicidades = Publicidad::all();
+    	$publicidades = Ads::all();
     	return view('cms.publicidades')->with(compact('publicidades'));
     }
 
@@ -25,10 +25,11 @@ class PublicidadController extends Controller
     public function guardarPublicidad(Request $request){
     	$file = $request->file('publicidad_imagen');
 
-    	$publicidad = new Publicidad;
-    	$publicidad->titulo = $request->publicidad_titulo;
-    	$publicidad->descripcion = $request->publicidad_descripcion;
+    	$publicidad = new Ads;
     	$publicidad->tipo = $request->publicidad_tipo;
+        $publicidad->url = $request->publicidad_url;
+        $publicidad->orden = $request->publicidad_orden;
+
 
     	 //verificamos que la imagen exista
         if($file){
@@ -49,10 +50,11 @@ class PublicidadController extends Controller
 
     public function actualizarPublicidad(Request $request, $id){
         $file = $request->file('publicidad_imagen');
-        $publicidad = Publicidad::find($id);
+        $publicidad = Ads::find($id);
 
-        $publicidad->titulo = $request->publicidad_titulo;
-        $publicidad->descripcion = $request->publicidad_descripcion;
+        $publicidad->tipo = $request->publicidad_tipo;
+        $publicidad->url = $request->publicidad_url;
+        $publicidad->orden = $request->publicidad_orden;
         
 
         if($file){
@@ -95,7 +97,7 @@ class PublicidadController extends Controller
 
 
     public function eliminarPublicidad(Request $request, $id){
-        $publicidad = Publicidad::find($id);
+        $publicidad = Ads::find($id);
 
         $publicidad->delete();
 

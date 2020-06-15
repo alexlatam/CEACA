@@ -8,8 +8,8 @@ class Service_Request extends Model
 {
     protected $table = 'service_requests';
 
-    public function service()
+    public function servicio()
     {
-    	return $this->belongsTo('App\Service');
+    	return $this->belongsTo('App\Service', 'service_id');
     }
 }

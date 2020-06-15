@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Subscriber;
-use App\Category;
+use App\Service_Category;
 
 class CmsController extends Controller
 {
@@ -29,7 +29,7 @@ class CmsController extends Controller
     }
 
     public function categoryView(){
-    	$categorias = Category::all();
+    	$categorias = Service_Category::all();
     	return view('cms.categorias')->with(compact('categorias'));
     }
 }

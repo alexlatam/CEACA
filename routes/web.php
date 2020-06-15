@@ -57,6 +57,10 @@ Route::middleware('auth')->group(function () {
 	Route::post('/cms/guardar/servicio', 'ServicioController@guardarServicio');
 	Route::post('/cms/eliminar/servicio/{id}', 'ServicioController@eliminarServicio');
 
+	/* ----------  RUTA SERVICE REQUESTS CONTROLLADOR ---------*/ 
+	Route::get('/cms/service/requests', 'ServiceRequestsController@index');
+
+
 		/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/ 
 	Route::get('/cms/crear/publicidad/{tipo}', 'PublicidadController@crearPublicidad');
 	Route::post('/cms/guardar/publicidad', 'PublicidadController@guardarPublicidad');
@@ -64,21 +68,31 @@ Route::middleware('auth')->group(function () {
 	Route::post('/cms/actualizar/imagen/publicidad/{id}', 'PublicidadController@actualizarImagenPublicidad');
 	Route::post('/cms/eliminar/publicidad/{id}', 'PublicidadController@eliminarPublicidad');
 
-	/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/ 
+	/* ----------  RUTA CURSO CONTROLLADOR ---------*/ 
 
 	Route::get('/cms/crear/curso', 'CursoController@crearCurso');
 	Route::post('/cms/guardar/curso', 'CursoController@guardarCurso');
 	Route::get('/cms/editar/curso/{id}', 'CursoController@editarCurso');
 	Route::post('/cms/actualizar/curso/{id}', 'CursoController@actualizarCurso');
-	Route::post('/cms/actualizar/imagen/curso/{id}', 'CursoController@actualizarImagenCurso');
 	Route::post('/cms/eliminar/curso/{id}', 'CursoController@eliminarCurso');
+
+	/* ----------  RUTA CURSOS REQUESTS CONTROLLADOR ---------*/ 
+	Route::get('/cms/cursos/requests', 'CursosRequestsController@index');
 
 	/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/ 
 	Route::post('/cms/guardar/informacion', 'InformationController@actualizarInformacion');
 
 	/* ----------  RUTA IMAGENES SLIDER CONTROLLADOR ---------*/ 
-	Route::get('/cms/crear/slider/image/{tipo}', 'SliderImageController@crearImageSlider');
+	Route::get('/cms/crear/slider/image', 'SliderImageController@crearImageSlider');
 	Route::post('/cms/guardar/slider/image', 'SliderImageController@guardarImageSlider');
+	Route::post('/cms/actualizar/slider/image/{id}', 'SliderImageController@actualizarImagenSlider');
+
+	/* ----------  RUTA CATEGORIAS CURSOS CONTROLLADOR ---------*/ 
+	Route::get('/cms/curso/categorias', 'CategoryCourseController@index');
+	Route::post('/cms/crear/curso/categorias', 'CategoryCourseController@guardarCategoria');
+	Route::get('/cms/curso/categoria/{id}', 'CategoryCourseController@obtenerCategoriaCurso');
+	Route::post('/cms/edit/curso/categoria/{id}', 'CategoryCourseController@editarCategoriaCurso');
+	Route::post('/cms/eliminar/curso/categoria/{id}', 'CategoryCourseController@eliminarCategoriaCurso');
 });
 
 /*------------------------------------ END --------------------------*/

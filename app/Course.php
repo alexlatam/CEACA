@@ -8,9 +8,9 @@ class Course extends Model
 {
     protected $table = 'courses';
 
-    public function category()
+    public function categoria()
     {
-    	return $this->belongsTo('App\Course_Category');
+    	return $this->belongsTo('App\Course_Category', 'course_category_id');
     }
 
     public function requests()

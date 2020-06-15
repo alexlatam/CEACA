@@ -57,7 +57,7 @@
 			  </div>
 			</div>	
 		</div>
-		@foreach($publicidades->where('tipo', 2) as $publicidad)
+		@foreach($publicidades as $publicidad)
 			<div class="publicidades_card-main mb-5">
 				@if(substr($publicidad->imagen, 0, 4) === 'http')
                     <img src="{{ $publicidad->imagen }}" class="publicidades_card-img" alt="">
@@ -65,15 +65,19 @@
                      <img src="{{ asset('publicidades_imagen/'. $publicidad->imagen) }}" class="publicidades_card-img" alt="">
                 @endif
 				<div class="publicidades_card-body">
-					<form action="/cms/actualizar/publicidad/{{$publicidad->id}}" method="POST">
+					<form action="/cms/actualizar/publicidad/{{$publicidad->id}}" method="POST" enctype="multipart/form-data">
 						@csrf
 						<div class="form-group">
-							<h5>Titulo</h5>
-							<input type="text" name="publicidad_titulo" value="{{$publicidad->titulo}}" placeholder="Titulo..." class="form-control">
+							<h5>Tipo</h5>
+							<input type="text" name="publicidad_tipo" value="{{$publicidad->tipo}}" placeholder="Titulo..." class="form-control">
 						</div>
 						<div class="form-group">
-							<h5>descripción</h5>
-							<input type="text" name="publicidad_descripcion" value="{{$publicidad->descripcion}}" placeholder="Descripcion..." class="form-control">
+							<h5>Orden</h5>
+							<input type="text" name="publicidad_orden" value="{{$publicidad->orden}}" placeholder="Descripcion..." class="form-control">
+						</div>
+						<div class="form-group">
+							<h5>url</h5>
+							<input type="text" name="publicidad_url" value="{{$publicidad->url}}" placeholder="Descripcion..." class="form-control">
 						</div>
 						<div class="form-group">
 							<h5>Cambiar Imagen</h5>
