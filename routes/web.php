@@ -22,6 +22,10 @@ Route::get('/test', function(){
 	return view('page_new.src.service');
 });
 
+Route::get('/ceaca', function() {
+	return view('ceaca.index');
+});
+
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
 
 Route::middleware('auth')->group(function () {
