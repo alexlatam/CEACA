@@ -143,6 +143,12 @@ body{
 		-moz-box-shadow: 0px 15px 20px 0px rgba(0,0,0,0.31);
 		box-shadow: 0px 15px 20px 0px rgba(0,0,0,0.31);
 
+
+		.landing_slider_image{
+			max-width: 100%;
+		}
+
+
 		.arrow_icon {
 			position: absolute;
 			visibility: hidden;
@@ -165,10 +171,14 @@ body{
 
 	.slider_image_container{
 		position: relative;
+		width: 925px;
 
+		.landing_slider_image{
+			width: 1000px;
+		}
 
 		.arrow_icon {
-			visibility: visible;
+			/*visibility: visible;*/
 			cursor: pointer;
 			position: absolute;
 			z-index: 10;
@@ -211,7 +221,7 @@ body{
 	}
 
 	.container_sub{
-		width: 62%;
+		width: 68%;
 		margin: 0 auto;
 	}
 

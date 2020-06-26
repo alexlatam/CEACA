@@ -11051,6 +11051,10 @@ body {
     box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.31);
   }
 
+  .slider_image_container .landing_slider_image {
+    max-width: 100%;
+  }
+
   .slider_image_container .arrow_icon {
     position: absolute;
     visibility: hidden;
@@ -11067,10 +11071,15 @@ body {
 @media (min-width: 980px) {
   .slider_image_container {
     position: relative;
+    width: 925px;
+  }
+
+  .slider_image_container .landing_slider_image {
+    width: 1000px;
   }
 
   .slider_image_container .arrow_icon {
-    visibility: visible;
+    /*visibility: visible;*/
     cursor: pointer;
     position: absolute;
     z-index: 10;
@@ -11113,7 +11122,7 @@ body {
   }
 
   .container_sub {
-    width: 62%;
+    width: 68%;
     margin: 0 auto;
   }
 

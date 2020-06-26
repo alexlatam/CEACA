@@ -69,13 +69,13 @@
 				<h2 class="landing_slider_title" >magazine <span>calderas</span></h2>
 				<div class="slider_image_container">
 					<div style="width: 100%; height: 100%;">
-						<img style="max-width: 100%;" class="landing_slider_image" src="{{asset('ceaca_landing/04.jpg')}}">
+						<img class="landing_slider_image" src="{{asset('ceaca_landing/04.jpg')}}">
 					</div>
 					<div style="width: 100%; height: 100%;">
-						<img style="max-width: 100%;" class="landing_slider_image" src="{{asset('ceaca_landing/04.jpg')}}">
+						<img  class="landing_slider_image" src="{{asset('ceaca_landing/04.jpg')}}">
 					</div>
 					<div style="width: 100%; height: 100%;">
-						<img style="max-width: 100%;" class="landing_slider_image" src="{{asset('ceaca_landing/04.jpg')}}">
+						<img  class="landing_slider_image" src="{{asset('ceaca_landing/04.jpg')}}">
 					</div>	
 				</div>
 			</div>
@@ -140,15 +140,15 @@
 		</a>
 		<a href="#" class="landing_icono_card">
 			<img src="{{asset('ceaca_landing/iconos/icono_2.png')}}">
-			<h5>quienes somos</h5>
+			<h5>nuestros servicios</h5>
 		</a>
 		<a href="#" class="landing_icono_card">
 			<img src="{{asset('ceaca_landing/iconos/icono_3.png')}}">
-			<h5>quienes somos</h5>
+			<h5>club ceaca</h5>
 		</a>
 		<a href="#" class="landing_icono_card">
 			<img src="{{asset('ceaca_landing/iconos/icono_4.png')}}">
-			<h5>quienes somos</h5>
+			<h5>contáctanos</h5>
 		</a>
 	</section>
 
