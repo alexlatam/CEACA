@@ -30,7 +30,7 @@
 
 <body class="landing_body">
 	<header class="nosotros_header" id="app">
-		<div class="landing_header_nav nosotros_nav container_header">
+		<div class="landing_header_nav nosotros_nav">
 			<div class="landing_header_nav_body">
 				<nav class="navbar navbar-expand-lg">
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,6 +64,86 @@
 			<p class="nosotros_header_subtitle">Alta interactividad en diversas áreas de la ingenieria.</p>
 		</div>
 	</header>
+
+	<section class="nosotros_cards nosotros_container">
+		<div class="row">
+			<div class="col-md-6 col-lg-5 offset-lg-1">
+				<div class="text-center img-effect img-effect-solid">
+					<img class="nosotros-imagen-card img-fluid" src="{{asset('ceaca_landing/04.jpg')}}" class="img-fluid">
+				</div>
+			</div>
+			<div class="nosotros_card_body col-md-6 col-lg-4">
+				<h2 class="nosotros_card_title">Quienes Somos.</h2>
+				
+				<h2 class="nosotros_card_title mb-3">Ingeniería con diseño basado en códigos y normas.</h2>
+
+				<p class="nosotros_card_text">
+					Somos una empresa con más de 20 años de experiencia, principalmente enfocada en el área de formación y desarrollo de talento humano, sibre todo a distancia con alta interactividad, en disversas áreas de la ingeniería relacionadas con diseño basado en códigos y normas, operación, mantenimiento, inspección, análisis de fallas y fiabilidad. Contando con Programas de Capacitación diseñados por la misma Combustión, Energía & Ambiente o por las empresas e instituciones representadas y aliadas, basado en las necesidades del mercado o de cada cliente, y programas desarrollados por la Sociedad Americana de ingenieros Mecánicos (ASME), siendo Proveedor Autorizado de sus cursos (presenciales y a distancia) y programas de especialización.
+					<br> <br>
+					Combustión, Energía & Ambiente ha decidido ser principalmente una organización de servicios a distancia (Online) y en ese sentido estamos permanentemente presentandoles una propuesta de actividades de capacitación, interacción gremial - profesional y consultoría virtuales.
+				</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 col-lg-5 offset-lg-1">
+				<div class="text-center img-effect img-effect-solid">
+					<img class="nosotros-imagen-card img-fluid" src="{{asset('ceaca_landing/04.jpg')}}" class="img-fluid">
+				</div>
+			</div>
+			<div class="nosotros_card_body col-md-6 col-lg-4">
+				<h2 class="nosotros_card_title">Visión.</h2>
+				
+				<h2 class="nosotros_card_title mb-3">Diseñar soluciones innovadorase integrales de capacitación y profesionalización continuos.</h2>
+
+				<p class="nosotros_card_text">
+					Tenemos como misión ofrecer - diseñar soluciones innovadoras e integrales de capacitación y profesionalización continuos - principalmente a distancia, servicios tecnicos e ingeniería en las diferentes áreas de la Mecánica y Mantenimiento de instalaciones industriales (potencia, petrolera, petroquimica, manufacturera, comercial) sobre todo con relación a todas las áreas y actividades que implican la Generación y Manejo de Vapor y Prevención de la Corrosión, buscando cubrir y solventar las necesidades existentes en la industria, con ingenieros y técnicos altamente capacitados y comprometidos con su organización y la de nuestros clientes, y basados en los códigos, estandares y regulaciones nacionales que correspondan, buscando satisfacer la mejor relación precio valor.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript">
+		let body = document.querySelector(".landing_body");
+		let element = document.querySelector(".landing_header_nav")
+
+		window.addEventListener("DOMContentLoaded" , () => {
+		        
+		      	coordenadas = body.getBoundingClientRect();
+
+		        if (coordenadas.top < 0) {
+
+		        	element.setAttribute("style","background-color: #fff");
+		        	let navbar = document.querySelector('.landing_header_nav_body');
+		        	navbar.classList.add('scroll');
+		        }
+
+		        if(coordenadas.top == 0) {
+		        	element.setAttribute("style","background-color: transparent");
+		        	let navbar = document.querySelector('.landing_header_nav_body');
+		        	navbar.classList.remove('scroll');
+		        }
+		    });
+
+        document.addEventListener("scroll", () => {
+        	coordenadas = body.getBoundingClientRect();
+
+	        if (coordenadas.top < 0) {
+
+	        	element.setAttribute("style","background-color: #fff");
+	        	let navbar = document.querySelector('.landing_header_nav_body');
+	        	navbar.classList.add('scroll');
+	        }
+
+	        if(coordenadas.top == 0) {
+	        	element.setAttribute("style","background-color: transparent");
+	        	let navbar = document.querySelector('.landing_header_nav_body');
+	        	navbar.classList.remove('scroll');
+	        }
+
+        	
+        });
+	</script>
 </body>
 
 </html>

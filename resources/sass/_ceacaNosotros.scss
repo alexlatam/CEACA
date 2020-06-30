@@ -7,12 +7,13 @@
 	background-size: cover;
 	background-position: center center;
 	height: 100vh;
+	margin-bottom: 5rem;
 }
 
 .nosotros_header_titles{
 	position: relative;
 	color: #fff;
-	top: 20%
+	top: 40%
 }
 
 .nosotros_header_title{
@@ -25,6 +26,53 @@
 .nosotros_header_subtitle{
 	font-style: italic;
 }
+
+
+
+.img-effect-solid{
+	margin-bottom: 2rem;
+	position: relative;
+}
+
+.img-effect-solid::before{
+	content: "";
+	position: absolute;
+	top: 26%;
+	bottom: 25%;
+	left: 10%;
+	right: 10%;
+	background-color: $cuadros;
+}
+
+.nosotros-imagen-card{
+	position: relative;
+	width: 200px;
+	height: 350px;
+	object-fit: cover;
+	z-index: 10;
+}
+
+.nosotros_card_body{
+	margin-bottom: 6rem;
+	h2{
+		color: grey;
+		padding: 0 1rem;
+		font-weight: bold;
+		margin: 0;
+		font-size: 1.7rem;
+	}
+
+	h2:last-of-type{
+		color: #000;
+		margin-bottom: 1rem;
+	}
+
+	.nosotros_card_text{
+		padding: 0 1rem;
+	}
+}
+
+
 
 @media (min-width: 990px)
 {
@@ -62,7 +110,7 @@
 		width: 43px;
 		height: 104px;
 		left: 5%;
-		background-color: lime;
+		background-color: $cuadros;
 	}
 
 
@@ -73,7 +121,13 @@
 		width: 43px;
 		height: 104px;
 		right: 0;
-		background-color: lime;
+		background-color: $cuadros;
+	}
+
+
+	.img-effect-solid::before{
+		left: 16%;
+		right: 16%;
 	}
 }
 

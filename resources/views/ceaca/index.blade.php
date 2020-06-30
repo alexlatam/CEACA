@@ -31,7 +31,7 @@
 
 <body class="landing_body">
 	<header class="landing_header" id="app">
-		<div class="landing_header_nav container_header">
+		<div class="landing_header_nav">
 			<div class="landing_header_nav_body">
 				<nav class="navbar navbar-expand-lg">
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -160,7 +160,47 @@
 
 	</footer>
 
-	
+	<script type="text/javascript">
+		let body = document.querySelector(".landing_body");
+		let element = document.querySelector(".landing_header_nav")
+		
+		window.addEventListener("DOMContentLoaded" , () => {
+		        
+		      	coordenadas = body.getBoundingClientRect();
+
+		        if (coordenadas.top < 0) {
+
+		        	element.setAttribute("style","background-color: #fff");
+		        	let navbar = document.querySelector('.landing_header_nav_body');
+		        	navbar.classList.add('scroll');
+		        }
+
+		        if(coordenadas.top == 0) {
+		        	element.setAttribute("style","background-color: transparent");
+		        	let navbar = document.querySelector('.landing_header_nav_body');
+		        	navbar.classList.remove('scroll');
+		        }
+		    });
+
+        document.addEventListener("scroll", () => {
+        	coordenadas = body.getBoundingClientRect();
+
+	        if (coordenadas.top < 0) {
+
+	        	element.setAttribute("style","background-color: #fff");
+	        	let navbar = document.querySelector('.landing_header_nav_body');
+	        	navbar.classList.add('scroll');
+	        }
+
+	        if(coordenadas.top == 0) {
+	        	element.setAttribute("style","background-color: transparent");
+	        	let navbar = document.querySelector('.landing_header_nav_body');
+	        	navbar.classList.remove('scroll');
+	        }
+
+        	
+        });
+	</script>
 </body>
 
 </html>
