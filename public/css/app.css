@@ -1,6 +1,32 @@
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;
 
 0,400;0,600;0,700;0,800;1,800&display=swap);@charset "UTF-8";
+html,
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+/*!
+ * Bootstrap v4.5.0 (https://getbootstrap.com/)
+ * Copyright 2011-2020 The Bootstrap Authors
+ * Copyright 2011-2020 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
 
 :root {
   --blue: #007bff;
@@ -10928,7 +10954,7 @@ body {
 }
 
 .landing_header {
-  background: url(/images/03.jpg?7aaef58a2593f7dcf22e8207a54d55f8);
+  background: url(/images/header_index.jpg?7aaef58a2593f7dcf22e8207a54d55f8);
   background-repeat: no-repeat;
   background-size: cover;
   max-height: 90vh;
@@ -11212,5 +11238,71 @@ body {
 
 .frase_2 {
   margin-bottom: 1rem;
+}
+
+.nosotros_header {
+  background: url(/images/header_nosotros.jpg?e1e293f72159978deeea165523ceafc8);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+.nosotros_header_titles {
+  position: relative;
+  color: #fff;
+  top: 20%;
+}
+
+.nosotros_header_title {
+  font-size: 1.9rem;
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.nosotros_header_subtitle {
+  font-style: italic;
+}
+
+@media (min-width: 990px) {
+  /*container global */
+
+  .nosotros_container {
+    width: 92%;
+    margin: 0 auto;
+  }
+
+  .nosotros_header .nosotros_header_title {
+    font-size: 2.8rem;
+    font-family: "Open Sans", sans-serif;
+    padding: 0 10rem;
+  }
+
+  .nosotros_header .nosotros_header_subtitle {
+    padding: 0 26rem;
+    font-size: 1.4rem;
+    font-style: italic;
+  }
+
+  .nosotros_header_titles::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    width: 43px;
+    height: 104px;
+    left: 5%;
+    background-color: lime;
+  }
+
+  .nosotros_header_titles::after {
+    content: "";
+    position: absolute;
+    top: -10%;
+    width: 43px;
+    height: 104px;
+    right: 0;
+    background-color: lime;
+  }
 }
 

@@ -41,7 +41,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="landing_header_nav_container navbar-nav">
 							<li class="lading_header_lists">
-								<a href="#">quienes somos</a>
+								<a href="{{route('nosotros')}}">quienes somos</a>
 							</li>
 							<li class="lading_header_lists">
 								<a href="#">servicios</a>
