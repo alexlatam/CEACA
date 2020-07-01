@@ -2,22 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Course_Category;
 use Illuminate\Http\Request;
-use App\Service_Category;
 use File;
 
-class CategoryController extends Controller
+class CategoryCourseController extends Controller
 {
-    public function createCategory(Request $request){
-        $file = $request->file('category_image');
+    public function index()
+    {
+    	$categorias = Course_Category::all();
+
+    	return view('cms.categorias_cursos')->with(compact('categorias'));
+    }
 
 
-    	$categoria = new Service_Category;
-    	$categoria->name = $request->category_name;
-        $categoria->descripcion = $request->category_description;
-    	
-        if($file){
-            $path = public_path() . '/categorias_imagen';
+    public function guardarCategoria(Request $request)
+    {
+    	$file = $request->file('category_image');
+
+    	$categoria = new Course_Category;
+    	$categoria->titulo = $request->category_name;
+    	$categoria->descripcion = $request->category_description;
+
+    	if($file){
+            $path = public_path() . '/categorias_cursos_imagen';
             $fileName = uniqid() . $file->getClientOriginalName();
             $moved = $file->move($path, $fileName);
 
@@ -36,39 +44,19 @@ class CategoryController extends Controller
     	return back();
     }
 
-    public function deleteCategory(Request $requeest, $id){
-    	$categoria = Service_Category::find($id);
-        if($categoria->imagen){
-                if(substr($categoria->imagen, 0, 4)  === "http"){
-                    $deleted = true;
-                } else {
-                    $fullpath = public_path() . '/categorias_imagen/' . $categoria->imagen;
-                    $deleted = File::delete($fullpath);
-                }
-        }
-
-        if(isset($deleted) || $categoria->imagen === null){
-    	   $categoria->delete();
-           return back()->with('message','Categoria eliminada con éxito');
-        }else {
-            return back()->with('message','No se pudo eliminar la categoría');
-        }
-
-    	return back();
-    }
-
-    public function getCategory(Request $request, $id){
-    	$categoria = Service_Category::find($id);
+    public function obtenerCategoriaCurso(Request $request, $id)
+    {
+    	$categoria = Course_Category::find($id);
 
     	return $categoria;
     }
 
-    public function editCategory(Request $request, $id){
+    public function editarCategoriaCurso(Request $request, $id)
+    {
+    	$file = $request->file('category_image');
 
-        $file = $request->file('category_image');
-
-    	$categoria = Service_Category::find($id);
-    	$categoria->name = $request->category_name;
+    	$categoria = Course_Category::find($id);
+    	$categoria->titulo = $request->category_name;
         $categoria->descripcion = $request->category_description;
     	
         if($file){
@@ -76,7 +64,7 @@ class CategoryController extends Controller
                 if(substr($categoria->imagen, 0, 4)  === "http"){
                     $deleted = true;
                 } else {
-                    $fullpath = public_path() . '/categorias_imagen/' . $categoria->imagen;
+                    $fullpath = public_path() . '/categorias_cursos_imagen/' . $categoria->imagen;
                     $deleted = File::delete($fullpath);
                 }
             }
@@ -85,7 +73,7 @@ class CategoryController extends Controller
 
             //verificamos que la imagen exista
                 if($file){
-                    $path = public_path() . '/categorias_imagen';
+                    $path = public_path() . '/categorias_cursos_imagen';
                     $fileName = uniqid() . $file->getClientOriginalName();
                     $moved = $file->move($path, $fileName);
 
@@ -106,5 +94,27 @@ class CategoryController extends Controller
             $categoria->save();
             return back()->with('message', 'Categoria actualizada con éxito');
         }
+    }
+
+    public function eliminarCategoriaCurso(Request $request, $id)
+    {
+    	$categoria = Course_Category::find($id);
+        if($categoria->imagen){
+                if(substr($categoria->imagen, 0, 4)  === "http"){
+                    $deleted = true;
+                } else {
+                    $fullpath = public_path() . '/categorias_cursos_imagen/' . $categoria->imagen;
+                    $deleted = File::delete($fullpath);
+                }
+        }
+
+        if(isset($deleted) || $categoria->imagen === null){
+    	   $categoria->delete();
+           return back()->with('message','Categoria eliminada con éxito');
+        }else {
+            return back()->with('message','No se pudo eliminar la categoría');
+        }
+
+    	return back();
     }
 }

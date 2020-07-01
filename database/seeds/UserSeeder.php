@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             'pais' => 'venezuela',
             'plan_id' => 1,
             'empresa' => 'ceaca',
+            'plan_id' => 1, 
         	'password' =>  Hash::make('123admin'),
         ]);
     }

@@ -10,8 +10,13 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
          $this->call(SubscriberSeeder::class);
+
+         DB::table('plans')->insert([
+            'plan' => 'inicial',
+            'monto' => '100000',
+         ]);
     	 $this->call(UserSeeder::class);
          $this->call(InformationSeeder::class);
 

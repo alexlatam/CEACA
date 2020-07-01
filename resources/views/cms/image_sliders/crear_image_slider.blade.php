@@ -16,17 +16,24 @@
 			@csrf
 			<div class="form-group">
 				<h5>Titulo</h5>
-				<input type="text" name="slider_titulo" placeholder="Titulo..." class="form-control" name="">
+				<input type="text" name="slider_titulo" placeholder="Titulo..." class="form-control">
 			</div>
 			<div class="form-group">
 				<h5>descripción</h5>
 				<textarea class="form-control" name="slider_descripcion"></textarea>
 			</div>
 			<div class="form-group">
+				<h5>Url</h5>
+				<input type="text" name="slider_url" placeholder="Url..." class="form-control">
+			</div>
+			<div class="form-group">
+				<h5>Orden</h5>
+				<input type="text" name="slider_orden" placeholder="Orden..." class="form-control">
+			</div>
+			<div class="form-group">
 				<h5>Imagen</h5>
 				<input type="file" name="slider_imagen">
 			</div>
-			<input type="hidden" value={{$tipo}} name="slider_tipo">
 			<input type="submit" class="btn btn-primary btn-sm" value="Crear Slider">
 		</form>
 	</div>
