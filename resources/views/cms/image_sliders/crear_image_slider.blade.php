@@ -12,7 +12,7 @@
 		    {{session('message')}}
 		  </div>
 		@endif
-		<form action="" class="col-md-6" method="POST" enctype="multipart/form-data">
+		<form action="/cms/guardar/slider/image" class="col-md-6" method="POST" enctype="multipart/form-data">
 			@csrf
 			<div class="form-group">
 				<h5>Titulo</h5>

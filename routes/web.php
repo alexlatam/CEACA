@@ -22,9 +22,7 @@ Route::get('/test', function(){
 	return view('page_new.src.service');
 });
 
-Route::get('/ceaca', function() {
-	return view('ceaca.index');
-})->name('index');
+Route::get('/ceaca', 'CeacaController@index')->name('index');
 
 Route::get('/nosotros', function () {
 	return view('ceaca.nosotros');
@@ -32,7 +30,7 @@ Route::get('/nosotros', function () {
 
 Route::get('/club', function() {
 	return view('ceaca.club');
-});
+})->name('club');
 
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
 

@@ -12,7 +12,7 @@
 			  </div>
 			</div>	
 		</div>
-		@foreach($sliders->where('tipo', 1) as $slider)
+		@foreach($sliders->where('orden', 1) as $slider)
 
 			<div class="publicidades_card-main mb-5">
 				@if(substr($slider->imagen, 0, 4) === 'http')

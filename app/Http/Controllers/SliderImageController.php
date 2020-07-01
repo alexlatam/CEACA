@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Image_slider;
 
 class SliderImageController extends Controller
 {
@@ -20,10 +21,11 @@ class SliderImageController extends Controller
     public function guardarImageSlider(Request $request){
     	$file = $request->file('slider_imagen');
 
-    	$slider = new Publicidad;
+    	$slider = new Image_slider;
     	$slider->titulo = $request->slider_titulo;
     	$slider->descripcion = $request->slider_descripcion;
-    	$slider->tipo = $request->slider_tipo;
+    	$slider->orden = 1;
+        $slider->url = "urlexample";
 
     	 //verificamos que la imagen exista
         if($file){
