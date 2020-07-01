@@ -28,7 +28,11 @@ Route::get('/ceaca', function() {
 
 Route::get('/nosotros', function () {
 	return view('ceaca.nosotros');
-})->name('nosotros');	
+})->name('nosotros');
+
+Route::get('/club', function() {
+	return view('ceaca.club');
+});
 
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
 
