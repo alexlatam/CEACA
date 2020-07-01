@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Home_Slider;
 use File;
->>>>>>> 8a63d120b34d2a6d6eda6f567f270d320565606e
-
 class SliderImageController extends Controller
 {
     public function index(){
