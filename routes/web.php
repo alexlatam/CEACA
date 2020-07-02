@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Subscriber;
-
+use App\Image_slider;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +23,8 @@ Route::get('/', function() {
 })->name('home');
 
 Route::get('/ceaca', function() {
-	return view('home');
+	$images = Image_slider::all();
+	return view('home')->with(compact('images'));
 })->name('index');
 
 Route::get('/nosotros', function () {

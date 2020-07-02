@@ -7,7 +7,7 @@ use App\Image_slider;
 class CeacaController extends Controller
 {
     public function index(){
-
-    	return view('home');
+    	$images = 'alo';
+    	return view('home')->with(compact('images'));
     }
 }

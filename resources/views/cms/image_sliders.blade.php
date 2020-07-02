@@ -19,7 +19,7 @@
 				@if(substr($slider->imagen, 0, 4) === 'http')
                     <img src="{{ $slider->imagen }}" class="publicidades_card-img" alt="">
                 @elseif($slider->imagen)
-                     <img src="{{ asset('sliders_imagen/'. $slider->imagen) }}" class="publicidades_card-img" alt="">
+                     <img src="{{ asset('/img/banners/'. $slider->imagen) }}" class="publicidades_card-img" alt="">
                 @endif
 
 

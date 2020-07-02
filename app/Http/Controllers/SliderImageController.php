@@ -30,7 +30,7 @@ class SliderImageController extends Controller
 
     	 //verificamos que la imagen exista
         if($file){
-            $path = public_path() . '/sliders_imagen';
+            $path = public_path() . '/img/banners';
             $fileName = uniqid() . $file->getClientOriginalName();
             $moved = $file->move($path, $fileName);
 
@@ -66,7 +66,7 @@ class SliderImageController extends Controller
                 if(substr($slider->imagen, 0, 4)  === "http"){
                     $deleted = true;
                 } else {
-                    $fullpath = public_path() . '/sliders_imagen/' . $slider->imagen;
+                    $fullpath = public_path() . '/img/banners/' . $slider->imagen;
                     $deleted = File::delete($fullpath);
                 }
             }
@@ -76,7 +76,7 @@ class SliderImageController extends Controller
 
                 //verificamos que la imagen exista
                 if($file){
-                    $path = public_path() . '/sliders_imagen';
+                    $path = public_path() . '/img/banners';
                     $fileName = uniqid() . $file->getClientOriginalName();
                     $moved = $file->move($path, $fileName);
             
