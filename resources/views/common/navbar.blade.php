@@ -1,10 +1,30 @@
+<style>
+  .brandNavbar {
+    width: 50%;
+  }
+
+  /* Si la pantalla es menor a 992px se aplicaran los estilos*/
+  @media only screen and (max-width: 1199px) {
+    .brandNavbar {
+      width: 27%;
+    }
+  }
+  /* Si la pantalla es menor a 992px se aplicaran los estilos*/
+  @media only screen and (max-width: 900px) {
+    .brandNavbar {
+      width: 40%;
+    }
+  }
+</style>
 <nav class="navbar navbar-expand-xl navbar-type fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="{{route('index')}}">
-      <img src="{{asset('img/logo.png')}}" alt="" class="brandNavbar" width="40%">
+    <a class="navbar-brand" href="{{route('home')}}">
+      <img src="{{asset('img/logo.png')}}" alt="" class="brandNavbar">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="35">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z" /></svg>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
@@ -40,7 +60,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a href="{{route('index')}}" class="nav-link">
+          <a href="{{route('home')}}" class="nav-link">
             Inicio
           </a>
         </li>
@@ -48,24 +68,17 @@
           <a href="{{route('nosotros')}}" class="nav-link" style="min-width:145px;">
             Quienes Somos
           </a>
-        </li>      
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Servicios
+            Servicios
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarWelcome">
-            <a class="dropdown-item @@if ( page == 'index.html' ) { active }" href="index.html">
-              Header: Image
-            </a>
-            <a class="dropdown-item @@if ( page == 'index-header-carousel.html' ) { active }" href="index-header-carousel.html">
-              Header: Carousel
-            </a>
-            <a class="dropdown-item @@if ( page == 'index-header-parallax.html' ) { active }" href="index-header-parallax.html">
-              Header: Parallax
-            </a>
-            <a class="dropdown-item @@if ( page == 'index-header-video.html' ) { active }" href="index-header-video.html">
-              Header: Video
-            </a>
+            @foreach($categorias as $categoria)
+              <a class="dropdown-item @@if ( page == 'index.html' ) { active }" href="index.html">
+                {{$categoria->name}}
+              </a>
+            @endforeach
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -95,6 +108,11 @@
               Service
             </a>
           </div>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('club')}}" class="nav-link" style="min-width:115px;">
+            Club Ceaca
+          </a>
         </li>
         <li class="nav-item">
           <a href="{{route('contacto')}}" class="nav-link">

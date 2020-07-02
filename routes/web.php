@@ -18,21 +18,14 @@ Route::get('/test', function(){
 	return view('page_new.src.service');
 });
 
-Route::get('/', function() {
-	return view('home');
-})->name('home');
-
-Route::get('/ceaca', function() {
-	$images = Image_slider::all();
-	return view('home')->with(compact('images'));
-})->name('index');
+Route::get('/', 'CeacaController@index')->name('home');
 
 Route::get('/nosotros', function () {
 	return view('nosotros');
 })->name('nosotros');
 
 Route::get('/club', function() {
-	return view('ceaca.club');
+	return view('club');
 })->name('club');
 
 Route::get('/servicios', function() {
@@ -119,7 +112,6 @@ Route::middleware('auth')->group(function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 
 

@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6">
-        <h2 class="text-center mb-4">
+        <h2 class="text-center mb-4" data-aos="fade-up" data-aos-duration="1000">
           CALDERAS
         </h2>
         <p class="text-muted text-center mb-5">
@@ -21,9 +21,9 @@
     <div class="row">
       <div class="col-md-4">
         <a href="app.html" class="card border-0 mb-3 mb-md-0">
-          <div class="card-img-top" style="position:relative;">
+          <div class="card-img-top" style="position:relative;" data-aos="fade-up" data-aos-duration="1000">
             <img src="{{asset('img/img_button1.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
-            <h2 class="card-title text-white" style="position: absolute;top:47%;left:25%;">
+            <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;">
               CLUB CEACA
             </h2>
           </div>
@@ -31,9 +31,9 @@
       </div>
       <div class="col-md-4">
         <a href="app.html" class="card border-0 mb-3 mb-md-0">
-          <div class="card-img-top">
+          <div class="card-img-top" data-aos="fade-up" data-aos-duration="1500">
             <img src="{{asset('img/img_button2.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
-            <h2 class="card-title text-white" style="position: absolute;top:47%;left:30%;">
+            <h2 class="card-title text-white" style="position: absolute;top:45%;left:30%;">
               SERVICIOS
             </h2>
           </div>
@@ -41,9 +41,9 @@
       </div>
       <div class="col-md-4">
         <a href="app.html" class="card border-0 mb-3 mb-md-0">
-          <div class="card-img-top">
+          <div class="card-img-top" data-aos="fade-up" data-aos-duration="2000">
             <img src="{{asset('img/img_button3.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
-            <h2 class="card-title text-white" style="position: absolute;top:47%;left:25%;">
+            <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;">
               SUSCRIPCIÓN
             </h2>
           </div>
@@ -62,7 +62,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6">
         <h2 class="text-center mb-4">
-          23 AÑOS SIRVIENDO CON CALIDAD,
+          23 AÑOS SIRVIENDO CON CALIDAD
         </h2>
         <p class="text-muted text-center mb-5">
           EN TEMAS DECONSULTORÍA Y CAPACITACIÓN EN TODA LATINOAMÉRICA
@@ -72,7 +72,7 @@
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-3 text-center">
         <a href="">
-          <img src="{{asset('img/iconos/icono_1.png')}}" class="img-fluid">
+          <img src="{{asset('img/iconos/icono_1.png')}}" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
         <h4 class="card-title mt-4 pt-2">
           <a href="">
@@ -82,7 +82,7 @@
       </div>
       <div class="col-md-6 col-lg-3 text-center">
         <a href="">
-          <img src="{{asset('img/iconos/icono_2.png')}}" alt="Carousel header" class="img-fluid">
+          <img src="{{asset('img/iconos/icono_2.png')}}" alt="Carousel header" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
         <h4 class="card-title mt-4 pt-2">
           <a href="">
@@ -92,7 +92,7 @@
       </div>
       <div class="col-md-6 col-lg-3 text-center">
         <a href="">
-          <img src="{{asset('img/iconos/icono_3.png')}}" alt="Carousel header" class="img-fluid">
+          <img src="{{asset('img/iconos/icono_3.png')}}" alt="Carousel header" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
         <h4 class="card-title mt-4">
           <a href="">
@@ -102,7 +102,7 @@
       </div>
       <div class="col-md-6 col-lg-3 text-center">
         <a href="">
-          <img src="{{asset('img/iconos/icono_4.png')}}" alt="Carousel header" class="img-fluid">
+          <img src="{{asset('img/iconos/icono_4.png')}}" alt="Carousel header" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
         <h4 class="card-title mt-4">
           <a href="">
@@ -114,107 +114,9 @@
   </div>
 
 </section>
-<!-- publicidad -->
-<section>
-  <img src="{{asset('img/publicidad/publicidad.jpg')}}" alt="" width="100%">
-</section>
+@include('home.publicidad_lateral')
 
-<!-- Servicios -->
-<section class="section bg-light">
-
-
-  <div class="bg-triangle bg-triangle-dark bg-triangle-top bg-triangle-left"></div>
-  <div class="bg-triangle bg-triangle-dark bg-triangle-bottom bg-triangle-right"></div>
-
-  <!-- Content -->
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
-        <h2 class="text-dark text-center mb-4">
-          Nuestros Servicios
-        </h2>
-        <p class="text-white text-muted text-center mb-5">
-
-        </p>
-      </div>
-    </div>
-    <div class="row justify-content-around">
-      <div class="col-md-3">
-        <div class="text-center mb-5 mb-md-0">
-          <div class="text-primary mb-4">
-            <a href="">
-              <img src="{{asset('img/servicios/servicio1.png')}}" alt="" width="25%">
-            </a>
-          </div>
-          <h4 class="text-dark mb-3">
-            Acompañamiento en el monitoreo de parámetros críticos de operación de calderas
-          </h4>
-          <p class="text-dark text-muted mb-0">
-          </p>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="text-center mb-5 mb-md-0">
-          <div class="text-primary mb-4">
-            <a href="">
-              <img src="{{asset('img/servicios/servicio2.png')}}" alt="" width="25%">
-            </a>
-          </div>
-          <h4 class="text-dark mb-3">
-            Auditorias de confiabilidad y seguridad
-          </h4>
-          <p class="text-dark text-muted mb-0">
-          </p>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="text-center mb-5 mb-md-0">
-          <div class="text-primary mb-4">
-            <a href="">
-              <img src="{{asset('img/servicios/servicio3.png')}}" alt="" width="25%">
-            </a>
-          </div>
-          <h4 class="text-dark mb-3">
-            Acompañamiento en el mejoramiento continuo de la confiabilidad
-          </h4>
-          <p class="text-dark text-muted mb-0">
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="row justify-content-around mt-4">
-      <div class="col-md-3">
-        <div class="text-center mb-5 mb-md-0">
-          <div class="text-primary mb-4">
-            <a href="">
-              <img src="{{asset('img/servicios/servicio4.png')}}" alt="" width="25%">
-            </a>
-          </div>
-          <h4 class="text-dark mb-3">
-            Definición de planes de inspección
-          </h4>
-          <p class="text-dark text-muted mb-0">
-          </p>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="text-center mb-5 mb-md-0">
-          <div class="text-primary mb-4">
-            <a href="">
-              <img src="{{asset('img/servicios/servicio5.png')}}" alt="" width="25%">
-            </a>
-          </div>
-          <h4 class="text-dark mb-3">
-            Ejecución o acompañamiento
-          </h4>
-          <p class="text-dark text-muted mb-0">
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
+@include('home.servicios_cat')
 
 
 
