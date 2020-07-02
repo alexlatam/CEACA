@@ -31,7 +31,7 @@
 				<input type="file" name="publicidad_imagen">
 			</div>
 			<input type="hidden" value={{$tipo}} name="publicidad_tipo">
-			<input type="submit" class="btn btn-primary btn-sm" value="Guardar">
+			<input type="submit" class="btn btn-primary " value="Crear Publicidad">
 		</form>
 	</div>
 </section>

@@ -28,7 +28,7 @@ class CursoController extends Controller
         $curso->duracion =$request->duracion_curso;
         $curso->instructor =$request->instructor_curso;
         $curso->fecha_inicio =$request->fecha_curso;
-        $curso->course_category_id =$request->categoria_curso;
+        //$curso->course_category_id =$request->categoria_curso;
 
          //verificamos que la imagen exista
         if($file){

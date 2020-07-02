@@ -31,7 +31,6 @@
           <th>Duracion</th>
           <th>fecha inicio</th>
           <th>instructor</th>
-          <th>Categoria</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -51,7 +50,6 @@
             <td>{{$curso->duracion}}</td>
             <td>{{$curso->fecha_inicio}}</td>
             <td>{{$curso->instructor}}</td>
-            <td>{{$curso->categoria->titulo}}</td>
             <td class="d-flex">
               <a href="/cms/editar/curso/{{$curso->id}}"class="btn btn-sm btn-outline-secondary mr-2 editar">Editar</a>
               <form action="/cms/eliminar/curso/{{$curso->id}}" method="POST">

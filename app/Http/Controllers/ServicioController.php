@@ -25,7 +25,7 @@ class ServicioController extends Controller
 
     	$servicio = new Service;
     	$servicio->titulo = $request->titulo_servicio;
-    	$servicio->service_category_id = $request->categoria_servicio; 
+    	$servicio->service_categoria_id = $request->categoria_servicio; 
     	$servicio->descripcion =$request->descripcion_servicio;
 
          //verificamos que la imagen exista
@@ -58,7 +58,7 @@ class ServicioController extends Controller
         $servicio = Service::find($id);
 
         $servicio->titulo = $request->titulo_servicio;
-        $servicio->service_category_id = $request->categoria_servicio; 
+        $servicio->service_categoria_id = $request->categoria_servicio; 
         $servicio->descripcion =$request->descripcion_servicio;
         
         if($file){
