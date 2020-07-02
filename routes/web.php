@@ -20,11 +20,11 @@ Route::get('/test', function(){
 
 Route::get('/', function() {
 	return view('ceaca.index');
-})->name('index');
+})->name('home');
 
 Route::get('/ceaca', function() {
 	return view('home');
-});
+})->name('index');
 
 Route::get('/nosotros', function () {
 	return view('nosotros');
@@ -32,12 +32,15 @@ Route::get('/nosotros', function () {
 
 Route::get('/club', function() {
 	return view('ceaca.club');
-});
+})->name('club');
 
 Route::get('/servicios', function() {
 	return view('ceaca.servicios');
-});
+})->name('servicios');
 
+Route::get('/contacto', function() {
+	return view('ceaca.contacto');
+})->name('contacto');
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
 
 Route::middleware('auth')->group(function () {
