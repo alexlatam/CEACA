@@ -21,7 +21,7 @@
 	<!-- Styles -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{{asset('js/slick/slick.css')}}"/>
+	<link rel="stylesheet" type="text/css" href="{{asset('js/slick/slick.css')}}" />
 
 	<!-- Scripts -->
 	<script src="{{asset('libs/jquery/jquery.js')}}"></script>
@@ -34,11 +34,14 @@
 			<div class="landing_header_nav_body">
 				<nav class="navbar navbar-expand-lg">
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					    <span class="navbar-toggler-icon"></span>
+						<span class="navbar-toggler-icon"></span>
 					</button>
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="landing_header_nav_container navbar-nav">
+							<li class="lading_header_lists">
+								<a href="{{route('index')}}">inicio</a>
+							</li>
 							<li class="lading_header_lists">
 								<a href="#">quienes somos</a>
 							</li>
@@ -74,7 +77,7 @@
 			</div>
 			<div class="nosotros_card_body col-md-6 col-lg-4">
 				<h2 class="nosotros_card_title">Quienes Somos.</h2>
-				
+
 				<h2 class="nosotros_card_title mb-3">Ingeniería con diseño basado en códigos y normas.</h2>
 
 				<p class="nosotros_card_text">
@@ -93,7 +96,7 @@
 			</div>
 			<div class="nosotros_card_body col-md-6 col-lg-4">
 				<h2 class="nosotros_card_title">Visión.</h2>
-				
+
 				<h2 class="nosotros_card_title mb-3">Diseñar soluciones innovadorase integrales de capacitación y profesionalización continuos.</h2>
 
 				<p class="nosotros_card_text">
@@ -107,42 +110,42 @@
 		let body = document.querySelector(".landing_body");
 		let element = document.querySelector(".landing_header_nav")
 
-		window.addEventListener("DOMContentLoaded" , () => {
-		        
-		      	coordenadas = body.getBoundingClientRect();
+		window.addEventListener("DOMContentLoaded", () => {
 
-		        if (coordenadas.top < 0) {
+			coordenadas = body.getBoundingClientRect();
 
-		        	element.setAttribute("style","background-color: #fff");
-		        	let navbar = document.querySelector('.landing_header_nav_body');
-		        	navbar.classList.add('scroll');
-		        }
+			if (coordenadas.top < 0) {
 
-		        if(coordenadas.top == 0) {
-		        	element.setAttribute("style","background-color: transparent");
-		        	let navbar = document.querySelector('.landing_header_nav_body');
-		        	navbar.classList.remove('scroll');
-		        }
-		    });
+				element.setAttribute("style", "background-color: #fff");
+				let navbar = document.querySelector('.landing_header_nav_body');
+				navbar.classList.add('scroll');
+			}
 
-        document.addEventListener("scroll", () => {
-        	coordenadas = body.getBoundingClientRect();
+			if (coordenadas.top == 0) {
+				element.setAttribute("style", "background-color: transparent");
+				let navbar = document.querySelector('.landing_header_nav_body');
+				navbar.classList.remove('scroll');
+			}
+		});
 
-	        if (coordenadas.top < 0) {
+		document.addEventListener("scroll", () => {
+			coordenadas = body.getBoundingClientRect();
 
-	        	element.setAttribute("style","background-color: #fff");
-	        	let navbar = document.querySelector('.landing_header_nav_body');
-	        	navbar.classList.add('scroll');
-	        }
+			if (coordenadas.top < 0) {
 
-	        if(coordenadas.top == 0) {
-	        	element.setAttribute("style","background-color: transparent");
-	        	let navbar = document.querySelector('.landing_header_nav_body');
-	        	navbar.classList.remove('scroll');
-	        }
+				element.setAttribute("style", "background-color: #fff");
+				let navbar = document.querySelector('.landing_header_nav_body');
+				navbar.classList.add('scroll');
+			}
 
-        	
-        });
+			if (coordenadas.top == 0) {
+				element.setAttribute("style", "background-color: transparent");
+				let navbar = document.querySelector('.landing_header_nav_body');
+				navbar.classList.remove('scroll');
+			}
+
+
+		});
 	</script>
 </body>
 
