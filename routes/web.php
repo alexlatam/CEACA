@@ -31,7 +31,7 @@ Route::get('/nosotros', function () {
 })->name('nosotros');
 
 Route::get('/club', function() {
-	return view('ceaca.club');
+	return view('club');
 })->name('club');
 
 Route::get('/servicios', function() {

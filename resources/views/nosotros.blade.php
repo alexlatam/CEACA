@@ -8,7 +8,7 @@
 <section class="fp-section">
     <div class="section section-top">
 
-        <div class="bg-cover" style="background-image: url({{asset('img/header_nosotros.jpg')}});"></div>
+        <div class="bg-cover" style="background-image: url({{asset('img/header_nosotros.jpg')}});height:100vh;" ></div>
 
         <div class="bg-overlay"></div>
         <div class="bg-triangle bg-triangle-light bg-triangle-bottom bg-triangle-left"></div>
@@ -17,8 +17,8 @@
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-8 col-lg-7">
-                    <!-- Heading -->
                     <h1 class="text-white text-center mb-4" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
+                        <br>
                         23 Años formando y capacitando talento humano
                     </h1>
                 </div>
@@ -34,7 +34,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6 col-lg-5 offset-lg-1">
                     <div class="img-effect img-effect-solid mb-5 mb-md-0">
-                        <img src="{{asset('img/nosotros/nosotros.jpg')}}" class="img-fluid" alt="...">
+                        <img src="{{asset('img/nosotros/nosotros2.jpg')}}" class="img-fluid" alt="..." >
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 offset-lg-1">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col-md-6 col-lg-5 offset-lg-1">
                     <div class="img-effect img-effect-solid mb-5 mb-md-0">
-                        <img src="{{asset('img/nosotros/nosotros.jpg')}}" class="img-fluid" alt="...">
+                        <img src="{{asset('img/nosotros/nosotros3.jpg')}}" class="img-fluid" alt="...">
                     </div>
                 </div>
             </div>
@@ -95,10 +95,7 @@
     </div>
 </section>
 
-<section class="fp-section border-bottom">
-    <div class="section section-top">
-
-    </div>
-</section>
+@include('home.servicios_cat')
+@include('home.publicidad_lateral')
 
 @endsection
