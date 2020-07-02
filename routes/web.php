@@ -19,7 +19,7 @@ Route::get('/test', function(){
 });
 
 Route::get('/', function() {
-	return view('ceaca.index');
+	return view('home');
 })->name('home');
 
 Route::get('/ceaca', function() {
