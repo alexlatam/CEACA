@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#ffffff">
 
 <!-- Plugins CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('vendor/flickity/dist/flickity.min.css')}}">
 <link rel="stylesheet" href="{{asset('vendor/flickity-fade/flickity-fade.css')}}">
 <link rel="stylesheet" href="{{asset('vendor/fullpage.js/dist/fullpage.min.css')}}">

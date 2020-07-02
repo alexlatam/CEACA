@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
-                <h2 class="text-dark text-center mb-4">
+                <h2 class="text-dark text-center mb-4" data-aos="fade-up" data-aos-duration="1000">
                     Nuestros Servicios
                 </h2>
                 <p class="text-white text-muted text-center mb-5">

@@ -20,10 +20,6 @@ Route::get('/test', function(){
 
 Route::get('/', function() {
 	return view('home');
-})->name('home');
-
-Route::get('/ceaca', function() {
-	return view('home');
 })->name('index');
 
 Route::get('/nosotros', function () {
