@@ -8,11 +8,12 @@
 			<h3 class="h2">Imagenes Slider</h3>
 			<div class="btn-toolbar mb-2 mb-md-0">
 			  <div class="btn-group mr-2">
-			    <a href="/cms/crear/slider/image/1" type="button" class="btn btn-sm btn-outline-secondary">Agregar Imagen a slider</a>
+			    <a href="/cms/crear/slider/image" type="button" class="btn btn-sm btn-outline-secondary">Agregar Imagen a slider</a>
 			  </div>
 			</div>	
 		</div>
-		@foreach($sliders->where('tipo', 1) as $slider)
+
+		@foreach($sliders as $slider)
 
 			<div class="publicidades_card-main mb-5">
 				@if(substr($slider->imagen, 0, 4) === 'http')
@@ -25,7 +26,7 @@
 				<div class="publicidades_card-body">
 
 					
-					<form action="" method="POST" enctype="multipart/form-data">
+					<form action="/cms/actualizar/slider/image/{{$slider->id}}" method="POST" enctype="multipart/form-data">
 						@csrf
 						<div class="form-group">
 							<h5>Titulo</h5>
@@ -35,7 +36,14 @@
 							<h5>descripción</h5>
 							<textarea class="form-control" name="slider_descripcion" >{{$slider->descripcion}}</textarea>
 						</div>
-
+						<div class="form-group">
+							<h5>url</h5>
+							<input type="text" name="slider_url" value="{{$slider->url}}" placeholder="Titulo..." class="form-control">
+						</div>
+						<div class="form-group">
+							<h5>Orden</h5>
+							<input type="text" name="slider_orden" value="{{$slider->orden}}" placeholder="Titulo..." class="form-control">
+						</div>
 						<div class="form-group">
 							<h5>Cambiar Imagen</h5>
 							<input type="file" class="file-input" name="slider_imagen">

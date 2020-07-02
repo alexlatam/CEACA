@@ -13,7 +13,7 @@ class CreateCourseRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_requests_', function (Blueprint $table) {
+        Schema::create('course_requests', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('correo');
@@ -32,6 +32,6 @@ class CreateCourseRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_requests_');
+        Schema::dropIfExists('course_requests');
     }
 }

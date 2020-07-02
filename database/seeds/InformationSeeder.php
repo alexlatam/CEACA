@@ -11,37 +11,37 @@ class InformationSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('informations')->insert([
+        DB::table('infos')->insert([
         	'atributo' => 'telefono 1',
         	'valor' => '0000000',
         ]);
 
-        DB::table('informations')->insert([
+        DB::table('infos')->insert([
         	'atributo' => 'telefono 2',
         	'valor' => '00000003132',
         ]);
 
-        DB::table('informations')->insert([
+        DB::table('infos')->insert([
         	'atributo' => 'email',
         	'valor' => 'email@example.com',
         ]);
 
-        DB::table('informations')->insert([
+        DB::table('infos')->insert([
         	'atributo' => 'twitter',
         	'valor' => '@twitter',
         ]);
 
-        DB::table('informations')->insert([
+        DB::table('infos')->insert([
         	'atributo' => 'facebook',
         	'valor' => '@facebook',
         ]);
 
-        DB::table('informations')->insert([
+        DB::table('infos')->insert([
         	'atributo' => 'linkedin',
         	'valor' => '@linkedin',
         ]);
 
-        DB::table('informations')->insert([
+        DB::table('infos')->insert([
         	'atributo' => 'instagram',
         	'valor' => '@instagram',
         ]);

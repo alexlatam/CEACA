@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\Service_Category;
 use File;
 
 class CategoryController extends Controller
@@ -12,7 +12,7 @@ class CategoryController extends Controller
         $file = $request->file('category_image');
 
 
-    	$categoria = new Category;
+    	$categoria = new Service_Category;
     	$categoria->name = $request->category_name;
         $categoria->descripcion = $request->category_description;
     	
@@ -37,7 +37,7 @@ class CategoryController extends Controller
     }
 
     public function deleteCategory(Request $requeest, $id){
-    	$categoria = Category::find($id);
+    	$categoria = Service_Category::find($id);
         if($categoria->imagen){
                 if(substr($categoria->imagen, 0, 4)  === "http"){
                     $deleted = true;
@@ -58,7 +58,7 @@ class CategoryController extends Controller
     }
 
     public function getCategory(Request $request, $id){
-    	$categoria = Category::find($id);
+    	$categoria = Service_Category::find($id);
 
     	return $categoria;
     }
@@ -67,7 +67,7 @@ class CategoryController extends Controller
 
         $file = $request->file('category_image');
 
-    	$categoria = Category::find($id);
+    	$categoria = Service_Category::find($id);
     	$categoria->name = $request->category_name;
         $categoria->descripcion = $request->category_description;
     	

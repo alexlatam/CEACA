@@ -14,6 +14,11 @@
 	max-height: 400px;
 }
 
-.publicidades_card-body{
-
+.navbar{
+	transition: background-color .3s;
 }
+
+.navbar.scroll {
+	background-color: #fff;
+}
+

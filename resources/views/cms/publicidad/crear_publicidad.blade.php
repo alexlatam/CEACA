@@ -15,19 +15,23 @@
 		<form action="/cms/guardar/publicidad" class="col-md-6" method="POST" enctype="multipart/form-data">
 			@csrf
 			<div class="form-group">
-				<h5>Titulo</h5>
-				<input type="text" name="publicidad_titulo" placeholder="Titulo..." class="form-control" name="">
+				<h5>Tipo</h5>
+				<input type="text" name="publicidad_tipo" placeholder="Tipo..." class="form-control">
 			</div>
 			<div class="form-group">
-				<h5>descripción</h5>
-				<textarea class="form-control" name="publicidad_descripcion"></textarea>
+				<h5>Orden</h5>
+				<input type="text" name="publicidad_orden" placeholder="Tipo..." class="form-control">
+			</div>
+			<div class="form-group">
+				<h5>URL</h5>
+				<input type="text" name="publicidad_url" placeholder="url..." class="form-control" name="">
 			</div>
 			<div class="form-group">
 				<h5>Imagen</h5>
 				<input type="file" name="publicidad_imagen">
 			</div>
 			<input type="hidden" value={{$tipo}} name="publicidad_tipo">
-			<input type="submit" class="btn btn-primary btn-sm" value="Guardar" name="">
+			<input type="submit" class="btn btn-primary btn-sm" value="Guardar">
 		</form>
 	</div>
 </section>

@@ -9,5 +9,5 @@
 <script src="{{asset('vendor/fullpage.js/vendors/scrolloverflow.min.js')}}"></script>
 <script src="{{asset('vendor/fullpage.js/dist/fullpage.min.js')}}"></script>
 <script src="{{asset('vendor/highlightjs/highlight.pack.min.js')}}"></script>
-
 <script src="{{asset('js/theme.min.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>

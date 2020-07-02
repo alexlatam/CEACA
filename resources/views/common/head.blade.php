@@ -19,6 +19,6 @@
 <link rel="stylesheet" href="{{asset('vendor/highlightjs/styles/codepen-embed.css')}}">
 <link rel="stylesheet" href="{{asset('vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
 <link rel="stylesheet" href="{{asset('vendor/incline-icons/style.min.css')}}">
-
 <link rel="stylesheet" href="{{asset('css/css_plantilla/theme.min.css')}}">
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
 

@@ -96,15 +96,33 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/cms/service/requests">
+              <span data-feather="users"></span>
+              Servicios Requests
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/cms/publicidades">
               <span data-feather="users"></span>
               Publicidad
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/cms/curso/categorias">
+              <span data-feather="users"></span>
+              Categorias Cursos
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/cms/cursos">
               <span data-feather="users"></span>
               Cursos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cms/cursos/requests">
+              <span data-feather="users"></span>
+              Cursos Requests
             </a>
           </li>
           <li class="nav-item">

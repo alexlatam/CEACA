@@ -50,7 +50,7 @@
 								<a href="#">servicios</a>
 							</li>
 							<li class="lading_header_lists">
-								<a href="#">club ceaca</a>
+								<a href="{{route('club')}}">club ceaca</a>
 							</li>
 							<li class="lading_header_lists">
 								<a href="#">revista</a>
@@ -69,15 +69,11 @@
 			<div class="lading_image_slider">
 				<h2 class="landing_slider_title">magazine <span>calderas</span></h2>
 				<div class="slider_image_container">
-					<div style="width: 100%; height:100%;">
-						<img class="landing_slider_image" src="{{asset('ceaca_landing/04.jpg')}}">
-					</div>
-					<div style="width: 100%; height:100%;">
-						<img class="landing_slider_image" src="{{asset('ceaca_landing/04.jpg')}}">
-					</div>
-					<div style="width: 100%; height:100%;">
-						<img class="landing_slider_image" src="{{asset('ceaca_landing/04.jpg')}}">
-					</div>
+					@foreach($sliders as $slider)
+					<div style="width: 100%; height: 100%;">
+						<img class="landing_slider_image" src="{{asset('sliders_imagen/'. $slider->imagen) }}">
+					</div>	
+					@endforeach
 				</div>
 			</div>
 			<!-- Slider end -->
