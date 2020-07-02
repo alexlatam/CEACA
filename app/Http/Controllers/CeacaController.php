@@ -8,7 +8,6 @@ class CeacaController extends Controller
 {
     public function index(){
 
-    	$sliders = Image_slider::all();
-    	return view('home')->with(compact('sliders'));
+    	return view('home');
     }
 }
