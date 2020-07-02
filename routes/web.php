@@ -14,24 +14,28 @@ use App\Subscriber;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/test', function(){
 	return view('page_new.src.service');
 });
 
-Route::get('/ceaca', function() {
+Route::get('/', function() {
 	return view('ceaca.index');
 })->name('index');
 
+Route::get('/ceaca', function() {
+	return view('home');
+});
+
 Route::get('/nosotros', function () {
-	return view('ceaca.nosotros');
+	return view('nosotros');
 })->name('nosotros');
 
 Route::get('/club', function() {
 	return view('ceaca.club');
+});
+
+Route::get('/servicios', function() {
+	return view('ceaca.servicios');
 });
 
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
