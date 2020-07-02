@@ -18,7 +18,13 @@ Route::get('/test', function(){
 	return view('page_new.src.service');
 });
 
-Route::get('/ceaca', 'CeacaController@index')->name('index');
+Route::get('/', function() {
+	return view('ceaca.index');
+})->name('home');
+
+Route::get('/ceaca', function() {
+	return view('home');
+})->name('index');
 
 Route::get('/nosotros', function () {
 	return view('nosotros');
@@ -30,8 +36,11 @@ Route::get('/club', function() {
 
 Route::get('/servicios', function() {
 	return view('ceaca.servicios');
-});
+})->name('servicios');
 
+Route::get('/contacto', function() {
+	return view('ceaca.contacto');
+})->name('contacto');
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
 
 Route::middleware('auth')->group(function () {

@@ -15,15 +15,15 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="fab fa-github"></i> 
+            <i class="fab fa-facebook"></i>
             <span class="d-xl-none ml-2">
-              Github
+              Facebook
             </span>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="fab fa-twitter"></i> 
+            <i class="fab fa-twitter"></i>
             <span class="d-xl-none ml-2">
               Twitter
             </span>
@@ -31,7 +31,7 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="fab fa-instagram"></i> 
+            <i class="fab fa-instagram"></i>
             <span class="d-xl-none ml-2">
               Instagram
             </span>
@@ -39,9 +39,19 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="{{route('index')}}" class="nav-link">
+            Inicio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('nosotros')}}" class="nav-link" style="min-width:135px;">
+            Quienes Somos
+          </a>
+        </li>        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Welcome
+          Servicios
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarWelcome">
             <a class="dropdown-item @@if ( page == 'index.html' ) { active }" href="index.html">
@@ -60,7 +70,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Landings
+            Capacitación
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarLandings">
             <a class="dropdown-item @@if ( page == 'app.html' ) { active }" href="app.html">
@@ -86,96 +96,9 @@
             </a>
           </div>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarPages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Pages
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarPages">
-            <li class="dropright">
-              <a class="dropdown-item dropdown-toggle" href="#" id="pagesBlog" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Blog
-              </a>
-              <div class="dropdown-menu" aria-labelledby="pagesBlog">
-                <a class="dropdown-item @@if ( page == 'blog.html' ) { active }" href="blog.html">
-                  Blog
-                </a>
-                <a class="dropdown-item @@if ( page == 'blog-post.html' ) { active }" href="blog-post.html">
-                  Blog: Post
-                </a>
-              </div>
-            </li>
-            <li class="dropright">
-              <a class="dropdown-item dropdown-toggle" href="#" id="pagesShop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Shop
-              </a>
-              <div class="dropdown-menu" aria-labelledby="pagesShop">
-                <a class="dropdown-item @@if ( page == 'shop.html' ) { active }" href="shop.html">
-                  Shop
-                </a>
-                <a class="dropdown-item @@if ( page == 'shop-item.html' ) { active }" href="shop-item.html">
-                  Shop: Item
-                </a>
-                <a class="dropdown-item @@if ( page == 'cart.html' ) { active }" href="cart.html">
-                  Shop: Cart
-                </a>
-                <a class="dropdown-item @@if ( page == 'checkout.html' ) { active }" href="checkout.html">
-                  Shop: Checkout
-                </a>
-              </div>
-            </li>
-            <li>
-              <a class="dropdown-item @@if ( page == 'about.html' ) { active }" href="about.html">
-                About
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item @@if ( page == 'contact.html' ) { active }" href="contact.html">
-                Contact
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item @@if ( page == 'faq.html' ) { active }" href="faq.html">
-                FAQ
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item @@if ( page == 'pricing.html' ) { active }" href="pricing.html">
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item @@if ( page == 'sign-in.html' ) { active }" href="sign-in.html">
-                Sign In
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item @@if ( page == 'sign-up.html' ) { active }" href="sign-up.html">
-                Sign Up
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item @@if ( page == '404.html' ) { active }" href="404.html">
-                404
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarComponents" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Components
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarComponents">
-            <a class="dropdown-item @@if ( page == 'components-theme.html' ) { active }" href="components-theme.html">
-              Theme
-            </a>
-            <a class="dropdown-item @@if ( page == 'components-bootstrap.html' ) { active }" href="components-bootstrap.html">
-              Bootstrap
-            </a>
-          </div>
-        </li>
-        <li class="nav-item @@if ( page == 'documentation.html' ) { active }">
-          <a href="documentation.html" class="nav-link">
-            Documentation
+        <li class="nav-item">
+          <a href="{{route('contacto')}}" class="nav-link">
+            Contáctanos
           </a>
         </li>
         <li class="nav-item-divider">
@@ -185,5 +108,5 @@
         </li>
       </ul>
     </div>
-  </div>   
+  </div>
 </nav>
