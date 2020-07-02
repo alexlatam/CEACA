@@ -21,37 +21,31 @@
     <div class="row">
       <div class="col-md-4">
         <a href="app.html" class="card border-0 mb-3 mb-md-0">
-          <div class="card-img-top">
-            <img src="{{asset('img/img_button1.jpg')}}" alt="App landing" class="img-fluid">
-          </div>
-          <div class="card-body">
-            <h4 class="card-title">
+          <div class="card-img-top" style="position:relative;">
+            <img src="{{asset('img/img_button1.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
+            <h2 class="card-title text-white" style="position: absolute;top:47%;left:25%;">
               CLUB CEACA
-            </h4>
+            </h2>
           </div>
         </a>
       </div>
       <div class="col-md-4">
         <a href="app.html" class="card border-0 mb-3 mb-md-0">
           <div class="card-img-top">
-            <img src="{{asset('img/img_button2.jpg')}}" alt="App landing" class="img-fluid">
-          </div>
-          <div class="card-body">
-            <h4 class="card-title">
-              SERCVICIOS
-            </h4>
+            <img src="{{asset('img/img_button2.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
+            <h2 class="card-title text-white" style="position: absolute;top:47%;left:30%;">
+              SERVICIOS
+            </h2>
           </div>
         </a>
       </div>
       <div class="col-md-4">
         <a href="app.html" class="card border-0 mb-3 mb-md-0">
           <div class="card-img-top">
-            <img src="{{asset('img/img_button3.jpg')}}" alt="App landing" class="img-fluid">
-          </div>
-          <div class="card-body">
-            <h4 class="card-title">
-              SUSCRÍBETE
-            </h4>
+            <img src="{{asset('img/img_button3.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
+            <h2 class="card-title text-white" style="position: absolute;top:47%;left:25%;">
+              SUSCRIPCIÓN
+            </h2>
           </div>
         </a>
       </div>
@@ -78,11 +72,11 @@
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-3 text-center">
         <a href="">
-          <img src="{{asset('img/iconos/icono_1.png')}}" alt="Carousel header" class="img-fluid">
+          <img src="{{asset('img/iconos/icono_1.png')}}" class="img-fluid">
         </a>
         <h4 class="card-title mt-4 pt-2">
           <a href="">
-              QUIENES SOMOS         
+          QUIENES SOMOS  
           </a>
         </h4>
       </div>
