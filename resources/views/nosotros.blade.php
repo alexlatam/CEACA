@@ -38,7 +38,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 col-lg-5 offset-lg-1">
-                    <div class="img-effect img-effect-solid mb-5 mb-md-0">
+                    <div class="img-effect img-effect-solid mb-5 mb-md-0" data-aos="fade-up" data-aos-duration="1000">
                         <img src="{{asset('img/nosotros/nosotros2.jpg')}}" class="img-fluid" alt="...">
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                     </p>
                 </div>
                 <div class="col-md-6 col-lg-5 offset-lg-1">
-                    <div class="img-effect img-effect-solid mb-5 mb-md-0">
+                    <div class="img-effect img-effect-solid mb-5 mb-md-0" data-aos="fade-up" data-aos-duration="1000">
                         <img src="{{asset('img/nosotros/nosotros3.jpg')}}" class="img-fluid" alt="...">
                     </div>
                 </div>
@@ -80,7 +80,7 @@
         <div class="container mt-5 pt-3">
             <div class="row align-items-center">
                 <div class="col-md-6 col-lg-5 offset-lg-1">
-                    <div class="img-effect img-effect-solid mb-5 mb-md-0">
+                    <div class="img-effect img-effect-solid mb-5 mb-md-0" data-aos="fade-up" data-aos-duration="1000">
                         <img src="{{asset('img/nosotros/nosotros.jpg')}}" class="img-fluid" alt="...">
                     </div>
                 </div>

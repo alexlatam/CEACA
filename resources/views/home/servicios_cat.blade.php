@@ -81,7 +81,7 @@
                         </a>
                     </div>
                     <h4 class="text-dark mb-3">
-                        Ejecución o acompañamiento
+                    Ejecución o Acompañamiento en planes de inspección
                     </h4>
                     <p class="text-dark text-muted mb-0">
                     </p>
