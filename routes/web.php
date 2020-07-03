@@ -35,7 +35,7 @@ Route::get('/servicios', function() {
 })->name('servicios');
 
 Route::get('/contacto', function() {
-	return view('contacto');
+	return view('home');
 })->name('contacto');
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
 

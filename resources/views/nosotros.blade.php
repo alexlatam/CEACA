@@ -100,6 +100,9 @@
 </section>
 
 @include('home.servicios_cat')
+
 @include('home.publicidad_lateral')
+
+@include('home.capacidades')
 
 @endsection

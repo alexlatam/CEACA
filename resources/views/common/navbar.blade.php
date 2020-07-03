@@ -74,17 +74,17 @@
             Servicios
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarWelcome">
-            <a class="dropdown-item @@if ( page == 'index.html' ) { active }" href="index.html">
-              Header: Image
+            <a class="dropdown-item" href="{{route('servicios')}}">
+              Servicios Generales
             </a>
-            <a class="dropdown-item @@if ( page == 'index-header-carousel.html' ) { active }" href="index-header-carousel.html">
-              Header: Carousel
+            <a class="dropdown-item" href="">
+              Categoria 1
             </a>
-            <a class="dropdown-item @@if ( page == 'index-header-parallax.html' ) { active }" href="index-header-parallax.html">
-              Header: Parallax
+            <a class="dropdown-item" href="">
+              Categoria 2
             </a>
-            <a class="dropdown-item @@if ( page == 'index-header-video.html' ) { active }" href="index-header-video.html">
-              Header: Video
+            <a class="dropdown-item" href="">
+              Categoria 3
             </a>
           </div>
         </li>
