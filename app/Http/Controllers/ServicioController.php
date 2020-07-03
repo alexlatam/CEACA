@@ -10,8 +10,7 @@ use File;
 class ServicioController extends Controller
 {
     public function index(){
-    	$servicios = Service::all();
-    	return view('cms.servicios.servicios')->with(compact('servicios'));
+    	return view('cms.servicios_main');
     }
 
     public function crearServicio(){

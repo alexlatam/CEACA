@@ -52,6 +52,8 @@ Route::middleware('auth')->group(function () {
 
 		/* ----------  RUTA USUARIOS CONTROLLADOR ---------*/ 
 	Route::post('cms/guardar/usuario', 'UserController@crearUsuario');
+	Route::get('cms/password/usuario/{id}', 'UserController@cambiarContraseña');
+	Route::post('cms/actualizar/password/usuario', 'UserController@actualizarContraseña');
 
 		/* ----------  RUTA CLUB CONTROLLADOR ---------*/ 
 	Route::post('/club/user/pause/{id}', 'ClubController@pauseClubMember');

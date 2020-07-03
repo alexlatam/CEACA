@@ -91,12 +91,12 @@
               Servicios técnicos
             </a>
           </li>
-          <li class="nav-item">
+<!--           <li class="nav-item">
             <a class="nav-link" href="/cms/service/requests">
               <span data-feather="users"></span>
               Servicios Requests
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="/cms/publicidades">
               <span data-feather="users"></span>
@@ -124,7 +124,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/cms/crear/usuario">
               <span data-feather="users"></span>
-              Crear Usuarios
+              Crear Usuarios Administrativos
             </a>
           </li>
           <li class="nav-item">
