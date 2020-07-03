@@ -44,7 +44,7 @@
     <div class="container section pb-0">
         <div class="row align-items-stretch">
             <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                <a class="card h-100" href="blog-post.html">
+                <a class="card h-100" href="">
                     <div class="card-body">
                         <div class="row align-items-center no-gutters mb-4">
                             <div class="col-auto">
@@ -69,7 +69,7 @@
                 </a>
             </div>
             <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                <a class="card h-100" href="blog-post.html">
+                <a class="card h-100" href="">
                     <div class="card-body">
                         <div class="row align-items-center no-gutters mb-4">
                             <div class="col-auto">
@@ -93,7 +93,7 @@
                 </a>
             </div>
             <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                <a class="card h-100" href="blog-post.html">
+                <a class="card h-100" href="">
                     <div class="card-body">
                         <div class="row align-items-center no-gutters mb-4">
                             <div class="col-auto">
@@ -149,7 +149,7 @@
                 </nav>
             </div>
             <div class="col-12 col-md-9 col-lg-10 order-md-1">
-                <a class="row align-items-center text-nounderline" href="blog-post.html">
+                <a class="row align-items-center text-nounderline" href="">
                     <div class="col-12 col-md-3">
                         <img src="{{asset('img/services/servicio1.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
                     </div>
@@ -164,7 +164,7 @@
                     </div>
                 </a>
                 <hr class="my-4">
-                <a class="row align-items-center text-nounderline" href="blog-post.html">
+                <a class="row align-items-center text-nounderline" href="">
                     <div class="col-12 col-md-3">
                         <img src="{{asset('img/services/servicio2.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
                     </div>
@@ -178,7 +178,7 @@
                     </div>
                 </a>
                 <hr class="my-4">
-                <a class="row align-items-center text-nounderline" href="blog-post.html">
+                <a class="row align-items-center text-nounderline" href="">
                     <div class="col-12 col-md-3">
                         <img src="{{asset('img/services/servicio3.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
                     </div>
@@ -193,7 +193,7 @@
                     </div>
                 </a>
                 <hr class="my-4">
-                <a class="row align-items-center text-nounderline" href="blog-post.html">
+                <a class="row align-items-center text-nounderline" href="">
                     <div class="col-12 col-md-3">
                         <img src="{{asset('img/services/servicio4.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
                     </div>
@@ -207,7 +207,7 @@
                     </div>
                 </a>
                 <hr class="my-4">
-                <a class="row align-items-center text-nounderline" href="blog-post.html">
+                <a class="row align-items-center text-nounderline" href="">
                     <div class="col-12 col-md-3">
                         <img src="{{asset('img/services/servicio5.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
                     </div>
@@ -221,7 +221,7 @@
                     </div>
                 </a>
                 <hr class="my-4">
-                <a class="row align-items-center text-nounderline" href="blog-post.html">
+                <a class="row align-items-center text-nounderline" href="">
                     <div class="col-12 col-md-3">
                         <img src="{{asset('img/services/servicio6.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
                     </div>
@@ -235,7 +235,7 @@
                     </div>
                 </a>
                 <hr class="my-4">
-                <a class="row align-items-center text-nounderline" href="blog-post.html">
+                <a class="row align-items-center text-nounderline" href="">
                     <div class="col-12 col-md-3">
                         <img src="{{asset('img/services/servicio7.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
                     </div>

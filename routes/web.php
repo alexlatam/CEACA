@@ -34,6 +34,10 @@ Route::get('/servicios', function() {
 	return view('servicios');
 })->name('servicios');
 
+Route::get('/detalles_servicios', function() {
+	return view('detalles_servicio');
+})->name('detalle_servicio');
+
 Route::get('/contacto', function() {
 	return view('home');
 })->name('contacto');
