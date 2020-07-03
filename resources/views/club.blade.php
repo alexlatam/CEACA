@@ -120,7 +120,7 @@
                         <span class="icon icon-shield icon-2x"></span>
                     </div>
                     <h4 class="mb-3">
-                        Quality control
+                        Procesos Seguros
                     </h4>
                     <p class="text-muted mb-0">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa, corporis.
@@ -133,7 +133,7 @@
                         <span class="icon icon-clock icon-2x"></span>
                     </div>
                     <h4 class="mb-3">
-                        Timely delivery
+                        Excelentes Tiempos
                     </h4>
                     <p class="text-muted mb-0">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa, corporis.

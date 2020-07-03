@@ -31,11 +31,11 @@ Route::get('/club', function() {
 })->name('club');
 
 Route::get('/servicios', function() {
-	return view('ceaca.servicios');
+	return view('servicios');
 })->name('servicios');
 
 Route::get('/contacto', function() {
-	return view('ceaca.contacto');
+	return view('contacto');
 })->name('contacto');
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
 
