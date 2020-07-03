@@ -17,7 +17,7 @@
         <div class="row justify-content-around">
             <div class="col-md-3">
                 <div class="text-center mb-5 mb-md-0">
-                    <div class="text-primary mb-4">
+                    <div class="text-primary mb-3">
                         <a href="">
                             <img src="{{asset('img/servicios/servicio1.svg')}}" alt="" width="70%">
                         </a>
@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-3">
                 <div class="text-center mb-5 mb-md-0">
-                    <div class="text-primary mb-4">
+                    <div class="text-primary mb-3">
                         <a href="">
                             <img src="{{asset('img/servicios/servicio2.svg')}}" alt="" width="70%">
                         </a>
@@ -46,7 +46,7 @@
             </div>
             <div class="col-md-3">
                 <div class="text-center mb-5 mb-md-0">
-                    <div class="text-primary mb-4">
+                    <div class="text-primary mb-3">
                         <a href="">
                             <img src="{{asset('img/servicios/servicio3.svg')}}" alt="" width="70%">
                         </a>
@@ -61,7 +61,7 @@
             </div>
             <div class="col-md-3">
                 <div class="text-center mb-5 mb-md-0">
-                    <div class="text-primary mb-4">
+                    <div class="text-primary mb-3">
                         <a href="">
                             <img src="{{asset('img/servicios/servicio4.svg')}}" alt="" width="70%">
                         </a>
@@ -77,7 +77,7 @@
         <div class="row justify-content-around mt-4">
             <div class="col-md-3">
                 <div class="text-center mb-5 mb-md-0">
-                    <div class="text-primary mb-4">
+                    <div class="text-primary mb-3">
                         <a href="">
                             <img src="{{asset('img/servicios/servicio5.svg')}}" alt="" width="70%">
                         </a>
@@ -91,7 +91,7 @@
             </div>
             <div class="col-md-3">
                 <div class="text-center mb-5 mb-md-0">
-                    <div class="text-primary mb-4">
+                    <div class="text-primary mb-3">
                         <a href="">
                             <img src="{{asset('img/servicios/servicio6.svg')}}" alt="" width="70%">
                         </a>
@@ -105,7 +105,7 @@
             </div>
             <div class="col-md-3">
                 <div class="text-center mb-5 mb-md-0">
-                    <div class="text-primary mb-4">
+                    <div class="text-primary mb-3">
                         <a href="">
                             <img src="{{asset('img/servicios/servicio7.svg')}}" alt="" width="70%">
                         </a>
