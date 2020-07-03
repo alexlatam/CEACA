@@ -10,8 +10,12 @@ use File;
 class CursoController extends Controller
 {
     public function index(){
-    	$cursos = Course::all();
-    	return view('cms.cursos')->with(compact('cursos'));
+    	return view('cms.cursos_main');
+    }
+
+    public function cursosHome(){
+        $cursos = Course::all();
+        return view('cms.cursos')->with(compact('cursos'));
     }
 
     public function crearCurso(){

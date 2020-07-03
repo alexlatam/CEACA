@@ -65,7 +65,8 @@ Route::middleware('auth')->group(function () {
 	Route::post('cms/categoria/edit/{id}', 'CategoryController@editCategory');
 	Route::post('cms/categoria/delete/{id}', 'CategoryController@deleteCategory');
 
-		/* ----------  RUTA SERVICIOS CONTROLLADOR ---------*/ 
+		/* ----------  RUTA SERVICIOS CONTROLLADOR ---------*/
+	Route::get('/cms/servicios/tecnicos', 'ServicioController@serviciosHome');
 	Route::get('/cms/editar/servicio/{id}', 'ServicioController@editarServicio');
 	Route::post('/cms/actualizar/servicio/{id}', 'ServicioController@actualizarServicio');
 	Route::get('/cms/crear/servicios', 'ServicioController@crearServicio');
@@ -85,6 +86,7 @@ Route::middleware('auth')->group(function () {
 
 	/* ----------  RUTA CURSO CONTROLLADOR ---------*/ 
 
+	Route::get('/cms/cursos/home', 'CursoController@cursosHome');
 	Route::get('/cms/crear/curso', 'CursoController@crearCurso');
 	Route::post('/cms/guardar/curso', 'CursoController@guardarCurso');
 	Route::get('/cms/editar/curso/{id}', 'CursoController@editarCurso');

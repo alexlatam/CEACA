@@ -13,6 +13,12 @@ class ServicioController extends Controller
     	return view('cms.servicios_main');
     }
 
+
+    public function serviciosHome(){
+        $servicios = Service::all();
+        return view('cms.servicios.servicios')->with(compact('servicios'));
+    }
+
     public function crearServicio(){
     	$categorias = Service_Category::all();
     	return view('cms.servicios.crear_servicio')->with(compact('categorias'));

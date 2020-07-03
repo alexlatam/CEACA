@@ -80,12 +80,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/cms/categorias">
-              <span data-feather="users"></span>
-              Categorias de servicios
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="/cms/servicios">
               <span data-feather="users"></span>
               Servicios técnicos
@@ -101,12 +95,6 @@
             <a class="nav-link" href="/cms/publicidades">
               <span data-feather="users"></span>
               Publicidad
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/cms/curso/categorias">
-              <span data-feather="users"></span>
-              Categorias Cursos
             </a>
           </li>
           <li class="nav-item">
