@@ -2,6 +2,11 @@
 
 @section('head')
 <title>Ceaca</title>
+<style>
+.imgMembresias{
+    max-width: 100%;
+}
+</style>
 @endsection
 @section('content')
 <!-- HERO
@@ -11,24 +16,17 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
-
-                <!-- Preheading -->
                 <p class="font-weight-medium text-center text-xs text-uppercase text-primary" data-toggle="animation" data-animation="fadeUp" data-animation-order="0" data-animation-trigger="load">
                     Suscríbete al Club
                 </p>
-
-                <!-- Heading -->
                 <h1 class="mb-4 text-center" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
                     Club CEACA Beneficios y Oportunidades
                 </h1>
-
-                <!-- Text -->
                 <p class="mb-6 text-center text-muted" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
                     Obtén todos los beneficios de pertenecer a nuestra familia.
                 </p>
-
             </div>
-        </div> <!-- / .row -->
+        </div>
         <div class="row form-row align-items-center">
             <div class="col-3">
                 <div class="img-square">
@@ -47,7 +45,7 @@
                             <img src="{{asset('img/club_ceaca/03.jpg')}}" alt="..." class="img-cover">
                         </div>
                     </div>
-                </div> <!-- / .row -->
+                </div>
                 <div class="row form-row">
                     <div class="col-5">
                         <div class="img-square">
@@ -59,26 +57,22 @@
                             <img src="{{asset('img/club_ceaca/05.jpg')}}" alt="..." class="img-cover">
                         </div>
                     </div>
-                </div> <!-- / .row -->
+                </div>
             </div>
             <div class="col-3">
                 <div class="img-square">
                     <img src="{{asset('img/club_ceaca/06.jpg')}}" alt="..." class="img-cover">
                 </div>
             </div>
-        </div> <!-- / .row -->
-    </div> <!-- / .container -->
+        </div>
+    </div>
 </section>
 
 <!-- ABOUT
     ================================================== -->
 <section class="section bg-light" id="about">
-
-    <!-- Triangles -->
     <div class="bg-triangle bg-triangle-dark bg-triangle-top bg-triangle-left"></div>
     <div class="bg-triangle bg-triangle-dark bg-triangle-bottom bg-triangle-right"></div>
-
-   
 
 </section>
 
@@ -184,7 +178,7 @@
         <div class="row align-items-stretch">
             <div class="col-12 col-md-6 offset-xl-1 order-md-2">
                 <div class="img-half">
-                    <img src="{{asset('img/membresias/02.jpg')}}" alt="..." class="img-cover">
+                    <img src="{{asset('img/membresias/41.jpg')}}" alt="..." class="img-cover">
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-5 order-md-1 section">
@@ -237,7 +231,7 @@
         <div class="row align-items-stretch">
             <div class="col-12 col-md-6 offset-xl-1 order-md-2">
                 <div class="img-half">
-                    <img src="{{asset('img/membresias/04.jpg')}}" alt="..." class="img-cover">
+                    <img src="{{asset('img/membresias/01.jpg')}}" alt="..." class="img-cover">
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-5 order-md-1 section">
