@@ -20,7 +20,7 @@
     </div>
     <div class="row">
       <div class="col-md-4">
-        <a href="app.html" class="card border-0 mb-3 mb-md-0">
+        <a href="{{route('club')}}" class="card border-0 mb-3 mb-md-0">
           <div class="card-img-top" style="position:relative;" data-aos="fade-up" data-aos-duration="1000">
             <img src="{{asset('img/img_button1.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
             <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;">
@@ -30,7 +30,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="app.html" class="card border-0 mb-3 mb-md-0">
+        <a href="{{route('servicios')}}" class="card border-0 mb-3 mb-md-0">
           <div class="card-img-top" data-aos="fade-up" data-aos-duration="1500">
             <img src="{{asset('img/img_button2.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
             <h2 class="card-title text-white" style="position: absolute;top:45%;left:30%;">
@@ -40,7 +40,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="app.html" class="card border-0 mb-3 mb-md-0">
+        <a href="{{route('index')}}" class="card border-0 mb-3 mb-md-0">
           <div class="card-img-top" data-aos="fade-up" data-aos-duration="2000">
             <img src="{{asset('img/img_button3.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
             <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;">
