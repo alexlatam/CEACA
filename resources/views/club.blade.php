@@ -68,81 +68,7 @@
     </div>
 </section>
 
-<!-- ABOUT
-    ================================================== -->
-<section class="section bg-light" id="about">
-    <div class="bg-triangle bg-triangle-dark bg-triangle-top bg-triangle-left"></div>
-    <div class="bg-triangle bg-triangle-dark bg-triangle-bottom bg-triangle-right"></div>
-
-</section>
-
-<!-- FEATURES
-    ================================================== -->
-<section class="section">
-
-    <!-- Line -->
-    <div class="line line-top"></div>
-
-    <!-- Content -->
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-
-                <!-- Heading -->
-                <h2 class="text-center mb-4">
-                    Algunas de nuestras capacidades
-                </h2>
-
-                <!-- Subheading -->
-                <p class="text-center text-muted text-left mb-5">
-                    
-                </p>
-
-            </div>
-        </div> <!-- / .row -->
-        <div class="row">
-            <div class="col-md-4">
-                <div class="text-center mb-5 mb-md-0">
-                    <div class="text-primary mb-4">
-                        <span class="icon icon-businessman icon-2x"></span>
-                    </div>
-                    <h4 class="mb-3">
-                        Personal Capacitado
-                    </h4>
-                    <p class="text-muted mb-0">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa, corporis.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="text-center mb-5 mb-md-0">
-                    <div class="text-primary mb-4">
-                        <span class="icon icon-shield icon-2x"></span>
-                    </div>
-                    <h4 class="mb-3">
-                        Quality control
-                    </h4>
-                    <p class="text-muted mb-0">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa, corporis.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="text-center">
-                    <div class="text-primary mb-4">
-                        <span class="icon icon-clock icon-2x"></span>
-                    </div>
-                    <h4 class="mb-3">
-                        Timely delivery
-                    </h4>
-                    <p class="text-muted mb-0">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa, corporis.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@include('home.capacidades')
 
 <!-- INFO
     ================================================== -->
@@ -151,7 +77,7 @@
         <div class="row align-items-stretch">
             <div class="col-12 col-md-6 section pb-0 py-md-0">
                 <div class="img-half img-half-left">
-                    <img src="{{asset('img/membresias/01.jpg')}}" alt="..." class="img-cover">
+                    <img src="{{asset('img/club_ceaca/07.jpg')}}" alt="..." class="img-cover">
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-5 offset-xl-1 section">
@@ -178,7 +104,7 @@
         <div class="row align-items-stretch">
             <div class="col-12 col-md-6 offset-xl-1 order-md-2">
                 <div class="img-half">
-                    <img src="{{asset('img/membresias/41.jpg')}}" alt="..." class="img-cover">
+                    <img src="{{asset('img/club_ceaca/08.jpg')}}" alt="..." class="img-cover">
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-5 order-md-1 section">
@@ -193,7 +119,7 @@
                     Habrá consultas que debido a su nivel de complicación o requerimiento de involucramiento por parte de CEACA, se podrán considerar Servicios Técnicos específicos y no aplicarán a este beneficio de la membresía al Club CEACA.
 
                 </p>
-                <a href="#testimonials" class="btn btn-outline-primary">
+                <a href="{{route('index')}}" class="btn btn-outline-primary">
                     Contáctanos
                 </a>
             </div>
@@ -206,7 +132,7 @@
         <div class="row align-items-stretch">
             <div class="col-12 col-md-6 section pb-0 py-md-0">
                 <div class="img-half img-half-left">
-                    <img src="{{asset('img/membresias/03.jpg')}}" alt="..." class="img-cover">
+                    <img src="{{asset('img/club_ceaca/09.jpg')}}" alt="..." class="img-cover">
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-5 offset-xl-1 section">
@@ -219,7 +145,7 @@
                     Posibilidad de hacer hasta dos (02) consultas técnicas trimestrales sobre asuntos de sus calderas, relacionadas con los temas a los que se refirieron los cursos en los que participó (lo que hace un máximo de seis (06) consultas – No son acumulativas y las repreguntas pueden consumir la disponibilidad de consultas). <br><br>
                     Habrá consultas que debido a su nivel de complicación o requerimiento de involucramiento por parte de CEACA, se podrán considerar Servicios Técnicos específicos y no aplicarán a este beneficio de la membresía al Club CEACA.
                 </p>
-                <a href="#testimonials" class="btn btn-outline-primary">
+                <a href="{{route('index')}}" class="btn btn-outline-primary">
                     Contáctanos
                 </a>
             </div>
@@ -231,7 +157,7 @@
         <div class="row align-items-stretch">
             <div class="col-12 col-md-6 offset-xl-1 order-md-2">
                 <div class="img-half">
-                    <img src="{{asset('img/membresias/01.jpg')}}" alt="..." class="img-cover">
+                    <img src="{{asset('img/club_ceaca/10.jpg')}}" alt="..." class="img-cover">
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-5 order-md-1 section">
@@ -245,7 +171,7 @@
                     Habrá consultas que debido a su nivel de complicación o requerimiento de involucramiento por parte de CEACA, se podrán considerar Servicios Técnicos específicos y no aplicarán a este beneficio de la membresía al Club CEACA. <br><br>
                      Participar en el servicio de Bolsa de Trabajo, en caso de que esté buscando nuevas oportunidades laborales. Su resumen curricular será clasificado y ofertado a las empresas que tengan vacantes dentro de su área de acción – trimestralmente lo mantendremos informado de la movilización de su resumen curricular.
                 </p>
-                <a href="#testimonials" class="btn btn-outline-primary">
+                <a href="{{route('index')}}" class="btn btn-outline-primary">
                     Contáctanos
                 </a>
             </div>
@@ -264,7 +190,7 @@
 
                 <!-- Heading -->
                 <h2 class="mb-4 text-center">
-                    Client testimonials
+                    Testimonios de nuestros clientes
                 </h2>
 
                 <!-- Subheading -->

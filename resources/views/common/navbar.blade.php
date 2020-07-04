@@ -86,26 +86,17 @@
             Capacitación
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarLandings">
-            <a class="dropdown-item @@if ( page == 'app.html' ) { active }" href="app.html">
-              App
+            <a class="dropdown-item" href="">
+            Categoria 1
             </a>
-            <a class="dropdown-item @@if ( page == 'company.html' ) { active }" href="company.html">
-              Company
+            <a class="dropdown-item" href="">
+            Categoria 2
             </a>
-            <a class="dropdown-item @@if ( page == 'fullpage.html' ) { active }" href="fullpage.html">
-              Fullpage
+            <a class="dropdown-item" href="">
+            Categoria 3
             </a>
-            <a class="dropdown-item @@if ( page == 'product.html' ) { active }" href="product.html">
-              Product
-            </a>
-            <a class="dropdown-item @@if ( page == 'real-estate.html' ) { active }" href="real-estate.html">
-              Real estate
-            </a>
-            <a class="dropdown-item @@if ( page == 'restaurant.html' ) { active }" href="restaurant.html">
-              Restaurant
-            </a>
-            <a class="dropdown-item @@if ( page == 'service.html' ) { active }" href="service.html">
-              Service
+            <a class="dropdown-item" href="">
+            Categoria 4
             </a>
           </div>
         </li>
