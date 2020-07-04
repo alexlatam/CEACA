@@ -80,33 +80,21 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/cms/categorias">
-              <span data-feather="users"></span>
-              Categorias de servicios
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="/cms/servicios">
               <span data-feather="users"></span>
               Servicios técnicos
             </a>
           </li>
-          <li class="nav-item">
+<!--           <li class="nav-item">
             <a class="nav-link" href="/cms/service/requests">
               <span data-feather="users"></span>
               Servicios Requests
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="/cms/publicidades">
               <span data-feather="users"></span>
               Publicidad
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/cms/curso/categorias">
-              <span data-feather="users"></span>
-              Categorias Cursos
             </a>
           </li>
           <li class="nav-item">
@@ -124,7 +112,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/cms/crear/usuario">
               <span data-feather="users"></span>
-              Crear Usuarios
+              Crear Usuarios Administrativos
             </a>
           </li>
           <li class="nav-item">

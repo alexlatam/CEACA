@@ -2,18 +2,12 @@
     <!-- Slider -->
     <div class="bg-slider">
         <div class="slider slider-no-controls slider-no-draggable slider-fade" id="hero-slider-bg">
-            <div class="slider-item">
-                <!-- Cover -->
-                <div class="bg-cover" style="background-image: url(img/banners/banner1.jpg)"></div>
-            </div>
-            <div class="slider-item">
-                <!-- Cover -->
-                <div class="bg-cover" style="background-image: url(img/banners/banner2.jpg)"></div>
-            </div>
-            <div class="slider-item">
-                <!-- Cover -->
-                <div class="bg-cover" style="background-image: url(img/banners/banner3.jpg)"></div>
-            </div>
+            @foreach($images as $image)
+                <div class="slider-item">
+                    <!-- Cover -->
+                    <div class="bg-cover" style="background-image: url({{asset('/img/banners/' . $image->imagen)}})"></div>
+                </div>
+            @endforeach
         </div>
     </div>
 

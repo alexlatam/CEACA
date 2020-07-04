@@ -43,7 +43,7 @@
             </select>
           </div>
           <div class="col-12 mb-5">
-            <input type="submit" class="btn btn-primary" value="Guardar">
+            <input type="submit" class="btn btn-primary" value="Actualizar Servicio">
           </div>
         </div>
       </form>

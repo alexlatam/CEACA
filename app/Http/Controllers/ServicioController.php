@@ -10,8 +10,13 @@ use File;
 class ServicioController extends Controller
 {
     public function index(){
-    	$servicios = Service::all();
-    	return view('cms.servicios.servicios')->with(compact('servicios'));
+    	return view('cms.servicios_main');
+    }
+
+
+    public function serviciosHome(){
+        $servicios = Service::all();
+        return view('cms.servicios.servicios')->with(compact('servicios'));
     }
 
     public function crearServicio(){
@@ -25,7 +30,7 @@ class ServicioController extends Controller
 
     	$servicio = new Service;
     	$servicio->titulo = $request->titulo_servicio;
-    	$servicio->service_category_id = $request->categoria_servicio; 
+    	$servicio->service_categoria_id = $request->categoria_servicio; 
     	$servicio->descripcion =$request->descripcion_servicio;
 
          //verificamos que la imagen exista
@@ -58,7 +63,7 @@ class ServicioController extends Controller
         $servicio = Service::find($id);
 
         $servicio->titulo = $request->titulo_servicio;
-        $servicio->service_category_id = $request->categoria_servicio; 
+        $servicio->service_categoria_id = $request->categoria_servicio; 
         $servicio->descripcion =$request->descripcion_servicio;
         
         if($file){

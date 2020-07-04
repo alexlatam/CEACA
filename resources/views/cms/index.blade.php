@@ -2,5 +2,5 @@
 
 
 @section('content')
-	<h2>Página principal CMS</h2>
+	<h2>Bienvenido {{auth()->user()->name}}</h2>
 @endsection

@@ -18,7 +18,7 @@
 </style>
 <nav class="navbar navbar-expand-xl navbar-type fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="{{route('index')}}">
+    <a class="navbar-brand" href="{{route('home')}}">
       <img src="{{asset('img/logo.png')}}" alt="" class="brandNavbar">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +60,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a href="{{route('index')}}" class="nav-link">
+          <a href="{{route('home')}}" class="nav-link">
             Inicio
           </a>
         </li>
@@ -74,18 +74,11 @@
             Servicios
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarWelcome">
-            <a class="dropdown-item" href="{{route('servicios')}}">
-              Servicios Generales
-            </a>
-            <a class="dropdown-item" href="">
-              Categoria 1
-            </a>
-            <a class="dropdown-item" href="">
-              Categoria 2
-            </a>
-            <a class="dropdown-item" href="">
-              Categoria 3
-            </a>
+            @foreach($categorias as $categoria)
+              <a class="dropdown-item @@if ( page == 'index.html' ) { active }" href="index.html">
+                {{$categoria->name}}
+              </a>
+            @endforeach
           </div>
         </li>
         <li class="nav-item dropdown">
