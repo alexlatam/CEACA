@@ -69,6 +69,7 @@
 </section>
 
 @include('home.section_magazine')
+@include('home.modal_revista')
 
 @include('home.capacidades')
 

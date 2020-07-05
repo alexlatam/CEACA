@@ -8,7 +8,7 @@
                     Descarga Nuestra Revista
                 </h2>
                 <p class="text-white text-muted text-center mb-5">
-                    Incline can be used to create anything from a small marketing page to a sophisticated website.
+                Texto de llamado de accion a descargar las revista de la pagina
                 </p>
             </div>
         </div>
@@ -54,7 +54,7 @@
             </div>
         </div>
         <diw class="row justify-content-center mt-5">
-            <a class="btn btn-outline-primary px-5 text-primary" href="">Descargar Revista</a>
+            <a class="btn btn-outline-primary px-5 text-primary" href="#" data-toggle="modal" data-target=".modalRevista">Descargar Revista</a>
         </diw>
     </div>
 </section>

@@ -65,6 +65,9 @@ Route::get('/detalles_servicio/{id}', function ($id) {
 Route::get('/contacto', function () {
 	return view('home');
 })->name('contacto');
+
+/* SUSCRIBIRSE Y DESCARGAR REVISTA */
+Route::post('/user/create/', 'UserController@crearUsuarioDownload');
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
 Route::middleware('auth')->group(function () {

@@ -99,6 +99,9 @@
     </div>
 </section>
 
+@include('home.section_magazine')
+@include('home.modal_revista')
+
 @include('home.servicios_cat')
 
 @include('home.publicidad_lateral')

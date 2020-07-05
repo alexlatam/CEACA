@@ -54,6 +54,7 @@
 </section>
 
 @include('home.section_magazine')
+@include('home.modal_revista')
 
 <section class="section bg-light">
   <div class="line line-top"></div>

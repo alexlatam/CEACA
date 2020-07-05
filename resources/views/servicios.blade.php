@@ -25,13 +25,13 @@
     </div>
 </section>
 
-<!-- FEATURED
-    ================================================== -->
+
 <section>
     <div class="container section pb-0">
         <div class="row align-items-stretch">
-            @for ($i = 0; $i < 3; $i++) <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                <a class="card h-100" href="">
+            @for ($i = 0; $i < 2; $i++)
+            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                <a class="card h-100" href="detalles_servicio/{{$servicios[$i]->id}}">
                     <div class="card-body">
                         <div class="row align-items-center no-gutters mb-4">
                             <div class="col-auto">
@@ -44,18 +44,20 @@
                             {{ $servicios[$i]->titulo }}
                         </h4>
                         <p class="mb-0 text-sm text-muted">
-                            {{ $servicios[$i]->descripcion }}
+                        @php {{ $descripcion = substr($servicios[$i]->descripcion,0,100).'...'; }} @endphp
+                            {{ $descripcion }}
                         </p>
                     </div>
                 </a>
+            </div>
+            @endfor
         </div>
-        @endfor
-    </div>
     </div>
 </section>
 
-<!-- LATEST
-    ================================================== -->
+@include('home.download_magazine_simple')
+@include('home.modal_revista')
+
 <section>
     <div class="container section pb-0">
         <div class="row">
@@ -66,7 +68,7 @@
                 <nav class="sidenav d-flex flex-column mb-5 mb-md-0">
                     @foreach ($cat_servicios as $categoria)
                     <a class="text-uppercase text-xs mb-2" href="#!">
-                    {{ $categoria->name }}
+                        {{ $categoria->name }}
                     </a>
                     @endforeach
 
@@ -83,7 +85,8 @@
                             {{ $servicio->titulo }}
                         </h4>
                         <p class="mb-0 text-sm text-muted">
-                            {{ $servicio->descripcion }}
+                        @php {{ $descripcion = substr($servicio->descripcion,0,350); }} @endphp
+                            {{ $descripcion.'...' }}
                         </p>
                     </div>
                 </a>

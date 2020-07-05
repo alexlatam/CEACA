@@ -107,12 +107,12 @@
                 Publicidad
               </a>
             </li>
-            <li class="nav-item">
+            <!--li-- class="nav-item">
               <a class="nav-link" href="/cms/cursos">
                 <span data-feather="users"></span>
                 Cursos (Capacitación)
               </a>
-            </li>
+            </!--li-->
             <!--li-- class="nav-item">
             <a class="nav-link" href="/cms/cursos/requests">
               <span data-feather="users"></span>

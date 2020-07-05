@@ -43,7 +43,10 @@
               @endif
             </td>
             <td>{{$servicio->titulo}}</td>
-            <td>{{$servicio->descripcion}}</td>
+            <td>
+            @php {{ $descripcion = substr($servicio->descripcion,0,250); }} @endphp
+                            {{ $descripcion.'...' }}
+            </td>
             <td class="d-flex">
               <a href="/cms/editar/servicio/{{$servicio->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
               <form action="/cms/eliminar/servicio/{{$servicio->id}}" method="POST">

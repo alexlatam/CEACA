@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('service_category_id');
             $table->string('titulo');
-            $table->string('descripcion');
+            $table->longText('descripcion');
             $table->string('imagen');
             $table->string('logo')->nullable();
             $table->timestamps();
