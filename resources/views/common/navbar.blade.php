@@ -1,6 +1,6 @@
 <style>
   .brandNavbar {
-    width: 50%;
+    width: 35%;
   }
 
   /* Si la pantalla es menor a 992px se aplicaran los estilos*/
@@ -69,19 +69,24 @@
             Quienes Somos
           </a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item">
+          <a href="{{route('servicios')}}" class="nav-link">
+            Servicios
+          </a>
+        </li>
+        <!--li-- class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Servicios
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarWelcome">
+          <!--div-- class="dropdown-menu" aria-labelledby="navbarWelcome">
             @foreach($categorias as $categoria)
               <a class="dropdown-item @@if ( page == 'index.html' ) { active }" href="index.html">
                 {{$categoria->name}}
               </a>
             @endforeach
-          </div>
-        </li>
-        <li class="nav-item dropdown">
+          </!--div-->
+        <!--/--li-->
+        <!--li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Capacitación
           </a>
@@ -99,7 +104,7 @@
             Categoria 4
             </a>
           </div>
-        </li>
+        </!--li-->
         <li class="nav-item">
           <a href="{{route('club')}}" class="nav-link" style="min-width:115px;">
             Club Ceaca

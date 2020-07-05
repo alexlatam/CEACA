@@ -23,53 +23,28 @@
             <div class="col-12 col-md-8 col-lg-7 order-md-2">
                 <!-- Slider -->
                 <div id="hero-slider" class="slider slider-no-controls slider-no-draggable slider-fade mb-5 mb-md-0" data-bind="slider" data-target="#hero-slider-bg">
-                    <div class="slider-item">
-                        
-                    </div>
-                    <div class="slider-item">
-                        <!-- Preheading -->
-                        <p class="font-weight-medium text-center text-xs text-uppercase text-white text-muted">
-                            by Simpleqode
-                        </p>
+                @foreach($images as $image)
+                <div class="slider-item">                        
                         <!-- Heading -->
                         <h1 class="text-white text-center mb-4">
-                            Powerful design tool
+                        {{$image->titulo}}
                         </h1>
                         <!-- Subheading -->
                         <p class="lead text-white text-muted text-center mb-5">
-                            Create beautiful websites from scratch with multiple pre-built pages and styled components.
+                        {{$image->descripcion}}
                         </p>
                         <!-- Button -->
-                        <p class="text-center mb-0">
-                            <a href="https://themes.getbootstrap.com/product/incline-landing-page-set/" target="_blank" class="btn btn-outline-primary text-white">
+                        <!--p-- class="text-center mb-0">
+                            <a href="$image->url" target="_blank" class="btn btn-outline-primary text-white">
                                 Purchase now
                             </a>
-                        </p>
+                        </!--p-->
                     </div>
-                    <div class="slider-item">
-                        <!-- Preheading -->
-                        <p class="font-weight-medium text-center text-xs text-uppercase text-white text-muted">
-                            by Simpleqode
-                        </p>
-                        <!-- Heading -->
-                        <h1 class="text-white text-center mb-4">
-                            Build anything with Incline
-                        </h1>
-                        <!-- Subheading -->
-                        <p class="lead text-white text-muted text-center mb-5">
-                            Create beautiful websites from scratch with multiple pre-built pages and styled components.
-                        </p>
-                        <!-- Button -->
-                        <p class="text-center mb-0">
-                            <a href="https://themes.getbootstrap.com/product/incline-landing-page-set/" target="_blank" class="btn btn-outline-primary text-white">
-                                Purchase now
-                            </a>
-                        </p>
-                    </div>
+                @endforeach
                 </div>
             </div>
+            <!-- Controls -->
             <div class="col-6 col-md-2 order-md-1">
-                <!-- Controls -->
                 <div class="text-left">
                     <a href="#hero-slider" class="slider-control" data-slide="previous">
                         <span class="icon-arrow-left icon-2x"></span>
@@ -77,7 +52,6 @@
                 </div>
             </div>
             <div class="col-6 col-md-2 order-md-3">
-                <!-- Controls -->
                 <div class="text-right">
                     <a href="#hero-slider" class="slider-control" data-slide="next">
                         <span class="icon-arrow-right icon-2x"></span>

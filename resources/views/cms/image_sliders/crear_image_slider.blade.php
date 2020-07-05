@@ -12,29 +12,29 @@
 		    {{session('message')}}
 		  </div>
 		@endif
-		<form action="/cms/guardar/slider/image" class="col-md-6" method="POST" enctype="multipart/form-data">
+		<form action="/cms/guardar/slider/image" class="row" method="POST" enctype="multipart/form-data">
 			@csrf
-			<div class="form-group">
-				<h5>Titulo</h5>
+			<div class="form-group col-12">
+				<h5>Titulo <span class="text-muted">(opcional)</span></h5>
 				<input type="text" name="slider_titulo" placeholder="Titulo..." class="form-control">
 			</div>
-			<div class="form-group">
-				<h5>descripción</h5>
+			<div class="form-group col-12">
+			<h5 title="Pequeña descripción que se mostrara en el Banner">Descripción <span class="text-muted">(opcional)</span></h5>
 				<textarea class="form-control" name="slider_descripcion"></textarea>
 			</div>
-			<div class="form-group">
-				<h5>Url</h5>
+			<!--div-- class="form-group col-12">
+			<h5 title="Al darle click sera redirigido a este enlace">Url de redirección <span class="text-muted">(opcional)</span></h5>
 				<input type="text" name="slider_url" placeholder="Url..." class="form-control">
-			</div>
-			<div class="form-group">
+			</!--div-->
+			<div class="form-group col-12">
 				<h5>Orden</h5>
-				<input type="text" name="slider_orden" placeholder="Orden..." class="form-control">
+				<input type="text" name="slider_orden" placeholder="Orden..." class="form-control" required>
 			</div>
-			<div class="form-group">
+			<div class="form-group col-12">
 				<h5>Imagen</h5>
-				<input type="file" name="slider_imagen">
+				<input type="file" name="slider_imagen" required>
 			</div>
-			<input type="submit" class="btn btn-primary btn-sm" value="Crear Slider">
+			<input type="submit" class="btn btn-primary px-5 col-auto" value="Crear Slider">
 		</form>
 	</div>
 </section>

@@ -40,7 +40,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="{{route('index')}}" class="card border-0 mb-3 mb-md-0">
+        <a href="{{route('home')}}" class="card border-0 mb-3 mb-md-0">
           <div class="card-img-top" data-aos="fade-up" data-aos-duration="2000">
             <img src="{{asset('img/img_button3.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
             <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;">

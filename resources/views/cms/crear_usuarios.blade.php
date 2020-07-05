@@ -12,16 +12,16 @@
 		@endif
 		<form action="/cms/guardar/usuario" method="POST">
 			@csrf
-			<div class="row col-md-6">
-				<div class="col-12 mb-4">
+			<div class="row">
+				<div class="col-md-6 mb-4">
 					<label>Nombre</label>
 					<input class="form-control" type="text" name="name" value="" placeholder="Nombre">
 				</div>
-				<div class="col-12 mb-4">
+				<div class="col-md-6 mb-4">
 					<label>Email</label>
 					<input class="form-control"  type="text" name="email" value="" placeholder="Email">
 				</div>
-				<div class="col-12 mb-4">
+				<div class="col-6 mb-4">
 					<label>Contraseña</label>
 					<input class="form-control"  type="password" name="password" value="" placeholder="contraseña">
 				</div>

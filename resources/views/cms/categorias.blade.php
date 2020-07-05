@@ -23,15 +23,14 @@
     </div>
   </div>
 
-
   <div class="table-responsive">
     <table class="table table-striped table-sm">
       <thead>
         <tr>
           <th>#</th>
+          <th>Imagen</th>
           <th>Nombre</th>
           <th>Descripción</th>
-          <th>Imagen</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -39,15 +38,15 @@
         @foreach($categorias as $categoria)
           <tr>
             <td>{{$categoria->id}}</td>
-            <td>{{$categoria->name}}</td>
-            <td>{{$categoria->descripcion}}</td>
             <td>
               @if(substr($categoria->imagen, 0, 4) === 'http')
-                  <img src="{{ $categoria->imagen }}" class="publicidades_card-img" alt="" style="width: 60px; height: 60px;">
+                  <img src="{{ $categoria->imagen }}" class="publicidades_card-img" alt="" style="width: 40px; height: 40px;">
               @elseif($categoria->imagen)
-                   <img src="{{ asset('categorias_imagen/'. $categoria->imagen) }}" alt="" style="width: 60px; height: 60px;">
+                   <img src="{{ asset('categorias_imagen/'. $categoria->imagen) }}" alt="" style="width: 40px; height: 40px;">
               @endif
             </td>
+            <td>{{$categoria->name}}</td>
+            <td>{{$categoria->descripcion}}</td>
             <td class="d-flex ">
               <button type="button" id="{{ $categoria->id }}" class="btn btn-sm btn-outline-secondary mr-2 editar"  data-toggle="modal" data-target="#modalCategoriaEditar">Editar</button>
               <form action="/cms/categoria/delete/{{$categoria->id}}" method="POST">

@@ -12,20 +12,14 @@
 			  </div>
 			</div>	
 		</div>
-
 		@foreach($sliders as $slider)
-
 			<div class="publicidades_card-main mb-5">
 				@if(substr($slider->imagen, 0, 4) === 'http')
                     <img src="{{ $slider->imagen }}" class="publicidades_card-img" alt="">
                 @elseif($slider->imagen)
                      <img src="{{ asset('/img/banners/'. $slider->imagen) }}" class="publicidades_card-img" alt="">
                 @endif
-
-
-				<div class="publicidades_card-body">
-
-					
+				<div class="publicidades_card-body">			
 					<form action="/cms/actualizar/slider/image/{{$slider->id}}" method="POST" enctype="multipart/form-data">
 						@csrf
 						<div class="form-group">
@@ -33,13 +27,13 @@
 							<input type="text" name="slider_titulo" value="{{$slider->titulo}}" placeholder="Titulo..." class="form-control">
 						</div>
 						<div class="form-group">
-							<h5>descripción</h5>
+							<h5 title="Pequeña descripción que se mostrara en el Banner">Descripción</h5>
 							<textarea class="form-control" name="slider_descripcion" >{{$slider->descripcion}}</textarea>
 						</div>
-						<div class="form-group">
-							<h5>url</h5>
+						<!--div-- class="form-group">
+							<h5 title="Al darle click sera redirigido a este enlace">Url de redirección</h5>
 							<input type="text" name="slider_url" value="{{$slider->url}}" placeholder="Titulo..." class="form-control">
-						</div>
+						</!--div-->
 						<div class="form-group">
 							<h5>Orden</h5>
 							<input type="text" name="slider_orden" value="{{$slider->orden}}" placeholder="Titulo..." class="form-control">
@@ -48,9 +42,7 @@
 							<h5>Cambiar Imagen</h5>
 							<input type="file" class="file-input" name="slider_imagen">
 						</div>
-
-						<div class="form-group">
-						<input type="submit" class="btn btn-primary btn-sm" value="Actualizar Slider">
+						<input type="submit" class="btn btn-primary px-5" value="Actualizar Slider">
 					</form>
 				</div>
 			</div>

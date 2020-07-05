@@ -16,9 +16,9 @@ class CreateHomeSlidersTable extends Migration
         Schema::create('home_sliders', function (Blueprint $table) {
             $table->id();
             $table->string('imagen');
-            $table->string('titulo');
-            $table->string('descripcion');
-            $table->string('url');
+            $table->string('titulo')->nullable();
+            $table->string('descripcion')->nullable();
+            $table->string('url')->nullable();
             $table->string('orden');
             $table->timestamps();
         });
