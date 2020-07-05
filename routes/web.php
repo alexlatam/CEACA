@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Subscriber;
 use App\Image_slider;
+use App\Ads;
+use App\Service;
+use App\Service_Category;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,28 +17,34 @@ use App\Image_slider;
 |
 */
 
-Route::get('/test', function(){
-	return view('page_new.src.service');
-});
-
+/* HOME */
 Route::get('/', 'CeacaController@index')->name('home');
-
+/* NOSOTROS */
 Route::get('/nosotros', function () {
 	return view('nosotros');
 })->name('nosotros');
-
+/* CLUB */
 Route::get('/club', function() {
 	return view('club');
 })->name('club');
-
+/* SERVICIOS */
 Route::get('/servicios', function() {
-	return view('servicios');
+	$servicios = Service::All();
+    $cat_servicios = Service_Category::All();
+    $publicidad = Ads::All();
+	return view('servicios', [
+        "servicios" => $servicios,
+        "cat_servicios" => $cat_servicios,
+        "publicidad" => $publicidad
+    ]);
 })->name('servicios');
 
-Route::get('/detalles_servicios', function() {
-	return view('detalles_servicio');
-})->name('detalle_servicio');
+Route::get('/detalles_servicio/{id}', function ($id) {
+    $servicio = Service::find($id);
+    return view('detalles_servicio', ["servicio" => $servicio ] );
+})->name('detalles_servicio');
 
+/* CONTACTO */
 Route::get('/contacto', function() {
 	return view('home');
 })->name('contacto');

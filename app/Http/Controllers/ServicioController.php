@@ -30,12 +30,12 @@ class ServicioController extends Controller
 
     	$servicio = new Service;
     	$servicio->titulo = $request->titulo_servicio;
-    	$servicio->service_categoria_id = $request->categoria_servicio; 
+    	$servicio->service_category_id = $request->categoria_servicio; 
     	$servicio->descripcion =$request->descripcion_servicio;
 
          //verificamos que la imagen exista
         if($file){
-            $path = public_path() . '/servicios_imagen';
+            $path = public_path() . '/img/services';
             $fileName = uniqid() . $file->getClientOriginalName();
             $moved = $file->move($path, $fileName);
 

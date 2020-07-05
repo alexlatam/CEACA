@@ -71,41 +71,41 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-3 text-center">
-        <a href="">
+        <a href="{{route('nosotros')}}">
           <img src="{{asset('img/iconos/icono_1.png')}}" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
         <h4 class="card-title mt-4 pt-2">
-          <a href="">
+          <a href="{{route('nosotros')}}">
           QUIENES SOMOS  
           </a>
         </h4>
       </div>
       <div class="col-md-6 col-lg-3 text-center">
-        <a href="">
+        <a href="{{route('servicios')}}">
           <img src="{{asset('img/iconos/icono_2.png')}}" alt="Carousel header" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
         <h4 class="card-title mt-4 pt-2">
-          <a href="">
+          <a href="{{route('servicios')}}">
             NUESTROS SERVICIOS
           </a>          
         </h4>
       </div>
       <div class="col-md-6 col-lg-3 text-center">
-        <a href="">
+        <a href="{{route('club')}}">
           <img src="{{asset('img/iconos/icono_3.png')}}" alt="Carousel header" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
         <h4 class="card-title mt-4">
-          <a href="">
+          <a href="{{route('club')}}">
             CLUB CEACA
           </a>          
         </h4>
       </div>
       <div class="col-md-6 col-lg-3 text-center">
-        <a href="">
+        <a href="{{route('contacto')}}">
           <img src="{{asset('img/iconos/icono_4.png')}}" alt="Carousel header" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
         <h4 class="card-title mt-4">
-          <a href="">
+          <a href="{{route('contacto')}}">
             CONTÁCTANOS
           </a>          
         </h4>

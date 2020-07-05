@@ -20,11 +20,11 @@
                     <div class="text-center mb-5 mb-md-0">
                         <div class="text-primary mb-4">
                             <a href="">
-                                <img src="{{asset('categorias_imagen/'.$categoria->logo)}}" alt="" width="25%">
+                                <img src="{{asset('categorias_imagen/'.$servicio->logo)}}" alt="" width="25%">
                             </a>
                         </div>
                         <h4 class="text-dark mb-3">
-                            {{$categoria->titulo}}
+                            {{$servicio->titulo}}
                         </h4>
                         <p class="text-dark text-muted mb-0">
                         </p>

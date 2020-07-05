@@ -11,18 +11,6 @@
                 <img src="{{asset('img/services/principal.jpg')}}" alt="..." class="img-fluid img-incline-left mb-5 mb-md-0">
             </div>
             <div class="col-12 col-md-6 col-xl-5 order-md-1">
-                <div class="row align-items-center no-gutters mb-4">
-                    <!--div-- class="col-auto">
-                        <div class="avatar mr-3">
-                            <img src="assets/img/17.jpg" alt="..." class="img-cover rounded-circle">
-                        </div>
-                    </!--div-->
-                    <div class="col">
-                        <!--p-- class="mb-0 text-xs text-muted">
-                            by <strong class="text-body">Judy Doe</strong> 2 hours ago
-                        </!--p-->
-                    </div>
-                </div>
                 <h1 class="mb-4 font-weight-bold">
                     Conoce Nuestros Servicios
                 </h1>
@@ -32,7 +20,6 @@
                 <a href="{{route('contacto')}}" class="btn btn-outline-primary">
                     Contáctanos <i class="fas fa-arrow-right ml-2"></i>
                 </a>
-
             </div>
         </div>
     </div>
@@ -43,81 +30,27 @@
 <section>
     <div class="container section pb-0">
         <div class="row align-items-stretch">
-            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+            @for ($i = 0; $i < 3; $i++) <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                 <a class="card h-100" href="">
                     <div class="card-body">
                         <div class="row align-items-center no-gutters mb-4">
                             <div class="col-auto">
                                 <div class="avatar mr-3">
-                                    <img src="{{asset('img/services/servicio3.jpg')}}" alt="..." class="img-cover rounded-circle">
+                                    <img src="{{asset('img/services/' . $servicios[$i]->imagen )}}" alt="..." class="img-cover rounded-circle">
                                 </div>
-                            </div>
-                            <div class="col">
-                                <!--p-- class="mb-0 text-xs text-muted">
-                                    by <strong class="text-body">John Doe</strong> 5 hours ago
-                                </!--p-->
                             </div>
                         </div>
                         <h4>
-                            Acompañamiento en el Mejoramiento
-                            Continuo de la Confiabilidad
+                            {{ $servicios[$i]->titulo }}
                         </h4>
                         <p class="mb-0 text-sm text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            {{ $servicios[$i]->descripcion }}
                         </p>
                     </div>
                 </a>
-            </div>
-            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                <a class="card h-100" href="">
-                    <div class="card-body">
-                        <div class="row align-items-center no-gutters mb-4">
-                            <div class="col-auto">
-                                <div class="avatar mr-3">
-                                    <img src="{{asset('img/services/servicio4.jpg')}}" alt="..." class="img-cover rounded-circle">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <!--p-- class="mb-0 text-xs text-muted">
-                                    by <strong class="text-body">John Doe</strong> 5 hours ago
-                                </!--p-->
-                            </div>
-                        </div>
-                        <h4>
-                            Definición de planes de inspección
-                        </h4>
-                        <p class="mb-0 text-sm text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                <a class="card h-100" href="">
-                    <div class="card-body">
-                        <div class="row align-items-center no-gutters mb-4">
-                            <div class="col-auto">
-                                <div class="avatar mr-3">
-                                    <img src="{{asset('img/services/servicio1.jpg')}}" alt="..." class="img-cover rounded-circle">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <!--p-- class="mb-0 text-xs text-muted">
-                                    by <strong class="text-body">John Doe</strong> 5 hours ago
-                                </!--p-->
-                            </div>
-                        </div>
-                        <h4>
-                            Acompañamiento en el Monitoreo
-                            de los parámetros críticos de operación de calderas
-                        </h4>
-                        <p class="mb-0 text-sm text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                </a>
-            </div>
         </div>
+        @endfor
+    </div>
     </div>
 </section>
 
@@ -131,124 +64,31 @@
                     Categorias
                 </h6>
                 <nav class="sidenav d-flex flex-column mb-5 mb-md-0">
+                    @foreach ($cat_servicios as $categoria)
                     <a class="text-uppercase text-xs mb-2" href="#!">
-                        Asesorias
+                    {{ $categoria->name }}
                     </a>
-                    <a class="text-uppercase text-xs mb-2" href="#!">
-                        Mantenimientos
-                    </a>
-                    <a class="text-uppercase text-xs mb-2" href="#!">
-                        Gadgets
-                    </a>
-                    <a class="text-uppercase text-xs mb-2" href="#!">
-                        Events
-                    </a>
-                    <a class="text-uppercase text-xs" href="#!">
-                        Videos
-                    </a>
+                    @endforeach
+
                 </nav>
             </div>
             <div class="col-12 col-md-9 col-lg-10 order-md-1">
-                <a class="row align-items-center text-nounderline" href="">
+                @foreach ($servicios as $servicio)
+                <a class="row align-items-center text-nounderline" href="detalles_servicio/{{$servicio->id}}">
                     <div class="col-12 col-md-3">
-                        <img src="{{asset('img/services/servicio1.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
+                        <img src="{{asset('img/services/'. $servicio->imagen )}}" alt="{{ $servicio->titulo }}" class="img-fluid mb-3 mb-md-0">
                     </div>
                     <div class="col-12 col-md-9">
                         <h4>
-                            Acompañamiento en el Monitoreo
-                            de los parámetros críticos de operación de calderas
+                            {{ $servicio->titulo }}
                         </h4>
                         <p class="mb-0 text-sm text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            {{ $servicio->descripcion }}
                         </p>
                     </div>
                 </a>
                 <hr class="my-4">
-                <a class="row align-items-center text-nounderline" href="">
-                    <div class="col-12 col-md-3">
-                        <img src="{{asset('img/services/servicio2.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
-                    </div>
-                    <div class="col-12 col-md-9">
-                        <h4>
-                            Auditorías de Confiabilidad y Seguridad
-                        </h4>
-                        <p class="mb-0 text-sm text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                </a>
-                <hr class="my-4">
-                <a class="row align-items-center text-nounderline" href="">
-                    <div class="col-12 col-md-3">
-                        <img src="{{asset('img/services/servicio3.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
-                    </div>
-                    <div class="col-12 col-md-9">
-                        <h4>
-                            Acompañamiento en el Mejoramiento
-                            Continuo de la Confiabilidad
-                        </h4>
-                        <p class="mb-0 text-sm text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                </a>
-                <hr class="my-4">
-                <a class="row align-items-center text-nounderline" href="">
-                    <div class="col-12 col-md-3">
-                        <img src="{{asset('img/services/servicio4.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
-                    </div>
-                    <div class="col-12 col-md-9">
-                        <h4>
-                        Definición de planes de inspección
-                        </h4>
-                        <p class="mb-0 text-sm text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                </a>
-                <hr class="my-4">
-                <a class="row align-items-center text-nounderline" href="">
-                    <div class="col-12 col-md-3">
-                        <img src="{{asset('img/services/servicio5.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
-                    </div>
-                    <div class="col-12 col-md-9">
-                        <h4>
-                        Ejecución o Acompañamiento en planes de inspección
-                        </h4>
-                        <p class="mb-0 text-sm text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                </a>
-                <hr class="my-4">
-                <a class="row align-items-center text-nounderline" href="">
-                    <div class="col-12 col-md-3">
-                        <img src="{{asset('img/services/servicio6.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
-                    </div>
-                    <div class="col-12 col-md-9">
-                        <h4>
-                        Análisis de causas raíz de fallas
-                        </h4>
-                        <p class="mb-0 text-sm text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                </a>
-                <hr class="my-4">
-                <a class="row align-items-center text-nounderline" href="">
-                    <div class="col-12 col-md-3">
-                        <img src="{{asset('img/services/servicio7.jpg')}}" alt="..." class="img-fluid mb-3 mb-md-0">
-                    </div>
-                    <div class="col-12 col-md-9">
-                        <h4>
-                        Apoyo en las decisiones sobre los hallazgos
-                        </h4>
-                        <p class="mb-0 text-sm text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                </a>
-                <hr class="my-4">
+                @endforeach
             </div>
         </div> <!-- / .row -->
     </div> <!-- / .container -->

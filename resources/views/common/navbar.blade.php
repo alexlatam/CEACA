@@ -79,11 +79,7 @@
             Servicios
           </a>
           <!--div-- class="dropdown-menu" aria-labelledby="navbarWelcome">
-            @foreach($categorias as $categoria)
-              <a class="dropdown-item @@if ( page == 'index.html' ) { active }" href="index.html">
-                {{$categoria->name}}
-              </a>
-            @endforeach
+            
           </!--div-->
         <!--/--li-->
         <!--li class="nav-item dropdown">
