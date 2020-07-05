@@ -7,6 +7,9 @@ use App\User;
 
 class ClubController extends Controller
 {
+	public function index(){
+		return view('cms.club_main');
+    }
     public function createrClubMember(Request $request){
 
     }

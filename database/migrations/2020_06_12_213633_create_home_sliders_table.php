@@ -19,7 +19,7 @@ class CreateHomeSlidersTable extends Migration
             $table->string('titulo')->nullable();
             $table->string('descripcion')->nullable();
             $table->string('url')->nullable();
-            $table->string('orden');
+            $table->string('orden')->nullable();
             $table->timestamps();
         });
     }

@@ -41,9 +41,9 @@ class SliderImageController extends Controller
             }
 
             // return back();
-            return back()->with('message', 'Imagen guardada correctamente');
+            return back()->with('message', 'Se guardo exitosamente!');
         }else{
-        	return back()->with('message', 'La imagen no pudo ser procesada');
+        	return back()->with('message', 'El Slider no se pudo guardar exitosamente');
         }
 
     }

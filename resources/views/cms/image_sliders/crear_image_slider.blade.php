@@ -26,10 +26,10 @@
 			<h5 title="Al darle click sera redirigido a este enlace">Url de redirección <span class="text-muted">(opcional)</span></h5>
 				<input type="text" name="slider_url" placeholder="Url..." class="form-control">
 			</!--div-->
-			<div class="form-group col-12">
+			<!--div-- class="form-group col-12">
 				<h5>Orden</h5>
 				<input type="text" name="slider_orden" placeholder="Orden..." class="form-control" required>
-			</div>
+			</!--div-->
 			<div class="form-group col-12">
 				<h5>Imagen</h5>
 				<input type="file" name="slider_imagen" required>

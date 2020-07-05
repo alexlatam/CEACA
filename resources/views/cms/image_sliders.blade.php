@@ -8,7 +8,7 @@
 			<h3 class="h2">Imagenes Slider</h3>
 			<div class="btn-toolbar mb-2 mb-md-0">
 			  <div class="btn-group mr-2">
-			    <a href="/cms/crear/slider/image" type="button" class="btn btn-sm btn-outline-secondary">Agregar Imagen a slider</a>
+			    <a href="/cms/crear/slider/image" type="button" class="btn btn-sm btn-outline-success">Agregar Imagen a slider</a>
 			  </div>
 			</div>	
 		</div>
@@ -34,10 +34,10 @@
 							<h5 title="Al darle click sera redirigido a este enlace">Url de redirección</h5>
 							<input type="text" name="slider_url" value="{{$slider->url}}" placeholder="Titulo..." class="form-control">
 						</!--div-->
-						<div class="form-group">
+						<!--div-- class="form-group">
 							<h5>Orden</h5>
 							<input type="text" name="slider_orden" value="{{$slider->orden}}" placeholder="Titulo..." class="form-control">
-						</div>
+						</!--div-->
 						<div class="form-group">
 							<h5>Cambiar Imagen</h5>
 							<input type="file" class="file-input" name="slider_imagen">

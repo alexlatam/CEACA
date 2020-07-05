@@ -6,7 +6,7 @@
 @section('content')
 <!-- BREADCRUMBS
     ================================================== -->
-    <br>
+<br>
 <nav class="breadcrumb">
   <div class="container">
     <div class="row align-items-center">
@@ -82,51 +82,40 @@
   </div> <!-- / .container -->
 </section>
 
-@include('home.publicidad_lateral')
-<!-- FEATURED
-    ================================================== -->
-<section class="section">
-  <div class="container">
+
+
+
+<section>
+  <div class="container section pb-5">
     <div class="row align-items-stretch">
-      <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-
-        <a class="card h-100" href="blog-post.html">
+      @for ($i = 0; $i < 3; $i++) <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+        <a class="card h-100" href="">
           <div class="card-body">
-
-            <!-- Meta -->
             <div class="row align-items-center no-gutters mb-4">
               <div class="col-auto">
-
                 <div class="avatar mr-3">
-                  <img src="assets/img/16.jpg" alt="..." class="img-cover rounded-circle">
+                  <img src="{{asset('img/services/' . $servicios[$i]->imagen )}}" alt="..." class="img-cover rounded-circle">
                 </div>
-
               </div>
-              <div class="col">
-
-                <p class="mb-0 text-xs text-muted">
-                  by <strong class="text-body">John Doe</strong> 5 hours ago
-                </p>
-
-              </div>
-            </div> <!-- / .row -->
-
-            <!-- Heading -->
+            </div>
             <h4>
-              Enhance your brand potential with giant advertising
+              {{ $servicios[$i]->titulo }}
             </h4>
-
-            <!-- Text -->
             <p class="mb-0 text-sm text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              {{ $servicios[$i]->descripcion }}
             </p>
-
           </div>
         </a>
-
-      </div>
     </div>
+    @endfor
+  </div>
   </div>
 </section>
+
+@include('home.publicidad_lateral')
+
+@include('home.section_magazine')
+
+@include('home.servicios_cat')
 
 @endsection

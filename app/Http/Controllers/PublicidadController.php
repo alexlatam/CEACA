@@ -33,7 +33,7 @@ class PublicidadController extends Controller
 
     	 //verificamos que la imagen exista
         if($file){
-            $path = public_path() . '/publicidades_imagen';
+            $path = public_path() . '/img/publicidad';
             $fileName = uniqid() . $file->getClientOriginalName();
             $moved = $file->move($path, $fileName);
 
@@ -43,7 +43,7 @@ class PublicidadController extends Controller
                 $publicidad->save();
             }
 
-            return back()->with('message', 'publicidad guardada correctamente');
+            return back()->with('message', '¡Publicidad guardada exitosamente!');
             // return back();
         }
     }
@@ -72,7 +72,7 @@ class PublicidadController extends Controller
 
                 //verificamos que la imagen exista
                 if($file){
-                    $path = public_path() . '/publicidades_imagen';
+                    $path = public_path() . '/img/publicidad';
                     $fileName = uniqid() . $file->getClientOriginalName();
                     $moved = $file->move($path, $fileName);
             

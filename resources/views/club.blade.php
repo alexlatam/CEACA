@@ -68,6 +68,8 @@
     </div>
 </section>
 
+@include('home.section_magazine')
+
 @include('home.capacidades')
 
 <!-- INFO
@@ -119,7 +121,7 @@
                     Habrá consultas que debido a su nivel de complicación o requerimiento de involucramiento por parte de CEACA, se podrán considerar Servicios Técnicos específicos y no aplicarán a este beneficio de la membresía al Club CEACA.
 
                 </p>
-                <a href="{{route('index')}}" class="btn btn-outline-primary">
+                <a href="{{route('home')}}" class="btn btn-outline-primary">
                     Contáctanos
                 </a>
             </div>
@@ -145,7 +147,7 @@
                     Posibilidad de hacer hasta dos (02) consultas técnicas trimestrales sobre asuntos de sus calderas, relacionadas con los temas a los que se refirieron los cursos en los que participó (lo que hace un máximo de seis (06) consultas – No son acumulativas y las repreguntas pueden consumir la disponibilidad de consultas). <br><br>
                     Habrá consultas que debido a su nivel de complicación o requerimiento de involucramiento por parte de CEACA, se podrán considerar Servicios Técnicos específicos y no aplicarán a este beneficio de la membresía al Club CEACA.
                 </p>
-                <a href="{{route('index')}}" class="btn btn-outline-primary">
+                <a href="{{route('home')}}" class="btn btn-outline-primary">
                     Contáctanos
                 </a>
             </div>
@@ -171,7 +173,7 @@
                     Habrá consultas que debido a su nivel de complicación o requerimiento de involucramiento por parte de CEACA, se podrán considerar Servicios Técnicos específicos y no aplicarán a este beneficio de la membresía al Club CEACA. <br><br>
                      Participar en el servicio de Bolsa de Trabajo, en caso de que esté buscando nuevas oportunidades laborales. Su resumen curricular será clasificado y ofertado a las empresas que tengan vacantes dentro de su área de acción – trimestralmente lo mantendremos informado de la movilización de su resumen curricular.
                 </p>
-                <a href="{{route('index')}}" class="btn btn-outline-primary">
+                <a href="{{route('home')}}" class="btn btn-outline-primary">
                     Contáctanos
                 </a>
             </div>
@@ -179,112 +181,8 @@
     </div>
 </section>
 
-<!-- TESTIMONIALS
-    ================================================== -->
-<section class="section" id="testimonials">
+@include('home.testimonios')
 
-    <!-- Content -->
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-
-                <!-- Heading -->
-                <h2 class="mb-4 text-center">
-                    Testimonios de nuestros clientes
-                </h2>
-
-                <!-- Subheading -->
-                <p class="text-center text-muted mb-5">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam illo ut repellat tempora sequi vitae provident optio pariatur.
-                </p>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-
-                <!-- Slider -->
-                <div class="testimonial-slider">
-
-                    <!-- Item -->
-                    <div class="testimonial-slider-item">
-                        <div class="testimonial-slider-item-inner">
-
-                            <!-- Quote -->
-                            <div class="quote quote-sm">
-                                <blockquote class="quote-blockquote">
-                                    <p class="quote-blockquote-content">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam exercitationem nobis incidunt alias ipsa quis, rerum doloribus nostrum, recusandae. Laboriosam, quasi, dolores! Itaque nihil quae, omnis, minus nisi iste iure.
-                                    </p>
-                                    <footer class="quote-blockquote-footer">
-                                        <div class="avatar avatar-lg mr-3">
-                                            <img src="assets/img/16.jpg" alt="..." class="img-cover rounded-circle">
-                                        </div>
-                                        <span>
-                                            John Doe, <span class="text-zigzag">Chicago</span>
-                                        </span>
-                                    </footer>
-                                </blockquote>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Item -->
-                    <div class="testimonial-slider-item">
-                        <div class="testimonial-slider-item-inner">
-
-                            <!-- Quote -->
-                            <div class="quote quote-sm">
-                                <blockquote class="quote-blockquote">
-                                    <p class="quote-blockquote-content">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam exercitationem nobis incidunt alias ipsa quis, rerum doloribus nostrum, recusandae. Laboriosam, quasi, dolores! Itaque nihil quae, omnis, minus nisi iste iure.
-                                    </p>
-                                    <footer class="quote-blockquote-footer">
-                                        <div class="avatar avatar-lg mr-3">
-                                            <img src="assets/img/18.jpg" alt="..." class="img-cover rounded-circle">
-                                        </div>
-                                        <span>
-                                            Anna Doe, <span class="text-zigzag">San Francisco</span>
-                                        </span>
-                                    </footer>
-                                </blockquote>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Item -->
-                    <div class="testimonial-slider-item">
-                        <div class="testimonial-slider-item-inner">
-
-                            <!-- Quote -->
-                            <div class="quote quote-sm">
-                                <blockquote class="quote-blockquote">
-                                    <p class="quote-blockquote-content">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam exercitationem nobis incidunt alias ipsa quis, rerum doloribus nostrum, recusandae. Laboriosam, quasi, dolores! Itaque nihil quae, omnis, minus nisi iste iure.
-                                    </p>
-                                    <footer class="quote-blockquote-footer">
-                                        <div class="avatar avatar-lg mr-3">
-                                            <img src="assets/img/17.jpg" alt="..." class="img-cover rounded-circle">
-                                        </div>
-                                        <span>
-                                            Jane Roe, <span class="text-zigzag">Los Angeles</span>
-                                        </span>
-                                    </footer>
-                                </blockquote>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div> <!-- / .testimonials-slider -->
-
-            </div>
-        </div> <!-- / .row -->
-    </div> <!-- / .container -->
-
-</section>
 @include('home.publicidad_lateral')
 
 @include('home.servicios_cat')

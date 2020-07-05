@@ -53,7 +53,7 @@
 			<h3 class="h2">Publicidades</h3>
 			<div class="btn-toolbar mb-2 mb-md-0">
 			  <div class="btn-group mr-2">
-			    <a href="/cms/crear/publicidad/secundaria" type="button" class="btn btn-sm btn-outline-secondary">Agregar Publicidad</a>
+			    <a href="/cms/crear/publicidad/secundaria" type="button" class="btn btn-sm btn-outline-success">Agregar Publicidad</a>
 			  </div>
 			</div>	
 		</div>
@@ -62,21 +62,21 @@
 				@if(substr($publicidad->imagen, 0, 4) === 'http')
                     <img src="{{ $publicidad->imagen }}" class="publicidades_card-img" alt="">
                 @elseif($publicidad->imagen)
-                     <img src="{{ asset('publicidades_imagen/'. $publicidad->imagen) }}" class="publicidades_card-img" alt="">
+                     <img src="{{ asset('img/publicidad/'. $publicidad->imagen) }}" class="publicidades_card-img" alt="">
                 @endif
 				<div class="publicidades_card-body">
 					<form action="/cms/actualizar/publicidad/{{$publicidad->id}}" method="POST" enctype="multipart/form-data">
 						@csrf
-						<div class="form-group">
+						<!--div-- class="form-group">
 							<h5>Tipo</h5>
 							<input type="text" name="publicidad_tipo" value="{{$publicidad->tipo}}" placeholder="Titulo..." class="form-control">
-						</div>
-						<div class="form-group">
+						</!--div-->
+						<!--div-- class="form-group">
 							<h5>Orden</h5>
 							<input type="text" name="publicidad_orden" value="{{$publicidad->orden}}" placeholder="Descripcion..." class="form-control">
-						</div>
+						</!--div-->
 						<div class="form-group">
-							<h5>url</h5>
+							<h5 title="Al dar click sobre la publicidad se redireccionara a este enlace">Enlace de redirección <small class="text-muted">(opcional)</small></h5>
 							<input type="text" name="publicidad_url" value="{{$publicidad->url}}" placeholder="Descripcion..." class="form-control">
 						</div>
 						<div class="form-group">

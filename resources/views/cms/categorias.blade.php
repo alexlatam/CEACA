@@ -18,7 +18,7 @@
     <h1 class="h2">Categorias</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#modalCategoria">Agregar Categoria</button>
+        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#modalCategoria">Agregar Categoria</button>
       </div>
     </div>
   </div>
@@ -48,10 +48,10 @@
             <td>{{$categoria->name}}</td>
             <td>{{$categoria->descripcion}}</td>
             <td class="d-flex ">
-              <button type="button" id="{{ $categoria->id }}" class="btn btn-sm btn-outline-secondary mr-2 editar"  data-toggle="modal" data-target="#modalCategoriaEditar">Editar</button>
+              <button type="button" id="{{ $categoria->id }}" class="btn btn-sm btn-outline-success mr-2 editar"  data-toggle="modal" data-target="#modalCategoriaEditar">Editar</button>
               <form action="/cms/categoria/delete/{{$categoria->id}}" method="POST">
                 @csrf
-                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-secondary">
+                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-success">
               </form>
             </td>
           </tr>

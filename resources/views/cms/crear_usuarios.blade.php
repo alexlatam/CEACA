@@ -49,10 +49,10 @@
 	          <td>{{$usuario->name}}</td>
 	          <td>{{$usuario->email}}</td>
 	          <td class="d-flex">
-	            <a href="/cms/password/usuario/{{$usuario->id}}"class="btn btn-sm btn-outline-secondary mr-2 editar">Cambiar contraseña</a>
+	            <a href="/cms/password/usuario/{{$usuario->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Cambiar contraseña</a>
 	            <form action="" method="POST">
 	              @csrf
-	              <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-secondary">
+	              <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-success">
 	            </form>
 	          </td>
 	        </tr>

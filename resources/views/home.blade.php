@@ -53,8 +53,9 @@
   </div>
 </section>
 
-<section class="section bg-light">
+@include('home.section_magazine')
 
+<section class="section bg-light">
   <div class="line line-top"></div>
   <div class="bg-triangle bg-triangle-dark bg-triangle-top bg-triangle-left"></div>
   <div class="bg-triangle bg-triangle-dark bg-triangle-bottom bg-triangle-right"></div>
@@ -117,6 +118,8 @@
 @include('home.publicidad_lateral')
 
 @include('home.servicios_cat')
+
+
 
 
 

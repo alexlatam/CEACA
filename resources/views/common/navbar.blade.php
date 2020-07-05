@@ -16,7 +16,7 @@
     }
   }
 </style>
-<nav class="navbar navbar-expand-xl navbar-type fixed-top">
+<nav class="navbar navbar-expand-xl navbar-type fixed-top py-0">
   <div class="container">
     <a class="navbar-brand" href="{{route('home')}}">
       <img src="{{asset('img/logo.png')}}" alt="" class="brandNavbar">

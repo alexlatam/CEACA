@@ -18,43 +18,60 @@ use App\Service_Category;
 */
 
 /* HOME */
+
 Route::get('/', 'CeacaController@index')->name('home');
 /* NOSOTROS */
 Route::get('/nosotros', function () {
-	return view('nosotros');
+	$publicidad = Ads::All();
+	$servicios = Service::All();
+	$cat_servicios = Service_Category::All();
+	return view('nosotros', [
+		"servicios" => $servicios,
+		"cat_servicios" => $cat_servicios,
+		"publicidad" => $publicidad
+	]);
 })->name('nosotros');
 /* CLUB */
-Route::get('/club', function() {
-	return view('club');
+Route::get('/club', function () {
+	$servicios = Service::All();
+	$cat_servicios = Service_Category::All();
+	$publicidad = Ads::All();
+	return view('club', [
+		"servicios" => $servicios,
+		"cat_servicios" => $cat_servicios,
+		"publicidad" => $publicidad
+	]);
 })->name('club');
 /* SERVICIOS */
-Route::get('/servicios', function() {
+Route::get('/servicios', function () {
 	$servicios = Service::All();
-    $cat_servicios = Service_Category::All();
-    $publicidad = Ads::All();
+	$cat_servicios = Service_Category::All();
+	$publicidad = Ads::All();
 	return view('servicios', [
-        "servicios" => $servicios,
-        "cat_servicios" => $cat_servicios,
-        "publicidad" => $publicidad
-    ]);
+		"servicios" => $servicios,
+		"cat_servicios" => $cat_servicios,
+		"publicidad" => $publicidad
+	]);
 })->name('servicios');
 
 Route::get('/detalles_servicio/{id}', function ($id) {
-    $servicio = Service::find($id);
-    return view('detalles_servicio', ["servicio" => $servicio ] );
+	$servicios = Service::All();
+	$servicio = Service::find($id);
+	$publicidad = Ads::All();
+	return view('detalles_servicio', ["servicios" => $servicios, "servicio" => $servicio, "publicidad" => $publicidad]);
 })->name('detalles_servicio');
 
 /* CONTACTO */
-Route::get('/contacto', function() {
+Route::get('/contacto', function () {
 	return view('home');
 })->name('contacto');
-/* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/ 
+/* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
 Route::middleware('auth')->group(function () {
 
 	Route::get('/cms', 'CmsController@index');
-	Route::get('/cms/subscriptores', 'CmsController@subscribersView' );
-	Route::get('/cms/club', 'CmsController@clubView');
+	Route::get('/cms/subscriptores', 'CmsController@subscribersView');
+	Route::get('/cms/club', 'ClubController@index');
 	Route::get('/cms/categorias', 'CmsController@categoryView');
 	Route::get('/cms/informacion', 'InformationController@index');
 	Route::get('/cms/servicios', 'ServicioController@index');
@@ -63,22 +80,23 @@ Route::middleware('auth')->group(function () {
 	Route::get('/cms/slider/image', 'SliderImageController@index');
 	Route::get('/cms/crear/usuario', 'UserController@index');
 
-		/* ----------  RUTA USUARIOS CONTROLLADOR ---------*/ 
+	/* ----------  RUTA USUARIOS CONTROLLADOR ---------*/
 	Route::post('cms/guardar/usuario', 'UserController@crearUsuario');
 	Route::get('cms/password/usuario/{id}', 'UserController@cambiarContraseña');
 	Route::post('cms/actualizar/password/usuario', 'UserController@actualizarContraseña');
 
-		/* ----------  RUTA CLUB CONTROLLADOR ---------*/ 
+	/* ----------  RUTA CLUB CONTROLLADOR ---------*/
+	Route::get('/cms/miembros', 'CmsController@clubView');
 	Route::post('/club/user/pause/{id}', 'ClubController@pauseClubMember');
 	Route::post('/club/user/active/{id}', 'ClubController@activeClubMember');
 
-		/* ----------  RUTA CATEGORIAS SERVICIOS CONTROLLADOR ---------*/ 
+	/* ----------  RUTA CATEGORIAS SERVICIOS CONTROLLADOR ---------*/
 	Route::get('cms/categoria/{id}', 'CategoryController@getCategory');
 	Route::post('cms/categoria/create', 'CategoryController@createCategory');
 	Route::post('cms/categoria/edit/{id}', 'CategoryController@editCategory');
 	Route::post('cms/categoria/delete/{id}', 'CategoryController@deleteCategory');
 
-		/* ----------  RUTA SERVICIOS CONTROLLADOR ---------*/
+	/* ----------  RUTA SERVICIOS CONTROLLADOR ---------*/
 	Route::get('/cms/servicios/tecnicos', 'ServicioController@serviciosHome');
 	Route::get('/cms/editar/servicio/{id}', 'ServicioController@editarServicio');
 	Route::post('/cms/actualizar/servicio/{id}', 'ServicioController@actualizarServicio');
@@ -86,17 +104,17 @@ Route::middleware('auth')->group(function () {
 	Route::post('/cms/guardar/servicio', 'ServicioController@guardarServicio');
 	Route::post('/cms/eliminar/servicio/{id}', 'ServicioController@eliminarServicio');
 
-	/* ----------  RUTA SERVICE REQUESTS CONTROLLADOR ---------*/ 
+	/* ----------  RUTA SERVICE REQUESTS CONTROLLADOR ---------*/
 	Route::get('/cms/service/requests', 'ServiceRequestsController@index');
 
-		/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/ 
+	/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/
 	Route::get('/cms/crear/publicidad/{tipo}', 'PublicidadController@crearPublicidad');
 	Route::post('/cms/guardar/publicidad', 'PublicidadController@guardarPublicidad');
 	Route::post('/cms/actualizar/publicidad/{id}', 'PublicidadController@actualizarPublicidad');
 	Route::post('/cms/actualizar/imagen/publicidad/{id}', 'PublicidadController@actualizarImagenPublicidad');
 	Route::post('/cms/eliminar/publicidad/{id}', 'PublicidadController@eliminarPublicidad');
 
-	/* ----------  RUTA CURSO CONTROLLADOR ---------*/ 
+	/* ----------  RUTA CURSO CONTROLLADOR ---------*/
 	Route::get('/cms/cursos/home', 'CursoController@cursosHome');
 	Route::get('/cms/crear/curso', 'CursoController@crearCurso');
 	Route::post('/cms/guardar/curso', 'CursoController@guardarCurso');
@@ -104,18 +122,18 @@ Route::middleware('auth')->group(function () {
 	Route::post('/cms/actualizar/curso/{id}', 'CursoController@actualizarCurso');
 	Route::post('/cms/eliminar/curso/{id}', 'CursoController@eliminarCurso');
 
-	/* ----------  RUTA CURSOS REQUESTS CONTROLLADOR ---------*/ 
+	/* ----------  RUTA CURSOS REQUESTS CONTROLLADOR ---------*/
 	Route::get('/cms/cursos/requests', 'CursosRequestsController@index');
 
-	/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/ 
+	/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/
 	Route::post('/cms/guardar/informacion', 'InformationController@actualizarInformacion');
 
-	/* ----------  RUTA IMAGENES SLIDER CONTROLLADOR ---------*/ 
+	/* ----------  RUTA IMAGENES SLIDER CONTROLLADOR ---------*/
 	Route::get('/cms/crear/slider/image', 'SliderImageController@crearImageSlider');
 	Route::post('/cms/guardar/slider/image', 'SliderImageController@guardarImageSlider');
 	Route::post('/cms/actualizar/slider/image/{id}', 'SliderImageController@actualizarImagenSlider');
 
-	/* ----------  RUTA CATEGORIAS CURSOS CONTROLLADOR ---------*/ 
+	/* ----------  RUTA CATEGORIAS CURSOS CONTROLLADOR ---------*/
 	Route::get('/cms/curso/categorias', 'CategoryCourseController@index');
 	Route::post('/cms/crear/curso/categorias', 'CategoryCourseController@guardarCategoria');
 	Route::get('/cms/curso/categoria/{id}', 'CategoryCourseController@obtenerCategoriaCurso');
@@ -126,7 +144,3 @@ Route::middleware('auth')->group(function () {
 /*------------------------------------ END --------------------------*/
 
 Auth::routes();
-
-
-
-
