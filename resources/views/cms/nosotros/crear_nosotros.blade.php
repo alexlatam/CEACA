@@ -5,7 +5,7 @@
 <section class="seccion-crear-publicidad-cms">
 	<div class="container-fluid">
 		<h2 class="my-3">
-			Crear Publicidad
+			Crear Sección
 		</h2>
 		<hr>
 		@if(session('message'))
