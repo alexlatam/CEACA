@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Subscriber;
 use App\Service_Category;
+use App\Plan;
 
 class CmsController extends Controller
 {
@@ -30,4 +31,9 @@ class CmsController extends Controller
     	$categorias = Service_Category::all();
     	return view('cms.categorias')->with(compact('categorias'));
     }
+    public function membresiasView(){
+    	$membresias = Plan::all();
+    	return view('cms.membresias.membresias')->with(compact('membresias'));
+    }
+    
 }

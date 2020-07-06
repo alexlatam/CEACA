@@ -92,6 +92,9 @@ Route::middleware('auth')->group(function () {
 	Route::get('/cms/miembros', 'CmsController@clubView');
 	Route::post('/club/user/pause/{id}', 'ClubController@pauseClubMember');
 	Route::post('/club/user/active/{id}', 'ClubController@activeClubMember');
+	
+	/* ----------  RUTA MEMBRESIAS-CLUB CONTROLLADOR ---------*/
+	Route::get('/cms/membresias', 'CmsController@membresiasView');
 
 	/* ----------  RUTA CATEGORIAS SERVICIOS CONTROLLADOR ---------*/
 	Route::get('cms/categoria/{id}', 'CategoryController@getCategory');
