@@ -10,7 +10,7 @@ class Service extends Model
     protected $table = 'services';
 
     public function categoria(){
-    	return $this->belongsTo('App\Service_Category', 'service_categoria_id');
+    	return $this->belongsTo('App\Service_Category', 'service_category_id');
     }
 
     public function peticiones()

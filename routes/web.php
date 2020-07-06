@@ -151,8 +151,7 @@ Route::middleware('auth:admin')->group(function () {
 
 Auth::routes();
 
-Route::get('/admin/home', 'AdminController@index');
-
+/*-------------------------------LOGIN DE ADMINISTRACION --------------------------*/
 Route::get('admin', 'Admin\loginController@showLoginForm')->name('login.admin');
 Route::post('admin', 'Admin\loginController@login')->name('login.admin');
 
