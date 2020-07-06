@@ -3,25 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Admin;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $usuarios = User::all();
+        $usuarios = Admin::all();
         return view('cms.crear_usuarios')->with(compact('usuarios'));
     }
 
     public function crearUsuario(Request $request)
     {
-        $user = new User;
+        $user = new Admin;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->pais = $request->pais;
-        $user->empresa = $request->empresa;
-        $user->plan_id = 1;
+        // $user->pais = $request->pais;
+        // $user->empresa = $request->empresa;
+        // $user->plan_id = 1;
         $user->password = Hash::make($request->password);
         $user->save();
 
@@ -30,12 +30,12 @@ class UserController extends Controller
     /* Crear Usuario de Club y descargar revista*/
     public function crearUsuarioDownload(Request $request)
     {
-        $user = new User;
+        $user = new Admin;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->pais = $request->pais;
-        $user->empresa = $request->empresa;
-        $user->plan_id = 1;
+        // $user->pais = $request->pais;
+        // $user->empresa = $request->empresa;
+        // $user->plan_id = 1;
         $user->password = Hash::make($request->password);
         $user->save();
         //descargar el archivo
@@ -59,13 +59,13 @@ class UserController extends Controller
 
     public function cambiarContraseña($id)
     {
-        $user = User::find($id);
+        $user = Admin::find($id);
         return view('cms.user_admin.user_password')->with(compact('user'));
     }
 
     public function actualizarContraseña(Request $request)
     {
-        $user = User::find($request->user_id);
+        $user = Admin::find($request->user_id);
         $new_password = $request->password;
 
         if ($new_password === $request->password_verify) {

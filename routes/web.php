@@ -70,7 +70,7 @@ Route::get('/contacto', function () {
 Route::post('/user/create/', 'UserController@crearUsuarioDownload');
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth:admin')->group(function () {
 
 	Route::get('/cms', 'CmsController@index');
 	Route::get('/cms/subscriptores', 'CmsController@subscribersView');
@@ -150,3 +150,9 @@ Route::middleware('auth')->group(function () {
 /*------------------------------------ END --------------------------*/
 
 Auth::routes();
+
+Route::get('/admin/home', 'AdminController@index');
+
+Route::get('admin', 'Admin\loginController@showLoginForm')->name('login.admin');
+Route::post('admin', 'Admin\loginController@login')->name('login.admin');
+
