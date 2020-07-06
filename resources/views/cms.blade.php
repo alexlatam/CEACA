@@ -78,6 +78,12 @@
                 Información General
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cms/nosotros">
+                <span data-feather="file"></span>
+                Nosotros
+              </a>
+            </li>
             <!--li-- class="nav-item">
               <a class="nav-link" href="/cms/subscriptores">
                 <span data-feather="shopping-cart"></span>

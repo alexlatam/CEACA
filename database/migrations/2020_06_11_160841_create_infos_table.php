@@ -17,6 +17,8 @@ class CreateInfosTable extends Migration
             $table->id();
             $table->string('atributo');
             $table->string('valor');
+            $table->string('seccion')->nullable();
+            $table->string('imagen')->nullable();
             $table->timestamps();
         });
     }
