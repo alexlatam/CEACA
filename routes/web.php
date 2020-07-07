@@ -131,7 +131,7 @@ Route::middleware('auth:admin')->group(function () {
 	/* ----------  RUTA CURSOS REQUESTS CONTROLLADOR ---------*/
 	Route::get('/cms/cursos/requests', 'CursosRequestsController@index');
 
-	/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/
+	/* ----------  RUTA INFORMACION CONTROLLADOR ---------*/
 	Route::post('/cms/guardar/informacion', 'InformationController@actualizarInformacion');
 
 	/* ----------  RUTA IMAGENES SLIDER CONTROLLADOR ---------*/
@@ -145,14 +145,19 @@ Route::middleware('auth:admin')->group(function () {
 	Route::get('/cms/curso/categoria/{id}', 'CategoryCourseController@obtenerCategoriaCurso');
 	Route::post('/cms/edit/curso/categoria/{id}', 'CategoryCourseController@editarCategoriaCurso');
 	Route::post('/cms/eliminar/curso/categoria/{id}', 'CategoryCourseController@eliminarCategoriaCurso');
+
+	/* ----------  RUTA NOSOTROS CONTROLLADOR ---------*/
+	Route::get('/cms/nosotros', 'InformationController@informacionNosotros');
+	Route::get('/cms/crear/nosotros', 'InformationController@crearInformacionNosotros');
+	Route::post('/cms/guardar/nosotros', 'InformationController@guardarInformacionNosotros');
+	Route::post('/cms/actualizar/nosotros/{id}', 'InformationController@actualizarNosotros');
 });
 
 /*------------------------------------ END --------------------------*/
 
 Auth::routes();
 
-Route::get('/admin/home', 'AdminController@index');
-
+/*-------------------------------LOGIN DE ADMINISTRACION --------------------------*/
 Route::get('admin', 'Admin\loginController@showLoginForm')->name('login.admin');
 Route::post('admin', 'Admin\loginController@login')->name('login.admin');
 

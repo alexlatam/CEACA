@@ -39,7 +39,10 @@
             <h5 style="display: block">Imagen</h5>
             <input type="file" name="imagen_servicio">
           </div>
-          
+          <div class="col-12 mb-4">
+            <h5 style="display: block">Logo</h5>
+            <input type="file" name="logo_servicio">
+          </div>
           <div class="col-12 mb-5">
             <input type="submit" class="btn btn-primary" value="Crear Servicio">
           </div>
