@@ -29,7 +29,6 @@ class InformationController extends Controller
     	$linkedin = Info::where('atributo', 'linkedin')->first();
     	$instagram = Info::where('atributo', 'instagram')->first();
 
-
     	$telefono1->valor = $request->telefono_uno;
     	$telefono2->valor = $request->telefono_dos;
     	$email->valor = $request->email;
@@ -70,6 +69,7 @@ class InformationController extends Controller
         $nosotros = new Info;
         $nosotros->atributo = $request->nosotros_title;
         $nosotros->valor = $request->nosotros_atributo;
+        $nosotros->valor2 = $request->nosotros_subtitle;
         $nosotros->seccion = 'nosotros';
 
 
@@ -96,6 +96,7 @@ class InformationController extends Controller
         $nosotros = Info::find($id);
         $nosotros->atributo = $request->nosotros_title;
         $nosotros->valor = $request->nosotros_atributo;
+        $nosotros->valor2 = $request->nosotros_subtitle;
 
 
         if($file){

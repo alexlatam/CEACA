@@ -6,6 +6,7 @@ use App\Image_slider;
 use App\Ads;
 use App\Service;
 use App\Service_Category;
+use App\Info;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,12 +21,15 @@ use App\Service_Category;
 /* HOME */
 
 Route::get('/', 'CeacaController@index')->name('home');
+
 /* NOSOTROS */
 Route::get('/nosotros', function () {
 	$publicidad = Ads::All();
+	$nosotros_array = Info::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
 	return view('nosotros', [
+		"nosotros_array" => $nosotros_array,
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
 		"publicidad" => $publicidad
