@@ -20,6 +20,10 @@ use App\Service_Category;
 /* HOME */
 
 Route::get('/', 'CeacaController@index')->name('home');
+
+Route::get('/test', function(){
+	return view('test');
+})->name('test');
 /* NOSOTROS */
 Route::get('/nosotros', function () {
 	$publicidad = Ads::All();
