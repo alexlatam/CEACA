@@ -12,7 +12,7 @@
 		    {{session('message')}}
 		  </div>
 		@endif
-		<form action="/cms/guardar/slider/image" class="row" method="POST" enctype="multipart/form-data">
+		<form action="/cms/guardar/slider/image" class="row" id="form" method="POST" enctype="multipart/form-data">
 			@csrf
 			<div class="form-group col-12">
 				<h5>Titulo <span class="text-muted">(opcional)</span></h5>
@@ -32,12 +32,10 @@
 			</!--div-->
 			<div class="form-group col-12">
 				<h5>Imagen</h5>
-				<input type="file" name="slider_imagen" required>
+				<input type="file" name="slider_imagen" id="file_input" required>
 			</div>
-			<input type="submit" class="btn btn-primary px-5 col-auto" value="Crear Slider">
+			<input type="submit" class="btn btn-primary px-5 col-auto" id="submit_button" value="Crear Slider">
 		</form>
 	</div>
 </section>
-
-
 @endsection

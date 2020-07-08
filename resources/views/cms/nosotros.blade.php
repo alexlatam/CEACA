@@ -20,7 +20,7 @@
                      <img src="{{ asset('img/nosotros/'. $info->imagen) }}" class="publicidades_card-img" alt="">
                 @endif
 				<div class="publicidades_card-body">
-					<form action="/cms/actualizar/nosotros/{{$info->id}}" method="POST" enctype="multipart/form-data">
+					<form action="/cms/actualizar/nosotros/{{$info->id}}" id="nosotros_form" method="POST" enctype="multipart/form-data">
 						@csrf
 						<div class="form-group">
 							<h5 title="Al dar click sobre la publicidad se redireccionara a este enlace">Nombre Sección</h5>
@@ -29,9 +29,9 @@
 						<textarea class="form-control" name="nosotros_atributo">{{$info->valor}}</textarea>
 						<div class="form-group mt-3">
 							<h5>Cambiar Imagen</h5>
-							<input type="file" class="file-input" name="nosotros_imagen">
+							<input type="file" id="nosotros_file" class="file-input" name="nosotros_imagen">
 						</div>
-						<input type="submit" class="btn btn-primary btn-sm" value="Actualizar Sección">
+						<input type="submit" class="btn btn-primary btn-sm" id="nosotros_submit" value="Actualizar Sección">
 					</form>
 				</div>
 			</div>
@@ -40,7 +40,6 @@
 </section>
 <script type="text/javascript">
 	let publicidad_inputs = document.querySelectorAll('.file-input');
-	console.log(publicidad_inputs);
 
 	publicidad_inputs.forEach(input => {
 		input.onchange = function (e){
@@ -56,5 +55,30 @@
 			}
 		}
 	});
+</script>
+	
+<script type="text/javascript">
+let nosotrosSubmit = document.getElementById('nosotros_submit');
+let nosotrosFile = document.getElementById('nosotros_file');
+let nosotrosForm = document.getElementById('nosotros_form')
+
+nosotrosSubmit.addEventListener('click', (e) => {
+	e.preventDefault();
+
+	if(nosotrosFile.files.length <= 0) return;
+
+	const archivo = nosotrosFile.files[0];
+	
+
+	if(archivo.size > maximoBytes) {
+		const alertSize = maximoBytes / 1000000;
+
+		alert(`el tamaño máximo por imagen es ${alertSize} MB`);
+
+		nosotrosFile.value = "";
+	} else {
+		nosotrosForm.submit();
+	}
+});
 </script>
 @endsection
