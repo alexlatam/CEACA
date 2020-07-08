@@ -127,7 +127,7 @@
     </div>
   </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
   let formulario = document.getElementById('form_create_category');
   let botonesEditar = document.querySelectorAll('.editar');

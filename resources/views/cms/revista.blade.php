@@ -52,6 +52,8 @@
   </div>
 </div>
 
+
+
 <script type="text/javascript">
 	document.querySelector('#agregarRevista').addEventListener('click', () =>{
 		document.querySelector('#form_revista').submit();
