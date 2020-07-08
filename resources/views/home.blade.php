@@ -11,10 +11,10 @@
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6">
         <h2 class="text-center mb-4" data-aos="fade-up" data-aos-duration="1000">
-          CALDERAS
+        Calderas - Guía del Usuario
         </h2>
         <p class="text-muted text-center mb-5">
-          REVISTA TÉCNICO-COMERCIAL ESPECIALIZADA EN CALDERAS. EN VERSIÓN DIGITAL
+        REVISTA TÉCNICO-COMERCIAL ESPECIALIZADA EN CALDERAS.  VERSIÓN TRIMESTRAL
         </p>
       </div>
     </div>

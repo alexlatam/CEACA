@@ -20,11 +20,8 @@
                         Ceaca - Combustion, Energia & Ambiente
                     </p>
                     <h1 class="text-white text-center mb-4" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
-                        23 Años formando y capacitando talento humano
+                        23 años sirviendo con calidad y compromiso, en temas de Consultoría, Servicio Técnico y Capacitación en toda Latinoamérica
                     </h1>
-                    <p class="mb-6 text-center text-white" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
-                        Alta interactividad en diversas areas de la ingenieria
-                    </p>
                 </div>
             </div>
         </div>
@@ -34,68 +31,54 @@
 <!-- ABOUT -->
 <section class="fp-section border-bottom">
     <div class="section section-top">
-        <div class="container">
+        @php {{ $x=0; }} @endphp
+        @foreach($nosotros_array as $nosotros)
+        @if($x%2==0)
+        <div class="container mt-5">
             <div class="row align-items-center">
-                <div class="col-md-6 col-lg-5 offset-lg-1">
+                <div class="col-md-6 col-lg-5">
                     <div class="img-effect img-effect-solid mb-5 mb-md-0" data-aos="fade-up" data-aos-duration="1000">
-                        <img src="{{asset('img/nosotros/nosotros2.jpg')}}" class="img-fluid" alt="...">
+                        <img src="{{asset('img/nosotros/'. $nosotros->imagen )}}" class="img-fluid" alt="...">
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 offset-lg-1">
+                <div class="col-md-6 col-lg-5 offset-lg-1">
                     <h2>
-                        Quienes Somos
+                        {{$nosotros->atributo}}
                     </h2>
                     <h2 class="mb-4 text-muted">
-                        23 años sirviendo con calidad, en temas de Consultoría y Capacitación en toda Latinoamérica
+                        {{$nosotros->valor2}}
                     </h2>
                     <p class="text-muted">
-                        Somos una empresa con más de 23 años de experiencia, principalmente enfocada en el área de formación y desarrollo de talento humano, sobre todo a distancia con alta interactividad, en diversas áreas de la ingeniería relacionadas con diseño basado en códigos y normas, operación, mantenimiento, inspección, análisis de fallas y fiabilidad. Contando con Programas de Capacitación diseñados por la misma Combustión, Energía & Ambiente o por las empresas e instituciones representadas y aliadas, basado en las necesidades del mercado o de cada cliente, y programas desarrollados por la Sociedad Americana de Ingenieros Mecánicos (ASME), siendo Proveedor Autorizado de sus cursos (presenciales y a distancia) y programas de especialización.
-                        <br><br>
-                        <strong>Combustión, Energía & Ambiente</strong> ha decidido ser principalmente una organización de servicios a distancia (Online) y en ese sentido estamos permanentemente presentándoles propuesta de actividades de capacitación, interacción gremial – profesional y consultorías virtuales
+                        {{$nosotros->valor}}
                     </p>
                 </div>
             </div>
         </div>
-        <div class="container mt-5 pt-3">
-            <div class="row align-items-center mt-3">
-                <div class="col-md-6 col-lg-4 offset-lg-1">
-                    <h2>
-                        Misión
-                    </h2>
-                    <h2 class="mb-4 text-muted">
-                        Diseñar Soluciones Innovadoras e Integrales de Capacitación
-                    </h2>
-                    <p class="text-muted">
-                    Tenemos como misión ofrecer – diseñar soluciones innovadoras e integrales de capacitación y profesionalización continuos – principalmente a distancia, servicios técnicos e ingeniería en las diferentes áreas de la Mecánica y Mantenimiento de Instalaciones Industriales (potencia, petrolera, petroquímica, manufacturera y comercial): sobre todo con relación a todas las áreas y actividades que implican la Generación y Manejo de Vapor y Prevención de la Corrosión, buscando cubrir y solventar las necesidades existentes en la industria, con ingenieros y técnicos altamente capacitados y comprometidos con su organización y la de nuestros clientes, y basados en los códigos, estándares y regulaciones nacionales que correspondan, buscando satisfacer la mejor relación precio valor.
-                    </p>
-                </div>
-                <div class="col-md-6 col-lg-5 offset-lg-1">
-                    <div class="img-effect img-effect-solid mb-5 mb-md-0" data-aos="fade-up" data-aos-duration="1000">
-                        <img src="{{asset('img/nosotros/nosotros3.jpg')}}" class="img-fluid" alt="...">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container mt-5 pt-3">
+        @else
+        <div class="container mt-5">
             <div class="row align-items-center">
-                <div class="col-md-6 col-lg-5 offset-lg-1">
-                    <div class="img-effect img-effect-solid mb-5 mb-md-0" data-aos="fade-up" data-aos-duration="1000">
-                        <img src="{{asset('img/nosotros/nosotros.jpg')}}" class="img-fluid" alt="...">
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 offset-lg-1">
+                <div class="col-md-6 col-lg-5">
                     <h2>
-                        Visión
+                        {{$nosotros->atributo}}
                     </h2>
                     <h2 class="mb-4 text-muted">
-                        Organización Líder en el Mercado Industrial y Comercial.
+                        {{$nosotros->valor2}}
                     </h2>
                     <p class="text-muted">
-                        Ser en los próximos cinco (5) años una Organización Líder en el Mercado Industrial y Comercial, que genera alto valor agregado a nuestros clientes, como Centro de Capacitación a distancia para la Calificación de Profesionales y Técnicos, y en el desarrollo de soluciones en Servicios Técnicos, Ingeniería, para la Industria en áreas relacionadas con: mantenimiento, inspección, operación e ingeniería de planta del área de Generación de Vapor y Protección contra la Corrosión. Desarrollando Alianzas con organizaciones y empresas reconocidas a nivel internacionalmente.
+                        {{$nosotros->valor}}
                     </p>
+                </div>
+                <div class="col-md-6 col-lg-5 offset-lg-1">
+                    <div class="img-effect img-effect-solid mb-5 mb-md-0" data-aos="fade-up" data-aos-duration="1000">
+                        <img src="{{asset('img/nosotros/'. $nosotros->imagen )}}" class="img-fluid" alt="...">
+                    </div>
                 </div>
             </div>
         </div>
+        @endif
+
+        @php {{ ++$x; }} @endphp
+        @endforeach
     </div>
 </section>
 
