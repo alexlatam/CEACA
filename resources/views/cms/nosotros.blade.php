@@ -31,7 +31,7 @@
 							<h5>Cambiar Imagen</h5>
 							<input type="file" id="nosotros_file" class="file-input" name="nosotros_imagen">
 						</div>
-						<input type="submit" class="btn btn-primary btn-sm" id="nosotros_submit" value="Actualizar Sección">
+						<input type="submit" class="btn btn-primary btn-sm nosotros_submits" value="Actualizar Sección">
 					</form>
 				</div>
 			</div>
@@ -58,27 +58,31 @@
 </script>
 	
 <script type="text/javascript">
-let nosotrosSubmit = document.getElementById('nosotros_submit');
-let nosotrosFile = document.getElementById('nosotros_file');
-let nosotrosForm = document.getElementById('nosotros_form')
+let nosotrosSubmits = document.querySelectorAll('.nosotros_submits');
 
-nosotrosSubmit.addEventListener('click', (e) => {
-	e.preventDefault();
+nosotrosSubmits.forEach( submit => {
+	submit.addEventListener('click', (e) => {
+		e.preventDefault();
+		
+		const nosotrosForm = e.target.parentNode;
+		const nosotrosFile = e.target.parentNode[3];
+		
 
-	if(nosotrosFile.files.length <= 0) return;
+		if(nosotrosFile.files.length <= 0) return;
 
-	const archivo = nosotrosFile.files[0];
-	
+		const archivo = nosotrosFile.files[0];
+		
 
-	if(archivo.size > maximoBytes) {
-		const alertSize = maximoBytes / 1000000;
+		if(archivo.size > maximoBytes) {
+			const alertSize = maximoBytes / 1000000;
 
-		alert(`el tamaño máximo por imagen es ${alertSize} MB`);
+			alert(`el tamaño máximo por imagen es ${alertSize} MB`);
 
-		nosotrosFile.value = "";
-	} else {
-		nosotrosForm.submit();
-	}
+			nosotrosFile.value = "";
+		} else {
+			nosotrosForm.submit();
+		}
+	});
 });
 </script>
 @endsection

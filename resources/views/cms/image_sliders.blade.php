@@ -42,7 +42,7 @@
 							<h5>Cambiar Imagen</h5>
 							<input type="file" id="sliders_file" class="file-input" name="slider_imagen">
 						</div>
-						<input type="submit" class="btn btn-primary px-5" id="sliders_submit" value="Actualizar Slider">
+						<input type="submit" class="btn btn-primary px-5 sliders_submits"  value="Actualizar Slider">
 					</form>
 				</div>
 			</div>
@@ -69,27 +69,34 @@
 </script>
 
 <script type="text/javascript">
-let slidersSubmit = document.getElementById('sliders_submit');
-let slidersFile = document.getElementById('sliders_file');
-let slidersForm = document.getElementById('sliders_form')
+let slidersSubmit = document.querySelectorAll('.sliders_submits');
+//let slidersFile = document.getElementById('sliders_file');
+//let slidersForm = document.getElementById('sliders_form')
 
-slidersSubmit.addEventListener('click', (e) => {
-	e.preventDefault();
 
-	if(slidersFile.files.length <= 0) return;
+slidersSubmit.forEach( submit => {
+	submit.addEventListener('click', (e) => {
+		e.preventDefault();
+		const slidersForm = e.target.parentNode;
 
-	const archivo = slidersFile.files[0];
-	
+		const slidersFile = e.target.parentNode[3];
+		
 
-	if(archivo.size > maximoBytes) {
-		const alertSize = maximoBytes / 1000000;
+		if(slidersFile.files.length <= 0) return;
 
-		alert(`el tamaño máximo por imagen es ${alertSize} MB`);
+		const archivo = slidersFile.files[0];
+		
 
-		slidersFile.value = "";
-	} else {
-		slidersForm.submit();
-	}
+		if(archivo.size > maximoBytes) {
+			const alertSize = maximoBytes / 1000000;
+
+			alert(`el tamaño máximo por imagen es ${alertSize} MB`);
+
+			slidersFile.value = "";
+		} else {
+			slidersForm.submit();
+		}
+	});
 });
 </script>
 
