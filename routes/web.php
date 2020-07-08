@@ -155,6 +155,13 @@ Route::middleware('auth:admin')->group(function () {
 	Route::get('/cms/crear/nosotros', 'InformationController@crearInformacionNosotros');
 	Route::post('/cms/guardar/nosotros', 'InformationController@guardarInformacionNosotros');
 	Route::post('/cms/actualizar/nosotros/{id}', 'InformationController@actualizarNosotros');
+
+	/* ----------  RUTA REVISTA CONTROLLADOR ---------*/
+	Route::get('/cms/revista', 'RevistaController@index');
+	Route::post('/cms/load/file', 'RevistaController@cargandoRevista');
+	Route::get('/cms/obtener/revista/{id}', 'RevistaController@obtenerRevista');
+	Route::post('/cms/actualizar/revista/{id}', 'RevistaController@actualizarRevista');
+	Route::post('/cms/revista/eliminar/{id}', 'RevistaController@eliminarRevista');
 });
 
 /*------------------------------------ END --------------------------*/

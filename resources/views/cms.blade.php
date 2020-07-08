@@ -84,12 +84,12 @@
                 Nosotros
               </a>
             </li>
-            <!--li-- class="nav-item">
-              <a class="nav-link" href="/cms/subscriptores">
-                <span data-feather="shopping-cart"></span>
-                Subscriptores
+            <li class="nav-item">
+              <a class="nav-link" href="/cms/revista">
+                <span data-feather="users"></span>
+                Revista
               </a>
-            </!--li-->
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="/cms/club">
                 <span data-feather="users"></span>
@@ -182,6 +182,7 @@
     </div>
   </div>
 
+  <script src="{{asset('js/input_size.js')}}"></script>
   <script src="{{asset('vendor/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
   <script type="text/javascript">

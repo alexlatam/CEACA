@@ -7,11 +7,13 @@ use App\User;
 use App\Subscriber;
 use App\Service_Category;
 use App\Plan;
+use App\Revista;
 
 class CmsController extends Controller
 {
     public function index(){
-    	return view('cms.index');
+    	$revistas = Revista::all();
+        return view('cms.index')->with(compact('revistas'));
     }
     public function subscribersView(){
     	$subscriptores = Subscriber::all();

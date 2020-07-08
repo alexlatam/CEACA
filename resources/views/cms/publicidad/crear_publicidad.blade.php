@@ -13,7 +13,7 @@
 		    {{session('message')}}
 		  </div>
 		@endif
-		<form action="/cms/guardar/publicidad" class="row" method="POST" enctype="multipart/form-data">
+		<form action="/cms/guardar/publicidad" id="form" class="row" method="POST" enctype="multipart/form-data">
 			@csrf
 			<!--div-- class="form-group">
 				<h5>Tipo</h5>
@@ -29,10 +29,10 @@
 			</div>
 			<div class="form-group col-12">
 				<h5>Imagen</h5>
-				<input type="file" name="publicidad_imagen">
+				<input type="file" id="file_input" name="publicidad_imagen">
 			</div>
 			<input type="hidden" value={{$tipo}} name="publicidad_tipo">
-			<input type="submit" class="btn btn-primary px-5 col-auto" value="Crear Publicidad">
+			<input type="submit" class="btn btn-primary px-5 col-auto" id="submit_button" value="Crear Publicidad">
 		</form>
 	</div>
 </section>

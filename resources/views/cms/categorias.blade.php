@@ -84,7 +84,7 @@
           </div>
           <div class="form-group">
             <h5>Imagen</h5>
-            <input type="file" name="category_image">
+            <input type="file" id="categorias_file" name="category_image">
           </div>
         </form>
       </div>
@@ -116,7 +116,7 @@
             <textarea class="form-control" id="categoria_descripcion" name="category_description"></textarea>
           </div>
           <div class="form-group">
-            <input type="file" name="category_image">
+            <input type="file" id="categorias_editar_file" name="category_image">
           </div>
         </form>
       </div>
@@ -127,18 +127,50 @@
     </div>
   </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
-  let formulario = document.getElementById('form_create_category');
+  let formularioCategorias = document.getElementById('form_create_category');
   let botonesEditar = document.querySelectorAll('.editar');
   let formEdit = document.getElementById('form_edit_category');
 
-  document.getElementById('agregarCategoria').addEventListener('click', () => {
-    formulario.submit();
+  let crearImagen = document.getElementById('categorias_file');
+  let editarImagen = document.getElementById('categorias_editar_file');
+
+  document.getElementById('agregarCategoria').addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if(crearImagen.files.length <= 0) return;
+
+    const archivo = crearImagen.files[0];
+
+    if(archivo.size > maximoBytes) {
+      const alertSize = maximoBytes / 1000000;
+
+      alert(`el tamaño máximo por imagen es ${alertSize} MB`);
+
+      crearImagen.value = "";
+    } else {
+      formularioCategorias.submit();
+    }
   });
 
   document.getElementById('editarCategoria').addEventListener('click', () => {
-    formEdit.submit();
+
+    if(editarImagen.files.length <= 0) return;
+
+    const archivo = editarImagen.files[0];
+
+    if(archivo.size > maximoBytes) {
+      const alertSize = maximoBytes / 1000000;
+
+      alert(`el tamaño máximo por imagen es ${alertSize} MB`);
+
+      editarImagen.value = "";
+    } else {
+      formEdit.submit();;
+    }
+
+    
   });
 
   botonesEditar.forEach(boton => {
@@ -157,4 +189,5 @@
   });
 
 </script>
+
 @endsection
