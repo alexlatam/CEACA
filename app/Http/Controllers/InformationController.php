@@ -11,19 +11,22 @@ class InformationController extends Controller
     public function index(){
     	$telefono1 = Info::where('atributo', 'telefono 1')->first();
     	$telefono2 = Info::where('atributo', 'telefono 2')->first(); ;
-    	$email = Info::where('atributo', 'email')->first();
+        $email = Info::where('atributo', 'email')->first();
+        $direccion = Info::where('atributo', 'direccion')->first();
     	$twitter = Info::where('atributo', 'twitter')->first();
     	$facebook = Info::where('atributo', 'facebook')->first();
     	$linkedin = Info::where('atributo', 'linkedin')->first();
-    	$instagram = Info::where('atributo', 'instagram')->first();
+        $instagram = Info::where('atributo', 'instagram')->first();
+        
 
-    	return view('cms.informacion')->with(compact('telefono1', 'telefono2', 'twitter', 'facebook', 'linkedin', 'instagram', 'email'));
+    	return view('cms.informacion')->with(compact('telefono1', 'telefono2', 'direccion', 'twitter', 'facebook', 'linkedin', 'instagram', 'email'));
     }
 
     public function actualizarInformacion(Request $request){
     	$telefono1 = Info::where('atributo', 'telefono 1')->first();
     	$telefono2 = Info::where('atributo', 'telefono 2')->first(); ;
-    	$email = Info::where('atributo', 'email')->first();
+        $email = Info::where('atributo', 'email')->first();
+        $direccion = Info::where('atributo', 'direccion')->first();
     	$twitter = Info::where('atributo', 'twitter')->first();
     	$facebook = Info::where('atributo', 'facebook')->first();
     	$linkedin = Info::where('atributo', 'linkedin')->first();
@@ -31,7 +34,8 @@ class InformationController extends Controller
 
     	$telefono1->valor = $request->telefono_uno;
     	$telefono2->valor = $request->telefono_dos;
-    	$email->valor = $request->email;
+        $email->valor = $request->email;
+        $direccion->valor = $request->direccion;
     	$twitter->valor = $request->twitter;
     	$facebook->valor = $request->facebook;
     	$linkedin->valor = $request->linkedin;
@@ -39,7 +43,8 @@ class InformationController extends Controller
 
     	$telefono1->save();
     	$telefono2->save();
-    	$email->save();
+        $email->save();
+        $direccion->save();
     	$twitter->save();
     	$facebook->save();
     	$linkedin->save();

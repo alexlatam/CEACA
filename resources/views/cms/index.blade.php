@@ -20,7 +20,7 @@
 	@endif
 
 	<div class="table-responsive">
-	  <table class="table table-striped table-sm">
+	  <!--table-- class="table table-striped table-sm">
 	    <thead>
 	      <tr>
 	        <th>#</th>
@@ -45,7 +45,7 @@
 	        </tr>
 	      @endforeach
 	    </tbody>
-	  </table>
+	  </!--table-->
 	</div>
 
 	<div class="modal fade" id="modalRevista" tabindex="-1" role="dialog" aria-labelledby="modalRevista" aria-hidden="true" >

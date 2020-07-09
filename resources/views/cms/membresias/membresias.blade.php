@@ -40,9 +40,9 @@
           <tr>
             <td>{{$membresia->id}}</td>
             <td>
-              @if(substr($membresias->imagen, 0, 4) === 'http')
+              @if(substr($membresia->imagen, 0, 4) === 'http')
                   <img src="{{ $membresia->imagen }}" class="publicidades_card-img" alt="" style="width: 40px; height: 40px;">
-              @elseif($membresias->imagen)
+              @elseif($membresia->imagen)
                    <img src="{{ asset('img/membresias/'. $membresia->imagen) }}" alt="" style="width: 40px; height: 40px;">
               @endif
             </td>
@@ -73,7 +73,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/cms/categoria/create" method="POST" id="form_create_category" enctype="multipart/form-data">
+        <form action="/cms/membresia/create" method="POST" id="form_create_category" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
             <h5>Nombre de la membresía</h5>
@@ -84,14 +84,18 @@
             <textarea class="form-control" name="category_description" required></textarea>
           </div>
           <div class="form-group">
+            <h5>Costo</h5>
+            <input class="form-control"  type="number" name="category_monto" required>
+          </div>
+          <div class="form-group">
             <h5>Imagen</h5>
             <input type="file" name="category_image">
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="agregarCategoria">Crear Categoria</button>
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success px-5" id="agregarCategoria">Crear Membresía</button>
       </div>
     </div>
   </div>
@@ -122,14 +126,13 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="editarCategoria">Editar Membresia</button>
+        <button type="button" class="btn btn-otuline-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success px-5" id="editarCategoria">Editar Membresia</button>
       </div>
     </div>
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
   let formulario = document.getElementById('form_create_category');
   let botonesEditar = document.querySelectorAll('.editar');

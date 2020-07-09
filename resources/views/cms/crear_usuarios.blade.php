@@ -26,7 +26,7 @@
 					<input class="form-control"  type="password" name="password" value="" placeholder="contraseña">
 				</div>
 				<div class="col-12 mb-5">
-					<input type="submit" class="btn btn-primary" value="Crear Usuario">
+					<input type="submit" class="btn btn-success px-4" value="Crear Usuario">
 				</div>
 			</div>
 		</form>
@@ -50,7 +50,7 @@
 	          <td>{{$usuario->email}}</td>
 	          <td class="d-flex">
 	            <a href="/cms/password/usuario/{{$usuario->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Cambiar contraseña</a>
-	            <form action="" method="POST">
+	            <form action="/cms/delete/usuario/{{$usuario->id}}" method="POST">
 	              @csrf
 	              <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-success">
 	            </form>

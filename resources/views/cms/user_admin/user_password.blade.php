@@ -23,7 +23,7 @@
 					<input class="form-control"  type="password" name="password_verify" value="" placeholder="contraseña">
 				</div>
 				<div class="col-12 mb-5">
-					<input type="submit" class="btn btn-primary" value="Actualizar Contraseña">
+					<input type="submit" class="btn btn-success px-5" value="Actualizar Contraseña">
 				</div>
 			</div>
 		</form>

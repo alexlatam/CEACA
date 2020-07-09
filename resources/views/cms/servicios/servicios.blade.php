@@ -25,8 +25,8 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Imagen</th>
           <th>Logo</th>
+          <th>Imagen</th>
           <th>Titulo</th>
           <th>Descripción</th>
           <th>Acciones</th>
@@ -37,9 +37,9 @@
           <tr>
             <td>{{$servicio->id}}</td>
             <td>
-              @if(substr($servicio->imagen, 0, 4) === 'http')
-                  <img src="{{ $servicio->imagen }}" class="publicidades_card-img" alt="" style="width: 40px; height: 40px;">
-              @elseif($servicio->imagen)
+              @if(substr($servicio->logo, 0, 4) === 'http')
+                  <img src="{{ $servicio->logo }}" class="publicidades_card-img" alt="" style="width: 40px; height: 40px;">
+              @elseif($servicio->logo)
                    <img src="{{ asset('img/services/logos/'. $servicio->logo) }}" alt="" style="width: 40px; height: 40px;">
               @endif
             </td>

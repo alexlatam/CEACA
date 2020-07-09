@@ -13,14 +13,14 @@
 			{{session('message')}}
 		</div>
 		@endif
-		<form action="/cms/guardar/nosotros" class="row" id="form" method="POST" enctype="multipart/form-data">
+		<form action="/cms/guardar/nosotros" class="row" method="POST" enctype="multipart/form-data">
 			@csrf
 			<div class="form-group col-12">
-				<h5 title="Al dar click sobre la publicidad se redireccionara a este enlace">Titulo Sección</h5>
+				<h5>Titulo de la sección</h5>
 				<input type="text" name="nosotros_title" placeholder="Titulo..." class="form-control">
 			</div>
 			<div class="form-group col-12">
-				<h5 title="Al dar click sobre la publicidad se redireccionara a este enlace">Subtitulo Sección</h5>
+				<h5>Subtitulo de la sección</h5>
 				<input type="text" name="nosotros_subtitle" placeholder="SubTitulo..." class="form-control">
 			</div>
 			<div class="form-group col-12">
@@ -29,10 +29,14 @@
 			</div>
 			<div class="form-group col-12">
 				<h5>Imagen</h5>
-				<input type="file" id="file_input" name="nosotros_imagen">
+				<input type="file" name="nosotros_imagen">
 			</div>
-			<input type="submit" class="btn btn-primary px-5 col-auto" value="Crear sección">
+			<div class="col-auto mt-3">
+				<input type="submit" class="btn btn-success px-5 col-auto" value="Crear sección">
+			</div>
 		</form>
 	</div>
 </section>
+
+
 @endsection

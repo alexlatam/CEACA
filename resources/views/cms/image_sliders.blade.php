@@ -8,7 +8,7 @@
 			<h3 class="h2">Imagenes Slider</h3>
 			<div class="btn-toolbar mb-2 mb-md-0">
 			  <div class="btn-group mr-2">
-			    <a href="/cms/crear/slider/image" type="button" class="btn btn-sm btn-outline-success">Agregar Imagen a slider</a>
+			    <a href="/cms/crear/slider/image" type="button" class="btn btn-sm btn-outline-success px-5">Agregar Slider</a>
 			  </div>
 			</div>	
 		</div>
@@ -20,7 +20,7 @@
                      <img src="{{ asset('/img/banners/'. $slider->imagen) }}" class="publicidades_card-img" alt="">
                 @endif
 				<div class="publicidades_card-body">			
-					<form action="/cms/actualizar/slider/image/{{$slider->id}}" id="sliders_form" method="POST" enctype="multipart/form-data">
+					<form action="/cms/actualizar/slider/image/{{$slider->id}}" method="POST" enctype="multipart/form-data">
 						@csrf
 						<div class="form-group">
 							<h5>Titulo</h5>
@@ -40,9 +40,9 @@
 						</!--div-->
 						<div class="form-group">
 							<h5>Cambiar Imagen</h5>
-							<input type="file" id="sliders_file" class="file-input" name="slider_imagen">
+							<input type="file" class="file-input" name="slider_imagen">
 						</div>
-						<input type="submit" class="btn btn-primary px-5 sliders_submits"  value="Actualizar Slider">
+						<input type="submit" class="btn btn-success px-5 mt-3" value="Actualizar Slider">
 					</form>
 				</div>
 			</div>
@@ -52,6 +52,8 @@
 </section>
 <script type="text/javascript">
 	let publicidad_inputs = document.querySelectorAll('.file-input');
+	console.log(publicidad_inputs);
+
 	publicidad_inputs.forEach(input => {
 		input.onchange = function (e){
 			let padre = e.target.parentNode.parentNode.parentNode.parentNode
@@ -64,41 +66,10 @@
 			reader.onload = function (){
 				imgContainer.src = reader.result;
 			}
+
+			
+
 		}
 	});
 </script>
-
-<script type="text/javascript">
-let slidersSubmit = document.querySelectorAll('.sliders_submits');
-//let slidersFile = document.getElementById('sliders_file');
-//let slidersForm = document.getElementById('sliders_form')
-
-
-slidersSubmit.forEach( submit => {
-	submit.addEventListener('click', (e) => {
-		e.preventDefault();
-		const slidersForm = e.target.parentNode;
-
-		const slidersFile = e.target.parentNode[3];
-		
-
-		if(slidersFile.files.length <= 0) return;
-
-		const archivo = slidersFile.files[0];
-		
-
-		if(archivo.size > maximoBytes) {
-			const alertSize = maximoBytes / 1000000;
-
-			alert(`el tamaño máximo por imagen es ${alertSize} MB`);
-
-			slidersFile.value = "";
-		} else {
-			slidersForm.submit();
-		}
-	});
-});
-</script>
-
-
 @endsection

@@ -8,18 +8,18 @@
 			Crear Imagen Slider
 		</h2>
 		@if(session('message'))
-		  <div class="alert alert-success" role="alert">
-		    {{session('message')}}
-		  </div>
+		<div class="alert alert-success" role="alert">
+			{{session('message')}}
+		</div>
 		@endif
-		<form action="/cms/guardar/slider/image" class="row" id="form" method="POST" enctype="multipart/form-data">
+		<form action="/cms/guardar/slider/image" class="row" method="POST" enctype="multipart/form-data">
 			@csrf
 			<div class="form-group col-12">
 				<h5>Titulo <span class="text-muted">(opcional)</span></h5>
 				<input type="text" name="slider_titulo" placeholder="Titulo..." class="form-control">
 			</div>
 			<div class="form-group col-12">
-			<h5 title="Pequeña descripción que se mostrara en el Banner">Descripción <span class="text-muted">(opcional)</span></h5>
+				<h5 title="Pequeña descripción que se mostrara en el Banner">Descripción <span class="text-muted">(opcional)</span></h5>
 				<textarea class="form-control" name="slider_descripcion"></textarea>
 			</div>
 			<!--div-- class="form-group col-12">
@@ -32,10 +32,15 @@
 			</!--div-->
 			<div class="form-group col-12">
 				<h5>Imagen</h5>
-				<input type="file" name="slider_imagen" id="file_input" required>
+				<input type="file" name="slider_imagen" required>
 			</div>
-			<input type="submit" class="btn btn-primary px-5 col-auto" id="submit_button" value="Crear Slider">
+			<div class="col-auto">
+				<input type="submit" class="btn btn-success px-5 mt-4" value="Crear Slider">
+			</div>
+
 		</form>
 	</div>
 </section>
+
+
 @endsection

@@ -15,7 +15,7 @@
           {{session('message')}}
         </div>
       @endif
-      <form action="/cms/guardar/servicio" id="form" method="POST" enctype="multipart/form-data">
+      <form action="/cms/guardar/servicio" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
           <div class="col-12 mb-4">
@@ -37,14 +37,14 @@
           </div>
           <div class="col-12 mb-4">
             <h5 style="display: block">Imagen</h5>
-            <input type="file" id="file_input" name="imagen_servicio">
+            <input type="file" name="imagen_servicio">
           </div>
           <div class="col-12 mb-4">
             <h5 style="display: block">Logo</h5>
-            <input type="file" id="file_logo" name="logo_servicio">
+            <input type="file" name="logo_servicio">
           </div>
           <div class="col-12 mb-5">
-            <input type="submit" class="btn btn-primary" id="submit_button" value="Crear Servicio">
+            <input type="submit" class="btn btn-success px-5" value="Crear Servicio">
           </div>
         </div>
       </form>

@@ -28,6 +28,20 @@
         font-size: 3.5rem;
       }
     }
+
+    .nav-item:hover {
+      background-color: #4e8b3d;
+
+    }
+
+    .nav-item:hover .nav-link {
+      color: #fff;
+
+    }
+
+    #sing_out:hover {
+      background-color: inherit !important;
+    }
   </style>
   <!-- Custom styles for this template -->
   <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
@@ -40,7 +54,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
+      <li class="nav-item text-nowrap" id="sing_out">
         <form action="/logout" method="POST" id="form_salir_sesion">
           @csrf
           <a class="nav-link" onclick="cerrarSesion()" href="#">Sign out</a>
@@ -61,27 +75,27 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/cms/crear/usuario">
-                <span data-feather="users"></span>
-                Crear Usuarios Administrativos
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/cms/slider/image">
-                <span data-feather="users"></span>
-                Imagenes Slider
-              </a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="/cms/informacion">
                 <span data-feather="file"></span>
                 Información General
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/cms/crear/usuario">
+                <span data-feather="users"></span>
+                Usuarios de la administración
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cms/slider/image">
+                <span data-feather="users"></span>
+                Imagenes Slider - Página Principal
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/cms/nosotros">
                 <span data-feather="file"></span>
-                Nosotros
+                Sección de Nosotros (Quienes Somos)
               </a>
             </li>
             <li class="nav-item">

@@ -13,12 +13,7 @@ class DatabaseSeeder extends Seeder
     {   
          $this->call(SubscriberSeeder::class);
 
-         DB::table('plans')->insert([
-            'title' => 'inicial',
-            'description' => '000',
-            'imagen' => 'imagen',
-            'monto' => '100000',
-         ]);
+         
     	 $this->call(UserSeeder::class);
          $this->call(InformationSeeder::class);
 

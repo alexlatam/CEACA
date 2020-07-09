@@ -91,6 +91,7 @@ Route::middleware('auth:admin')->group(function () {
 	Route::post('cms/guardar/usuario', 'UserController@crearUsuario');
 	Route::get('cms/password/usuario/{id}', 'UserController@cambiarContraseña');
 	Route::post('cms/actualizar/password/usuario', 'UserController@actualizarContraseña');
+	Route::post('cms/delete/usuario/{id}', 'UserController@deleteUsuario');
 
 	/* ----------  RUTA CLUB CONTROLLADOR ---------*/
 	Route::get('/cms/miembros', 'CmsController@clubView');
@@ -99,6 +100,7 @@ Route::middleware('auth:admin')->group(function () {
 	
 	/* ----------  RUTA MEMBRESIAS-CLUB CONTROLLADOR ---------*/
 	Route::get('/cms/membresias', 'CmsController@membresiasView');
+	Route::post('cms/membresia/create', 'PlanController@createCategory');
 
 	/* ----------  RUTA CATEGORIAS SERVICIOS CONTROLLADOR ---------*/
 	Route::get('cms/categoria/{id}', 'CategoryController@getCategory');

@@ -27,6 +27,11 @@ class InformationSeeder extends Seeder
         ]);
 
         DB::table('infos')->insert([
+        	'atributo' => 'direccion',
+        	'valor' => 'Madrid, España',
+        ]);
+
+        DB::table('infos')->insert([
         	'atributo' => 'twitter',
         	'valor' => '@twitter',
         ]);
