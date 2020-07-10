@@ -8,7 +8,7 @@
 			<h3 class="h2">Nosotros</h3>
 			<div class="btn-toolbar mb-2 mb-md-0">
 				<div class="btn-group mr-2">
-					<a href="/cms/crear/nosotros" type="button" class="btn btn-sm btn-outline-success">Agregar Sección</a>
+					<a href="/cms/crear/nosotros" type="button" class="btn btn-sm btn-outline-success px-5">Agregar Sección</a>
 				</div>
 			</div>
 		</div>

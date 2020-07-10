@@ -4,9 +4,16 @@
 @section('content')
 <section class="seccion-crear-publicidad-cms">
 	<div class="container-fluid">
-		<h2 class="my-3">
-			Crear Imagen Slider
-		</h2>
+		<div class="row align-items-center">
+			<h2 class="my-3">
+				Crear Imagen Slider
+			</h2>
+			<div class="col-auto ml-auto">
+			<a href="/cms/slider/image" class="btn btn-sm btn-outline-success px-5">Volver</a>
+			</div>
+			
+		</div>
+		<hr>
 		@if(session('message'))
 		<div class="alert alert-success" role="alert">
 			{{session('message')}}
