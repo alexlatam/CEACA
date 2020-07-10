@@ -1,5 +1,5 @@
-<footer class="d-none d-md-block" style="background-image: url({{asset('img/footer.jpg')}});position:relative;width:100%;height:60vh;padding:7rem 0;">
-    <div class="container">
+<footer class="d-none d-md-block" style="background-image: url({{asset('img/footer.jpg')}});background-position: center; background-repeat: no-repeat;background-size: cover;width:100%;height:60vh;padding:4rem 0;">
+    <!--div-- class="container">
         <div class="row">
             <div class="col-md-6 text-center py-5" style="border-right: solid 2px #fff;">
                 <img src="{{asset('img/iconos/footer1.png')}}" alt="" width="50%">
@@ -17,10 +17,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </!--div-->
 </footer>
-<footer class="d-md-none" style="background-image: url({{asset('img/footer.jpg')}});position:relative;width:100%;height:auto;padding:4rem 0;">
-    <div class="container">
+<footer class="d-md-none" style="background-image: url({{asset('img/footer.jpg')}});background-position: center; background-repeat: no-repeat;background-size: cover;width:100%;height:auto;padding:4rem 0;">
+    <!--div class="container">
         <div class="row">
             <div class="col-12 text-center py-3">
                 <img src="{{asset('img/iconos/footer1.png')}}" alt="" width="75%">
@@ -38,5 +38,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </!--div-->
 </footer>

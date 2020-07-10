@@ -67,7 +67,7 @@ Route::get('/detalles_servicio/{id}', function ($id) {
 
 /* CONTACTO */
 Route::get('/contacto', function () {
-	return view('home');
+	return view('contacto');
 })->name('contacto');
 
 /* SUSCRIBIRSE Y DESCARGAR REVISTA */
@@ -100,7 +100,8 @@ Route::middleware('auth:admin')->group(function () {
 	
 	/* ----------  RUTA MEMBRESIAS-CLUB CONTROLLADOR ---------*/
 	Route::get('/cms/membresias', 'CmsController@membresiasView');
-	Route::post('cms/membresia/create', 'PlanController@createCategory');
+	Route::post('cms/membresia/create', 'PlanController@createPlan');
+	Route::post('cms/membresia/update/{id}', 'PlanController@updatePlan');
 
 	/* ----------  RUTA CATEGORIAS SERVICIOS CONTROLLADOR ---------*/
 	Route::get('cms/categoria/{id}', 'CategoryController@getCategory');
