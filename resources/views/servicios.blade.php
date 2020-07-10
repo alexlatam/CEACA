@@ -26,31 +26,37 @@
 </section>
 
 
-<section>
+<section class="mb-4">
     <div class="container section pb-0">
         <div class="row align-items-stretch">
-            @for ($i = 0; $i < 2; $i++)
+        @php {{$x=0;}} @endphp
+            @foreach ($servicios as $servicio)
+            @if($x>3)
+            @break
+            @endif
             <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                <a class="card h-100" href="detalles_servicio/{{$servicios[$i]->id}}">
+                <a class="card h-100" href="detalles_servicio/{{$servicio->id}}">
                     <div class="card-body">
                         <div class="row align-items-center no-gutters mb-4">
                             <div class="col-auto">
                                 <div class="avatar mr-3">
-                                    <img src="{{asset('img/services/' . $servicios[$i]->imagen )}}" alt="..." class="img-cover rounded-circle">
+                                    <img src="{{asset('img/services/' . $servicio->imagen )}}" alt="..." class="img-cover rounded-circle">
                                 </div>
                             </div>
                         </div>
                         <h4>
-                            {{ $servicios[$i]->titulo }}
+                            {{ $servicio->titulo }}
                         </h4>
                         <p class="mb-0 text-sm text-muted">
-                        @php {{ $descripcion = substr($servicios[$i]->descripcion,0,100).'...'; }} @endphp
+                        @php {{ $descripcion = substr($servicio->descripcion,0,100).'...'; }} @endphp
                             {{ $descripcion }}
                         </p>
                     </div>
                 </a>
             </div>
-            @endfor
+            @php {{++$x;}} @endphp
+            
+            @endforeach
         </div>
     </div>
 </section>
@@ -71,7 +77,6 @@
                         {{ $categoria->name }}
                     </a>
                     @endforeach
-
                 </nav>
             </div>
             <div class="col-12 col-md-9 col-lg-10 order-md-1">
@@ -93,8 +98,8 @@
                 <hr class="my-4">
                 @endforeach
             </div>
-        </div> <!-- / .row -->
-    </div> <!-- / .container -->
+        </div>
+    </div>
 </section>
 
 

@@ -33,6 +33,7 @@
     <div class="section section-top">
         @php {{ $x=0; }} @endphp
         @foreach($nosotros_array as $nosotros)
+        @if($nosotros->seccion == 'nosotros')
         @if($x%2==0)
         <div class="container mt-5">
             <div class="row align-items-center">
@@ -76,7 +77,7 @@
             </div>
         </div>
         @endif
-
+        @endif
         @php {{ ++$x; }} @endphp
         @endforeach
     </div>

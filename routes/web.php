@@ -66,12 +66,10 @@ Route::get('/detalles_servicio/{id}', function ($id) {
 })->name('detalles_servicio');
 
 /* CONTACTO */
-Route::get('/contacto', function () {
-	return view('contacto');
-})->name('contacto');
+Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
 
 /* SUSCRIBIRSE Y DESCARGAR REVISTA */
-Route::post('/user/create/', 'UserController@crearUsuarioDownload');
+Route::post('/user/createMagazine/', 'ClubController@crearUsuarioDownload');
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
 Route::middleware('auth:admin')->group(function () {

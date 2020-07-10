@@ -55,4 +55,6 @@ class UserController extends Controller
         $user->delete();
         return back()->with('message', 'Usuario eliminado con éxito');
     }
+
+
 }

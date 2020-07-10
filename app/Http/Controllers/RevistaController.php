@@ -9,7 +9,8 @@ class RevistaController extends Controller
 {
     public function index()
     {
-    	return view('cms.revista');
+		$revistas = Revista::all();
+    	return view('cms.revista')->with(compact('revistas'));
     }
 
     public function obtenerRevista($id)

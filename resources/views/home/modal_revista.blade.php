@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/user/create/" method="POST">
+            <form action="/user/createMagazine/" method="POST">
                 <div class="modal-body">
                     @csrf
                     <div class="form-group">

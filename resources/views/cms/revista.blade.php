@@ -4,6 +4,7 @@
 <section>
 <div class="row mt-4">
 <h4>Revista</h4>
+    <button type="button" class="btn btn-sm btn-outline-success col-auto ml-auto mr-4" data-toggle="modal" data-target="#modalRevista">Agregar Revista</button>
 </div>
 <hr>
   @if(session('message'))
@@ -17,10 +18,34 @@
           {{session('error')}}
         </div>
   @endif
-  <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalRevista">Agregar Revista</button>
-  </div>
+  
 </section>
+	  <table class="table table-striped table-sm">
+	    <thead>
+	      <tr>
+	        <th>#</th>
+	        <th>Titulo</th>
+	        <th>Fecha</th>
+	        <th>Acciones</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      @foreach($revistas as $revista)
+	        <tr>
+	          <td>{{$revista->id}}</td>
+	          <td>{{$revista->titulo}}</td>
+	          <td>{{$revista->created_at}}</td>
+	          <td class="d-flex ">
+	            <button type="button" id="{{ $revista->id }}" class="btn btn-sm btn-outline-success mr-2 editar"  data-toggle="modal" data-target="#modalRevista">Editar</button>
+	            <form action="/cms/revista/eliminar/{{$revista->id}}" method="POST">
+	              @csrf
+	              <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-success">
+	            </form>
+	          </td>
+	        </tr>
+	      @endforeach
+	    </tbody>
+	  </table>
 
 <div class="modal fade" id="modalRevista" tabindex="-1" role="dialog" aria-labelledby="modalRevista" aria-hidden="true">
   <div class="modal-dialog" role="document">

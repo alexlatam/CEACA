@@ -90,7 +90,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-successpx-4" id="agregarCategoria">Crear Categoria</button>
+        <button type="button" class="btn btn-success px-4" id="agregarCategoria">Crear Categoria</button>
       </div>
     </div>
   </div>

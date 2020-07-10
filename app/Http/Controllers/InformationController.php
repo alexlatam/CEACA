@@ -22,6 +22,20 @@ class InformationController extends Controller
     	return view('cms.informacion')->with(compact('telefono1', 'telefono2', 'direccion', 'twitter', 'facebook', 'linkedin', 'instagram', 'email'));
     }
 
+    public function contactoView(){
+    	$telefono1 = Info::where('atributo', 'telefono 1')->first();
+    	$telefono2 = Info::where('atributo', 'telefono 2')->first(); ;
+        $email = Info::where('atributo', 'email')->first();
+        $direccion = Info::where('atributo', 'direccion')->first();
+    	$twitter = Info::where('atributo', 'twitter')->first();
+    	$facebook = Info::where('atributo', 'facebook')->first();
+    	$linkedin = Info::where('atributo', 'linkedin')->first();
+        $instagram = Info::where('atributo', 'instagram')->first();
+        
+
+    	return view('contacto')->with(compact('telefono1', 'telefono2', 'direccion', 'twitter', 'facebook', 'linkedin', 'instagram', 'email'));
+    }
+
     public function actualizarInformacion(Request $request){
     	$telefono1 = Info::where('atributo', 'telefono 1')->first();
     	$telefono2 = Info::where('atributo', 'telefono 2')->first(); ;

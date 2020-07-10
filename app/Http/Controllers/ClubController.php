@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Revista;
 use Illuminate\Support\Facades\Hash;
 
 class ClubController extends Controller
@@ -23,10 +24,12 @@ class ClubController extends Controller
         $user->pais = $request->pais;
         $user->empresa = $request->empresa;
         // $user->plan_id = 1;
-        $user->password = Hash::make($request->password);
+        //$user->password = Hash::make($request->password);
         $user->save();
         //descargar el archivo
-        $fileName = basename('fichero.txt');
+        $revista = Revista::all();
+        $file = $revista[0]->archivo;
+        $fileName = basename($file);
         $filePath = 'revista/' . $fileName;
         if (!empty($fileName) && file_exists($filePath)) {
             // Define headers

@@ -40,76 +40,58 @@
           {{ $servicio->titulo }}
         </h1>
       </div>
-    </div> <!-- / .row -->
+    </div>
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 text-center">
         <img src="{{asset('img/services/' . $servicio->imagen )}}" alt="..." class="img-fluid mb-3">
         <p class="text-center text-sm text-muted mb-5">
           {{ $servicio->titulo }} - Ceaca
         </p>
       </div>
-    </div> <!-- / .row -->
+    </div>
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10 col-xl-8">
         <p>
           {{ $servicio->descripcion }}
         </p>
-        <!-- Social -->
-        <!--div-- class="row align-items-center py-3 my-5 border-top border-bottom">
-          <div class="col">
-
-            <p class="mb-0 text-xs text-uppercase">
-              Share the post:
-            </p>
-
-          </div>
-          <div class="col-auto">
-            <a href="#!" class="text-lg text-nounderline mx-2">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#!" class="text-lg text-nounderline mx-2">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a href="#!" class="text-lg text-nounderline mx-2">
-              <i class="fab fa-instagram"></i>
-            </a>
-
-          </div>
-        </!--div-->
-
       </div>
     </div>
-  </div> <!-- / .container -->
+  </div>
 </section>
 
-
-
-
-<section>
-  <div class="container section pb-5">
-    <div class="row align-items-stretch">
-      @for ($i = 0; $i < 3; $i++) <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-        <a class="card h-100" href="">
-          <div class="card-body">
-            <div class="row align-items-center no-gutters mb-4">
-              <div class="col-auto">
-                <div class="avatar mr-3">
-                  <img src="{{asset('img/services/' . $servicios[$i]->imagen )}}" alt="..." class="img-cover rounded-circle">
-                </div>
-              </div>
+<section class="mb-4">
+    <div class="container section pb-0">
+        <div class="row align-items-stretch">
+        @php {{$x=0;}} @endphp
+            @foreach ($servicios as $servicio)
+            @if($x>3)
+            @break
+            @endif
+            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                <a class="card h-100" href="/detalles_servicio/{{$servicio->id}}">
+                    <div class="card-body">
+                        <div class="row align-items-center no-gutters mb-4">
+                            <div class="col-auto">
+                                <div class="avatar mr-3">
+                                    <img src="{{asset('img/services/' . $servicio->imagen )}}" alt="..." class="img-cover rounded-circle">
+                                </div>
+                            </div>
+                        </div>
+                        <h4>
+                            {{ $servicio->titulo }}
+                        </h4>
+                        <p class="mb-0 text-sm text-muted">
+                        @php {{ $descripcion = substr($servicio->descripcion,0,100).'...'; }} @endphp
+                            {{ $descripcion }}
+                        </p>
+                    </div>
+                </a>
             </div>
-            <h4>
-              {{ $servicios[$i]->titulo }}
-            </h4>
-            <p class="mb-0 text-sm text-muted">
-              {{ $servicios[$i]->descripcion }}
-            </p>
-          </div>
-        </a>
+            @php {{++$x;}} @endphp
+            
+            @endforeach
+        </div>
     </div>
-    @endfor
-  </div>
-  </div>
 </section>
 
 @include('home.publicidad_lateral')
