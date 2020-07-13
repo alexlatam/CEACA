@@ -61,11 +61,11 @@
           @csrf
           <div class="form-group">
             <h5>Titulo</h5>
-            <input class="form-control" type="text" name="revista_name" placeholder="Titulo Revista">
+            <input class="form-control" id="revista_title" type="text" name="revista_name" placeholder="Titulo Revista">
           </div>
           <div class="form-group">
             <h5>Archivo</h5>
-            <input type="file" name="revista_file">
+            <input type="file" id="revista_file" name="revista_file">
           </div>
         </form>
       </div>
@@ -80,8 +80,47 @@
 
 
 <script type="text/javascript">
-	document.querySelector('#agregarRevista').addEventListener('click', () =>{
-		document.querySelector('#form_revista').submit();
+	document.querySelector('#agregarRevista').addEventListener('click', (e) =>{
+    let formulario = document.getElementById('form_revista')
+    let revistaName = document.getElementById('revista_title')
+    let resvitaFile = document.getElementById('revista_file')
+    e.preventDefault()
+
+    console.log('entrando')
+
+		if (!validarRevita(revistaName, resvitaFile)){
+      return; 
+    }
+
+    let archivo = resvitaFile.files[0]
+
+
+    if(archivo)
+    {
+      if(archivo.size > maximoBytes) {
+        const alertSize = maximoBytes / 1000000;
+
+        alert(`el tamaño máximo por archivo es ${alertSize} MB`);
+
+        resvitaFile.value = "";
+      } else {
+        formulario.submit();
+      }
+    }
+
 	});
+
+  const validarRevita = (title,file) => {  
+    if(title.value === ""){
+      alert('Debe agregar un titulo')
+      return false
+    } else if (file.files.length <= 0){
+      alert('Debe agregar un archivo')
+      return false
+    } else {
+      return true;
+    }
+  }
+
 </script>
 @endsection

@@ -47,7 +47,7 @@
 						<h5>Cambiar Imagen</h5>
 						<input type="file" class="file-input" name="slider_imagen">
 					</div>
-					<input type="submit" class="btn btn-success px-5 mt-3" value="Actualizar Slider">
+					<input type="submit" class="btn btn-success px-5 mt-3 slider_submit" value="Actualizar Slider">
 				</form>
 				<form class="d-inline" action="/cms/delete/slider/image/{{$slider->id}}" method="GET"><input type="submit" class="btn btn-outline-danger px-4 mt-3" value="Eliminar Slider"></form>
 			</div>
@@ -58,7 +58,6 @@
 </section>
 <script type="text/javascript">
 	let publicidad_inputs = document.querySelectorAll('.file-input');
-	console.log(publicidad_inputs);
 
 	publicidad_inputs.forEach(input => {
 		input.onchange = function(e) {
@@ -77,5 +76,53 @@
 
 		}
 	});
+</script>
+
+<script type="text/javascript">
+	let sliderSubmit = document.querySelectorAll('.slider_submit')
+
+	if(sliderSubmit){
+		sliderSubmit.forEach( submit => {
+			submit.addEventListener('click', (e) => {
+				e.preventDefault()
+
+				let formulario = e.target.parentNode
+				let title = e.target.parentNode[1]
+				let img = e.target.parentNode[3]
+
+				if(!validarSlider(title)){
+					return;
+				}
+
+				let archivo = img.files[0]
+
+				if(archivo)
+				{
+				  if(archivo.size > maximoBytes) {
+				    const alertSize = maximoBytes / 1000000;
+
+				    alert(`el tamaño máximo por archivo es ${alertSize} MB`);
+
+				    img.value = "";
+				  } else {
+				    formulario.submit();
+				  }
+				} else {
+					formulario.submit();
+				}
+
+			});
+		});
+	}
+
+
+	const validarSlider = (title) => {
+		if(title.value === ""){
+			alert('El campo titulo no debe estar vacio')
+			return false
+		}else {
+			return true;
+		}
+	}
 </script>
 @endsection
