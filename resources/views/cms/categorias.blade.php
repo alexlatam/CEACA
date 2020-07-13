@@ -18,20 +18,19 @@
     <h1 class="h2">Categorias</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#modalCategoria">Agregar Categoria</button>
+        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#modalCategoria">Agregar Categoria</button>
       </div>
     </div>
   </div>
-
 
   <div class="table-responsive">
     <table class="table table-striped table-sm">
       <thead>
         <tr>
           <th>#</th>
+          <th>Imagen</th>
           <th>Nombre</th>
           <th>Descripción</th>
-          <th>Imagen</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -39,20 +38,20 @@
         @foreach($categorias as $categoria)
           <tr>
             <td>{{$categoria->id}}</td>
-            <td>{{$categoria->name}}</td>
-            <td>{{$categoria->descripcion}}</td>
             <td>
               @if(substr($categoria->imagen, 0, 4) === 'http')
-                  <img src="{{ $categoria->imagen }}" class="publicidades_card-img" alt="" style="width: 60px; height: 60px;">
+                  <img src="{{ $categoria->imagen }}" class="publicidades_card-img" alt="" style="width: 40px; height: 40px;">
               @elseif($categoria->imagen)
-                   <img src="{{ asset('categorias_imagen/'. $categoria->imagen) }}" alt="" style="width: 60px; height: 60px;">
+                   <img src="{{ asset('categorias_imagen/'. $categoria->imagen) }}" alt="" style="width: 40px; height: 40px;">
               @endif
             </td>
+            <td>{{$categoria->name}}</td>
+            <td>{{$categoria->descripcion}}</td>
             <td class="d-flex ">
-              <button type="button" id="{{ $categoria->id }}" class="btn btn-sm btn-outline-secondary mr-2 editar"  data-toggle="modal" data-target="#modalCategoriaEditar">Editar</button>
+              <button type="button" id="{{ $categoria->id }}" class="btn btn-sm btn-outline-success mr-2 editar"  data-toggle="modal" data-target="#modalCategoriaEditar">Editar</button>
               <form action="/cms/categoria/delete/{{$categoria->id}}" method="POST">
                 @csrf
-                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-secondary">
+                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-success">
               </form>
             </td>
           </tr>
@@ -85,13 +84,13 @@
           </div>
           <div class="form-group">
             <h5>Imagen</h5>
-            <input type="file" name="category_image">
+            <input type="file" id="categorias_file" name="category_image">
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="agregarCategoria">Crear Categoria</button>
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success px-4" id="agregarCategoria">Crear Categoria</button>
       </div>
     </div>
   </div>
@@ -117,29 +116,61 @@
             <textarea class="form-control" id="categoria_descripcion" name="category_description"></textarea>
           </div>
           <div class="form-group">
-            <input type="file" name="category_image">
+            <input type="file" id="categorias_editar_file" name="category_image">
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="editarCategoria">Editar Categoria</button>
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success px-4" id="editarCategoria">Editar Categoria</button>
       </div>
     </div>
   </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
-  let formulario = document.getElementById('form_create_category');
+  let formularioCategorias = document.getElementById('form_create_category');
   let botonesEditar = document.querySelectorAll('.editar');
   let formEdit = document.getElementById('form_edit_category');
 
-  document.getElementById('agregarCategoria').addEventListener('click', () => {
-    formulario.submit();
+  let crearImagen = document.getElementById('categorias_file');
+  let editarImagen = document.getElementById('categorias_editar_file');
+
+  document.getElementById('agregarCategoria').addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if(crearImagen.files.length <= 0) return;
+
+    const archivo = crearImagen.files[0];
+
+    if(archivo.size > maximoBytes) {
+      const alertSize = maximoBytes / 1000000;
+
+      alert(`el tamaño máximo por imagen es ${alertSize} MB`);
+
+      crearImagen.value = "";
+    } else {
+      formularioCategorias.submit();
+    }
   });
 
   document.getElementById('editarCategoria').addEventListener('click', () => {
-    formEdit.submit();
+
+    if(editarImagen.files.length <= 0) return;
+
+    const archivo = editarImagen.files[0];
+
+    if(archivo.size > maximoBytes) {
+      const alertSize = maximoBytes / 1000000;
+
+      alert(`el tamaño máximo por imagen es ${alertSize} MB`);
+
+      editarImagen.value = "";
+    } else {
+      formEdit.submit();;
+    }
+
+    
   });
 
   botonesEditar.forEach(boton => {
@@ -158,4 +189,5 @@
   });
 
 </script>
+
 @endsection

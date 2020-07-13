@@ -34,6 +34,10 @@
             <input type="file" name="imagen_servicio">
           </div>
           <div class="col-12 mb-4">
+            <h5>Cambiar Logo</h5>
+            <input type="file" name="logo_servicio">
+          </div>
+          <div class="col-12 mb-4">
             <h5>Categoría</h5>
             <select name="categoria_servicio" class="form-control form-control">
               <option>Seleccionar Categoria</option>
@@ -43,7 +47,7 @@
             </select>
           </div>
           <div class="col-12 mb-5">
-            <input type="submit" class="btn btn-primary" value="Guardar">
+            <input type="submit" class="btn btn-primary" value="Actualizar Servicio">
           </div>
         </div>
       </form>

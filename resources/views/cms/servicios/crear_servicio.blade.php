@@ -17,10 +17,19 @@
       @endif
       <form action="/cms/guardar/servicio" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="row col-md-6">
+        <div class="row">
           <div class="col-12 mb-4">
             <h5>Titulo</h5>
             <input class="form-control" type="text" name="titulo_servicio" value="" placeholder="Titulo">
+          </div>
+          <div class="col-6 mb-4">
+            <h5>Categoría</h5>
+            <select name="categoria_servicio" class="form-control form-control">
+              <option>Seleccionar Categoria</option>
+              @foreach($categorias as $categoria)
+              <option value="{{$categoria->id}}">{{$categoria->name}}</option>
+              @endforeach
+            </select>
           </div>
           <div class="col-12 mb-4">
             <h5>Descripción</h5>
@@ -31,16 +40,11 @@
             <input type="file" name="imagen_servicio">
           </div>
           <div class="col-12 mb-4">
-            <h5>Categoría</h5>
-            <select name="categoria_servicio" class="form-control form-control">
-              <option>Seleccionar Categoria</option>
-              @foreach($categorias as $categoria)
-              <option value="{{$categoria->id}}">{{$categoria->name}}</option>
-              @endforeach
-            </select>
+            <h5 style="display: block">Logo</h5>
+            <input type="file" name="logo_servicio">
           </div>
           <div class="col-12 mb-5">
-            <input type="submit" class="btn btn-primary" value="Crear">
+            <input type="submit" class="btn btn-success px-5" value="Crear Servicio">
           </div>
         </div>
       </form>

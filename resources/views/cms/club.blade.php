@@ -8,11 +8,10 @@
     <h1 class="h2">Miembros del club</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#modalMiembro">Agregar miembro</button>
+        <!--button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#modalMiembro">Agregar miembro</!--button-->
       </div>
     </div>
   </div>
-
 
   <div class="table-responsive">
     <table class="table table-striped table-sm">
@@ -40,12 +39,12 @@
             	@if($user->status === 'activo')
                 <form action="/club/user/pause/{{$user->id}}" method="POST">
                   @csrf
-                  <input type="submit" value="Pausar" class="btn btn-sm btn-outline-secondary">
+                  <input type="submit" value="Pausar" class="btn btn-sm btn-outline-success">
                 </form>
               @else
                 <form action="/club/user/active/{{$user->id}}" method="POST">
                   @csrf
-                  <input type="submit" value="Activar" class="btn btn-sm btn-outline-secondary">
+                  <input type="submit" value="Activar" class="btn btn-sm btn-outline-success">
                 </form>
               @endif
             </td>
@@ -66,12 +65,18 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form >
           <div class="form-group">
-          	<input class="form-control" type="text" name="name" placeholder="Subscriptor Nombre">
+          	<input class="form-control" type="text" name="name" placeholder="Nombre">
           </div>
           <div class="form-group">
-          	<input class="form-control" type="email" name="email" placeholder="Subscriptor email">
+          	<input class="form-control" type="email" name="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+          	<input class="form-control" type="text" name="pais" placeholder="Pais">
+          </div>
+          <div class="form-group">
+          	<input class="form-control" type="text" name="empresa" placeholder="Empresa">
           </div>
         </form>
       </div>

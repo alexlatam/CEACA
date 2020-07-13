@@ -21,33 +21,36 @@
 	<!-- Styles -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-	<link rel="stylesheet" href="{{asset('libs/owlcarousel/assets/owl.carousel.min.css')}}">
-	<link rel="stylesheet" href="{{asset('libs/owlcarousel/assets/owl.theme.default.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('js/slick/slick.css')}}" />
 
 	<!-- Scripts -->
 	<script src="{{asset('libs/jquery/jquery.js')}}"></script>
-	<script src="{{asset('libs/owlcarousel/owl.carousel.min.js')}}"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script src="{{ asset('js/slick/slick.min.js') }}"></script>
 </head>
 
 <body class="landing_body">
 	<header class="landing_header" id="app">
-		<div class="landing_header_nav container_header">
+		<div class="landing_header_nav">
 			<div class="landing_header_nav_body">
 				<nav class="navbar navbar-expand-lg">
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					    <span class="navbar-toggler-icon"></span>
+						<span class="navbar-toggler-icon"></span>
 					</button>
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="landing_header_nav_container navbar-nav">
 							<li class="lading_header_lists">
-								<a href="#">quienes somos</a>
+								<a href="{{route('index')}}">inicio</a>
+							</li>
+							<li class="lading_header_lists">
+								<a href="{{route('nosotros')}}">quienes somos</a>
 							</li>
 							<li class="lading_header_lists">
 								<a href="#">servicios</a>
 							</li>
 							<li class="lading_header_lists">
-								<a href="#">club ceaca</a>
+								<a href="{{route('club')}}">club ceaca</a>
 							</li>
 							<li class="lading_header_lists">
 								<a href="#">revista</a>
@@ -61,15 +64,37 @@
 			</div>
 		</div>
 		<div class="landing_images container_sub">
-			<img class="slider_images_imagen" style="margin-bottom: 3.7rem;" src="{{asset('ceaca_landing/boton_1.jpg')}}">
-
+			<img class="slider_images_imagen" style="margin-bottom: 3.7rem;width: 320px;" src="{{asset('ceaca_landing/ceaca_logo.png')}}">
+			<!-- Slider  -->
 			<div class="lading_image_slider">
-				<h2 class="landing_slider_title" >magazine <span>calderas</span></h2>
-				<img class="landing_slider_image" src="{{asset('ceaca_landing/04.jpg')}}">
+				<h2 class="landing_slider_title">magazine <span>calderas</span></h2>
+				<div class="slider_image_container">
+					@foreach($sliders as $slider)
+					<div style="width: 100%; height: 100%;">
+						<img class="landing_slider_image" src="{{asset('sliders_imagen/'. $slider->imagen) }}">
+					</div>	
+					@endforeach
+				</div>
 			</div>
+			<!-- Slider end -->
 		</div>
 	</header>
 
+	<!-- Slider codigo -->
+
+	<script type="text/javascript">
+		$('.slider_image_container').slick({
+			autoplay: true,
+			arrows: true,
+			touchMove: true,
+			prevArrow: `<div class="arrow_icon arrow_left">
+	    		            	<img src="{{ asset('iconos/arrow.png') }}">
+	    		        </div>`,
+			nextArrow: `<div class="arrow_icon arrow_right">
+	    		            	<img src="{{ asset('iconos/arrow.png') }}">
+	    		        </div>`
+		});
+	</script>
 	<!-- Espacio en gris -->
 
 	<div class="lading_secciongris">
@@ -77,14 +102,14 @@
 
 	<!-- Frase 1 de la landing -->
 
-	<section class="landing_frase frase_1 container_sub">
+	<section class="landing_frase frase_1 container_sub mt-5 pt-5">
 		<h3 class="landing_frase_titulo">Calderas</h3>
 		<h3 class="landing_frase_subtitulo">revista tecnico-comercial especializada en calderas, en versión digital.</h3>
 	</section>
 
 	<!-- imagenes enlazadas -->
 
-	<section class="landing_imagenes_enlazadas container_sub imagenes">
+	<section class="landing_imagenes_enlazadas container_sub imagenes mt-5">
 		<a href="#">
 			<img src="{{asset('ceaca_landing/boton_1.jpg')}}">
 		</a>
@@ -98,92 +123,80 @@
 
 	<!-- Frase 2 de la landing -->
 
-	<section class="landing_frase frase_2 container_sub">
+	<section class="landing_frase frase_2 container_sub mt-5 pt-5 mb-4">
 		<h3 class="landing_frase_titulo">23 años sirviendo con calidad</h3>
 		<h3 class="landing_frase_subtitulo">en temas de consultoría y capacitación en toda latinoamérica.</h3>
 	</section>
 
 	<!-- iconos de la landing -->
 
-	<section class="landing_iconos container_sub">
-		<a href="#" class="landing_icono_card">
+	<section class="landing_iconos container_sub mt-5 mb-5 pb-5">
+		<a href="{{route('nosotros')}}" class="landing_icono_card">
 			<img src="{{asset('ceaca_landing/iconos/icono_1.png')}}">
-			<h5>quienes somos</h5>
+			<h5>Quienes Somos</h5>
 		</a>
 		<a href="#" class="landing_icono_card">
 			<img src="{{asset('ceaca_landing/iconos/icono_2.png')}}">
-			<h5>quienes somos</h5>
+			<h5>Nuestros Servicios</h5>
 		</a>
 		<a href="#" class="landing_icono_card">
 			<img src="{{asset('ceaca_landing/iconos/icono_3.png')}}">
-			<h5>quienes somos</h5>
+			<h5>Club Ceaca</h5>
 		</a>
 		<a href="#" class="landing_icono_card">
 			<img src="{{asset('ceaca_landing/iconos/icono_4.png')}}">
-			<h5>quienes somos</h5>
+			<h5>Contáctanos</h5>
 		</a>
 	</section>
 
 
 
-	<!-- Carousel Ejemplo -->
-	<section class="owl-carousel owl-theme" class="test" id="test">
-		<div class="item">
-			<h2>Hola esto es un item</h2>
-		</div>
-		<div class="item">
-			<h2>Hola esto es un item</h2>
-		</div>
-		<div class="item">
-			<h2>Hola esto es un item</h2>
-		</div>
-		<div class="item">
-			<h2>Hola esto es un item</h2>
-		</div>
-		<div class="item">
-			<h2>Hola esto es un item</h2>
-		</div>
-	</section>
-	<script>
-		$('#test').owlCarousel({
-			loop: false,
-			margin: 25,
-			nav: true,
-			dots: false,
-			responsive: {
-				0: {
-					items: 3
-				}
-			}
-		})
-	</script>
 	<!-- End Carousel Ejemplo -->
 
 	<footer class="landing_footer">
 
 	</footer>
 
-	<script src="{{ asset('js/app.js') }}" defer></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-	<script src="{{ asset('vendor/owlcarousel/owl.carousel.min.js') }}" defer></script>
-
 	<script type="text/javascript">
-		$('.owl-carousel').owlCarousel({
-		    loop:true,
-		    margin:10,
-		    nav:true,
-		    responsive:{
-		        0:{
-		            items:1
-		        },
-		        600:{
-		            items:3
-		        },
-		        1000:{
-		            items:5
-		        }
-		    }
-		})
+		let body = document.querySelector(".landing_body");
+		let element = document.querySelector(".landing_header_nav")
+
+		window.addEventListener("DOMContentLoaded", () => {
+
+			coordenadas = body.getBoundingClientRect();
+
+			if (coordenadas.top < 0) {
+
+				element.setAttribute("style", "background-color: #fff");
+				let navbar = document.querySelector('.landing_header_nav_body');
+				navbar.classList.add('scroll');
+			}
+
+			if (coordenadas.top == 0) {
+				element.setAttribute("style", "background-color: transparent");
+				let navbar = document.querySelector('.landing_header_nav_body');
+				navbar.classList.remove('scroll');
+			}
+		});
+
+		document.addEventListener("scroll", () => {
+			coordenadas = body.getBoundingClientRect();
+
+			if (coordenadas.top < 0) {
+
+				element.setAttribute("style", "background-color: #fff");
+				let navbar = document.querySelector('.landing_header_nav_body');
+				navbar.classList.add('scroll');
+			}
+
+			if (coordenadas.top == 0) {
+				element.setAttribute("style", "background-color: transparent");
+				let navbar = document.querySelector('.landing_header_nav_body');
+				navbar.classList.remove('scroll');
+			}
+
+
+		});
 	</script>
 </body>
 

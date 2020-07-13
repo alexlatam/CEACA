@@ -1,6 +1,68 @@
 @import 'variables';
 
 
+//-------------------------- NAV ESTILOS MOBILE ---------------------
+
+.landing_header_nav_body{
+	right: 0;
+	width: 100%;
+}
+
+
+.landing_header_nav{
+	position: fixed;
+	z-index: 999999;
+	left: 0;
+	top: 0;
+	right: 0;
+	margin-bottom: 3.7rem;
+
+	.landing_header_nav_body{
+		position: relative;
+		padding-top: 1rem;
+		color: white;
+		margin-left: auto;
+
+		
+
+		.landing_header_nav_container{
+ 			max-width: 100%;
+ 			flex: 1;
+ 			justify-content: space-between;
+ 			margin: 0;
+ 			padding: 0;
+			padding-top: 3rem;
+			padding-bottom: .5rem;
+
+		}
+
+		a{
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+	
+
+	.lading_header_lists{
+		list-style: none;
+		font-family: $principal;
+		color: #ffffffe8;
+		text-transform: uppercase;
+	}
+
+}
+
+.landing_header_nav_body.scroll {
+	a{
+		color: #333;	
+	}
+}
+
+
+
+
+//--------------------- HEADER Y SLIDER GENERAL --------------
+
 
 
 body{
@@ -8,7 +70,7 @@ body{
 }
 
 .landing_header {
-	background: url(../../ceaca_landing/03.jpg);
+	background: url(../../ceaca_landing/header_index.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	max-height: 90vh;
@@ -63,19 +125,24 @@ body{
 
 
 
-
+//------------------ MOBILE STYLES--------------------
 
 
 @media (min-width: 350px)
 {
+
+	// ---- SLIDER -------
 	.landing_slider_image{
 		max-width: 100%;
 	}
 
 	.lading_secciongris{
-		padding: .2rem 0;
+		padding: 0.1rem;
+		visibility: hidden;
 		margin-bottom: 3rem;
 	}
+
+	//------- SECTION FRASE --------
 
 	.landing_frase{
 		font-family: $principal;
@@ -95,7 +162,11 @@ body{
 		}
 	}
 
+
+	//------- SECTION IMAGENES ACCIONES 
 	.landing_imagenes_enlazadas {
+		display: flex;
+		flex-direction: column;
 		text-align: center;
 		a {
 			
@@ -117,6 +188,8 @@ body{
 		}
 	}
 
+	//------ SECCION INFORMACION----------
+
 	.landing_iconos{
 		display: flex;
 		align-items: center;
@@ -133,18 +206,132 @@ body{
 			}
 		}
 	}
+
+
+
+	//------------SOMBRA Y ICONO DEL SLIDER---------
+
+	.slider_image_container{
+		position: relative;
+		-webkit-box-shadow: 0px 15px 20px 0px rgba(0,0,0,0.31);
+		-moz-box-shadow: 0px 15px 20px 0px rgba(0,0,0,0.31);
+		box-shadow: 0px 15px 20px 0px rgba(0,0,0,0.31);
+
+
+		.landing_slider_image{
+			max-width: 100%;
+		}
+
+
+		.arrow_icon {
+			position: absolute;
+			visibility: hidden;
+		}
+	}
+}
+
+.landing_images{
+	padding-top: 5rem;
 }
 
 
+
+//---------- TABLET STYLES-----------------
+
+
+@media (min-width: 768px)
+{
+	.landing_iconos
+	{
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+//---------- DESKTOP STYLES-----------------
 @media (min-width: 980px)
 {
+
+
+//---------- NAV STYLE-----------------
+
+	.landing_header_nav_body{
+		right: 4%;
+		width: 71%;
+
+
+		.landing_header_nav_container{
+			border-bottom: 2px solid #fff;
+		}
+
+
+		.lading_header_lists:first-child{
+			padding-left: .6rem; 
+		}
+	}
+
+
+//---------- SLIDER STYLE-----------------
+
+	.slider_image_container{
+		position: relative;
+		width: 925px;
+
+		.landing_slider_image{
+			width: 1000px;
+		}
+
+		.arrow_icon {
+			/*visibility: visible;*/
+			cursor: pointer;
+			position: absolute;
+			z-index: 10;
+			img {
+				width: 15%;
+			}
+		}
+
+		.arrow_left{
+			top: 82%;
+			left: -46%;
+			transform: translateY(-50%);
+			transform: rotate(90deg);
+		}
+
+		.arrow_right{
+			top: 3%;
+			right: -45%;
+			transform: translateY(-50%);
+			transform: rotate(-90deg);
+		}
+	}
+
+
+	//---------- SECCION IMAGENES ACCIONES -----------------
+
+
+	.landing_imagenes_enlazadas{
+		flex-direction: row;
+		justify-content: center;
+
+		a {
+			margin-right: 1rem;
+		}
+
+		a:last-child{
+			margin: 0;
+		}
+	}
+
+	//---------- CONTENEDORES DE TAMAÑO -----------------
+
 	.container_header{
 		width: 92%;
 		margin: 0 auto;
 	}
 
 	.container_sub{
-		width: 62%;
+		width: 68%;
 		margin: 0 auto;
 	}
 
@@ -154,9 +341,15 @@ body{
 		margin-bottom: 2rem;
 	}
 
+
+	//---------- TITULO SLIDER-----------------
+
 	.landing_slider_title{
 		font-size: 2rem;
 	}
+
+
+	//---------- FRASES STYLE-----------------
 
 	.landing_frase{
 		font-family: $principal;
@@ -176,62 +369,31 @@ body{
 		}
 	}
 
+	//---------- SECCION GRIS HEADER -----------------
+
 	.lading_secciongris{
 		background-color: #313131;
+		visibility: visible;
 		padding: 7.5rem 0;
 		margin-bottom: 16rem;
 	}
 
+	//---------- ICONOS INFORMACION -----------------
 
 	.landing_iconos{
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		margin-bottom: 1rem;
-	}	
+	}
+
+	.landing_images{
+		padding-top: 9rem;
+	}
+	
 }
 
 
-.landing_header_nav{
-	margin-bottom: 3.7rem;
-
-	.landing_header_nav_body{
-		color: white;
-		width: 71%;
-		margin-left: auto;
-
-		.landing_header_nav_container{
- 			max-width: 100%;
- 			flex: 1;
- 			justify-content: space-between;
- 			margin: 0;
- 			padding: 0;
-			padding-top: 3rem;
-			padding-bottom: .5rem;
-			border-bottom: 2px solid #fff;
-
-
-		}
-
-		a{
-			color: inherit;
-			text-decoration: none;
-		}
-	}
-
-
-	.lading_header_lists:first-child{
-		padding-left: .6rem; 
-	}
-
-	.lading_header_lists{
-		list-style: none;
-		font-family: $principal;
-		color: #ffffffe8;
-		text-transform: uppercase;
-	}
-
-}
 
 
 .frase_1{

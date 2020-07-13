@@ -1,6 +1,32 @@
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;
 
 0,400;0,600;0,700;0,800;1,800&display=swap);@charset "UTF-8";
+html,
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+/*!
+ * Bootstrap v4.5.0 (https://getbootstrap.com/)
+ * Copyright 2011-2020 The Bootstrap Authors
+ * Copyright 2011-2020 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
 
 :root {
   --blue: #007bff;
@@ -10923,12 +10949,59 @@ a.text-dark:focus {
   }
 }
 
+.landing_header_nav_body {
+  right: 0;
+  width: 100%;
+}
+
+.landing_header_nav {
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin-bottom: 3.7rem;
+}
+
+.landing_header_nav .landing_header_nav_body {
+  position: relative;
+  padding-top: 1rem;
+  color: white;
+  margin-left: auto;
+}
+
+.landing_header_nav .landing_header_nav_body .landing_header_nav_container {
+  max-width: 100%;
+  flex: 1;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  padding-top: 3rem;
+  padding-bottom: 0.5rem;
+}
+
+.landing_header_nav .landing_header_nav_body a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.landing_header_nav .lading_header_lists {
+  list-style: none;
+  font-family: "Open Sans", sans-serif;
+  color: #ffffffe8;
+  text-transform: uppercase;
+}
+
+.landing_header_nav_body.scroll a {
+  color: #333;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
 }
 
 .landing_header {
-  background: url(/images/03.jpg?7aaef58a2593f7dcf22e8207a54d55f8);
+  background: url(/images/header_index.jpg?7aaef58a2593f7dcf22e8207a54d55f8);
   background-repeat: no-repeat;
   background-size: cover;
   max-height: 90vh;
@@ -10981,7 +11054,8 @@ body {
   }
 
   .lading_secciongris {
-    padding: 0.2rem 0;
+    padding: 0.1rem;
+    visibility: hidden;
     margin-bottom: 3rem;
   }
 
@@ -11004,6 +11078,8 @@ body {
   }
 
   .landing_imagenes_enlazadas {
+    display: flex;
+    flex-direction: column;
     text-align: center;
   }
 
@@ -11042,16 +11118,101 @@ body {
     width: 109px;
     height: 109px;
   }
+
+  .slider_image_container {
+    position: relative;
+    box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.31);
+  }
+
+  .slider_image_container .landing_slider_image {
+    max-width: 100%;
+  }
+
+  .slider_image_container .arrow_icon {
+    position: absolute;
+    visibility: hidden;
+  }
+}
+
+.landing_images {
+  padding-top: 5rem;
+}
+
+@media (min-width: 768px) {
+  .landing_iconos {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 @media (min-width: 980px) {
+  .landing_header_nav_body {
+    right: 4%;
+    width: 71%;
+  }
+
+  .landing_header_nav_body .landing_header_nav_container {
+    border-bottom: 2px solid #fff;
+  }
+
+  .landing_header_nav_body .lading_header_lists:first-child {
+    padding-left: 0.6rem;
+  }
+
+  .slider_image_container {
+    position: relative;
+    width: 925px;
+  }
+
+  .slider_image_container .landing_slider_image {
+    width: 1000px;
+  }
+
+  .slider_image_container .arrow_icon {
+    /*visibility: visible;*/
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .slider_image_container .arrow_icon img {
+    width: 15%;
+  }
+
+  .slider_image_container .arrow_left {
+    top: 82%;
+    left: -46%;
+    transform: translateY(-50%);
+    transform: rotate(90deg);
+  }
+
+  .slider_image_container .arrow_right {
+    top: 3%;
+    right: -45%;
+    transform: translateY(-50%);
+    transform: rotate(-90deg);
+  }
+
+  .landing_imagenes_enlazadas {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .landing_imagenes_enlazadas a {
+    margin-right: 1rem;
+  }
+
+  .landing_imagenes_enlazadas a:last-child {
+    margin: 0;
+  }
+
   .container_header {
     width: 92%;
     margin: 0 auto;
   }
 
   .container_sub {
-    width: 62%;
+    width: 68%;
     margin: 0 auto;
   }
 
@@ -11085,6 +11246,7 @@ body {
 
   .lading_secciongris {
     background-color: #313131;
+    visibility: visible;
     padding: 7.5rem 0;
     margin-bottom: 16rem;
   }
@@ -11095,43 +11257,10 @@ body {
     justify-content: space-between;
     margin-bottom: 1rem;
   }
-}
 
-.landing_header_nav {
-  margin-bottom: 3.7rem;
-}
-
-.landing_header_nav .landing_header_nav_body {
-  color: white;
-  width: 71%;
-  margin-left: auto;
-}
-
-.landing_header_nav .landing_header_nav_body .landing_header_nav_container {
-  max-width: 100%;
-  flex: 1;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-  padding-top: 3rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #fff;
-}
-
-.landing_header_nav .landing_header_nav_body a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.landing_header_nav .lading_header_lists:first-child {
-  padding-left: 0.6rem;
-}
-
-.landing_header_nav .lading_header_lists {
-  list-style: none;
-  font-family: "Open Sans", sans-serif;
-  color: #ffffffe8;
-  text-transform: uppercase;
+  .landing_images {
+    padding-top: 9rem;
+  }
 }
 
 .frase_1 {
@@ -11140,5 +11269,462 @@ body {
 
 .frase_2 {
   margin-bottom: 1rem;
+}
+
+.nosotros_header {
+  background: url(/images/header_nosotros.jpg?e1e293f72159978deeea165523ceafc8);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  margin-bottom: 5rem;
+}
+
+.nosotros_header_titles {
+  position: relative;
+  color: #fff;
+  top: 40%;
+}
+
+.nosotros_header_title {
+  font-size: 1.9rem;
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.nosotros_header_subtitle {
+  font-style: italic;
+}
+
+.img-effect-solid {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.img-effect-solid::before {
+  content: "";
+  position: absolute;
+  top: 26%;
+  bottom: 25%;
+  left: 10%;
+  right: 10%;
+  background-color: #99bf10;
+}
+
+.nosotros-imagen-card {
+  position: relative;
+  width: 200px;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 10;
+}
+
+.nosotros_card_body {
+  margin-bottom: 6rem;
+}
+
+.nosotros_card_body h2 {
+  color: grey;
+  padding: 0 1rem;
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.nosotros_card_body h2:last-of-type {
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.nosotros_card_body .nosotros_card_text {
+  padding: 0 1rem;
+}
+
+@media (min-width: 990px) {
+  /*container global */
+
+  .nosotros_container {
+    width: 92%;
+    margin: 0 auto;
+  }
+
+  .nosotros_header .nosotros_header_title {
+    font-size: 2.8rem;
+    font-family: "Open Sans", sans-serif;
+    padding: 0 10rem;
+  }
+
+  .nosotros_header .nosotros_header_subtitle {
+    padding: 0 26rem;
+    font-size: 1.4rem;
+    font-style: italic;
+  }
+
+  .nosotros_header_titles::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    width: 43px;
+    height: 104px;
+    left: 5%;
+    background-color: #99bf10;
+  }
+
+  .nosotros_header_titles::after {
+    content: "";
+    position: absolute;
+    top: -10%;
+    width: 43px;
+    height: 104px;
+    right: 0;
+    background-color: #99bf10;
+  }
+
+  .img-effect-solid::before {
+    left: 16%;
+    right: 16%;
+  }
+}
+
+.club_header {
+  margin-bottom: 3rem;
+}
+
+.club_container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.club_image_container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.landing_header_nav_body.club a {
+  color: #000;
+  font-weight: 300;
+}
+
+.landing_header_nav_container.club {
+  border-bottom: 2px solid #000;
+}
+
+.landing_header_nav_body.club.scroll .landing_header_nav_container.club {
+  border-bottom: none;
+}
+
+@media (min-width: 350px) {
+  .club_beneficios {
+    margin-bottom: 3rem;
+    background-color: #e6e6e6;
+    position: relative;
+    padding: 1.5rem 2rem;
+  }
+
+  .club_beneficios .club_beneficios_body {
+    width: 100%;
+    margin: 0;
+    display: block;
+  }
+
+  .club_beneficios .beneficios {
+    border: none;
+    justify-content: flex-start;
+  }
+
+  .club_beneficios .beneficios li:nth-child(1) {
+    margin-top: 1rem;
+  }
+
+  .club_beneficios .beneficios .beneficios_body {
+    list-style: none;
+  }
+
+  .club_beneficios::before {
+    content: "";
+    width: 3px;
+    height: 31px;
+    background-color: #a2c430;
+    position: absolute;
+    bottom: -2%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .bolsa_trabajo {
+    padding: 0;
+  }
+
+  .bolsa_trabajo_body {
+    list-style: none;
+  }
+
+  .bolsa_trabajo_body li:last-of-type {
+    margin-bottom: 1rem;
+  }
+
+  .club_informacion_card .club_informacion_card_header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .club_informacion_card .club_informacion_card_header_image {
+    max-width: 100%;
+  }
+
+  .club_informacion_card .club_informacion_card_body {
+    padding: 0 1rem;
+    line-height: 1.7rem;
+  }
+
+  .club_card_title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .club_card_title.number_2 {
+    text-align: center;
+  }
+
+  .club_informacion_card_header_image.number_2 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 1.5rem;
+  }
+
+  .club_header_body {
+    position: relative;
+    padding-top: 6rem;
+    height: 100%;
+  }
+
+  .club_header_body .nosotros_header_title {
+    font-size: 1.7rem;
+    font-weight: 300;
+  }
+
+  .club_header_body .nosotros_header_images {
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: 1rem 1rem repeat(2, 4rem) 1rem;
+    grid-gap: 0.3rem;
+  }
+
+  .club_header_body .nosotros_header_images img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .club_header_body .nosotros_header_images img:nth-child(1) {
+    grid-column: 1/4;
+    grid-row: 3/4;
+  }
+
+  .club_header_body .nosotros_header_images img:nth-child(2) {
+    grid-column: 4/8;
+    grid-row: 2/4;
+  }
+
+  .club_header_body .nosotros_header_images img:nth-child(3) {
+    grid-column: 8/11;
+    grid-row: 3/4;
+  }
+
+  .club_header_body .nosotros_header_images img:nth-child(4) {
+    position: relative;
+    grid-column: 11/14;
+    grid-row: 4/6;
+    top: -54%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  .club_header_body .nosotros_header_images img:nth-child(5) {
+    grid-column: 7/11;
+    grid-row: 4/6;
+  }
+
+  .club_header_body .nosotros_header_images img:nth-child(6) {
+    grid-column: 4/7;
+    grid-row: 4/5;
+  }
+}
+
+@media (min-width: 768px) {
+  .club_header_body {
+    position: relative;
+    padding-top: 6rem;
+    height: 100%;
+  }
+
+  .club_header_body .nosotros_header_title {
+    font-size: 2.5rem;
+    font-weight: 300;
+  }
+
+  .club_header_body .nosotros_header_images {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(8, 4rem) 0.5rem;
+    grid-gap: 0.3rem;
+  }
+
+  .club_header_body .nosotros_header_images img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .club_header_body .nosotros_header_images img:nth-child(1) {
+    grid-column: 1/4;
+    grid-row: 3/6;
+  }
+
+  .club_header_body .nosotros_header_images img:nth-child(2) {
+    grid-column: 4/8;
+    grid-row: 1/5;
+  }
+
+  .club_header_body .nosotros_header_images img:nth-child(3) {
+    grid-column: 8/11;
+    grid-row: 2/5;
+  }
+
+  .club_header_body .nosotros_header_images img:nth-child(4) {
+    grid-column: 11/14;
+    grid-row: 3/6;
+    top: 0;
+  }
+
+  .club_header_body .nosotros_header_images img:nth-child(5) {
+    grid-column: 7/11;
+    grid-row: 5/10;
+  }
+
+  .club_header_body .nosotros_header_images img:nth-child(6) {
+    grid-column: 4/7;
+    grid-row: 5/8;
+  }
+}
+
+@media (min-width: 990px) {
+  .club_header_body {
+    padding-top: 13rem;
+  }
+
+  .club_beneficios {
+    margin-bottom: 3rem;
+    padding: 3rem 3rem;
+  }
+
+  .club_beneficios .club_beneficios_body {
+    width: 89%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 60% 40%;
+  }
+
+  .club_beneficios .beneficios {
+    border-right: 3px solid #a2c430;
+    justify-content: center;
+  }
+
+  .club_beneficios::before {
+    width: 0;
+    height: 0;
+  }
+
+  .beneficios_body {
+    list-style: none;
+  }
+
+  .beneficios_body li {
+    margin-bottom: 0.4rem;
+  }
+
+  .beneficios_body li:last-of-type {
+    margin: 0;
+  }
+
+  .bolsa_trabajo {
+    padding-left: 2.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .bolsa_trabajo .bolsa_trabajo_title {
+    font-weight: 700;
+  }
+
+  .bolsa_trabajo_body {
+    list-style: none;
+  }
+
+  .bolsa_trabajo_body li {
+    margin-bottom: 0.4rem;
+  }
+
+  .bolsa_trabajo_body li:last-of-type {
+    margin: 0;
+  }
+
+  .club_informacion_card {
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .club_informacion_card .club_informacion_card_header {
+    text-align: end;
+  }
+
+  .club_informacion_card .club_informacion_card_body {
+    line-height: 2rem;
+    padding-left: 3rem;
+    width: 82%;
+  }
+
+  .club_informacion_card.number_2 {
+    margin-bottom: 2rem;
+    grid-template-rows: repeat(4, 6rem);
+  }
+
+  .club_informacion_card.number_2 .club_informacion_card_header_image.number_2 {
+    padding-top: 2rem;
+    display: grid;
+    grid-column: 2/3;
+  }
+
+  .club_informacion_card.number_2 .club_informacion_card_body.number_2 {
+    padding: 0;
+    width: 80%;
+    grid-column: 1/2;
+    grid-row: 2/span;
+  }
+
+  .club_card_title {
+    font-size: 2.5rem;
+  }
+
+  .club_card_title.number_2 {
+    text-align: start;
+  }
+
+  .club_image_container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .club_informacion_card_header_image.number_2 {
+    left: 0;
+    transform: translateX(0%);
+  }
 }
 

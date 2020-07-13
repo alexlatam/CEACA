@@ -7,7 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
 
+    protected $table = 'services';
+
     public function categoria(){
-    	return $this->belongsTo('App\Category');
+    	return $this->belongsTo('App\Service_Category', 'service_category_id');
+    }
+
+    public function peticiones()
+    {
+    	return $this->hasMany('App\Service_Request');
+    }
+
+    public function images()
+    {
+    	return $this->hasMany('App\Service_Image');
     }
 }
