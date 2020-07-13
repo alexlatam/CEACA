@@ -79,7 +79,7 @@ Route::get('/detalles_servicio/{id}', function ($id) {
 Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
 
 /* SUSCRIBIRSE Y DESCARGAR REVISTA */
-Route::post('/user/createMagazine/', 'ClubController@crearUsuarioDownload');
+Route::post('/user/createmagazine/','ClubController@crearUsuarioDownload');
 
 /* Descargar Membresias */
 Route::get('/download/membresias', 'ClubController@membresiasDownload');

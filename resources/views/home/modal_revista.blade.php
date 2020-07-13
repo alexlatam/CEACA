@@ -7,9 +7,10 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/user/createMagazine/" method="post">
+            <form action="/user/createmagazine" method="POST">
+                @csrf
+                @method('POST')
                 <div class="modal-body">
-                    @csrf
                     <div class="form-group">
                         <input class="form-control" type="text" name="name" placeholder="Nombre*" required>
                     </div>
@@ -38,7 +39,7 @@
             toast: true,
             position: 'top',
             showConfirmButton: false,
-            timer: 5500
+            timer: 10000
         });
         toast({
             type: 'success',

@@ -17,8 +17,7 @@ class ClubController extends Controller
 
 	}
 	/* Crear Usuario de Club y descargar revista*/
-    public function crearUsuarioDownload(Request $request)
-    {
+    public function crearUsuarioDownload(Request $request){
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
@@ -42,9 +41,8 @@ class ClubController extends Controller
 
             // Read the file
             readfile($filePath);
-            exit;
         }
-
+        //return view('club');
         return back()->with('band', '1');
     }
 
