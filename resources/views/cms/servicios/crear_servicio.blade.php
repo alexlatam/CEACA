@@ -15,17 +15,17 @@
           {{session('message')}}
         </div>
       @endif
-      <form action="/cms/guardar/servicio" method="POST" enctype="multipart/form-data">
+      <form action="/cms/guardar/servicio" id="form" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
           <div class="col-12 mb-4">
             <h5>Titulo</h5>
-            <input class="form-control" type="text" name="titulo_servicio" value="" placeholder="Titulo">
+            <input class="form-control" id="input-title" type="text" name="titulo_servicio" value="" placeholder="Titulo">
           </div>
           <div class="col-6 mb-4">
             <h5>Categoría</h5>
-            <select name="categoria_servicio" class="form-control form-control">
-              <option>Seleccionar Categoria</option>
+            <select  name="categoria_servicio" id="servicio-categoria" class="form-control form-control">
+              <option value="">Seleccionar Categoria</option>
               @foreach($categorias as $categoria)
               <option value="{{$categoria->id}}">{{$categoria->name}}</option>
               @endforeach
@@ -33,22 +33,113 @@
           </div>
           <div class="col-12 mb-4">
             <h5>Descripción</h5>
-            <textarea class="form-control" name="descripcion_servicio"></textarea>
+            <textarea id="input-descripcion" class="form-control" name="descripcion_servicio"></textarea>
           </div>
           <div class="col-12 mb-4">
             <h5 style="display: block">Imagen</h5>
-            <input type="file" name="imagen_servicio">
+            <input type="file" id="file_input" name="imagen_servicio">
           </div>
           <div class="col-12 mb-4">
             <h5 style="display: block">Logo</h5>
-            <input type="file" name="logo_servicio">
+            <input type="file" id="file_logo" name="logo_servicio">
           </div>
           <div class="col-12 mb-5">
-            <input type="submit" class="btn btn-success px-5" value="Crear Servicio">
+            <input type="submit" id="submit_button" class="btn btn-success px-5" value="Crear Servicio">
           </div>
         </div>
       </form>
   </div>
 </section>
 
+<script type="text/javascript">
+
+  let submit = document.getElementById('submit_button');
+  let file = document.getElementById('file_input');
+  let formulario = document.getElementById('form');
+  let logo = document.getElementById('file_logo');
+  let tituloServico = document.getElementById('input-title');
+  let descripcionServicio = document.getElementById('input-descripcion');
+  let categoriaServicio = document.getElementById('servicio-categoria');
+
+
+  console.log(categoriaServicio.selectedIndex)
+
+  //inputs
+
+  texts = document.querySelectorAll('.input-text');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if(submit)
+    {
+      submit.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        if(!validarServicio())
+        {
+          return;
+        }
+
+        const archivo = file.files[0];
+        
+
+        if(logo)
+        {
+          const logoArchivo = logo.files[0];
+          if(archivo.size > maximoBytes || logoArchivo.size > maximoBytes) {
+            const alertSize = maximoBytes / 1000000;
+
+            alert(`el tamaño máximo por archivo es ${alertSize} MB`);
+
+            file.value = "";
+            logo.value = "";
+          } else {
+            formulario.submit();
+          }
+
+
+        } else {
+          if(archivo.size > maximoBytes) {
+            const alertSize = maximoBytes / 1000000;
+
+            alert(`el tamaño máximo por archivo es ${alertSize} MB`);
+
+            file.value = "";
+          } else {
+            formulario.submit();
+          }
+        }
+      });
+    }
+  });
+
+
+
+    const validarServicio = () => {
+      if(tituloServico.value <= 0)
+      {
+        alert('Debe agregar un titulo');
+        return false;
+        
+
+      }else if(descripcionServicio.value <= 0)
+      {
+        alert('Debe Agregar una descripción');
+        return false
+
+      }else if(file.files.length <= 0){
+        alert('Debe cargar una imagen')
+        return false
+      
+      } else if(logo.files.length <= 0){
+        alert('Debe Cargar un logo');
+        return false
+      } else if (categoriaServicio.selectedIndex === 0) {
+          alert('Debe seleccionar una carategor');
+          return false
+      } else {
+        return true;
+      }
+    } 
+
+</script>
 @endsection

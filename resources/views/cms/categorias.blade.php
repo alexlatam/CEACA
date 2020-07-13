@@ -76,11 +76,11 @@
           @csrf
           <div class="form-group">
             <h5>Nombre</h5>
-            <input class="form-control" type="text" name="category_name" placeholder="Nombre Categoria">
+            <input class="form-control" id="crear_categoriaNombre" type="text" name="category_name" placeholder="Nombre Categoria">
           </div>
           <div class="form-group">
             <h5>Descripción</h5>
-            <textarea class="form-control" name="category_description"></textarea>
+            <textarea class="form-control" id="crear_categoriaDescripcion" name="category_description"></textarea>
           </div>
           <div class="form-group">
             <h5>Imagen</h5>
@@ -136,10 +136,32 @@
   let crearImagen = document.getElementById('categorias_file');
   let editarImagen = document.getElementById('categorias_editar_file');
 
+  //inputs crear
+  let crearNombre = document.getElementById('crear_categoriaNombre')
+  let crearDesc = document.getElementById('crear_categoriaDescripcion')
+
+  //inputs editar
+  let categoriaNombre = document.getElementById('categoria_nombre');
+  let categoriaDescripcion = document.getElementById('categoria_descripcion');
+
   document.getElementById('agregarCategoria').addEventListener('click', (e) => {
     e.preventDefault();
 
-    if(crearImagen.files.length <= 0) return;
+    if(crearNombre.value === "")
+    {
+      
+      alert('Debes agregar un titulo')
+      return;
+    
+    }else if (crearDesc.value === ""){
+      alert('Debes agregar una descripcion')
+      return;
+    }else if (crearImagen.files.length <= 0){
+      alert('Debes agregar una imagen')
+      return;
+    }
+
+    
 
     const archivo = crearImagen.files[0];
 
@@ -156,18 +178,32 @@
 
   document.getElementById('editarCategoria').addEventListener('click', () => {
 
-    if(editarImagen.files.length <= 0) return;
+    if(categoriaNombre.value === "")
+    {
+      
+      alert('Debes agregar un titulo')
+      return;
+    
+    }else if (categoriaDescripcion.value === ""){
+      alert('Debes agregar una descripcion')
+      return;
+    }
+
 
     const archivo = editarImagen.files[0];
 
-    if(archivo.size > maximoBytes) {
-      const alertSize = maximoBytes / 1000000;
+    if(archivo){
+      if(archivo.size > maximoBytes) {
+        const alertSize = maximoBytes / 1000000;
 
-      alert(`el tamaño máximo por imagen es ${alertSize} MB`);
+        alert(`el tamaño máximo por imagen es ${alertSize} MB`);
 
-      editarImagen.value = "";
+        editarImagen.value = "";
+      } else {
+        formEdit.submit();
+      }
     } else {
-      formEdit.submit();;
+      formEdit.submit();
     }
 
     
@@ -175,8 +211,7 @@
 
   botonesEditar.forEach(boton => {
     boton.addEventListener('click', (e) =>{
-      let categoriaNombre = document.getElementById('categoria_nombre');
-      let categoriaDescripcion = document.getElementById('categoria_descripcion');
+      
 
       formEdit.action =  `/cms/categoria/edit/${e.target.id}` 
 
