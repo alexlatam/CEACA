@@ -76,7 +76,7 @@
         <a href="{{route('nosotros')}}">
           <img src="{{asset('img/iconos/icono_1.png')}}" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
-        <h4 class="card-title pt-2">
+        <h4 class="card-title mt-3 pt-3">
           <a href="{{route('nosotros')}}">
           QUIENES SOMOS  
           </a>
@@ -86,7 +86,7 @@
         <a href="{{route('servicios')}}">
           <img src="{{asset('img/iconos/icono_2.png')}}" alt="Carousel header" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
-        <h4 class="card-title mt-4 pt-2">
+        <h4 class="card-title mt-3 pt-3">
           <a href="{{route('servicios')}}">
             NUESTROS SERVICIOS
           </a>          
@@ -96,7 +96,7 @@
         <a href="{{route('club')}}">
           <img src="{{asset('img/iconos/icono_3.png')}}" alt="Carousel header" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
-        <h4 class="card-title mt-4">
+        <h4 class="card-title mt-3 pt-3">
           <a href="{{route('club')}}">
             CLUB CEACA
           </a>          
@@ -106,7 +106,7 @@
         <a href="{{route('contacto')}}">
           <img src="{{asset('img/iconos/icono_4.png')}}" alt="Carousel header" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
-        <h4 class="card-title mt-4">
+        <h4 class="card-title mt-3 pt-3">
           <a href="{{route('contacto')}}">
             CONTÁCTANOS
           </a>          

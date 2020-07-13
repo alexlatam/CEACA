@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Revista;
+use App\Info;
 use Illuminate\Support\Facades\Hash;
 
 class ClubController extends Controller
@@ -78,9 +79,10 @@ class ClubController extends Controller
             header("Content-Transfer-Encoding: binary");
             // Read the file
             readfile($filePath);
-            exit;
         }
-
+        //$message="Gracias por Suscribirte a nuestro club";
+        //$info = Info::all();
+        //return view('miembros')->with(compact('info','message'));
         return back()->with('respuesta', 'La descarga ha sido exitosa');
     }
     

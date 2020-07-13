@@ -27,9 +27,11 @@ Route::get('/', 'CeacaController@index')->name('home');
 Route::get('/nosotros', function () {
 	$publicidad = Ads::All();
 	$nosotros_array = Info::All();
+	$info = Info::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
 	return view('nosotros', [
+		"info" => $info,
 		"nosotros_array" => $nosotros_array,
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,

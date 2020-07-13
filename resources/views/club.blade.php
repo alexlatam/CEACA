@@ -93,8 +93,8 @@
                 <p>
                     @php {{echo nl2br($membresia->description);}} @endphp
                 </p>
-                <a href="{{route('contacto')}}" class="btn btn-outline-primary">
-                    Contáctanos
+                <a href="#" class="btn btn-outline-primary" data-toggle="modal" data-target=".modalRevista">
+                    Suscribirme
                 </a>
             </div>
         </div>
@@ -116,8 +116,8 @@
                 <p>
                     @php {{echo nl2br($membresia->description);}} @endphp
                 </p>
-                <a href="{{route('home')}}" class="btn btn-outline-primary">
-                    Contáctanos
+                <a href="#" class="btn btn-outline-primary" data-toggle="modal" data-target=".modalRevista">
+                    Suscribirme
                 </a>
             </div>
         </div>
