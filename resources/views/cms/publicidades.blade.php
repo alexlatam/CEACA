@@ -83,7 +83,7 @@
 							<h5>Cambiar Imagen</h5>
 							<input type="file" class="file-input" name="publicidad_imagen">
 						</div>
-						<input type="submit" class="btn btn-primary btn-sm" value="Actualizar Publicidad">
+						<input type="submit" class="btn btn-success btn-sm px-5 mt-3" value="Actualizar Publicidad">
 					</form>
 				</div>
 			</div>

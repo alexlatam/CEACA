@@ -126,9 +126,9 @@
         <h3 class="mb-4">
           Puedes escribirnos <span class="text-primary">directamente</span>
         </h3>
-        <p class="text-muted mb-5">
+        <!--p-- class="text-muted mb-5">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt nam voluptatum facilis, atque officiis possimus totam placeat maiores at tempore nulla corporis rem aliquid iusto ab, distinctio, nostrum cumque asperiores!
-        </p>
+        </!--p-->
         <div class="row">
           <div class="col-md-6 col-lg-5">
             <h5>
@@ -151,12 +151,12 @@
               Nuestros Teléfonos
             </h5>
             <p class="text-muted">
-              <a href="tel:{{$telefono1}}">
+              <a href="tel:{{$telefono1->valor}}">
                 {{$telefono1->valor}}
               </a>
             </p>
             <p class="text-muted">
-              <a href="tel:{{$telefono2}}">
+              <a href="tel:{{$telefono2->valor}}">
                 {{$telefono2->valor}}
               </a>
             </p>
@@ -196,6 +196,14 @@
   </div>
 </section>
 
-@include('home.section_magazine')
+<section class="section pb-0 my-5 py-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <img src="{{asset('img/1.jpg')}}" alt="" width="100%">
+      </div>
+    </div>
+  </div>
+</section>
 
 @endsection

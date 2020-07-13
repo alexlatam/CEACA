@@ -1,6 +1,5 @@
 @extends('cms')
 
-
 @section('content')
 <section class="publicidades">
 	<div class="publicidades-tipo-2">
@@ -53,7 +52,6 @@
 		input.onchange = function(e) {
 			let padre = e.target.parentNode.parentNode.parentNode.parentNode
 			let imgContainer = padre.children[0];
-
 
 			let reader = new FileReader();
 			reader.readAsDataURL(e.target.files[0]);

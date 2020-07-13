@@ -59,12 +59,12 @@
   </div>
 </section>
 
-<section class="mb-4">
+<!--section-- class="mb-4">
     <div class="container section pb-0">
         <div class="row align-items-stretch">
         @php {{$x=0;}} @endphp
             @foreach ($servicios as $servicio)
-            @if($x>3)
+            @if($x>2)
             @break
             @endif
             <div class="col-12 col-lg-4 mb-3 mb-lg-0">
@@ -92,7 +92,7 @@
             @endforeach
         </div>
     </div>
-</section>
+</!--section-->
 
 @include('home.publicidad_lateral')
 

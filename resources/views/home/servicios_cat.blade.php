@@ -31,7 +31,7 @@
                 <div class="text-center mb-5 mb-md-0">
                     <div class="text-primary mb-2">
                         <a href="/detalles_servicio/{{$servicio->id}}">
-                            <img src="{{asset('/img/servicios/servicio1.svg')}}" alt="{{$servicio->titulo}}" width="70%">
+                            <img src="{{asset('/img/services/logos/'.$servicio->logo)}}" alt="{{$servicio->titulo}}" width="70%">
                         </a>
                     </div>
                     <h4 class="text-dark mb-3">

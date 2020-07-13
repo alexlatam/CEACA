@@ -4,18 +4,18 @@
 <title>Ceaca</title>
 @endsection
 @section('content')
-<section>
+<section class="mb-5">
     <div class="container section section-top pb-0">
         <div class="row align-items-center">
-            <div class="col-12 col-md-6 offset-xl-1 order-md-2">
-                <img src="{{asset('img/services/principal.jpg')}}" alt="..." class="img-fluid img-incline-left mb-5 mb-md-0">
+            <div class="col-12 col-md-6 offset-xl-1 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
+                <img src="{{asset('img/servicios.jpg')}}" alt="Servicios de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
             </div>
             <div class="col-12 col-md-6 col-xl-5 order-md-1">
-                <h1 class="mb-4 font-weight-bold">
+                <h1 class="mb-4 font-weight-bold" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
                     Conoce Nuestros Servicios
                 </h1>
                 <p class="mb-5 text-muted">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus odio nesciunt harum neque deserunt deleniti nemo, explicabo id accusamus voluptatum dolor.
+                    
                 </p>
                 <a href="{{route('contacto')}}" class="btn btn-outline-primary">
                     Contáctanos <i class="fas fa-arrow-right ml-2"></i>
@@ -26,12 +26,12 @@
 </section>
 
 
-<section class="mb-4">
+<!--section-- class="mb-4">
     <div class="container section pb-0">
         <div class="row align-items-stretch">
         @php {{$x=0;}} @endphp
             @foreach ($servicios as $servicio)
-            @if($x>3)
+            @if($x>2)
             @break
             @endif
             <div class="col-12 col-lg-4 mb-3 mb-lg-0">
@@ -59,7 +59,7 @@
             @endforeach
         </div>
     </div>
-</section>
+</!--section-->
 
 @include('home.download_magazine_simple')
 @include('home.modal_revista')

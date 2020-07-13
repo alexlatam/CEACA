@@ -23,6 +23,7 @@ class InformationController extends Controller
     }
 
     public function contactoView(){
+        $info = Info::all();
     	$telefono1 = Info::where('atributo', 'telefono 1')->first();
     	$telefono2 = Info::where('atributo', 'telefono 2')->first(); ;
         $email = Info::where('atributo', 'email')->first();
@@ -33,7 +34,7 @@ class InformationController extends Controller
         $instagram = Info::where('atributo', 'instagram')->first();
         
 
-    	return view('contacto')->with(compact('telefono1', 'telefono2', 'direccion', 'twitter', 'facebook', 'linkedin', 'instagram', 'email'));
+    	return view('contacto')->with(compact('info','telefono1', 'telefono2', 'direccion', 'twitter', 'facebook', 'linkedin', 'instagram', 'email'));
     }
 
     public function actualizarInformacion(Request $request){

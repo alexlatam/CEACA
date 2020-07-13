@@ -3,16 +3,23 @@
     width: 35%;
   }
 
-  /* Si la pantalla es menor a 992px se aplicaran los estilos*/
-  @media only screen and (max-width: 1199px) {
+  /* Si la pantalla es menor a 1199px se aplicaran los estilos*/
+  @media only screen and (min-width: 1200px) {
     .brandNavbar {
-      width: 27%;
+      width: 35%;
     }
   }
-  /* Si la pantalla es menor a 992px se aplicaran los estilos*/
-  @media only screen and (max-width: 900px) {
+
+  /* Si la pantalla es menor a 1199px se aplicaran los estilos*/
+  @media only screen and (max-width: 1199px) {
     .brandNavbar {
-      width: 40%;
+      width: 20%;
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    .brandNavbar {
+      width: 28%;
     }
   }
 </style>
@@ -33,30 +40,36 @@
             <span></span>
           </span>
         </li>
+        @foreach ($info as $inf)
+        @if ($inf->atributo == "facebook")
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{ $inf->valor }}" class="nav-link" target="_blank">
             <i class="fab fa-facebook"></i>
             <span class="d-xl-none ml-2">
               Facebook
             </span>
           </a>
         </li>
+        @elseif ($inf->atributo == "instagram")
         <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="fab fa-twitter"></i>
-            <span class="d-xl-none ml-2">
-              Twitter
-            </span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{$inf->valor}}" class="nav-link" target="_blank">
             <i class="fab fa-instagram"></i>
             <span class="d-xl-none ml-2">
               Instagram
             </span>
           </a>
         </li>
+        @elseif ($inf->atributo == "linkedin")
+        <li class="nav-item">
+          <a href="{{$inf->valor}}" class="nav-link" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            <span class="d-xl-none ml-2">
+              Linkedin
+            </span>
+          </a>
+        </li>
+        @endif
+        @endforeach
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">

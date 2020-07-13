@@ -97,4 +97,11 @@ class SliderImageController extends Controller
             return back()->with('message', 'Imagen actualizado correctamente');
         }
     }
+
+    
+    public function deleteImageSlider($id){
+        $servicio = Home_Slider::find($id);
+            $servicio->delete();
+            return back()->with('message','Eliminado con éxito');        
+    }
 }

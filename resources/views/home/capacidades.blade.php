@@ -8,32 +8,24 @@
     <div class="line line-top"></div>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-
-                <!-- Heading -->
+            <div class="col-md-8 col-lg-8">
                 <h2 class="text-center mb-4">
-                    Algunas de nuestras capacidades
+                    MEMBRESÍAS CLUB CEACA
                 </h2>
-
-                <!-- Subheading -->
-                <p class="text-center text-muted text-left mb-5">
-
+                <p class="text-center text-muted mb-5">
+                Te permitirá obtener los mejores beneficios con acceso a contenido de primera y a la vez ser parte de una comunidad digital productiva y especializada. Selecciona la que más te convenga y disfruta de cada una de sus ventajas. 
                 </p>
-
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-md-4">
                 <div class="text-center mb-5 mb-md-0">
                     <div class="text-primary mb-4">
                         <span class="icon icon-businessman icon-2x"></span>
                     </div>
                     <h4 class="mb-3">
-                        Personal Capacitado
+                    Mejor relación precio beneficio
                     </h4>
-                    <p class="text-muted mb-0">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa, corporis.
-                    </p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -42,11 +34,8 @@
                         <span class="icon icon-shield icon-2x"></span>
                     </div>
                     <h4 class="mb-3">
-                        Procesos Seguros
+                    Acceso al mejor contenido
                     </h4>
-                    <p class="text-muted mb-0">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa, corporis.
-                    </p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -55,13 +44,28 @@
                         <span class="icon icon-clock icon-2x"></span>
                     </div>
                     <h4 class="mb-3">
-                        Excelentes Tiempos
+                    Asesorías continuas
                     </h4>
-                    <p class="text-muted mb-0">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi culpa, corporis.
-                    </p>
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center py-4">
+            <a class="btn btn-outline-success px-5" href="/download/membresias" onclick="descargarMembresias()">Descargar Membresias del club ceaca</a>
+        </div>
     </div>
 </section>
+
+<script>
+    function descargarMembresias() {
+        const toast = swal.mixin({
+            toast: true,
+            position: 'top',
+            showConfirmButton: false,
+            timer: 10000
+        });
+        toast({
+            type: 'success',
+            title: '¡Ya se esta descargando! \n \n Recuerda que puedes consultarnos cualquier inquietud que tengas.',
+        });
+    }
+</script>

@@ -8,11 +8,11 @@
                     ¡Descarga nuestra revista de manera gratuita!
                 </h3>
                 <p class="text-white text-muted mb-4 mb-md-0">
-                    Texto de llamado de accion a descargar las revista de la pagina
+                    
                 </p>
             </div>
             <div class="col-md-4">
-                <a href="#" class="btn btn-outline-primary text-white" data-toggle="modal" data-target=".modalRevista">
+                <a href="#" class="btn btn-outline-primary text-white px-5" data-toggle="modal" data-target=".modalRevista">
                     Descargar Revista
                 </a>
             </div>

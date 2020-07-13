@@ -4,7 +4,7 @@
         <div class="slider slider-no-controls slider-no-draggable slider-fade" id="hero-slider-bg">
             @foreach($images as $image)
                 <div class="slider-item">
-                    <div class="bg-cover" style="background-image: url({{asset('/img/banners/' . $image->imagen)}})"></div>
+                    <div class="bg-cover" style="background-image: url({{asset('img/banners/' . $image->imagen)}})"></div>
                 </div>
             @endforeach
         </div>

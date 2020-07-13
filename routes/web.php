@@ -7,6 +7,7 @@ use App\Ads;
 use App\Service;
 use App\Service_Category;
 use App\Info;
+use App\Plan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,21 +38,27 @@ Route::get('/nosotros', function () {
 })->name('nosotros');
 /* CLUB */
 Route::get('/club', function () {
+	$info = Info::All();
+	$membresias = Plan::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
 	$publicidad = Ads::All();
 	return view('club', [
+		"info" => $info,
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
-		"publicidad" => $publicidad
+		"publicidad" => $publicidad,
+		"membresias" => $membresias
 	]);
 })->name('club');
 /* SERVICIOS */
 Route::get('/servicios', function () {
+	$info = Info::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
 	$publicidad = Ads::All();
 	return view('servicios', [
+		"info" => $info,
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
 		"publicidad" => $publicidad
@@ -59,10 +66,11 @@ Route::get('/servicios', function () {
 })->name('servicios');
 
 Route::get('/detalles_servicio/{id}', function ($id) {
+	$info = Info::All();
 	$servicios = Service::All();
 	$servicio = Service::find($id);
 	$publicidad = Ads::All();
-	return view('detalles_servicio', ["servicios" => $servicios, "servicio" => $servicio, "publicidad" => $publicidad]);
+	return view('detalles_servicio', ["info" => $info, "servicios" => $servicios, "servicio" => $servicio, "publicidad" => $publicidad]);
 })->name('detalles_servicio');
 
 /* CONTACTO */
@@ -70,6 +78,10 @@ Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
 
 /* SUSCRIBIRSE Y DESCARGAR REVISTA */
 Route::post('/user/createMagazine/', 'ClubController@crearUsuarioDownload');
+
+/* Descargar Membresias */
+Route::get('/download/membresias', 'ClubController@membresiasDownload');
+
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
 Route::middleware('auth:admin')->group(function () {
@@ -143,6 +155,7 @@ Route::middleware('auth:admin')->group(function () {
 	Route::get('/cms/crear/slider/image', 'SliderImageController@crearImageSlider');
 	Route::post('/cms/guardar/slider/image', 'SliderImageController@guardarImageSlider');
 	Route::post('/cms/actualizar/slider/image/{id}', 'SliderImageController@actualizarImagenSlider');
+	Route::get('/cms/delete/slider/image/{id}', 'SliderImageController@deleteImageSlider');
 
 	/* ----------  RUTA CATEGORIAS CURSOS CONTROLLADOR ---------*/
 	Route::get('/cms/curso/categorias', 'CategoryCourseController@index');

@@ -21,7 +21,7 @@
     <div class="row">
       <div class="col-md-4">
         <a href="{{route('club')}}" class="card border-0 mb-3 mb-md-0">
-          <div class="card-img-top" style="position:relative;" data-aos="fade-up" data-aos-duration="1000">
+          <div class="card-img-top" style="position:relative;">
             <img src="{{asset('img/img_button1.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
             <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;">
               CLUB CEACA
@@ -31,7 +31,7 @@
       </div>
       <div class="col-md-4">
         <a href="{{route('servicios')}}" class="card border-0 mb-3 mb-md-0">
-          <div class="card-img-top" data-aos="fade-up" data-aos-duration="1500">
+          <div class="card-img-top">
             <img src="{{asset('img/img_button2.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
             <h2 class="card-title text-white" style="position: absolute;top:45%;left:30%;">
               SERVICIOS
@@ -40,8 +40,8 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="{{route('home')}}" class="card border-0 mb-3 mb-md-0">
-          <div class="card-img-top" data-aos="fade-up" data-aos-duration="2000">
+        <a href="#" class="card border-0 mb-3 mb-md-0" data-toggle="modal" data-target=".modalRevista">
+          <div class="card-img-top">
             <img src="{{asset('img/img_button3.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
             <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;">
               SUSCRIPCIÓN
@@ -76,7 +76,7 @@
         <a href="{{route('nosotros')}}">
           <img src="{{asset('img/iconos/icono_1.png')}}" class="img-fluid" data-aos="fade-up" data-aos-duration="1000">
         </a>
-        <h4 class="card-title mt-4 pt-2">
+        <h4 class="card-title pt-2">
           <a href="{{route('nosotros')}}">
           QUIENES SOMOS  
           </a>

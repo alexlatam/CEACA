@@ -28,9 +28,19 @@
     </div>
 </section>
 
+<section class="section pb-0 mt-5 pt-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <img src="{{asset('img/1.jpg')}}" alt="" width="100%">
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="fp-section border-bottom">
-    <div class="section section-top">
+    <div class="section section-top" style="padding-top: calc(2.5rem + 5.8125rem);">
         @php {{ $x=0; }} @endphp
         @foreach($nosotros_array as $nosotros)
         @if($nosotros->seccion == 'nosotros')
@@ -44,13 +54,13 @@
                 </div>
                 <div class="col-md-6 col-lg-5 offset-lg-1">
                     <h2>
-                        {{$nosotros->atributo}}
+                    @php {{echo nl2br($nosotros->atributo);}} @endphp                         
                     </h2>
                     <h2 class="mb-4 text-muted">
-                        {{$nosotros->valor2}}
+                    @php {{ echo nl2br($nosotros->valor2);}} @endphp 
                     </h2>
                     <p class="text-muted">
-                        {{$nosotros->valor}}
+                    @php {{ echo nl2br($nosotros->valor);}} @endphp 
                     </p>
                 </div>
             </div>
@@ -60,13 +70,13 @@
             <div class="row align-items-center">
                 <div class="col-md-6 col-lg-5">
                     <h2>
-                        {{$nosotros->atributo}}
+                    @php {{echo nl2br($nosotros->atributo);}} @endphp   
                     </h2>
                     <h2 class="mb-4 text-muted">
-                        {{$nosotros->valor2}}
+                    @php {{ echo nl2br($nosotros->valor2);}} @endphp 
                     </h2>
                     <p class="text-muted">
-                        {{$nosotros->valor}}
+                    @php {{ echo nl2br($nosotros->valor);}} @endphp 
                     </p>
                 </div>
                 <div class="col-md-6 col-lg-5 offset-lg-1">

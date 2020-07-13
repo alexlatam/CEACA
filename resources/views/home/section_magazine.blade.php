@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
                 <h2 class="text-white text-center mb-4">
-                    Descarga Nuestra Revista
+                    Descarga la revista “Calderas” Guía de Usuario en la Industria y Comercio.
                 </h2>
                 <p class="text-white text-muted text-center mb-5">
-                Texto de llamado de accion a descargar las revista de la pagina
+                    Nuestra Revista técnico-comercial en versión digital, con una frecuencia trimestral, empezando en este mes de julio 2020 y con distribución gratuita entre todos los Usuarios de Calderas a nivel de Latinoamérica.
                 </p>
             </div>
         </div>
@@ -22,7 +22,11 @@
                         Contenido de primera mano
                     </h4>
                     <p class="text-white text-muted mb-0">
-                        Looks great on all major browsers, tablets and mobile devices.
+                        Las mejores prácticas de Cuidados de estos equipos
+                        <br>
+                        - Las novedades de los Códigos relacionados
+                        <br>
+                        - Las nuevas tecnologías en las varias especialidades
                     </p>
                 </div>
             </div>
@@ -32,10 +36,14 @@
                         <span class="icon-edit icon-2x"></span>
                     </div>
                     <h4 class="text-white mb-3">
-                        Redactada por profesionales del area
+                        Intercambio de Experiencias
                     </h4>
                     <p class="text-white text-muted mb-0">
-                        Easily adjustable with tons of SASS variables included.
+                        Club Técnico para el análisis, la discusión, intercambio y la generación de valor agregado para optimizar el desempeño de los responsables de la Generación de
+
+                        Vapor, la Confiabilidad, Eficiencia y Seguridad de las
+
+                        Calderas.
                     </p>
                 </div>
             </div>
@@ -45,10 +53,12 @@
                         <span class="icon icon-layers icon-2x"></span>
                     </div>
                     <h4 class="text-white mb-3">
-                        Contenido diverso
+                        Colaboración de especialistas en el área
                     </h4>
                     <p class="text-white text-muted mb-0">
-                        Feel free to contact us with any feature requests or bug reports.
+                        Contamos con la colaboración de especialistas que nos harán importantes aportes sobre
+                        <br>
+                        Control de Emisiones, Protección Ambiental y las oportunidades de Aprovechar o Reciclar el CO2 de los gases de combustión y cuál debe ser el Alcance la Inspección de calderas para evaluar la efectividad del Programa de Tratamiento y Control Químico.
                     </p>
                 </div>
             </div>

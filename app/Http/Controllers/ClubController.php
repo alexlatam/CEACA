@@ -62,4 +62,26 @@ class ClubController extends Controller
 
     	return back();
     }
+
+    public function membresiasDownload()
+    {
+        //descargar el archivo
+        $file = 'Membresias.pdf';
+        $fileName = basename($file);
+        $filePath = 'archivos/' . $fileName;
+        if (!empty($fileName) && file_exists($filePath)) {
+            // Define headers
+            header("Cache-Control: public");
+            header("Content-Description: File Transfer");
+            header("Content-Disposition: attachment; filename=$fileName");
+            header("Content-Type: application/zip");
+            header("Content-Transfer-Encoding: binary");
+            // Read the file
+            readfile($filePath);
+            exit;
+        }
+
+        return back()->with('respuesta', 'La descarga ha sido exitosa');
+    }
+    
 }
