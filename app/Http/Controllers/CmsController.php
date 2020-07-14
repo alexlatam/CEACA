@@ -8,6 +8,7 @@ use App\Subscriber;
 use App\Service_Category;
 use App\Plan;
 use App\Revista;
+use App\Message;
 
 class CmsController extends Controller
 {
@@ -37,5 +38,9 @@ class CmsController extends Controller
     	$membresias = Plan::all();
     	return view('cms.membresias.membresias')->with(compact('membresias'));
     }
-    
+
+    public function mensajesView(){
+        $mensajes = Message::all();
+    	return view('cms.mensajes')->with(compact('mensajes'));
+    }
 }
