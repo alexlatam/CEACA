@@ -24,6 +24,7 @@
 	    <thead>
 	      <tr>
 	        <th>#</th>
+          <th>Portada</th>
 	        <th>Titulo</th>
 	        <th>Fecha</th>
 	        <th>Acciones</th>
@@ -33,6 +34,9 @@
 	      @foreach($revistas as $revista)
 	        <tr>
 	          <td>{{$revista->id}}</td>
+            <td>
+              <img src="{{asset('revista/portada/'. $revista->portada)}}" width="50px">
+            </td>
 	          <td>{{$revista->titulo}}</td>
 	          <td>{{$revista->created_at}}</td>
 	          <td class="d-flex ">
@@ -62,6 +66,10 @@
           <div class="form-group">
             <h5>Titulo</h5>
             <input class="form-control" id="revista_title" type="text" name="revista_name" placeholder="Titulo Revista">
+          </div>
+          <div class="form-group">
+            <h5>Portada</h5>
+            <input type="file" id="revista_portada" name="revita_portada">
           </div>
           <div class="form-group">
             <h5>Archivo</h5>

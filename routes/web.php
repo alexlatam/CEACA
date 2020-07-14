@@ -87,7 +87,7 @@ Route::get('/download/membresias', 'ClubController@membresiasDownload');
 
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
-Route::middleware('auth:admin')->group(function () {
+Route::middleware('admin')->group(function () {
 
 	Route::get('/cms', 'CmsController@index');
 	Route::get('/cms/subscriptores', 'CmsController@subscribersView');

@@ -23,9 +23,24 @@ class RevistaController extends Controller
     public function cargandoRevista(Request $request)
     {
     	$file = $request->file('revista_file');
+        $portada = $request->file('revita_portada');
 
     	$revista = new Revista;
     	$revista->titulo = $request->revista_name;
+
+        if($portada)
+        {
+            $portadaPath = public_path() . '/revista/portada';
+            $portadaName = uniqid() . $portada->getClientOriginalName();
+            $portadaMoved = $portada->move($portadaPath, $portadaName);
+
+            $revista->portada = $portadaName;
+            
+            if(!$portadaMoved){
+                return back()->with('error', 'No se pudo cargar la portada');
+            }
+        }
+
     	if($file)
     	{
     		$path = public_path() . '/revista';
@@ -95,6 +110,18 @@ class RevistaController extends Controller
 		    $fullpath = public_path() . '/revista/' . $revista->archivo;
 		    $deleted = File::delete($fullpath);
     	}
+
+        if($revista->portada)
+        {
+            $portadaPath = public_path() . '/revista/portada/' . $revista->portada;
+            $revistaDeleted = File::delete($portadaPath);
+        } else {
+            $revistaDeleted = true;
+        }
+
+        if(!$revistaDeleted){
+            return back()->with('error', 'No se pudo eliminar');
+        }
 
     	if($deleted || $revista->archivo === null){
     	    $revista->delete();
