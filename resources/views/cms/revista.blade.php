@@ -70,7 +70,7 @@
           </div>
           <div class="form-group">
             <h5>Portada</h5>
-            <input type="file" id="revista_portada" name="revita_portada">
+            <input type="file" id="revista_portada" name="revista_portada">
           </div>
           <div class="form-group">
             <h5>Archivo</h5>
@@ -97,7 +97,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/cms/load/file" id="form_revista" method="POST" enctype="multipart/form-data">
+        <form action="/cms/edit/file" id="form_revista_editar" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
             <h5>Titulo</h5>
@@ -105,7 +105,7 @@
           </div>
           <div class="form-group">
             <h5>Portada</h5>
-            <input type="file" id="revista_portada" name="revita_portada">
+            <input type="file" id="revista_portada" name="revista_portada">
           </div>
           <div class="form-group">
             <h5>Archivo</h5>
@@ -115,7 +115,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="agregarRevista">Subir Revista</button>
+        <button type="button" class="btn btn-primary" id="actualizarRevista">Actualizar Revista</button>
       </div>
     </div>
   </div>
@@ -124,6 +124,7 @@
 
 
 <script type="text/javascript">
+
 	document.querySelector('#agregarRevista').addEventListener('click', (e) =>{
     let formulario = document.getElementById('form_revista')
     let revistaName = document.getElementById('revista_title')
@@ -168,16 +169,26 @@
 </script>
 <script type="text/javascript">
   let revistaEditSubmit = document.querySelectorAll('.editar')
-  
+  let editarSubmit = document.getElementById('actualizarRevista')
+  let formEdit = document.getElementById('form_revista_editar')
   if(revistaEditSubmit){
     revistaEditSubmit.forEach( submit => {
       submit.addEventListener('click', (e) => {
+          
+          let id = e.target.parentNode.parentNode.children[0].textContent
           let editTitle = e.target.parentNode.parentNode.children[2].textContent;
           let modalEditTitle = document.getElementById('editar_revista_title')
 
+          formEdit.action = `/cms/actualizar/revista/${id}`
+          console.log(formEdit)
+          
           modalEditTitle.value = editTitle
       });
     });
   }
+
+  editarSubmit.addEventListener('click', () => {
+    formEdit.submit();
+  });
 </script>
 @endsection
