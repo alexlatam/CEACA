@@ -15,13 +15,11 @@ class RevistaController extends Controller
     {
         $revistas = Revista::all();
         $info = Info::All();
-        $cat_servicios = Service_Category::All();
         $publicidad = Ads::All();
 
         return view('revista', [
             'revistas' => $revistas,
             'info' => $info,
-            'cat_servicios' => $cat_servicios,
             'publicidad' => $publicidad,
         ]);
     }

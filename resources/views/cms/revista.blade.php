@@ -3,7 +3,7 @@
 @section('content')
 <section>
 <div class="row mt-4">
-<h4>Revista</h4>
+<h4>Revistas</h4>
     <button type="button" class="btn btn-sm btn-outline-success col-auto ml-auto mr-4" data-toggle="modal" data-target="#modalRevista">Agregar Revista</button>
 </div>
 <hr>
@@ -41,10 +41,10 @@
 	          <td>{{$revista->created_at}}</td>
 	          <td class="d-flex ">
               <a href="/descargar/revista/{{$revista->id}}" class="btn btn-sm btn-outline-success mr-2">Descargar</a>
-	            <button type="button" id="{{ $revista->id }}" class="btn btn-sm btn-outline-success mr-2 editar"  data-toggle="modal" data-target="#modalRevista">Editar</button>
+	            <button type="button" id="{{ $revista->id }}" class="btn btn-sm btn-outline-success mr-2 editar"  data-toggle="modal" data-target="#modalRevistaEditar">Editar</button>
 	            <form action="/cms/revista/eliminar/{{$revista->id}}" method="POST">
 	              @csrf
-	              <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-success">
+	              <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-danger">
 	            </form>
 	          </td>
 	        </tr>
@@ -67,6 +67,41 @@
           <div class="form-group">
             <h5>Titulo</h5>
             <input class="form-control" id="revista_title" type="text" name="revista_name" placeholder="Titulo Revista">
+          </div>
+          <div class="form-group">
+            <h5>Portada</h5>
+            <input type="file" id="revista_portada" name="revita_portada">
+          </div>
+          <div class="form-group">
+            <h5>Archivo</h5>
+            <input type="file" id="revista_file" name="revista_file">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="agregarRevista">Subir Revista</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal editar  -->
+<div class="modal fade" id="modalRevistaEditar" tabindex="-1" role="dialog" aria-labelledby="modalRevistaEditar" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Revista</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/cms/load/file" id="form_revista" method="POST" enctype="multipart/form-data">
+          @csrf
+          <div class="form-group">
+            <h5>Titulo</h5>
+            <input class="form-control" id="editar_revista_title" type="text" name="revista_name" placeholder="Titulo Revista">
           </div>
           <div class="form-group">
             <h5>Portada</h5>
@@ -130,6 +165,19 @@
       return true;
     }
   }
+</script>
+<script type="text/javascript">
+  let revistaEditSubmit = document.querySelectorAll('.editar')
+  
+  if(revistaEditSubmit){
+    revistaEditSubmit.forEach( submit => {
+      submit.addEventListener('click', (e) => {
+          let editTitle = e.target.parentNode.parentNode.children[2].textContent;
+          let modalEditTitle = document.getElementById('editar_revista_title')
 
+          modalEditTitle.value = editTitle
+      });
+    });
+  }
 </script>
 @endsection

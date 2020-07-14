@@ -34,19 +34,12 @@
         <div class="row">
             <div class="col-12 col-md-3 col-lg-2 order-md-2 pl-md-4 border-left">
                 <h6 class="title">
-                    Categorias
+                    Nuestras ediciones
                 </h6>
-                <nav class="sidenav d-flex flex-column mb-5 mb-md-0">
-                    @foreach ($cat_servicios as $categoria)
-                    <a class="text-uppercase text-xs mb-2" href="#!">
-                        {{ $categoria->name }}
-                    </a>
-                    @endforeach
-                </nav>
             </div>
             <div class="col-12 col-md-9 col-lg-10 order-md-1">
                 @foreach ($revistas as $revista)
-                <a class="row align-items-center text-nounderline" href="/descargar/revista/{{$revista->id}}">
+                <div class="row align-items-center text-nounderline">
                     <div class="col-12 col-md-3">
                         <img src="{{asset('revista/portada/'. $revista->portada )}}" alt="{{ $revista->titulo }}" class="img-fluid mb-3 mb-md-0">
                     </div>
@@ -54,8 +47,10 @@
                         <h4>
                             {{ $revista->titulo }}
                         </h4>
+                        <a href="{{asset('revista/'. $revista->archivo)}}" target="_blank" class="btn btn-sm btn-outline-success">Ver en linea</a>
+                        <a href="#" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target=".modalRevista">Descargar</a>
                     </div>
-                </a>
+                </div>
                 <hr class="my-4">
                 @endforeach
             </div>
