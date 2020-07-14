@@ -185,6 +185,11 @@ Route::middleware('admin')->group(function () {
 	Route::get('/cms/obtener/revista/{id}', 'RevistaController@obtenerRevista');
 	Route::post('/cms/actualizar/revista/{id}', 'RevistaController@actualizarRevista');
 	Route::post('/cms/revista/eliminar/{id}', 'RevistaController@eliminarRevista');
+
+
+	/* ----------  RUTA RECURSOS CONTROLLADOR ---------*/
+	Route::get('/cms/recursos', 'RecursoController@index');
+	Route::get('/cms/crear/recurso', 'RecursoController@crearRecurso');
 });
 
 /*------------------------------------ END --------------------------*/
