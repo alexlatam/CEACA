@@ -15,4 +15,12 @@
 <link rel="stylesheet" href="{{asset('vendor/incline-icons/style.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/css_plantilla/theme.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172646760-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-172646760-1');
+</script>
 

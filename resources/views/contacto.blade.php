@@ -3,9 +3,9 @@
 @section('head')
 <title>Ceaca - Contacto</title>
 <style>
-.enlace_contact:hover{
-  text-decoration: none;
-}
+  .enlace_contact:hover {
+    text-decoration: none;
+  }
 </style>
 @endsection
 @section('content')
@@ -32,7 +32,11 @@
     </div>
   </div>
 </nav>
-
+@if(session('message'))
+<div class="alert alert-success my-4" role="alert">
+  <strong>{{session('message')}}</strong>
+</div>
+@endif
 <section class="section pb-0">
   <div class="container">
     <div class="row">
@@ -57,12 +61,13 @@
         <h3 class="mb-4">
           ¿Tienes alguna pregunta? Escríbenos un <span class="text-primary">mensaje</span>
         </h3>
-        <form action="" method="">
+        <form action="/enviar/mensaje" method="POST">
+          @csrf
           <div class="form-row">
             <div class="form-group col-md-6">
               <label>Nombre Completo</label>
               <div class="input-group">
-                <input type="text" class="form-control order-1" name="contact-name">
+                <input type="text" class="form-control order-1" name="name" required>
                 <div class="input-group-append order-0">
                   <div class="input-group-text">
                     <svg class="input-group-icon icon-offset icon icon-person" viewBox="0 0 106 106" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -77,7 +82,7 @@
             <div class="form-group col-md-6">
               <label>Correo Electrónico</label>
               <div class="input-group">
-                <input type="email" class="form-control order-1" name="contact-email">
+                <input type="email" class="form-control order-1" name="email" required>
                 <div class="input-group-append order-0">
                   <div class="input-group-text">
                     <svg class="input-group-icon icon-offset icon icon-envelope" viewBox="0 0 106 106" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -93,7 +98,7 @@
           <div class="form-row">
             <div class="form-group col-12">
               <label>Comentario</label>
-              <textarea class="form-control" name="contact-message" rows="7"></textarea>
+              <textarea class="form-control" name="message" required rows="7"></textarea>
             </div>
           </div>
           <div class="form-row">

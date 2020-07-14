@@ -77,9 +77,10 @@ Route::get('/detalles_servicio/{id}', function ($id) {
 
 /* CONTACTO */
 Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
+Route::post('/enviar/mensaje', 'MessageController@createMessage');
 
 /* SUSCRIBIRSE Y DESCARGAR REVISTA */
-Route::post('/user/createMagazine/', 'ClubController@crearUsuarioDownload');
+Route::post('/user/createmagazine/','ClubController@crearUsuarioDownload');
 
 /* Descargar Membresias */
 Route::get('/download/membresias', 'ClubController@membresiasDownload');
@@ -98,6 +99,7 @@ Route::middleware('auth:admin')->group(function () {
 	Route::get('/cms/cursos', 'CursoController@index');
 	Route::get('/cms/slider/image', 'SliderImageController@index');
 	Route::get('/cms/crear/usuario', 'UserController@index');
+	Route::get('/cms/mensajes', 'CmsController@mensajesView');
 
 	/* ----------  RUTA USUARIOS CONTROLLADOR ---------*/
 	Route::post('cms/guardar/usuario', 'UserController@crearUsuario');
