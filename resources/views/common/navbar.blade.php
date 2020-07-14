@@ -115,6 +115,11 @@
           </div>
         </!--li-->
         <li class="nav-item">
+          <a href="{{route('revistas')}}" class="nav-link">
+            Revistas
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="{{route('club')}}" class="nav-link" style="min-width:115px;">
             Club Ceaca
           </a>

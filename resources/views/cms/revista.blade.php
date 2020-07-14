@@ -40,6 +40,7 @@
 	          <td>{{$revista->titulo}}</td>
 	          <td>{{$revista->created_at}}</td>
 	          <td class="d-flex ">
+              <a href="/descargar/revista/{{$revista->id}}" class="btn btn-sm btn-outline-success mr-2">Descargar</a>
 	            <button type="button" id="{{ $revista->id }}" class="btn btn-sm btn-outline-success mr-2 editar"  data-toggle="modal" data-target="#modalRevista">Editar</button>
 	            <form action="/cms/revista/eliminar/{{$revista->id}}" method="POST">
 	              @csrf

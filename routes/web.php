@@ -75,6 +75,11 @@ Route::get('/detalles_servicio/{id}', function ($id) {
 	return view('detalles_servicio', ["info" => $info, "servicios" => $servicios, "servicio" => $servicio, "publicidad" => $publicidad]);
 })->name('detalles_servicio');
 
+/* REVITA */
+Route::get('/revistas', 'RevistaController@revistaHome')->name('revistas');
+Route::get('/descargar/revista/{id}', 'RevistaController@descargarRevistas');
+
+
 /* CONTACTO */
 Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
 Route::post('/enviar/mensaje', 'MessageController@createMessage');
@@ -183,6 +188,8 @@ Route::middleware('admin')->group(function () {
 });
 
 /*------------------------------------ END --------------------------*/
+
+
 
 Auth::routes();
 

@@ -4,13 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Revista;
+use App\Ads;
+use App\Service_Category;
+use App\Info;
 use File;
 class RevistaController extends Controller
 {
+
+    public function revistaHome()
+    {
+        $revistas = Revista::all();
+        $info = Info::All();
+        $cat_servicios = Service_Category::All();
+        $publicidad = Ads::All();
+
+        return view('revista', [
+            'revistas' => $revistas,
+            'info' => $info,
+            'cat_servicios' => $cat_servicios,
+            'publicidad' => $publicidad,
+        ]);
+    }
+
     public function index()
     {
 		$revistas = Revista::all();
-    	return view('cms.revista')->with(compact('revistas'));
+    	return view('cms.revista')->with(compact(
+            'revistas'
+        ));
     }
 
     public function obtenerRevista($id)
@@ -99,6 +120,14 @@ class RevistaController extends Controller
     	    $revista->save();
     	    return back()->with('message','Revista actualizada con éxito');
     	}
+    }
+
+    public function descargarRevistas($id)
+    {
+        $revista = Revista::find($id);
+        $path = public_path() . '/revista/' . $revista->archivo;
+
+        return response()->download($path);
     }
 
     public function eliminarRevista($id)

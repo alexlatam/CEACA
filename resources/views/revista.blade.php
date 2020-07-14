@@ -26,41 +26,6 @@
 </section>
 
 
-<!--section-- class="mb-4">
-    <div class="container section pb-0">
-        <div class="row align-items-stretch">
-        @php {{$x=0;}} @endphp
-            @foreach ($servicios as $servicio)
-            @if($x>2)
-            @break
-            @endif
-            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                <a class="card h-100" href="detalles_servicio/{{$servicio->id}}">
-                    <div class="card-body">
-                        <div class="row align-items-center no-gutters mb-4">
-                            <div class="col-auto">
-                                <div class="avatar mr-3">
-                                    <img src="{{asset('img/services/' . $servicio->imagen )}}" alt="..." class="img-cover rounded-circle">
-                                </div>
-                            </div>
-                        </div>
-                        <h4>
-                            {{ $servicio->titulo }}
-                        </h4>
-                        <p class="mb-0 text-sm text-muted">
-                        @php {{ $descripcion = substr($servicio->descripcion,0,100).'...'; }} @endphp
-                            {{ $descripcion }}
-                        </p>
-                    </div>
-                </a>
-            </div>
-            @php {{++$x;}} @endphp
-            
-            @endforeach
-        </div>
-    </div>
-</!--section-->
-
 @include('home.download_magazine_simple')
 @include('home.modal_revista')
 
@@ -80,19 +45,15 @@
                 </nav>
             </div>
             <div class="col-12 col-md-9 col-lg-10 order-md-1">
-                @foreach ($servicios as $servicio)
-                <a class="row align-items-center text-nounderline" href="detalles_servicio/{{$servicio->id}}">
+                @foreach ($revistas as $revista)
+                <a class="row align-items-center text-nounderline" href="/descargar/revista/{{$revista->id}}">
                     <div class="col-12 col-md-3">
-                        <img src="{{asset('img/services/'. $servicio->imagen )}}" alt="{{ $servicio->titulo }}" class="img-fluid mb-3 mb-md-0">
+                        <img src="{{asset('revista/portada/'. $revista->portada )}}" alt="{{ $revista->titulo }}" class="img-fluid mb-3 mb-md-0">
                     </div>
                     <div class="col-12 col-md-9">
                         <h4>
-                            {{ $servicio->titulo }}
+                            {{ $revista->titulo }}
                         </h4>
-                        <p class="mb-0 text-sm text-muted">
-                        @php {{ $descripcion = substr($servicio->descripcion,0,350); }} @endphp
-                            {{ $descripcion.'...' }}
-                        </p>
                     </div>
                 </a>
                 <hr class="my-4">
@@ -105,7 +66,6 @@
 
 @include('home.publicidad_lateral')
 
-@include('home.servicios_cat')
 
 
 
