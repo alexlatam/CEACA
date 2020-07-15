@@ -134,6 +134,11 @@
             <span></span>
           </span>
         </li>
+        <li class="nav-item">
+          <a href="/sesion" class="nav-link">
+            <img src="{{asset('images/sesion_icon.svg')}}">
+          </a>
+        </li>
       </ul>
     </div>
   </div>

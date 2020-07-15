@@ -90,6 +90,14 @@ Route::post('/user/createmagazine/','ClubController@crearUsuarioDownload');
 /* Descargar Membresias */
 Route::get('/download/membresias', 'ClubController@membresiasDownload');
 
+
+/*Subscribirse a revista*/
+
+Route::post('/subscricion', 'SubscripcionController@subscribirUsuario');
+
+
+
+
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
 Route::middleware('admin')->group(function () {
@@ -207,3 +215,6 @@ Auth::routes();
 Route::get('admin', 'Admin\loginController@showLoginForm')->name('login.admin');
 Route::post('admin', 'Admin\loginController@login')->name('login.admin');
 
+/*-------------------------------LOGIN COMUN  --------------------------*/
+
+Route::get('/sesion', 'User\LoginController@index');
