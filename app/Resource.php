@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Resource extends Model
 {
-    public function memberships()
+    public function plans()
     {
-    	return $this->belongsToMany('App\Membership', 'membership_resource', 'resource_id', 'membership_id');
+    	return $this->belongsToMany('App\Plan', 'plan_resource', 'resource_id', 'plan_id');
     }
 }

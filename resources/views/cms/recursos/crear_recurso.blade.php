@@ -39,7 +39,7 @@
 				@foreach($membresias as $membresia)
 				<div class="">
 					<label class="form-check-label" for="exampleCheck1">
-						{{$membresia->membresia}}
+						{{$membresia->title}}
 						<input type="checkbox" value="{{$membresia->id}}" name="recurso_membership[]" id="exampleCheck1">
 					</label> 
 				 </div>

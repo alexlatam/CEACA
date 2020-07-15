@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMembershipResourceTable extends Migration
+class CreatePlanResourceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateMembershipResourceTable extends Migration
      */
     public function up()
     {
-        Schema::create('membership_resource', function (Blueprint $table) {
+        Schema::create('plan_resource', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('membership_id');
+            $table->foreignId('plan_id');
             $table->foreignId('resource_id');
             $table->timestamps();
 
-            $table->foreign('membership_id')->references('id')->on('memberships')
+            $table->foreign('plan_id')->references('id')->on('plans')
                 ->onDelete('cascade');
             
 
@@ -35,6 +35,6 @@ class CreateMembershipResourceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('membership_resource');
+        Schema::dropIfExists('plan_resource');
     }
 }

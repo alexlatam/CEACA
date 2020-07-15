@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Membership;
+use App\Plan;
 use App\Resource;
 
 use File;
@@ -15,11 +15,15 @@ class RecursoController extends Controller
     	return view('cms.recursos.index', compact('recursos'));
     }
 
+    //CREAR RECURSO
+
     public function crearRecurso()
     {	
-    	$membresias = Membership::all();
+    	$membresias = Plan::all();
     	return view('cms.recursos.crear_recurso', compact('membresias'));
     }
+
+    //GUARDAR RECURSO
 
     public function guardarRecurso(Request $request)
     {	
@@ -42,7 +46,7 @@ class RecursoController extends Controller
     	    if($moved){
     	        $recurso->recurso = $fileName;
     	        $recurso->save();
-    	        $recurso->memberships()->attach($request->get('recurso_membership'));
+    	        $recurso->plans()->attach($request->get('recurso_membership'));
     	        
     	        
     	    }
@@ -57,9 +61,13 @@ class RecursoController extends Controller
 
     public function editarRecurso ($id){
         $recurso = Resource::find($id);
-        $membresias = Membership::all();
+        $membresias = Plan::all();
         return view('cms.recursos.editar_recurso', compact('recurso', 'membresias'));
     }
+
+
+
+    // ACTUALIZAR RECURSO
 
     public function actualizarRecurso(Request $request, $id)
     {
@@ -87,7 +95,7 @@ class RecursoController extends Controller
                     if($moved){
                         $recurso->recurso = $fileName;
                         $recurso->save();
-                        $recurso->memberships()->sync($request->get('recurso_membership'));
+                        $recurso->plans()->sync($request->get('recurso_membership'));
 
                         return back()->with('message', 'Recurso actualizado con éxito!');
                     }else {
@@ -99,11 +107,13 @@ class RecursoController extends Controller
         } else {
             $recurso->save();
             
-            $recurso->memberships()->sync($request->get('recurso_membership'));
+            $recurso->plans()->sync($request->get('recurso_membership'));
             return back()->with('message', 'Recurso actualizado con éxito!');
         }
 
     }
+
+    // ELIMINAR RECURSO
 
 
     public function eliminarRecurso($id)

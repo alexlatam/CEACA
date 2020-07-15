@@ -39,7 +39,7 @@
 				@foreach($membresias as $membresia)
 				<div class="">
 					<label class="form-check-label" for="exampleCheck1">
-						{{$membresia->membresia}}
+						{{$membresia->title}}
 						<input type="checkbox" value="{{$membresia->id}}" name="recurso_membership[]" id="exampleCheck1">
 					</label> 
 				 </div>
@@ -50,7 +50,7 @@
 				<input type="file" id="seccion_img" name="recurso_file">
 			</div>
 			<div class="col-auto mt-3">
-				<input type="submit" class="btn btn-success px-5 col-auto" id="seccion_submit" value="Crear Recurso">
+				<input type="submit" class="btn btn-success px-5 col-auto" id="seccion_submit" value="Actualizar Recurso">
 			</div>
 		</form>
 	</div>
