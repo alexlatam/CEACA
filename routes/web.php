@@ -191,6 +191,9 @@ Route::middleware('admin')->group(function () {
 	Route::get('/cms/recursos', 'RecursoController@index');
 	Route::get('/cms/crear/recurso', 'RecursoController@crearRecurso');
 	Route::post('/cms/guardar/recurso', 'RecursoController@guardarRecurso');
+	Route::get('/cms/editar/recurso/{id}', 'RecursoController@editarRecurso');
+	Route::post('/cms/actualizar/recurso/{id}', 'RecursoController@actualizarRecurso');
+	Route::post('/cms/eliminar/recurso/{id}', 'RecursoController@eliminarRecurso');
 });
 
 

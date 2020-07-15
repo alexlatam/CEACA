@@ -19,8 +19,12 @@ class CreateMembershipResourceTable extends Migration
             $table->foreignId('resource_id');
             $table->timestamps();
 
-            $table->foreign('membership_id')->references('id')->on('memberships');
-            $table->foreign('resource_id')->references('id')->on('resources');
+            $table->foreign('membership_id')->references('id')->on('memberships')
+                ->onDelete('cascade');
+            
+
+            $table->foreign('resource_id')->references('id')->on('resources')
+                ->onDelete('cascade');
         });
     }
 
