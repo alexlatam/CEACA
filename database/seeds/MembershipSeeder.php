@@ -1,0 +1,30 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class MembershipSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('memberships')->insert([
+        	'membresia' => 'gratuita',
+        ]);
+
+        DB::table('memberships')->insert([
+        	'membresia' => 'basica',
+        ]);
+
+        DB::table('memberships')->insert([
+        	'membresia' => 'media',
+        ]);
+
+        DB::table('memberships')->insert([
+        	'membresia' => 'premiun',
+        ]);
+    }
+}

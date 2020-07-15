@@ -18,7 +18,13 @@
 			{{session('message')}}
 		</div>
 		@endif
-		<form action="#" class="row" id="recurso_form" method="POST" enctype="multipart/form-data">
+
+		@if(session('error'))
+		<div class="alert alert-danger" role="alert">
+			{{session('error')}}
+		</div>
+		@endif
+		<form action="/cms/guardar/recurso" class="row" id="recurso_form" method="POST" enctype="multipart/form-data">
 			@csrf
 			<div class="form-group col-12">
 				<h5>Titulo</h5>
@@ -30,25 +36,14 @@
 			</div>
 			<div class="form-group col-12">
 				<h5>Tipo de membresia</h5>
-				<div class="form-check">
-				    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-				    <label class="form-check-label" for="exampleCheck1">Gratis</label>
+				@foreach($membresias as $membresia)
+				<div class="">
+					<label class="form-check-label" for="exampleCheck1">
+						{{$membresia->membresia}}
+						<input type="checkbox" value="{{$membresia->id}}" name="recurso_membership[]" id="exampleCheck1">
+					</label> 
 				 </div>
-
-				 <div class="form-check">
-				     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-				     <label class="form-check-label" for="exampleCheck1">Check me out</label>
-				 </div>
-
-				 <div class="form-check">
-				     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-				     <label class="form-check-label" for="exampleCheck1">Media</label>
-				  </div>
-
-				  <div class="form-check">
-				      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-				      <label class="form-check-label" for="exampleCheck1">Premium</label>
-				   </div>
+				@endforeach
 			</div>
 			<div class="form-group col-12">
 				<h5>Recurso</h5>

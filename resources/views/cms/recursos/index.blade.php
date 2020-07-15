@@ -31,6 +31,13 @@
 	      </tr>
 	    </thead>
 	    <tbody>
+	    	@foreach($recursos as $recurso)
+	    		<td>{{$recurso->id}}</td>
+	    		<td>{{$recurso->titulo}}</td>
+	    		<td>{{$recurso->descripcion}}</td>
+	    		<td>{{$recurso->precio}}</td>
+	    		<td>editar</td>
+	    	@endforeach
 	    </tbody>
 	  </table>
 
