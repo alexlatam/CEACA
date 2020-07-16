@@ -75,6 +75,11 @@ Route::get('/detalles_servicio/{id}', function ($id) {
 	return view('detalles_servicio', ["info" => $info, "servicios" => $servicios, "servicio" => $servicio, "publicidad" => $publicidad]);
 })->name('detalles_servicio');
 
+/* REVITA */
+Route::get('/revistas', 'RevistaController@revistaHome')->name('revistas');
+Route::get('/descargar/revista/{id}', 'RevistaController@descargarRevistas');
+
+
 /* CONTACTO */
 Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
 Route::post('/enviar/mensaje', 'MessageController@createMessage');
@@ -85,9 +90,17 @@ Route::post('/user/createmagazine/','ClubController@crearUsuarioDownload');
 /* Descargar Membresias */
 Route::get('/download/membresias', 'ClubController@membresiasDownload');
 
+
+/*Subscribirse a revista*/
+
+Route::post('/subscricion', 'SubscripcionController@subscribirUsuario');
+
+
+
+
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
-Route::middleware('auth:admin')->group(function () {
+Route::middleware('admin')->group(function () {
 
 	Route::get('/cms', 'CmsController@index');
 	Route::get('/cms/subscriptores', 'CmsController@subscribersView');
@@ -180,9 +193,21 @@ Route::middleware('auth:admin')->group(function () {
 	Route::get('/cms/obtener/revista/{id}', 'RevistaController@obtenerRevista');
 	Route::post('/cms/actualizar/revista/{id}', 'RevistaController@actualizarRevista');
 	Route::post('/cms/revista/eliminar/{id}', 'RevistaController@eliminarRevista');
+
+
+	/* ----------  RUTA RECURSOS CONTROLLADOR ---------*/
+	Route::get('/cms/recursos', 'RecursoController@index');
+	Route::get('/cms/crear/recurso', 'RecursoController@crearRecurso');
+	Route::post('/cms/guardar/recurso', 'RecursoController@guardarRecurso');
+	Route::get('/cms/editar/recurso/{id}', 'RecursoController@editarRecurso');
+	Route::post('/cms/actualizar/recurso/{id}', 'RecursoController@actualizarRecurso');
+	Route::post('/cms/eliminar/recurso/{id}', 'RecursoController@eliminarRecurso');
 });
 
+
 /*------------------------------------ END --------------------------*/
+
+
 
 Auth::routes();
 
@@ -190,3 +215,6 @@ Auth::routes();
 Route::get('admin', 'Admin\loginController@showLoginForm')->name('login.admin');
 Route::post('admin', 'Admin\loginController@login')->name('login.admin');
 
+/*-------------------------------LOGIN COMUN  --------------------------*/
+
+Route::get('/sesion', 'User\LoginController@index');

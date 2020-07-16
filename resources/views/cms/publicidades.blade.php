@@ -65,7 +65,7 @@
                      <img src="{{ asset('img/publicidad/'. $publicidad->imagen) }}" class="publicidades_card-img" alt="">
                 @endif
 				<div class="publicidades_card-body">
-					<form action="/cms/actualizar/publicidad/{{$publicidad->id}}" method="POST" enctype="multipart/form-data">
+					<form action="/cms/actualizar/publicidad/{{$publicidad->id}}" id="formPublicidad" method="POST" enctype="multipart/form-data">
 						@csrf
 						<!--div-- class="form-group">
 							<h5>Tipo</h5>
@@ -77,22 +77,71 @@
 						</!--div-->
 						<div class="form-group">
 							<h5 title="Al dar click sobre la publicidad se redireccionara a este enlace">Enlace de redirección <small class="text-muted">(opcional)</small></h5>
-							<input type="text" name="publicidad_url" value="{{$publicidad->url}}" placeholder="Descripcion..." class="form-control">
+							<input type="text" id="url" name="publicidad_url" value="{{$publicidad->url}}" placeholder="Descripcion..." class="form-control">
 						</div>
 						<div class="form-group">
 							<h5>Cambiar Imagen</h5>
-							<input type="file" class="file-input" name="publicidad_imagen">
+							<input type="file" id="publicidad_imagen" class="file-input" name="publicidad_imagen">
 						</div>
-						<input type="submit" class="btn btn-success btn-sm px-5 mt-3" value="Actualizar Publicidad">
+						<input type="submit" id="submit_publicidad" class="btn btn-success btn-sm px-5 mt-3" value="Actualizar Publicidad">
 					</form>
 				</div>
 			</div>
 		@endforeach
 	</div>
 </section>
+
+<script type="text/javascript">
+	let urlPublicidad = document.getElementById('url');
+	let formPublicidad = document.getElementById('formPublicidad')
+	let imagenPublicidad = document.getElementById('publicidad_imagen')
+	let submitPublicidad = document.getElementById('submit_publicidad')
+
+	submitPublicidad.addEventListener('click', (e) => {
+		e.preventDefault();
+
+
+		if(!validarServicio())
+		{
+		  return;
+		}
+
+		const archivo = imagenPublicidad.files[0];
+
+
+		if(archivo)
+		{
+			if(archivo.size > maximoBytes) {
+			  const alertSize = maximoBytes / 1000000;
+
+			  alert(`el tamaño máximo por archivo es ${alertSize} MB`);
+
+			  imagenPublicidad.value = "";
+			} else {
+			  formPublicidad.submit();
+			}
+		} else {
+			formPublicidad.submit();
+		}
+
+		
+
+	});
+
+
+	const validarServicio = () => {
+		if(urlPublicidad.value === ""){
+			alert('Debe agregar una url');
+			return false;
+		}else {
+			return true;
+		}
+	} 
+
+</script>
+
 <script type="text/javascript">
 	let publicidad_inputs = document.querySelectorAll('.file-input');
-	console.log(publicidad_inputs);
 
 	publicidad_inputs.forEach(input => {
 		input.onchange = function (e){

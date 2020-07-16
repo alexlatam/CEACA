@@ -2,14 +2,24 @@ let submit = document.getElementById('submit_button');
 let file = document.getElementById('file_input');
 let formulario = document.getElementById('form');
 let logo = document.getElementById('file_logo');
-let maximoBytes = 2000000;
+
+
+
+//inputs
+
+texts = document.querySelectorAll('.input-text');
 
 if(submit)
 {
 	submit.addEventListener('click', (e) => {
 		e.preventDefault();
 
-		if(file.files.length <= 0) return;
+		if(!validarServicio())
+		{	
+			
+		}
+
+		if(file.files.length <= 0 || logo.files.length <= 0) return alert('Debe cargar un logo y una imagen');
 
 		const archivo = file.files[0];
 		
@@ -42,3 +52,4 @@ if(submit)
 		}
 	});
 }
+

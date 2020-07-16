@@ -115,6 +115,11 @@
           </div>
         </!--li-->
         <li class="nav-item">
+          <a href="{{route('revistas')}}" class="nav-link">
+            Revistas
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="{{route('club')}}" class="nav-link" style="min-width:115px;">
             Club Ceaca
           </a>
@@ -128,6 +133,11 @@
           <span class="nav-link">
             <span></span>
           </span>
+        </li>
+        <li class="nav-item">
+          <a href="/sesion" class="nav-link">
+            <img src="{{asset('images/sesion_icon.svg')}}">
+          </a>
         </li>
       </ul>
     </div>

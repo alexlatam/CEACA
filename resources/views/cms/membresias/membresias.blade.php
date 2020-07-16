@@ -50,7 +50,7 @@
           <h5>Cambiar Imagen</h5>
           <input type="file" class="file-input" name="imagen_plan">
         </div>
-        <input type="submit" class="btn btn-success btn-sm px-5" value="Actualizar Membresía">
+        <input type="submit" class="btn btn-success btn-sm px-5 editar_membresia_submit" value="Actualizar Membresía">
       </form>
     </div>
   </div>
@@ -74,19 +74,19 @@
           @csrf
           <div class="form-group">
             <h5>Nombre de la membresía</h5>
-            <input class="form-control" type="text" name="plan_name" placeholder="Nombre" required>
+            <input class="form-control" id="membresia_nombre" type="text" name="plan_name" placeholder="Nombre" required>
           </div>
           <div class="form-group">
             <h5>Descripción</h5>
-            <textarea class="form-control" name="plan_description" required></textarea>
+            <textarea class="form-control" id="membresia_descripcion" name="plan_description" required></textarea>
           </div>
           <div class="form-group">
             <h5>Costo</h5>
-            <input class="form-control" type="number" name="plan_monto" required>
+            <input class="form-control" id="membresia_costo" type="number" name="plan_monto" required>
           </div>
           <div class="form-group">
             <h5>Imagen</h5>
-            <input type="file" name="plan_image">
+            <input type="file" id="membresia_imagen" name="plan_image">
           </div>
         </form>
       </div>
@@ -101,30 +101,137 @@
 
 <script type="text/javascript">
   let formulario = document.getElementById('form_create_category');
-  let botonesEditar = document.querySelectorAll('.editar');
-  let formEdit = document.getElementById('form_edit_category');
+  let botonesEditar = document.querySelectorAll('.editar'); 
 
-  document.getElementById('agregarCategoria').addEventListener('click', () => {
-    formulario.submit();
+  //inputs 
+
+  let membresiaNombre = document.getElementById('membresia_nombre')
+  let membresíaDesc = document.getElementById('membresia_descripcion')
+  let membresiaCost = document.getElementById('membresia_costo')
+  let membresiaImg = document.getElementById('membresia_imagen')
+
+
+  //inputs
+  let membresiaEditSubmit = document.querySelectorAll('.editar_membresia_submit')
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    membresiaEditSubmit.forEach( submit => {
+      submit.addEventListener('click', (e) => {
+        e.preventDefault();
+        let membresiaFormEdit = e.target.parentNode
+        const membresiaEditName = e.target.parentNode[1]
+        const membresiaEditCost = e.target.parentNode[2]
+        const membresiaEditDesc = e.target.parentNode[3]
+        const membresiaEditImg  = e.target.parentNode[4]
+        
+
+        if(!validarMembresiaEdit(membresiaEditName, membresiaEditCost, membresiaEditDesc)){
+          return;
+        }
+
+        const archivo = membresiaEditImg.files[0];
+
+
+        if(archivo)
+        {
+          if(archivo.size > maximoBytes) {
+            const alertSize = maximoBytes / 1000000;
+
+            alert(`el tamaño máximo por archivo es ${alertSize} MB`);
+
+            membresiaEditImg.value = "";
+          } else {
+            membresiaFormEdit.submit();
+          }
+        } else {
+          membresiaFormEdit.submit();
+        }
+
+      });
+    });
   });
 
-  document.getElementById('editarCategoria').addEventListener('click', () => {
-    formEdit.submit();
+
+  document.getElementById('agregarCategoria').addEventListener('click', (e) => {
+    e.preventDefault()
+
+    if(!validarMembresia()) {
+      return;
+    }
+
+    const archivo = membresiaImg.files[0];
+
+
+    if(archivo)
+    {
+      if(archivo.size > maximoBytes) {
+        const alertSize = maximoBytes / 1000000;
+
+        alert(`el tamaño máximo por archivo es ${alertSize} MB`);
+
+        file.value = "";
+      } else {
+        formulario.submit();
+      }
+    } else {
+      formulario.submit();
+    }
+
   });
 
-  botonesEditar.forEach(boton => {
-    boton.addEventListener('click', (e) => {
-      let categoriaNombre = document.getElementById('categoria_nombre');
-      let categoriaDescripcion = document.getElementById('categoria_descripcion');
+  // document.getElementById('editarCategoria').addEventListener('click', () => {
+  //   formEdit.submit();
+  // });
 
-      formEdit.action = `/cms/categoria/edit/${e.target.id}`
+  // botonesEditar.forEach(boton => {
+  //   boton.addEventListener('click', (e) => {
+  //     let categoriaNombre = document.getElementById('categoria_nombre');
+  //     let categoriaDescripcion = document.getElementById('categoria_descripcion');
 
-      axios.get(`/cms/categoria/${e.target.id}`)
-        .then(response => {
-          categoriaNombre.value = response.data.name;
-          categoriaDescripcion.value = response.data.descripcion;
-        })
-    })
-  });
+  //     formEdit.action = `/cms/categoria/edit/${e.target.id}`
+
+  //     axios.get(`/cms/categoria/${e.target.id}`)
+  //       .then(response => {
+  //         categoriaNombre.value = response.data.name;
+  //         categoriaDescripcion.value = response.data.descripcion;
+  //       })
+  //   })
+  // });
+
+
+
+  const validarMembresia = () => {
+    if(membresiaNombre.value === ""){
+      alert('Debes colocar un nombre')
+      return false
+    } else if(membresíaDesc.value === "") {
+      alert('Debes colocar una descripción')
+      return false;
+    } else if (membresia_descripcion.value <= 0) {
+      alert('debes colocar un costo')
+      return false
+    } else if (membresiaImg.files.length <= 0) {
+      alert('Debes agregar una imagen');
+      return false
+    } else {
+      return true;
+    }
+  }
+
+  const validarMembresiaEdit= (title, cost, desc) => {
+    if(title.value === ""){
+      alert('Debes colocar un nombre')
+      return false
+    } else if (cost.value <= 0){
+      alert('Debes colocar un precio')
+      return false;
+    } else if (desc.value === "") {
+      alert('Debes colocar una descripcion')
+      return false;
+    } else {
+      return true;
+    }
+  }
 </script>
 @endsection

@@ -31,7 +31,7 @@
 			</!--div-->
 			<div class="form-group col-12">
 				<h5 title="Al dar click sobre la publicidad se redireccionara a este enlace">Enlace de redirección <small class="text-muted">(opcional)</small></h5>
-				<input type="text" name="publicidad_url" placeholder="url..." class="form-control" name="">
+				<input type="text" id="url" name="publicidad_url" placeholder="url..." class="form-control" name="">
 			</div>
 			<div class="form-group col-12">
 				<h5>Imagen</h5>
@@ -45,5 +45,52 @@
 	</div>
 </section>
 
+<script type="text/javascript">
+	let formulario = document.getElementById('form');
+	let urlPublicidad = document.getElementById('url');
+	let botonPublicidad = document.getElementById('submit_button');
+	let imagenPublicidad = document.getElementById('file_input');
+
+	if(botonPublicidad){
+		botonPublicidad.addEventListener('click', (e) => {
+			e.preventDefault();
+
+			if(!validarServicio())
+			{
+			  return;
+			}
+
+			const archivo = imagenPublicidad.files[0];
+
+			console.log(archivo)
+
+			if(archivo.size > maximoBytes) {
+			  const alertSize = maximoBytes / 1000000;
+
+			  alert(`el tamaño máximo por archivo es ${alertSize} MB`);
+
+			  file.value = "";
+			} else {
+			  formulario.submit();
+			}
+
+		});
+	}
+
+
+	const validarServicio = () => {
+		if(urlPublicidad.value === ""){
+			alert('Debe agregar una url');
+			return false;
+		} else if(imagenPublicidad.files.length <= 0)
+		{	
+			alert('Debe agregar una imagen');
+			return false;
+		} else {
+			return true;
+		}
+	} 
+
+</script>
 
 @endsection

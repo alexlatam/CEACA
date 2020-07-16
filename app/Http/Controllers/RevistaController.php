@@ -4,13 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Revista;
+use App\Ads;
+use App\Service_Category;
+use App\Info;
 use File;
 class RevistaController extends Controller
 {
+
+    public function revistaHome()
+    {
+        $revistas = Revista::all();
+        $info = Info::All();
+        $publicidad = Ads::All();
+
+        return view('revista', [
+            'revistas' => $revistas,
+            'info' => $info,
+            'publicidad' => $publicidad,
+        ]);
+    }
+
     public function index()
     {
 		$revistas = Revista::all();
-    	return view('cms.revista')->with(compact('revistas'));
+    	return view('cms.revista')->with(compact(
+            'revistas'
+        ));
     }
 
     public function obtenerRevista($id)
@@ -23,9 +42,24 @@ class RevistaController extends Controller
     public function cargandoRevista(Request $request)
     {
     	$file = $request->file('revista_file');
+        $portada = $request->file('revista_portada');
 
     	$revista = new Revista;
     	$revista->titulo = $request->revista_name;
+
+        if($portada)
+        {
+            $portadaPath = public_path() . '/revista/portada';
+            $portadaName = uniqid() . $portada->getClientOriginalName();
+            $portadaMoved = $portada->move($portadaPath, $portadaName);
+
+            $revista->portada = $portadaName;
+            
+            if(!$portadaMoved){
+                return back()->with('error', 'No se pudo cargar la portada');
+            }
+        }
+
     	if($file)
     	{
     		$path = public_path() . '/revista';
@@ -47,10 +81,35 @@ class RevistaController extends Controller
     public function actualizarRevista(Request $request, $id)
     {
     	$file = $request->file('revista_file');
+        $portada = $request->file('revista_portada');
+
 
     	$revista = Revista::find($id);
 
-    	$revista->titulo = $request->revista_titulo;
+    	$revista->titulo = $request->revista_name;
+
+        if($portada)
+        {
+            if($revista->portada){
+                $deletedPath = public_path() . '/revista/portada/' . $revista->portada;
+                $portadaDeleted = File::delete($deletedPath);
+
+
+                if (isset($portadaDeleted) || $revista->portada === null){
+                    $portadaPath = public_path() . '/revista/portada';
+                    $portadaName = uniqid() . $portada->getClientOriginalName();
+                    $portadaMoved = $portada->move($portadaPath, $portadaName);
+                    
+                    if($portadaMoved){
+                        $revista->portada = $portadaName;
+                    }
+
+                } else {
+                    return back()->with('error', 'No se pudo actualizar la portada');
+                }
+            }
+
+        }
 
     	if($file){
 
@@ -86,6 +145,14 @@ class RevistaController extends Controller
     	}
     }
 
+    public function descargarRevistas($id)
+    {
+        $revista = Revista::find($id);
+        $path = public_path() . '/revista/' . $revista->archivo;
+
+        return response()->download($path);
+    }
+
     public function eliminarRevista($id)
     {
     	$revista = Revista::find($id);
@@ -95,6 +162,18 @@ class RevistaController extends Controller
 		    $fullpath = public_path() . '/revista/' . $revista->archivo;
 		    $deleted = File::delete($fullpath);
     	}
+
+        if($revista->portada)
+        {
+            $portadaPath = public_path() . '/revista/portada/' . $revista->portada;
+            $revistaDeleted = File::delete($portadaPath);
+        } else {
+            $revistaDeleted = true;
+        }
+
+        if(!$revistaDeleted){
+            return back()->with('error', 'No se pudo eliminar');
+        }
 
     	if($deleted || $revista->archivo === null){
     	    $revista->delete();

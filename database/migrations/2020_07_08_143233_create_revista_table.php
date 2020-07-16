@@ -17,6 +17,7 @@ class CreateRevistaTable extends Migration
             $table->id();
             $table->string('titulo');
             $table->string('archivo');
+            $table->string('portada');
             $table->timestamps();
         });
     }

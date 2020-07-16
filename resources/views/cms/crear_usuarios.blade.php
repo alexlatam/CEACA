@@ -10,23 +10,23 @@
 		    {{session('message')}}
 		  </div>
 		@endif
-		<form action="/cms/guardar/usuario" method="POST">
+		<form action="/cms/guardar/usuario" id="admin_form" method="POST">
 			@csrf
 			<div class="row">
 				<div class="col-md-6 mb-4">
 					<label>Nombre</label>
-					<input class="form-control" type="text" name="name" value="" placeholder="Nombre">
+					<input class="form-control" id="admin_title" type="text" name="name" value="" placeholder="Nombre">
 				</div>
 				<div class="col-md-6 mb-4">
 					<label>Email</label>
-					<input class="form-control"  type="text" name="email" value="" placeholder="Email">
+					<input class="form-control" id="admin_email"  type="text" name="email" value="" placeholder="Email">
 				</div>
 				<div class="col-6 mb-4">
 					<label>Contraseña</label>
-					<input class="form-control"  type="password" name="password" value="" placeholder="contraseña">
+					<input class="form-control" id="admin_password"  type="password" name="password" value="" placeholder="contraseña">
 				</div>
 				<div class="col-12 mb-5">
-					<input type="submit" class="btn btn-success px-4" value="Crear Usuario">
+					<input type="submit" id="admin_submit" class="btn btn-success px-4" value="Crear Usuario">
 				</div>
 			</div>
 		</form>
@@ -62,6 +62,45 @@
 	</div>
 </section>
 
+<script type="text/javascript">
+	let adminForm = document.getElementById('admin_form')
+	let adminTitle = document.getElementById('admin_title')
+	let adminEmail = document.getElementById('admin_email')
+	let adminPassword = document.getElementById('admin_password')
+	let adminSent = document.getElementById('admin_submit')
+
+
+
+	adminSent.addEventListener('click', (e) => {
+		e.preventDefault()
+
+		if(!adminValidacion()){
+			return;
+		}
+
+		adminForm.submit();
+
+	});
+
+	const adminValidacion = () => {
+		if(adminTitle.value ==="")
+		{
+			alert('Debes colocar un nombre')
+			return false
+		}else if (adminEmail.value === "")
+		{
+			alert('Debes colocar un email')
+			return false
+		} else if (adminPassword.value === "")
+		{
+			alert('Debes colocar una contraseña')
+			return false
+		} else {
+			return true;
+		}
+	}
+
+</script>
 
 
 

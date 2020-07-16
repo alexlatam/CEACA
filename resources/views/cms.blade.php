@@ -201,8 +201,9 @@
       </main>
     </div>
   </div>
-
-  <script src="{{asset('js/input_size.js')}}"></script>
+  <script type="text/javascript">
+    let maximoBytes = 2000000;
+  </script>
   <script src="{{asset('vendor/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
   <script type="text/javascript">
