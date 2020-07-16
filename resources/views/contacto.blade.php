@@ -9,6 +9,7 @@
 </style>
 @endsection
 @section('content')
+@include('common.navbar')
 
 
 <!-- BREADCRUMB

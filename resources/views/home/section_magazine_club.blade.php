@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-11 col-lg-9">
                 <h2 class="text-white text-center mb-4">
-                    Club de Usuarios de Calderas
+                Club Usuarios de Caldera Beneficios y Oportunidades
                 </h2>
                 <p class="text-white text-muted text-center mb-5">
                     Ser miembro de nuestro club te brinda muchos beneficios para mantenerte actualizado y a la vanguardia de las tendencias y acontecimientos de esta especialización. Podrás acceder a la revista, participar en webinars técnicos, tener acceso a videos, participación y consulta en preguntas frecuentes, programas de acompañamientos a estudiantes y mentores, descuentos en cursos, participación en foros de discusión. Por otro lado tendrás la disponibilidad de hacer consultas técnicas en línea, accesos a bolsas de trabajo, especialistas en diferentes áreas de acción relacionadas con calderas.

@@ -8,7 +8,7 @@
 
 <body class="cuerpo-main">
 
-    @include('common.navbar')
+    
 
     @yield('content')
 

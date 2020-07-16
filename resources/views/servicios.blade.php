@@ -4,6 +4,8 @@
 <title>Ceaca</title>
 @endsection
 @section('content')
+@include('common.navbar2')
+
 <section class="mb-5">
     <div class="container section section-top pb-0">
         <div class="row align-items-center">
@@ -15,7 +17,9 @@
                     Conoce Nuestros Servicios
                 </h1>
                 <p class="mb-5 text-muted">
-                    
+                    Texto de servicios Texto de servicios 
+                    Texto de servicios vTexto de servicios Texto de servicios Texto de servicios Texto de servicios Texto de servicios Texto de servicios Texto de servicios 
+                    Texto de servicios Texto de servicios Texto de servicios Texto de servicios Texto de servicios 
                 </p>
                 <a href="{{route('contacto')}}" class="btn btn-outline-primary">
                     Contáctanos <i class="fas fa-arrow-right ml-2"></i>
@@ -61,8 +65,7 @@
     </div>
 </!--section-->
 
-@include('home.download_magazine_simple')
-@include('home.modal_revista')
+
 
 <section>
     <div class="container section pb-0">
@@ -90,7 +93,7 @@
                             {{ $servicio->titulo }}
                         </h4>
                         <p class="mb-0 text-sm text-muted">
-                        @php {{ $descripcion = substr($servicio->descripcion,0,350); }} @endphp
+                            @php {{ $descripcion = substr($servicio->descripcion,0,350); }} @endphp
                             {{ $descripcion.'...' }}
                         </p>
                     </div>
@@ -102,6 +105,8 @@
     </div>
 </section>
 
+@include('home.download_magazine_simple')
+@include('home.modal_revista')
 
 @include('home.publicidad_lateral')
 

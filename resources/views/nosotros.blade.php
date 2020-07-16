@@ -4,6 +4,7 @@
 <title>Ceaca</title>
 @endsection
 @section('content')
+@include('common.navbar')
 
 <section class="fp-section" style="height:100vh;">
     <div class="section section-top">
@@ -32,7 +33,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <img src="{{asset('img/1.jpg')}}" alt="" width="100%">
+        <img src="{{asset('img/publicidad_nosotros.jpg')}}" alt="" width="100%">
       </div>
     </div>
   </div>
