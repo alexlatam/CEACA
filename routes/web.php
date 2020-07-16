@@ -219,3 +219,7 @@ Route::post('admin', 'Admin\loginController@login')->name('login.admin');
 
 Route::get('/sesion', 'User\LoginController@index');
 Route::post('/user/login', 'User\LoginController@login')->name('user.login');
+
+/*-------------------------------  REGISTRO   --------------------------*/
+Route::get('/registro', 'User\RegisterController@registerForm');
+Route::post('/user/registrar', 'User\RegisterController@registrar');
