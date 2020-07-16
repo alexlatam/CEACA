@@ -218,3 +218,4 @@ Route::post('admin', 'Admin\loginController@login')->name('login.admin');
 /*-------------------------------LOGIN COMUN  --------------------------*/
 
 Route::get('/sesion', 'User\LoginController@index');
+Route::post('/user/login', 'User\LoginController@login')->name('user.login');
