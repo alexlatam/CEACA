@@ -2,32 +2,57 @@
 
 @section('head')
 <title>Ceaca</title>
+<style>
+    .bg-revista {
+        height: 100vh !important;
+        width: 100%;
+        background-position: center !important;
+        /* Center the image */
+        background-repeat: no-repeat !important;
+        /* Do not repeat the image */
+        object-fit: cover;
+        background-size: cover !important;
+    }
+    .aux{
+height: 100vh;
+width: 100%;
+    }
+</style>
 @endsection
 @section('content')
+@include('common.navbar')
 <section class="mb-5">
-    <div class="container section section-top pb-0">
+    <div class="container section pb-0">
         <div class="row align-items-center">
-            <div class="col-12 col-md-6 offset-xl-1 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
-                <img src="{{asset('img/servicios.jpg')}}" alt="Servicios de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
+            <div class="col-12 col-md-7 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
+                <img src="{{asset('img/banner_revista.jpg')}}" alt="Servicios de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
             </div>
-            <div class="col-12 col-md-6 col-xl-5 order-md-1">
+            <div class="col-12 col-md-5 order-md-1">
                 <h1 class="mb-4 font-weight-bold" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
-                    Conoce Nuestra Revitas
+                    Guía del usuario - Revista Técnica
                 </h1>
                 <p class="mb-5 text-muted">
-                    
+                “Calderas…Guía del Usuario (en la industria y comercio)” es una Revista técnico-comercial especializada en Calderas, en versión digital, con una frecuencia trimestral.
+                Además cuenta con distribución gratuita entre todos los Usuarios de Calderas a nivel de Latinoamérica.
                 </p>
-                <a href="{{route('contacto')}}" class="btn btn-outline-primary">
+                <!--a-- href="{{route('contacto')}}" class="btn btn-outline-primary">
                     Contáctanos <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+                </!--a-->
             </div>
         </div>
     </div>
 </section>
 
 
-@include('home.download_magazine_simple')
-@include('home.modal_revista')
+
+
+<!-- publicidad -->
+<section class="mt-5 pt-3">
+  <!--a href="{{$publicidad[0]->url}}" target="_blank"-->
+    <img src="{{asset('img/publicidad_revista.jpg')}}" alt="" width="100%" style="max-height:70vh;">
+  <!--a-->
+</section>
+
 
 <section>
     <div class="container section pb-0">
@@ -47,8 +72,8 @@
                         <h4>
                             {{ $revista->titulo }}
                         </h4>
-                        <a href="{{asset('revista/'. $revista->archivo)}}" target="_blank" class="btn btn-sm btn-outline-success">Ver en linea</a>
-                        <a href="#" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target=".modalRevista">Descargar</a>
+                        <a href="{{asset('revista/'. $revista->archivo)}}" target="_blank" class="btn btn-sm btn-outline-success mt-2">Ver en linea</a>
+                        <a href="#" class="btn btn-sm btn-success px-5 mt-2" data-toggle="modal" data-target=".modalRevista">Descargar</a>
                     </div>
                 </div>
                 <hr class="my-4">
@@ -59,9 +84,8 @@
 </section>
 
 
-@include('home.publicidad_lateral')
-
-
+@include('home.servicios_cat')
+@include('home.modal_revista')
 
 
 @endsection

@@ -68,7 +68,7 @@
           23 AÑOS SIRVIENDO CON CALIDAD
         </h2>
         <p class="text-muted text-center mb-5">
-          EN TEMAS DECONSULTORÍA Y CAPACITACIÓN EN TODA LATINOAMÉRICA
+          EN TEMAS DE CONSULTORÍA Y CAPACITACIÓN EN TODA LATINOAMÉRICA
         </p>
       </div>
     </div>
@@ -117,12 +117,12 @@
   </div>
 
 </section>
-
+<!-- Publicidad -->
 <section class="section pb-0 mt-5 pt-2">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <img src="{{asset('img/publicidad_club.jpg')}}" alt="" width="100%">
+        <img src="{{asset('img/publicidad_home.jpg')}}" alt="" width="100%">
       </div>
     </div>
   </div>

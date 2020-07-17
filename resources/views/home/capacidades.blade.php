@@ -10,7 +10,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-8">
                 <h2 class="text-center mb-4">
-                    MEMBRESÍAS CLUB CEACA
+                    Club Usuarios de Calderas Beneficios y Oportunidades
                 </h2>
                 <p class="text-center text-muted mb-5">
                     Te permitirá obtener los mejores beneficios con acceso a contenido de primera y a la vez ser parte de una comunidad digital productiva y especializada. Selecciona la que más te convenga y disfruta de cada una de sus ventajas.

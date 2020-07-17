@@ -171,30 +171,30 @@
             <h5>
               Nuestras Redes Sociales
             </h5>
-            <a href="{{$facebook->valor}}" class="enlace_contact">
+            <a href="{{$facebook->valor}}" class="enlace_contact" target="_blank">
               <i class="fab fa-facebook"></i>
               <span class="ml-1">
                 Facebook
               </span>
             </a>
-            <a href="{{$instagram->valor}}" class="ml-4 enlace_contact">
+            <a href="{{$instagram->valor}}" class="ml-4 enlace_contact" target="_blank">
               <i class="fab fa-instagram"></i>
               <span class="ml-1">
                 Instagram
               </span>
             </a>
-            <a href="{{$linkedin->valor}}" class="ml-4 enlace_contact">
+            <a href="{{$linkedin->valor}}" class="ml-4 enlace_contact" target="_blank">
               <i class="fab fa-linkedin"></i>
               <span class="ml-1">
                 Linkedin
               </span>
             </a>
-            <a href="{{$twitter->valor}}" class="ml-4 enlace_contact">
+            <!--a-- href="{{$twitter->valor}}" class="ml-4 enlace_contact">
               <i class="fab fa-twitter"></i>
               <span class="ml-1">
                 Twitter
               </span>
-            </a>
+            </!--a-->
           </div>
         </div>
       </div>

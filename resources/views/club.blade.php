@@ -25,9 +25,9 @@
                     <br>
                     Beneficios y Oportunidades
                 </h1>
-                <p class="mb-6 text-center text-muted" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
+                <!--p-- class="mb-6 text-center text-muted" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
                     Obtén todos los beneficios de pertenecer a nuestra familia.
-                </p>
+                </!--p-->
             </div>
         </div>
         <div class="row form-row align-items-center">
@@ -101,7 +101,7 @@
                     Suscribirme
                 </a>
                 @else
-                <a href="{{route('contacto')}}" class="btn btn-outline-primary" data-toggle="modal" data-target=".modalRevista">
+                <a href="{{route('contacto')}}" class="btn btn-outline-primary">
                     Contáctanos
                 </a>
                 @endif
@@ -126,7 +126,7 @@
                     @php {{echo nl2br($membresia->description);}} @endphp
                 </p>
                 @if($x!=0)
-                <a href="{{route('contacto')}}" class="btn btn-outline-primary" data-toggle="modal" data-target=".modalRevista">
+                <a href="{{route('contacto')}}" class="btn btn-outline-primary">
                     Contáctanos
                 </a>
                 @endif
@@ -173,7 +173,7 @@
     </div>
 </section>
 
-
+<!-- publicidad -->
 <section>
     <img src="{{asset('img/publicidad_club.jpg')}}" alt="" width="100%" style="max-height:70vh;">
 </section>

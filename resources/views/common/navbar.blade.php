@@ -1,31 +1,31 @@
 <style>
   .brandNavbar {
-    width: 35%;
+    width: 50%;
   }
 
   /* Si la pantalla es menor a 1199px se aplicaran los estilos*/
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (max-width: 1200px) {
     .brandNavbar {
-      width: 35%;
+      width: 25%;
     }
   }
 
-  /* Si la pantalla es menor a 1199px se aplicaran los estilos*/
-  @media only screen and (max-width: 1199px) {
+  /* Si la pantalla es menor a 999px se aplicaran los estilos*/
+  @media only screen and (max-width: 999px) {
     .brandNavbar {
-      width: 20%;
+      width: 25%;
     }
   }
 
   @media only screen and (max-width: 700px) {
     .brandNavbar {
-      width: 28%;
+      width: 32%;
     }
   }
 </style>
 <nav class="navbar navbar-expand-xl navbar-type fixed-top py-0">
   <div class="container">
-    <a class="navbar-brand" href="{{route('home')}}">
+    <a class="navbar-brand" style="width:75%;" href="{{route('home')}}">
       <img src="{{asset('img/logo.png')}}" alt="" class="brandNavbar">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,11 +134,11 @@
             <span></span>
           </span>
         </li>
-        <li class="nav-item">
+        <!--li-- class="nav-item">
           <a href="/sesion" class="nav-link">
             <img src="{{asset('images/sesion_icon.svg')}}">
           </a>
-        </li>
+        </!--li-->
       </ul>
     </div>
   </div>

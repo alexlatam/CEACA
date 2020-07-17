@@ -1,25 +1,25 @@
 <style>
   .brandNavbar {
-    width: 35%;
+    width: 40%;
   }
 
   /* Si la pantalla es menor a 1199px se aplicaran los estilos*/
   @media only screen and (min-width: 1200px) {
     .brandNavbar {
-      width: 35%;
+      width: 45%;
     }
   }
 
   /* Si la pantalla es menor a 1199px se aplicaran los estilos*/
   @media only screen and (max-width: 1199px) {
     .brandNavbar {
-      width: 20%;
+      width: 25%;
     }
   }
 
   @media only screen and (max-width: 700px) {
     .brandNavbar {
-      width: 28%;
+      width: 32%;
     }
   }
 </style>

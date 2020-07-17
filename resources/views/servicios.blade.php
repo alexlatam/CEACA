@@ -2,11 +2,18 @@
 
 @section('head')
 <title>Ceaca</title>
+<style>
+.imagen_servicios_principal{
+    width: 100%;
+    height: 100vh;
+}
+</style>
 @endsection
 @section('content')
-@include('common.navbar2')
+@include('common.navbar')
 
-<section class="mb-5">
+<img src="{{asset('img/banner_servicios.jpg')}}" alt="" class="imagen_servicios_principal">
+<!--section-- class="mb-5">
     <div class="container section section-top pb-0">
         <div class="row align-items-center">
             <div class="col-12 col-md-6 offset-xl-1 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
@@ -27,7 +34,7 @@
             </div>
         </div>
     </div>
-</section>
+</!--section-->
 
 
 <!--section-- class="mb-4">
@@ -107,8 +114,16 @@
 
 @include('home.download_magazine_simple')
 @include('home.modal_revista')
-
-@include('home.publicidad_lateral')
+<!-- Publicidad -->
+<section class="section pb-0 mt-5 pt-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <img src="{{asset('img/publicidad_servicios.jpg')}}" alt="" width="100%">
+      </div>
+    </div>
+  </div>
+</section>
 
 @include('home.servicios_cat')
 

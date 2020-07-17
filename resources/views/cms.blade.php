@@ -122,12 +122,12 @@
               Servicios Requests
             </a>
           </li> -->
-            <li class="nav-item">
+            <!--li-- class="nav-item">
               <a class="nav-link" href="/cms/publicidades">
                 <span data-feather="users"></span>
                 Publicidad
               </a>
-            </li>
+            </!--li-->
             <li class="nav-item">
               <a class="nav-link" href="/cms/mensajes">
                 <span data-feather="users"></span>
