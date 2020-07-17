@@ -208,6 +208,13 @@ Route::middleware('admin')->group(function () {
 /*------------------------------------ END --------------------------*/
 
 
+/*------------------------------------ PERFIL RUTAS --------------------------*/
+
+Route::get('/perfil', 'Perfil\PerfilController@home')->middleware('auth');
+
+/*------------------------------------ END PERFIL --------------------------*/
+
+
 
 Auth::routes();
 
@@ -217,7 +224,7 @@ Route::post('admin', 'Admin\loginController@login')->name('login.admin');
 
 /*-------------------------------LOGIN COMUN  --------------------------*/
 
-Route::get('/sesion', 'User\LoginController@index');
+Route::get('/sesion', 'User\LoginController@index')->name('sesion');
 Route::post('/user/login', 'User\LoginController@login')->name('user.login');
 
 /*-------------------------------  REGISTRO   --------------------------*/
