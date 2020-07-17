@@ -134,12 +134,41 @@
             <span></span>
           </span>
         </li>
-        <li class="nav-item">
-          <a href="/sesion" class="nav-link">
-            <img src="{{asset('images/sesion_icon.svg')}}">
+        <li class="nav-item sesion-container">
+          <a href="#" id="sesion_icon" class="nav-link">
+            <img id="sesion_img" src="{{asset('images/sesion_icon.svg')}}">
           </a>
+          <div id="sesion_card" class="sesion-card">
+            <a href="/sesion">Iniciar sesión</a>
+            <a href="/registro">Registrarse</a>
+          </div>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<script type="text/javascript">
+  let sesion_submit = document.getElementById('sesion_icon');
+  
+
+  document.addEventListener('click', (e) => {
+    let sesion_card = document.getElementById('sesion_card');
+
+    if(e.target.id == 'sesion_icon' || e.target.id == 'sesion_img')
+    {
+      
+      e.preventDefault();
+      sesion_card.classList.toggle('active')
+      
+    }
+
+    if(e.target.id != 'sesion_icon' && e.target.id != 'sesion_img')
+    {
+      sesion_card.classList.remove('active')
+    }
+  });
+
+
+  
+</script>

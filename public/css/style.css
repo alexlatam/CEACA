@@ -38,3 +38,22 @@
 	cursor: pointer;
 }
 
+/* cuadro de sesion */
+
+.sesion-container{
+	position: relative;
+}
+
+.sesion-card{
+	display: none;
+	position: absolute;
+	top: 120%;
+	transform: translateX(-25%);
+	background-color: #fff;
+	width:  125px;
+	text-align: center;
+}
+
+.sesion-card.active{
+	display: block;
+}
