@@ -19,6 +19,7 @@ class CreateAdsTable extends Migration
             $table->string('url')->nullable();
             $table->string('orden')->nullable();
             $table->integer('tipo')->nullable();
+            $table->string('seccion');
             $table->timestamps();
         });
     }

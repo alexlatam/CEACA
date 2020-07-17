@@ -29,6 +29,7 @@ class PublicidadController extends Controller
     	$publicidad->tipo = $request->publicidad_tipo;
         $publicidad->url = $request->publicidad_url;
         $publicidad->orden = $request->publicidad_orden;
+        $publicidad->seccion = $request->publicidad_seccion;
 
 
     	 //verificamos que la imagen exista
