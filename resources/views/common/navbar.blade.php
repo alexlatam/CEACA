@@ -23,12 +23,26 @@
     }
   }
 </style>
-<nav class="navbar navbar-expand-xl navbar-type fixed-top py-0">
+<script>
+  function clickNavabar() {
+    var navbar = document.getElementById("navbarPage")
+    var menuCollapse =document.getElementById("navbarCollapse")
+    navbar.classList.add('bg-white')
+      if (menuCollapse.classList.contains('show')) {
+        //se deberia quitar el bg-white, porq estara al inicio de la pagina
+        navbar.classList.remove('bg-white')
+      }else{
+        //se deberia agregar el bg-white, porq ya se habra dado suficinete scroll
+        navbar.classList.add('bg-white')
+      }
+  }
+</script>
+<nav class="navbar navbar-expand-xl navbar-type fixed-top py-0" id="navbarPage">
   <div class="container">
     <a class="navbar-brand" style="width:75%;" href="{{route('home')}}">
       <img src="{{asset('img/logo.png')}}" alt="" class="brandNavbar">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="clickNavabar()">
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="35">
         <path d="M0 0h24v24H0z" fill="none" />
         <path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z" /></svg>

@@ -23,7 +23,21 @@
     }
   }
 </style>
-<nav class="navbar navbar-expand-xl navbar-type fixed-top py-0 bg-light">
+<script>
+  function clickNavabar() {
+    var navbar = document.getElementById("navbarPage")
+    var menuCollapse = document.getElementById("navbarCollapse")
+    navbar.classList.add('bg-light')
+    if (menuCollapse.classList.contains('show')) {
+      //se deberia quitar el bg-white, porq estara al inicio de la pagina
+      navbar.classList.remove('bg-light')
+    } else {
+      //se deberia agregar el bg-white, porq ya se habra dado suficinete scroll
+      navbar.classList.add('bg-light')
+    }
+  }
+</script>
+<nav class="navbar navbar-expand-xl navbar-type fixed-top py-0 bg-light" id="navbarPage">
   <div class="container">
     <a class="navbar-brand" href="{{route('home')}}">
       <img src="{{asset('img/logo.png')}}" alt="" class="brandNavbar">

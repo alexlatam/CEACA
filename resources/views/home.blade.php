@@ -24,7 +24,7 @@
         <a href="{{route('club')}}" class="card border-0 mb-3 mb-md-0">
           <div class="card-img-top" style="position:relative;">
             <img src="{{asset('img/img_button1.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
-            <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;">
+            <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;color:#fff!important;">
               CLUB CEACA
             </h2>
           </div>
