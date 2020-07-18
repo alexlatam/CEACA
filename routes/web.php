@@ -147,6 +147,9 @@ Route::middleware('admin')->group(function () {
 	/* ----------  RUTA SERVICE REQUESTS CONTROLLADOR ---------*/
 	Route::get('/cms/service/requests', 'ServiceRequestsController@index');
 
+	/* ----------  RUTA MENSAJES CONTROLLADOR ---------*/
+	Route::get('/cms/mensajes/delete/{id}', 'MessageController@eliminarMensaje');
+
 	/* ----------  RUTA PUBLICIDADES CONTROLLADOR ---------*/
 	Route::get('/cms/crear/publicidad/{tipo}', 'PublicidadController@crearPublicidad');
 	Route::post('/cms/guardar/publicidad', 'PublicidadController@guardarPublicidad');
