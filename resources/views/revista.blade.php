@@ -84,7 +84,6 @@ width: 100%;
 </section>
 
 
-@include('home.servicios_cat')
 @include('home.modal_revista')
 
 
