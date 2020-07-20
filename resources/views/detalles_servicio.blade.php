@@ -4,6 +4,7 @@
 <title>Ceaca</title>
 @endsection
 @section('content')
+@include('common.navbar')
 <!-- BREADCRUMBS
     ================================================== -->
 <br>

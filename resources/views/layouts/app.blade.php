@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8">
+
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -13,8 +13,8 @@
     <!-- Scripts -->
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- Styles -->
     
 
@@ -54,17 +54,18 @@
 
   </style>
 </head>
-
-<body>
+<body style="background-color: #eee;">
     <div id="app">
         @include('common.navbar')
 
         <main class="conten-login-register">
+
+       
+        <main class="py-4">
             @yield('content')
         </main>
     </div>
     <script src="{{asset('vendor/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 </body>
-
 </html>

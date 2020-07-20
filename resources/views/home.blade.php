@@ -4,6 +4,7 @@
 <title>Ceaca</title>
 @endsection
 @section('content')
+@include('common.navbar')
 {{-- carousel --}}
 @include('home.carousel_principal')
 <section class="section" id="pages">
@@ -23,7 +24,7 @@
         <a href="{{route('club')}}" class="card border-0 mb-3 mb-md-0">
           <div class="card-img-top" style="position:relative;">
             <img src="{{asset('img/img_button1.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
-            <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;">
+            <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;color:#fff!important;">
               CLUB CEACA
             </h2>
           </div>
@@ -67,7 +68,7 @@
           23 AÑOS SIRVIENDO CON CALIDAD
         </h2>
         <p class="text-muted text-center mb-5">
-          EN TEMAS DECONSULTORÍA Y CAPACITACIÓN EN TODA LATINOAMÉRICA
+          EN TEMAS DE CONSULTORÍA Y CAPACITACIÓN EN TODA LATINOAMÉRICA
         </p>
       </div>
     </div>
@@ -116,7 +117,16 @@
   </div>
 
 </section>
-@include('home.publicidad_lateral')
+<!-- Publicidad -->
+<section class="section pb-0 mt-5 pt-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <img src="{{asset('img/publicidad_home.jpg')}}" alt="" width="100%">
+      </div>
+    </div>
+  </div>
+</section>
 
 @include('home.servicios_cat')
 
