@@ -2,9 +2,18 @@
 
 @section('head')
 <title>Ceaca</title>
+<style>
+.imagen_servicios_principal{
+    width: 100%;
+    height: 100vh;
+}
+</style>
 @endsection
 @section('content')
-<section class="mb-5">
+@include('common.navbar')
+
+<img src="{{asset('img/banner_servicios.jpg')}}" alt="" class="imagen_servicios_principal">
+<!--section-- class="mb-5">
     <div class="container section section-top pb-0">
         <div class="row align-items-center">
             <div class="col-12 col-md-6 offset-xl-1 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
@@ -15,7 +24,9 @@
                     Conoce Nuestros Servicios
                 </h1>
                 <p class="mb-5 text-muted">
-                    
+                    Texto de servicios Texto de servicios 
+                    Texto de servicios vTexto de servicios Texto de servicios Texto de servicios Texto de servicios Texto de servicios Texto de servicios Texto de servicios 
+                    Texto de servicios Texto de servicios Texto de servicios Texto de servicios Texto de servicios 
                 </p>
                 <a href="{{route('contacto')}}" class="btn btn-outline-primary">
                     Contáctanos <i class="fas fa-arrow-right ml-2"></i>
@@ -23,7 +34,7 @@
             </div>
         </div>
     </div>
-</section>
+</!--section-->
 
 
 <!--section-- class="mb-4">
@@ -61,8 +72,7 @@
     </div>
 </!--section-->
 
-@include('home.download_magazine_simple')
-@include('home.modal_revista')
+
 
 <section>
     <div class="container section pb-0">
@@ -90,7 +100,7 @@
                             {{ $servicio->titulo }}
                         </h4>
                         <p class="mb-0 text-sm text-muted">
-                        @php {{ $descripcion = substr($servicio->descripcion,0,350); }} @endphp
+                            @php {{ $descripcion = substr($servicio->descripcion,0,350); }} @endphp
                             {{ $descripcion.'...' }}
                         </p>
                     </div>
@@ -102,8 +112,18 @@
     </div>
 </section>
 
-
-@include('home.publicidad_lateral')
+@include('home.download_magazine_simple')
+@include('home.modal_revista')
+<!-- Publicidad -->
+<section class="section pb-0 mt-5 pt-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <img src="{{asset('img/publicidad_servicios.jpg')}}" alt="" width="100%">
+      </div>
+    </div>
+  </div>
+</section>
 
 @include('home.servicios_cat')
 
