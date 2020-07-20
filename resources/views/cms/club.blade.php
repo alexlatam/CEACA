@@ -6,11 +6,7 @@
 
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Miembros del club</h1>
-    <div class="btn-toolbar mb-2 mb-md-0">
-      <div class="btn-group mr-2">
-        <!--button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#modalMiembro">Agregar miembro</!--button-->
-      </div>
-    </div>
+    <a href="/cms/club" class="px-5 btn btn-outline-success col-auto ml-auto">Volver</a>
   </div>
   <div class="container-fluid">
 

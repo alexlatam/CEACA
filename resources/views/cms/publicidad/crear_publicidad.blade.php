@@ -11,7 +11,6 @@
 			<div class="col-auto ml-auto">
 			<a href="/cms/publicidades" class="btn btn-sm btn-outline-success px-5">Volver</a>
 			</div>
-			
 		</div>
 		<hr>
 		@if(session('message'))
