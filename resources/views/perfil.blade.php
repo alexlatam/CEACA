@@ -8,34 +8,7 @@
 </head>
 <body>
   <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-
-    .nav-item:hover {
-      background-color: #4e8b3d;
-
-    }
-
-    .nav-item:hover .nav-link {
-      color: #fff;
-
-    }
-
-    #sing_out:hover {
-      background-color: inherit !important;
-    }
+    
 
     .perfil-main{
       padding-top: 5rem;
