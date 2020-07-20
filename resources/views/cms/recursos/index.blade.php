@@ -20,33 +20,34 @@
 	@endif
 
 </section>
-<table class="table table-striped table-sm">
-	<thead>
-		<tr>
-			<th>#</th>
-			<th>Titulo</th>
-			<th>Descripcion</th>
-			<th>precio</th>
-			<th>Acciones</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach($recursos as $recurso)
-		<td>{{$recurso->id}}</td>
-		<td>{{$recurso->titulo}}</td>
-		<td>{{$recurso->descripcion}}</td>
-		<td>{{$recurso->precio}}</td>
-		<td class="d-flex">
-			<a href="/cms/editar/recurso/{{$recurso->id}}" class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
-			<form action="/cms/eliminar/recurso/{{$recurso->id}}" method="POST">
-				@csrf
-				<input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-danger">
-			</form>
-		</td>
-		@endforeach
-	</tbody>
-</table>
-
-
-
+	  <table class="table table-striped table-sm">
+	    <thead>
+	      <tr>
+	        <th>#</th>
+          <th>Titulo</th>
+	        <th>Descripcion</th>
+	        <th>Membresias</th>
+	        <th>Acciones</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    	@foreach($recursos as $recurso)
+	    		<td>{{$recurso->id}}</td>
+	    		<td>{{$recurso->titulo}}</td>
+	    		<td>{{$recurso->descripcion}}</td>
+	    		<td>
+	    			@foreach($recurso->plans as $planes)
+	    				{{$planes->title}},
+	    			@endforeach
+	    		</td>
+	    		<td class="d-flex">
+	    			<a href="/cms/editar/recurso/{{$recurso->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
+	    			<form action="/cms/eliminar/recurso/{{$recurso->id}}" method="POST">
+	    			  @csrf
+	    			  <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-danger">
+	    			</form>
+	    		</td>
+	    	@endforeach
+	    </tbody>
+	  </table>
 @endsection

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Info;
 use Hash;
 
 class RegisterController extends Controller
@@ -16,8 +17,8 @@ class RegisterController extends Controller
     	if(auth()->user()){
     		return redirect('/');
     	}
-
-    	return view('auth.registro');
+        $info = Info::All();
+    	return view('auth.registro', compact('info'));
     }
 
     public function registrar(Request $request)
@@ -35,7 +36,7 @@ class RegisterController extends Controller
     		$user->password = Hash::make($request->password);
     		$user->save();
 
-    		return redirect('/sesion');
+    		return redirect('/sesion')->with('message', 'Te has registrado con éxito, puedes iniciar sesión');
     	}else{ 
     		return back();
     	}
