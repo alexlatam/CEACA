@@ -26,7 +26,7 @@
 	        <th>#</th>
           <th>Titulo</th>
 	        <th>Descripcion</th>
-	        <th>precio</th>
+	        <th>Membresias</th>
 	        <th>Acciones</th>
 	      </tr>
 	    </thead>
@@ -35,7 +35,11 @@
 	    		<td>{{$recurso->id}}</td>
 	    		<td>{{$recurso->titulo}}</td>
 	    		<td>{{$recurso->descripcion}}</td>
-	    		<td>{{$recurso->precio}}</td>
+	    		<td>
+	    			@foreach($recurso->plans as $planes)
+	    				{{$planes->title}},
+	    			@endforeach
+	    		</td>
 	    		<td class="d-flex">
 	    			<a href="/cms/editar/recurso/{{$recurso->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
 	    			<form action="/cms/eliminar/recurso/{{$recurso->id}}" method="POST">

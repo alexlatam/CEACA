@@ -12,6 +12,7 @@ class RecursoController extends Controller
     public function index()
     {
     	$recursos = Resource::all();
+        //dd($recursos[0]->plans[0]->title);
     	return view('cms.recursos.index', compact('recursos'));
     }
 
