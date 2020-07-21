@@ -1,6 +1,7 @@
 @extends('layouts.sesion_user')
 
 @section('content')
+@include('common.navbar')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

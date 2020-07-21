@@ -37,11 +37,17 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:admin')->except('logout');
+        
     }
 
     public function showLoginForm()
     {
+
+        if(auth()->guard('admin')->user())
+        {
+            return redirect('/cms');
+        }
+
         $info = Info::all();
     	return view('logins.admin_login', compact('info'));
     }

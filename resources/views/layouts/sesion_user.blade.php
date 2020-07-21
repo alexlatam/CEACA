@@ -19,7 +19,6 @@
 </head>
 
 <body style="background-color: #eee;">
-    @include('common.navbar')
     <div id="app">
 
         <main class="conten-login-register">
