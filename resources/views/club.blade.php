@@ -162,16 +162,16 @@
 </section>
 
 <!-- Tablas Adicionales -->
-<section class="container my-5">
+<!--section-- class="container my-5">
     <div class="row justify-content-center">
         <img src="{{asset('img/tabla_1.jpg')}}" alt="" width="80%">
     </div>
-</section>
-<section class="container my-5">
+</!--section-->
+<!--section-- class="container my-5">
     <div class="row justify-content-center">
         <img src="{{asset('img/tabla_2.jpg')}}" alt="" width="80%">
     </div>
-</section>
+</!--section-->
 
 
 <!-- publicidad -->

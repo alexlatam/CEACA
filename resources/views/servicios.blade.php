@@ -19,15 +19,15 @@
         <div class="row">
             <div class="col-12 col-md-3 col-lg-2 order-md-2 pl-md-4 border-left">
                 <h6 class="title">
-                    Categorias
+                    Servicos Técnicos
                 </h6>
-                <nav class="sidenav d-flex flex-column mb-5 mb-md-0">
+                <!--nav-- class="sidenav d-flex flex-column mb-5 mb-md-0">
                     @foreach ($cat_servicios as $categoria)
                     <a class="text-uppercase text-xs mb-2" href="#!">
                         {{ $categoria->name }}
                     </a>
                     @endforeach
-                </nav>
+                </!--nav-->
             </div>
             <div class="col-12 col-md-9 col-lg-10 order-md-1">
                 @foreach ($servicios as $servicio)
@@ -40,8 +40,10 @@
                             {{ $servicio->titulo }}
                         </h4>
                         <p class="mb-0 text-sm text-muted">
-                            @php {{ $descripcion = substr($servicio->descripcion,0,350); }} @endphp
-                            {{ $descripcion.'...' }}
+                        @if(strlen($servicio->descripcion)>349)
+                        @php {{ $descripcion = substr($servicio->descripcion,0,350).'...'; }} @endphp
+                        @endif
+                        {{ $descripcion }}
                         </p>
                     </div>
                 </a>
