@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;	
+use App\Info;
+
 class LoginController extends Controller
 {
     /*
@@ -40,7 +42,8 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-    	return view('logins.admin_login');
+        $info = Info::all();
+    	return view('logins.admin_login', compact('info'));
     }
 
 

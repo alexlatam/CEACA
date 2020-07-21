@@ -213,7 +213,14 @@ Route::middleware('admin')->group(function () {
 
 /*------------------------------------ PERFIL RUTAS --------------------------*/
 
-Route::get('/perfil', 'Perfil\PerfilController@home')->middleware('auth');
+Route::middleware('auth')->group(function () {
+
+	Route::get('/perfil', 'Perfil\PerfilController@home');
+	Route::get('/perfil/membresia', 'Perfil\PerfilController@membresias');
+	Route::get('/perfil/recursos', 'Perfil\PerfilController@recursos');
+
+});
+
 
 /*------------------------------------ END PERFIL --------------------------*/
 
