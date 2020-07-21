@@ -38,7 +38,7 @@ class RegisterController extends Controller
 
     		return redirect('/sesion')->with('message', 'Te has registrado con éxito, puedes iniciar sesión');
     	}else{ 
-    		return back();
+    		return back()->with('error', 'Las contraseñas no coinciden');
     	}
     }
 }

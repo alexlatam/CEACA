@@ -95,8 +95,8 @@ Route::get('/download/membresias', 'ClubController@membresiasDownload');
 
 Route::post('/subscricion', 'SubscripcionController@subscribirUsuario');
 
-
-
+/* Vista Capacitaciones */
+Route::get('/capacitaciones', 'CapacitacionesController@home');
 
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
@@ -204,7 +204,21 @@ Route::middleware('admin')->group(function () {
 	Route::post('/cms/guardar/recurso', 'RecursoController@guardarRecurso');
 	Route::get('/cms/editar/recurso/{id}', 'RecursoController@editarRecurso');
 	Route::post('/cms/actualizar/recurso/{id}', 'RecursoController@actualizarRecurso');
+	Route::get('/cms/download/recurso/{id}', 'RecursoController@descargarRecurso');
 	Route::post('/cms/eliminar/recurso/{id}', 'RecursoController@eliminarRecurso');
+
+
+
+
+	/* ----------  RUTA CAPACITACIONES CONTROLLADOR ---------*/
+	Route::get('/cms/capacitacion', 'Capacitacion\IndexController@index');
+
+	Route::get('/cms/capacitaciones', 'Capacitacion\CapacitacionController@index');
+	Route::get('/cms/crear/capacitacion', 'Capacitacion\CapacitacionController@crearCapacitacion');
+
+	/* ----------  RUTA CAPACITACIONES CATEGORIAS CONTROLLADOR ---------*/
+	Route::get('/cms/capacitaciones/categorias', 'Capacitacion\CategoriaCapacitacionController@index');
+
 });
 
 
