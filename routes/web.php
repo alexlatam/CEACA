@@ -93,7 +93,7 @@ Route::get('/download/membresias', 'ClubController@membresiasDownload');
 
 /*Subscribirse a revista*/
 
-Route::post('/subscricion', 'SubscripcionController@subscribirUsuario');
+//Route::post('/subscricion', 'SubscripcionController@subscribirUsuario');
 
 /* Vista Capacitaciones */
 Route::get('/capacitacion', 'CapacitacionesController@home')->name('capacitacion');

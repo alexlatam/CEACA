@@ -28,6 +28,23 @@
 							<h5 title="Al dar click sobre la publicidad se redireccionara a este enlace">Enlace de redirección <small class="text-muted">(opcional)</small></h5>
 							<input type="text" id="url" name="publicidad_url" value="{{$publicidad->url}}" placeholder="Descripcion..." class="form-control">
 						</div>
+						<div>
+							<h5>Sección</h5>
+							<select class="form-control" name="publicidad_seccion">
+								<option value="home" <?php if($publicidad->seccion == "home" ) echo 'selected'?> >Home</option>
+								<option value="quienes somos" <?php if($publicidad->seccion == "quienes somos" ) echo 'selected'?>>Quienes Somos</option>
+
+								<option value="revista"  <?php if($publicidad->seccion == "revista" ) echo 'selected'?>>Revistas</option>
+
+								<option value="club ceaca"  <?php if($publicidad->seccion == "club ceaca" ) echo 'selected'?>>Club ceaca</option>
+
+								<option value="contactanos"  <?php if($publicidad->seccion == "contactanos" ) echo 'selected'?>>Contactanos</option>
+
+								<option value="capacitaciones"  <?php if($publicidad->seccion == "capacitaciones" ) echo 'selected'?>>Capacitaciones</option>
+
+								<option value="perfil"  <?php if($publicidad->seccion == "perfil" ) echo 'selected'?> >Perfil Usuario</option>
+							</select>
+						</div>
 						<div class="form-group">
 							<h5>Cambiar Imagen</h5>
 							<input type="file" id="publicidad_imagen" class="file-input" name="publicidad_imagen">

@@ -22,7 +22,7 @@
         <div class="sidebar-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="/cms">
+              <a class="nav-link" href="/perfil">
                 <span data-feather="home"></span>
                 Inicio
               </a>
