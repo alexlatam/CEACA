@@ -35,7 +35,7 @@
                 @foreach ($capacitaciones as $capacitacion)
                 <a class="row align-items-center text-nounderline" href="#">
                     <div class="col-12 col-md-3">
-                        <img src="{{asset(''. $capacitacion->imagen )}}" alt="{{ $capacitacion->titulo }}" class="img-fluid mb-3 mb-md-0">
+                        <img src="{{asset('/capacitaciones/'. $capacitacion->imagen )}}" alt="{{ $capacitacion->titulo }}" class="img-fluid mb-3 mb-md-0">
                     </div>
                     <div class="col-12 col-md-9">
                         <h4>

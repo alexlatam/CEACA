@@ -42,16 +42,16 @@
               @if(substr($categoria->imagen, 0, 4) === 'http')
                   <img src="{{ $categoria->imagen }}" class="publicidades_card-img" alt="" style="width: 40px; height: 40px;">
               @elseif($categoria->imagen)
-                   <img src="{{ asset('categorias_imagen/'. $categoria->imagen) }}" alt="" style="width: 40px; height: 40px;">
+                   <img src="{{ asset('capacitaciones/categorias/'. $categoria->imagen) }}" alt="" style="width: 40px; height: 40px;">
               @endif
             </td>
             <td>{{$categoria->name}}</td>
             <td>{{$categoria->descripcion}}</td>
             <td class="d-flex ">
               <button type="button" id="{{ $categoria->id }}" class="btn btn-sm btn-outline-success mr-2 editar"  data-toggle="modal" data-target="#modalCategoriaEditar">Editar</button>
-              <form action="/cms/categoria/delete/{{$categoria->id}}" method="POST">
+              <form action="/cms/eliminar/category/capacitacion/{{$categoria->id}}" method="POST">
                 @csrf
-                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-success">
+                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-danger">
               </form>
             </td>
           </tr>
@@ -72,7 +72,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/cms/categoria/create" method="POST" id="form_create_category" enctype="multipart/form-data">
+        <form action="/cms/crear/category/capacitacion" method="POST" id="form_create_category" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
             <h5>Nombre</h5>
@@ -213,9 +213,9 @@
     boton.addEventListener('click', (e) =>{
       
 
-      formEdit.action =  `/cms/categoria/edit/${e.target.id}` 
+      formEdit.action =  `/cms/actualizar/capacitacion/category/${e.target.id}` 
 
-      axios.get(`/cms/categoria/${e.target.id}`)
+      axios.get(`/cms/capacitacion/category/${e.target.id}`)
         .then(response => {
           categoriaNombre.value = response.data.name;
           categoriaDescripcion.value = response.data.descripcion;

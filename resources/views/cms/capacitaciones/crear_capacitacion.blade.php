@@ -6,6 +6,9 @@
 
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Crear Capacitacion</h1>
+    <div class="btn-group mr-2">
+        <a href="/cms/capacitaciones" type="button" class="btn btn-sm btn-outline-success">Volver</a>
+    </div>
   </div>
 
 
@@ -15,7 +18,7 @@
           {{session('message')}}
         </div>
       @endif
-      <form action="/cms/guardar/servicio" id="form" method="POST" enctype="multipart/form-data">
+      <form action="/cms/guardar/capacitacion" id="form" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
           <div class="col-12 mb-4">

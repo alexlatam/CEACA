@@ -37,10 +37,10 @@
           <tr>
             <td>{{$capacitacion->id}}</td>
             <td>
-               <img src="{{ asset(''. $capacitacion->logo) }}" alt="" style="width: 40px; height: 40px;">
+               <img src="{{ asset('/capacitaciones/logos/'. $capacitacion->logo) }}" alt="" style="width: 40px; height: 40px;">
             </td>
             <td>
-              <img src="{{ asset(''. $capacitacion->imagen) }}" alt="" style="width: 40px; height: 40px;">
+              <img src="{{ asset('/capacitaciones/'. $capacitacion->imagen) }}" alt="" style="width: 40px; height: 40px;">
             </td>
             <td>{{$capacitacion->titulo}}</td>
             <td>
@@ -48,10 +48,10 @@
                             {{ $descripcion.'...' }}
             </td>
             <td class="d-flex">
-              <a href="/{{$capacitacion->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
-              <form action="/{{$capacitacion->id}}" method="POST">
+              <a href="/cms/editar/capacitacion/{{$capacitacion->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
+              <form action="/cms/eliminar/capacitacion/{{$capacitacion->id}}" method="POST">
                 @csrf
-                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-success">
+                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-danger">
               </form>
             </td>
           </tr>

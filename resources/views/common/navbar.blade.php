@@ -144,7 +144,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/capacitaciones" class="nav-link">
+          <a href="{{route('capacitacion')}}" class="nav-link">
             Capacitaciones
           </a>
         </li>

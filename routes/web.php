@@ -96,8 +96,7 @@ Route::get('/download/membresias', 'ClubController@membresiasDownload');
 Route::post('/subscricion', 'SubscripcionController@subscribirUsuario');
 
 /* Vista Capacitaciones */
-Route::get('/capacitaciones', 'CapacitacionesController@home');
-
+Route::get('/capacitacion', 'CapacitacionesController@home')->name('capacitacion');
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
 Route::middleware('admin')->group(function () {
@@ -208,16 +207,22 @@ Route::middleware('admin')->group(function () {
 	Route::post('/cms/eliminar/recurso/{id}', 'RecursoController@eliminarRecurso');
 
 
-
-
 	/* ----------  RUTA CAPACITACIONES CONTROLLADOR ---------*/
 	Route::get('/cms/capacitacion', 'Capacitacion\IndexController@index');
 
 	Route::get('/cms/capacitaciones', 'Capacitacion\CapacitacionController@index');
 	Route::get('/cms/crear/capacitacion', 'Capacitacion\CapacitacionController@crearCapacitacion');
+	Route::post('/cms/guardar/capacitacion', 'Capacitacion\CapacitacionController@guardarCapacitacion');
+	Route::get('/cms/editar/capacitacion/{id}', 'Capacitacion\CapacitacionController@editarCapacitacion');
+	Route::post('/cms/actualizar/capacitacion/{id}', 'Capacitacion\CapacitacionController@actualizarCapacitacion');
+	Route::post('/cms/eliminar/capacitacion/{id}', 'Capacitacion\CapacitacionController@eliminarCapacitacion');
 
 	/* ----------  RUTA CAPACITACIONES CATEGORIAS CONTROLLADOR ---------*/
 	Route::get('/cms/capacitaciones/categorias', 'Capacitacion\CategoriaCapacitacionController@index');
+	Route::post('/cms/crear/category/capacitacion', 'Capacitacion\CategoriaCapacitacionController@crearCategoria');
+	Route::post('/cms/eliminar/category/capacitacion/{id}', 'Capacitacion\CategoriaCapacitacionController@deleteCapacitacionCategory');
+	Route::get('/cms/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@getCategory');
+	Route::post('/cms/actualizar/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@editCategory');
 
 });
 
