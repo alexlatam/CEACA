@@ -262,5 +262,5 @@ Route::get('/sesion', 'User\LoginController@index')->name('sesion');
 Route::post('/user/login', 'User\LoginController@login')->name('user.login');
 
 /*-------------------------------  REGISTRO   --------------------------*/
-Route::get('/registro', 'User\RegisterController@registerForm');
+Route::get('/registro/{name?}', 'User\RegisterController@registerForm');
 Route::post('/user/registrar', 'User\RegisterController@registrar');
