@@ -57,7 +57,7 @@
               <button type="button" id="{{ $categoria->id }}" class="btn btn-sm btn-outline-success mr-2 editar"  data-toggle="modal" data-target="#modalCategoriaEditar">Editar</button>
               <form action="/cms/categoria/delete/{{$categoria->id}}" method="POST">
                 @csrf
-                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-success">
+                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-danger">
               </form>
             </td>
           </tr>
