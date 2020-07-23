@@ -97,7 +97,7 @@
                     @php {{echo nl2br($membresia->description);}} @endphp
                 </p>
                 @if($x==0)
-                <a href="#" class="btn btn-outline-primary" data-toggle="modal" data-target=".modalRevista">
+                <a href="/registro/{{strtolower($membresia->title)}}" class="btn btn-outline-primary" data-toggle="modal" data-target=".modalRevista">
                     Suscribirme
                 </a>
                 @else

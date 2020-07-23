@@ -23,6 +23,25 @@
                         @csrf
 
                         <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Membresia *') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="membership" class="form-control">
+                                    <option>Seleccionar membresia</option>
+                                    @foreach($membresias as $membresia)
+                                        <option value="{{$membresia->id}}" <?php if(strtolower($membresia->title) == $actual) echo 'selected'?>>{{$membresia->title}}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre *') }}</label>
 
                             <div class="col-md-6">
@@ -111,25 +130,25 @@
 
                             <div class="col-md-6">
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="calefacción" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="tipo_caldera" value="calefacción" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         De calefacción
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="tipo_caldera" value="Pequeñas y medianas Pirotubulares" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Pequeñas y medianas Pirotubulares
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="tipo_caldera" value="Pequeñas y medianas Acuatubulares" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Pequeñas y medianas Acuatubulares
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="tipo_caldera" value="Grandes Acuatubulares" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Grandes Acuatubulares
                                     </label>
@@ -142,67 +161,67 @@
 
                             <div class="col-md-6">
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="actividad" value="Operación" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Operación
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="actividad" value="Mantenimiento" required autocomplete="cargo">
                                     <label class="form-check-label">
-                                        Mantenimiento*
+                                        Mantenimiento
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="actividad" value="Reparación" required autocomplete="cargo">
                                     <label class="form-check-label">
-                                        Reparación*
+                                        Reparación
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="actividad" value="Inspección" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Inspección
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="actividad" value="Ingeniería" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Ingeniería
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="actividad" value="Combustión" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Combustión
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="actividad" value="Tratamiento de agua" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Tratamiento de agua
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="actividad" value="Eficiencia" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Eficiencia
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="actividad" value="Análisis de falla - Confiabilidad" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Análisis de falla - Confiabilidad
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="actividad" value="Suministros" required autocomplete="cargo">
                                     <label class="form-check-label">
-                                        Suministros*
+                                        Suministros
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="radio" class="form-check-input @error('cargo') is-invalid @enderror" name="actividad" value="Profesor (a)" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Profesor (a)
                                     </label>
@@ -215,85 +234,85 @@
 
                             <div class="col-md-6">
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Hoteles" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Hoteles" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Hoteles
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Hospitales" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Hospitales" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Hospitales*
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Farmacéutica" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Farmacéutica" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Farmacéutica*
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Alimentos y bebidas" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Alimentos y bebidas" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Alimentos y bebidas
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Ingeniería" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Ingeniería
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Azúcar y/o Alcohol" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Azúcar y/o Alcohol" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Azúcar y/o Alcohol
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Pulpa & Papel" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Pulpa & Papel" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Pulpa & Papel
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Plásticos y Petroquímica" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Plásticos y Petroquímica" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Plásticos y Petroquímica
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Refinería de Petróleo" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Refinería de Petróleo" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Refinería de Petróleo
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Termoeléctricas" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Termoeléctricas" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Termoeléctricas
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Servicios" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Servicios" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Servicios
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Suministros y materiales" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Suministros y materiales" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Suministros y materiales
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Instituciones Reguladoras" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Instituciones Reguladoras" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Instituciones Reguladoras
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="cargo" value="Univerisidades - Academia" required autocomplete="cargo">
+                                    <input id="cargo" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Univerisidades - Academia" required autocomplete="cargo">
                                     <label class="form-check-label">
                                         Univerisidades - Academia
                                     </label>
