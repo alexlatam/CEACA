@@ -42,6 +42,8 @@
                         <p class="mb-0 text-sm text-muted">
                         @if(strlen($servicio->descripcion)>349)
                         @php {{ $descripcion = substr($servicio->descripcion,0,350).'...'; }} @endphp
+                        @else
+                        @php {{ $descripcion=$servicio->descripcion; }} @endphp
                         @endif
                         {{ $descripcion }}
                         </p>
