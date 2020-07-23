@@ -143,11 +143,11 @@
             Contáctanos
           </a>
         </li>
-        <li class="nav-item">
+        <!--li-- class="nav-item">
           <a href="{{route('capacitacion')}}" class="nav-link">
             Capacitaciones
           </a>
-        </li>
+        </!--li-->
         <li class="nav-item-divider">
           <span class="nav-link">
             <span></span>
@@ -205,8 +205,5 @@
     {
       sesion_card.classList.remove('active')
     }
-  });
-
-
-  
+  });  
 </script>

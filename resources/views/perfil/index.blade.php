@@ -9,8 +9,6 @@
   <h2 class="pt-3">Bienvenido a tu perfil {{auth()->user()->name}}</h2>
   <hr>
 
-  <h4>aloja</h4>
-
   @if(session('error'))
         <div class="alert alert-danger my-3" role="alert">
           {{session('error')}}
