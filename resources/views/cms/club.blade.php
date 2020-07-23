@@ -22,6 +22,10 @@
             <th>Empresa</th>
             <th>Planta</th>
             <th>Cargo</th>
+            <th>Tipo caldera</th>
+            <th>Actividad</th>
+            <th>Especialidad</th>
+            <th>Sector</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -36,6 +40,10 @@
             <td>{{$user->empresa}}</td>
             <td>{{$user->planta}}</td>
             <td>{{$user->cargo}}</td>
+            <td>{{$user->tipo_caldera}}</td>
+            <td>{{$user->actividad}}</td>
+            <td>{{$user->especialidad}}</td>
+            <td>{{$user->sector}}</td>
             <td>
               @if($user->status === 'activo')
               <form action="/club/user/pause/{{$user->id}}" method="POST">

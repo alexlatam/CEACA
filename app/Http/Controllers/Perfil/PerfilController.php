@@ -12,8 +12,12 @@ class PerfilController extends Controller
 {
     public function home()
     {	
+        $user = auth()->user();
+
+        $checkboxs = explode(',', $user->sector);
+
     	$info = Info::all();
-    	return view('perfil.index', compact('info'));
+    	return view('perfil.index', compact('info', 'user', 'checkboxs'));
     }
 
     public function membresias()
