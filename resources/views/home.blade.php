@@ -41,7 +41,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="#" class="card border-0 mb-3 mb-md-0" data-toggle="modal" data-target=".modalRevista">
+        <a href="/registro" class="card border-0 mb-3 mb-md-0">
           <div class="card-img-top">
             <img src="{{asset('img/img_button3.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
             <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;">

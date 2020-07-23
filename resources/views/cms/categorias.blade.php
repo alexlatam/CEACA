@@ -3,8 +3,14 @@
 
 @section('content')
 <section>
-  @if(session('message') === 'Categoría guardada correctamente' || session('message') === 'Categoria eliminada con éxito' || session('message') === 'Categoria actualizada con éxito')
+  @if(session('message') === 'Categoría guardada correctamente' || session('message') === 'Categoria actualizada con éxito')
         <div class="alert alert-success my-3" role="alert">
+          {{session('message')}}
+        </div>
+  @endif
+
+  @if(session('message') === 'Categoria eliminada con éxito')
+        <div class="alert alert-danger my-3" role="alert">
           {{session('message')}}
         </div>
   @endif

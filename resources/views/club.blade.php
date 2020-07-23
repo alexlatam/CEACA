@@ -102,7 +102,7 @@
                 </a>
                 @else
                 <a href="{{route('contacto')}}" class="btn btn-outline-primary">
-                    Contáctanos
+                    Suscribirme
                 </a>
                 @endif
             </div>

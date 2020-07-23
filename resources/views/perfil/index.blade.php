@@ -2,7 +2,7 @@
 
 
 @section('head')
-  <title>Dashboard</title>
+  <title>Ceaca | mi perfil</title>
 @endsection
 
 @section('content')
