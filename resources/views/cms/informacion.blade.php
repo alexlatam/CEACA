@@ -22,13 +22,13 @@
 					<label>Telefono 2</label>
 					<input class="form-control"  type="text" name="telefono_dos" value="{{$telefono2->valor}}" placeholder="Telefono 2">
 				</div>
-				<div class="col-md-6 mb-4">
-					<label>Email</label>
-					<input class="form-control"  type="text" name="email" value="{{$email->valor}}" placeholder="Email">
+				<div class="col-12 mb-4">
+					<label>Emails</label>
+					<textarea class="form-control" name="email" rows="3">{{$email->valor}}</textarea>
 				</div>
 				<div class="col-12 mb-4">
 					<label>Dirección</label>
-					<input class="form-control"  type="text" name="direccion" value="{{$direccion->valor}}" placeholder="Dirección">
+					<textarea class="form-control" name="direccion" rows="3">{{$direccion->valor}}</textarea>
 				</div>
 				<div class="col-12">
 				<hr> 

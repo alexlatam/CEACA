@@ -3,16 +3,36 @@
 @section('head')
 <title>Ceaca</title>
 <style>
-.imagen_servicios_principal{
-    width: 100%;
-    height: 100vh;
-}
+    .imagen_servicios_principal {
+        width: 100%;
+        height: 100vh;
+    }
 </style>
 @endsection
 @section('content')
 @include('common.navbar')
 
-<img src="{{asset('img/banner_servicios.jpg')}}" alt="" class="imagen_servicios_principal">
+<section class="mb-5">
+    <div class="container section pb-0">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-7" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
+                <img src="{{asset('img/banner_revista.jpg')}}" alt="Servicios de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
+            </div>
+            <div class="col-12 col-md-5">
+                <h1 class="mb-4 font-weight-bold" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
+                    Guía del usuario - Revista Técnica
+                </h1>
+                <p class="mb-5 text-muted">
+                    “Calderas…Guía del Usuario (en la industria y comercio)” es una Revista técnico-comercial especializada en Calderas, en versión digital, con una frecuencia trimestral.
+                    Además cuenta con distribución gratuita entre todos los Usuarios de Calderas a nivel de Latinoamérica.
+                </p>
+                <!--a-- href="{{route('contacto')}}" class="btn btn-outline-primary">
+                    Contáctanos <i class="fas fa-arrow-right ml-2"></i>
+                </!--a-->
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
@@ -58,13 +78,13 @@
 @include('home.modal_revista')
 <!-- Publicidad -->
 <section class="section pb-0 mt-5 pt-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <img src="{{asset('img/publicidad_servicios.jpg')}}" alt="" width="100%">
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <img src="{{asset('img/publicidad_servicios.jpg')}}" alt="" width="100%">
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
 @include('home.servicios_cat')
