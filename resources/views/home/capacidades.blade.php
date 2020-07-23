@@ -9,10 +9,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-8">
-                <h2 class="text-center mb-4">
+                <h2 class="text-center mb-4"  style="font-size:2rem;">
                     Club Usuarios de Calderas Beneficios y Oportunidades
                 </h2>
-                <p class="text-center text-muted mb-5">
+                <p class="text-center text-muted mb-5"  style="font-size:1.1rem;">
                     Te permitirá obtener los mejores beneficios con acceso a contenido de primera y a la vez ser parte de una comunidad digital productiva y especializada. Selecciona la que más te convenga y disfruta de cada una de sus ventajas.
                 </p>
             </div>

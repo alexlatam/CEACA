@@ -161,7 +161,6 @@
             @guest
               <a href="/sesion">Iniciar sesión</a>
               <a href="/registro">Registrarse</a>
-
             @else
               <a href="/perfil">Ir al perfil</a>
               <form method="POST" id="form_logout" action="/logout">

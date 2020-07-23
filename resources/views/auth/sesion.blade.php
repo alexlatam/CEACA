@@ -12,21 +12,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Iniciar Sesións') }}</div>
+                <div class="card-header">{{ __('Iniciar sesión como miembro del Club') }}</div>
                 @if(session('message'))
                   <div class="alert alert-success" role="alert">
                     {{session('message')}}
                   </div>
                 @endif
-                <div id="container-message">
-                    
-                </div>
+                <div id="container-message"></div>
                 <div class="card-body">
                     <form method="POST" id="login_form" action="{{ route('user.login') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo') }}</label>
-
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
@@ -49,23 +46,21 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" id="submit_login_sesion" class="btn btn-success px-4">
                                     {{ __('Iniciar Sesión') }}
                                 </button>
-
                                 @if (Route::has('password.request'))
-                                    <!-- <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <!--a-- class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('¿Has olvidado tu clave?') }}
-                                    </a> -->
+                                    </!--a-->
                                 @endif
                             </div>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-center">
-                            <a href="/registro" class="btn btn-primary ">Registrarse</a>
+                            <a href="/registro" class="btn btn-outline-success px-5">Registrarse</a>
                         </div>
                     </form>
                 </div>
