@@ -56,7 +56,6 @@
 </head>
 <body style="background-color: #eee;">
     <div id="app">
-        @include('common.navbar')
 
         <main class="conten-login-register">
 

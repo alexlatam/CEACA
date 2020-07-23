@@ -22,25 +22,25 @@
         <div class="sidebar-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="/cms">
+              <a class="nav-link" href="/perfil">
                 <span data-feather="home"></span>
                 Inicio
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/cms">
+              <a class="nav-link" href="/perfil/membresia">
                 <span data-feather="home"></span>
                 Membresias
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/cms">
+              <a class="nav-link" href="/">
                 <span data-feather="home"></span>
                 Cursos
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/cms">
+              <a class="nav-link" href="/perfil/recursos">
                 <span data-feather="home"></span>
                 Recursos
               </a>

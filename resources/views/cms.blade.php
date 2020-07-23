@@ -137,6 +137,12 @@
                 Solicitudes de Contacto
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cms/capacitacion">
+                <span data-feather="users"></span>
+                Capacitaciones
+              </a>
+            </li>
           </ul>
         </div>
       </nav>

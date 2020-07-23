@@ -143,6 +143,11 @@
             Contáctanos
           </a>
         </li>
+        <li class="nav-item">
+          <a href="{{route('capacitacion')}}" class="nav-link">
+            Capacitaciones
+          </a>
+        </li>
         <li class="nav-item-divider">
           <span class="nav-link">
             <span></span>

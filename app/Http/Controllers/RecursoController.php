@@ -114,6 +114,16 @@ class RecursoController extends Controller
 
     }
 
+    public function descargarRecurso($id)
+    {
+        $recurso = Resource::find($id);
+
+        $path = public_path() . '/recursos/' . $recurso->recurso;
+
+        return response()->download($path);
+    }
+
+
     // ELIMINAR RECURSO
 
 

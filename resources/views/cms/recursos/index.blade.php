@@ -42,6 +42,7 @@
 	    		</td>
 	    		<td class="d-flex">
 	    			<a href="/cms/editar/recurso/{{$recurso->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
+	    			<a href="/cms/download/recurso/{{$recurso->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Descargar</a>
 	    			<form action="/cms/eliminar/recurso/{{$recurso->id}}" method="POST">
 	    			  @csrf
 	    			  <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-danger">
