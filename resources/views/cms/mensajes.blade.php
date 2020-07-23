@@ -32,7 +32,8 @@
 			<td>{{$mensaje->email}}</td>
 			<td>
 				@php {{ $comentario = substr($mensaje->message,0,120); }} @endphp
-				{{$comentario.'[...]'}}
+				<span>{{$comentario.'[...]'}}</span>
+				<span hidden>{{$mensaje->message}}</span>
 			</td>
 			<td>
 				<a href="#" class="btn btn-sm btn-success mensaje px-4" data-toggle="modal" data-target="#modalMensje">Ver</a>
@@ -80,7 +81,8 @@
 			mensaje.addEventListener('click', (e) => {
 				let nombre = e.target.parentNode.parentNode.children[1]
 				let correo = e.target.parentNode.parentNode.children[2]
-				let mensaje = e.target.parentNode.parentNode.children[3]
+				let mensaje = e.target.parentNode.parentNode.children[3].lastElementChild
+				console.log(mensaje)
 
 
 				title.textContent = nombre.textContent

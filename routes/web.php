@@ -79,7 +79,6 @@ Route::get('/detalles_servicio/{id}', function ($id) {
 Route::get('/revistas', 'RevistaController@revistaHome')->name('revistas');
 Route::get('/descargar/revista/{id}', 'RevistaController@descargarRevistas');
 
-
 /* CONTACTO */
 Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
 Route::post('/enviar/mensaje', 'MessageController@createMessage');
