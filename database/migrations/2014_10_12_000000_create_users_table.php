@@ -21,6 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('empresa')->nullable();
             $table->string('planta')->nullable();
             $table->string('cargo')->nullable();
+            $table->string('tipo_caldera')->nullable();
+            $table->string('actividad')->nullable();
+            $table->string('especialidad')->nullable();
+            $table->string('sector')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('status')->default('activo');
