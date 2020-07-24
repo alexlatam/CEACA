@@ -19,7 +19,7 @@ class CapacitacionesController extends Controller
 
     	if(isset($request->categoria))
     	{
-    		$capacitaciones = Capacitacion::where('id', $request->categoria)->get();
+    		$capacitaciones = Capacitacion::where('cat_capacitaciones_id', $request->categoria)->get();
 
     	}
 
