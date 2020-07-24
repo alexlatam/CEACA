@@ -8,6 +8,7 @@ use App\Service;
 use App\Service_Category;
 use App\Info;
 use App\Plan;
+use App\Revista;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,9 +76,14 @@ Route::get('/detalles_servicio/{id}', function ($id) {
 	return view('detalles_servicio', ["info" => $info, "servicios" => $servicios, "servicio" => $servicio, "publicidad" => $publicidad]);
 })->name('detalles_servicio');
 
-/* REVITA */
+/* REVISTA */
 Route::get('/revistas', 'RevistaController@revistaHome')->name('revistas');
 Route::get('/descargar/revista/{id}', 'RevistaController@descargarRevistas');
+Route::get('/ver_revista/{id}', function ($id) {
+	$revista = Revista::find($id);
+	$info = Info::All();
+	return view('revista_details', ["info" => $info, "revista" => $revista]);
+});
 
 /* CONTACTO */
 Route::get('/contacto', 'InformationController@contactoView')->name('contacto');

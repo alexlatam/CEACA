@@ -54,7 +54,6 @@
     <!--a-->
 </section>
 
-
 <section>
     <div class="container section pb-0">
         <div class="row">
@@ -73,7 +72,7 @@
                         <h4>
                             {{ $revista->titulo }}
                         </h4>
-                        <!--a href="/aux/{{$revista->id}}" target="_blank" class="btn btn-sm btn-outline-success mt-2">Ver en linea</!--a-->
+                        <a href="/ver_revista/{{$revista->id}}" target="_blank" class="btn btn-sm btn-outline-success mt-2">Ver en linea</a>
                         <a href="#" class="btn btn-sm btn-success px-5 mt-2" data-toggle="modal" data-target=".modalRevista">Descargar</a>
                     </div>
                 </div>
@@ -83,17 +82,16 @@
         </div>
     </div>
 </section>
-
-<script language="javascript">
-    document.onmousedown = disableclick;
-    document.getElementById("revista").onmousedown = disableclick;
-
-    function disableclick(event) {
-        if (event.button == 2) {
-            return false;
-        }
+<script type='text/javascript'>
+    document.oncontextmenu = function() {
+        return false
     }
+    var iframe = document.getElementById("revista").children.oncontextmenu = function() {
+        return false
+    };
+    //console.log(iframe)
 </script>
+
 
 @include('home.modal_revista')
 

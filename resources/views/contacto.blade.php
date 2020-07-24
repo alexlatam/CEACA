@@ -7,10 +7,11 @@
     text-decoration: none;
   }
 </style>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+
 @endsection
 @section('content')
 @include('common.navbar')
-
 
 <!-- BREADCRUMB
     ================================================== -->
@@ -62,13 +63,13 @@
         <h3 class="mb-4">
           ¿Tienes alguna pregunta? Escríbenos un <span class="text-primary">mensaje</span>
         </h3>
-        <form action="/enviar/mensaje" method="POST">
+        <form id="form-contacto" action="/enviar/mensaje" method="POST">
           @csrf
           <div class="form-row">
             <div class="form-group col-md-6">
               <label>Nombre Completo</label>
               <div class="input-group">
-                <input type="text" class="form-control order-1" name="name" required>
+                <input id="name" type="text" class="form-control order-1" name="name" required>
                 <div class="input-group-append order-0">
                   <div class="input-group-text">
                     <svg class="input-group-icon icon-offset icon icon-person" viewBox="0 0 106 106" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -83,7 +84,7 @@
             <div class="form-group col-md-6">
               <label>Correo Electrónico</label>
               <div class="input-group">
-                <input type="email" class="form-control order-1" name="email" required>
+                <input id="email" type="email" class="form-control order-1" name="email" required>
                 <div class="input-group-append order-0">
                   <div class="input-group-text">
                     <svg class="input-group-icon icon-offset icon icon-envelope" viewBox="0 0 106 106" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -99,12 +100,13 @@
           <div class="form-row">
             <div class="form-group col-12">
               <label>Comentario</label>
-              <textarea class="form-control" name="message" required rows="7"></textarea>
+              <textarea id="message" class="form-control" name="message" required rows="7"></textarea>
             </div>
           </div>
+          <input type="hidden" name="action" value="validate_captcha">
           <div class="form-row">
             <div class="col-12">
-              <button type="submit" class="btn btn-outline-primary">
+              <button class="btn btn-outline-primary g-recaptcha" data-sitekey="6LcnwLIZAAAAAKQiVWCAHH72PWf2-Dg-69YaV41e" data-callback='onSubmit' data-action='submit'>
                 Enviar Mensaje
               </button>
               <button type="reset" class="btn btn-link">
@@ -144,7 +146,7 @@
               @php {{ echo nl2br($direccion->valor); }} @endphp
             </p>
             <h5>
-              Correos Electrónicos
+              Correo Electrónico
             </h5>
             <p class="text-muted">
               @php {{ echo nl2br($email->valor); }} @endphp
@@ -162,8 +164,9 @@
                 </g>
               </svg>
               <a href="tel:{{$telefono1->valor}}" class="ml-2">
-                {{$telefono1->valor}}
-              </a>
+                <a href="tel:{{$telefono1->valor}}">
+                  {{$telefono1->valor}}
+                </a>
             </div>
             <div class="row align-items-center ml-1">
               <svg enable-background="new 0 0 512 512" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px">
@@ -175,7 +178,7 @@
               <a href="tel:{{$telefono2->valor}}" class="ml-2">
                 {{$telefono2->valor}}
               </a>
-            </div>            
+            </div>
           </div>
           <div class="col-12">
             <h5>
@@ -199,12 +202,6 @@
                 Linkedin
               </span>
             </a>
-            <!--a-- href="{{$twitter->valor}}" class="ml-4 enlace_contact">
-              <i class="fab fa-twitter"></i>
-              <span class="ml-1">
-                Twitter
-              </span>
-            </!--a-->
           </div>
         </div>
       </div>
@@ -222,4 +219,26 @@
   </div>
 </section>
 
+<script>
+  function onSubmit(token) {
+    if (document.getElementById("form-contacto").checkValidity()) {
+      document.getElementById("form-contacto").submit();
+    } else {
+      $error = "¡Complete los campos de manera correcta!\n";
+
+      if (!document.getElementById("name").checkValidity()) {
+        $error = $error + "- Ingrese un nombre.\n";
+      }
+
+      if (!document.getElementById("email").checkValidity()) {
+        $error = $error + "- Ingrese un correo valido.\n";
+      }
+      if (!document.getElementById("message").checkValidity()) {
+        $error = $error + "- Ingrese un comentario.\n";
+      }
+      alert($error);
+    }
+
+  }
+</script>
 @endsection
