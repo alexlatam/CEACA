@@ -178,7 +178,7 @@ class RevistaController extends Controller
             return back()->with('error', 'No se pudo eliminar');
         }
 
-    	if($deleted || $revista->archivo === null){
+    	if(isset($deleted) || $revista->archivo == null){
     	    $revista->delete();
     	    return back()->with('error','Eliminado con éxito');
     	} else {

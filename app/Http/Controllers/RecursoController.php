@@ -55,7 +55,9 @@ class RecursoController extends Controller
     	    return back()->with('message', 'Recurso guardado correctamente');
 
     	} else {
-    		return back()->with('error', 'No se pudo guardar el recurso');
+    		$recurso->save();
+            $recurso->plans()->attach($request->get('recurso_membership'));
+            return back()->with('message', 'Recurso guardado correctamente');
     	}
 
     }
@@ -121,6 +123,13 @@ class RecursoController extends Controller
         $path = public_path() . '/recursos/' . $recurso->recurso;
 
         return response()->download($path);
+    }
+
+    public function obtenerRecurso($id)
+    {
+        $recurso = Resource::find($id);
+
+        return $recurso;
     }
 
 

@@ -28,7 +28,7 @@
 			@csrf
 			<div class="form-group col-12">
 				<h5>Titulo</h5>
-				<input type="text" id="seccion_title" name="recurso_title" placeholder="titulo" value="{{$recurso->titulo}}" class="form-control">
+				<input type="text" id="seccion_title" name="recurso_title" placeholder="titulo" value="{{$recurso->titulo}}" class="form-control" maxlength="191">
 			</div>
 			<div class="form-group col-12">
 				<h5>Descripción</h5>

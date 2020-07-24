@@ -23,7 +23,7 @@
         <div class="row">
           <div class="col-12 mb-4">
             <h5>Titulo</h5>
-            <input class="form-control" id="input-title" type="text" name="titulo_capacitacion" value="" placeholder="Titulo">
+            <input class="form-control" id="input-title" type="text" name="titulo_capacitacion" value="" placeholder="Titulo" maxlength="191">
           </div>
           <div class="col-6 mb-4">
             <h5>Categoría</h5>

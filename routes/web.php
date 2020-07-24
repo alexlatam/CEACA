@@ -216,6 +216,7 @@ Route::middleware('admin')->group(function () {
 
 	/* ----------  RUTA RECURSOS CONTROLLADOR ---------*/
 	Route::get('/cms/recursos', 'RecursoController@index');
+	Route::get('/cms/obtener/recurso/{id}', 'RecursoController@obtenerRecurso');
 	Route::get('/cms/crear/recurso', 'RecursoController@crearRecurso');
 	Route::post('/cms/guardar/recurso', 'RecursoController@guardarRecurso');
 	Route::get('/cms/editar/recurso/{id}', 'RecursoController@editarRecurso');

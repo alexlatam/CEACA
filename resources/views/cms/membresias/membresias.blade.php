@@ -74,7 +74,7 @@
           @csrf
           <div class="form-group">
             <h5>Nombre de la membresía</h5>
-            <input class="form-control" id="membresia_nombre" type="text" name="plan_name" placeholder="Nombre" required>
+            <input class="form-control" id="membresia_nombre" type="text" name="plan_name" placeholder="Nombre" required maxlength="191">
           </div>
           <div class="form-group">
             <h5>Descripción</h5>

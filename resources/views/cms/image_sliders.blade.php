@@ -29,7 +29,7 @@
 					@csrf
 					<div class="form-group">
 						<h5>Titulo</h5>
-						<input type="text" name="slider_titulo" value="{{$slider->titulo}}" placeholder="Titulo..." class="form-control">
+						<input type="text" name="slider_titulo" value="{{$slider->titulo}}" placeholder="Titulo..." class="form-control" maxlength="191">
 					</div>
 					<div class="form-group">
 						<h5 title="Pequeña descripción que se mostrara en el Banner">Descripción</h5>
@@ -49,10 +49,34 @@
 					</div>
 					<input type="submit" class="btn btn-success px-5 mt-3 slider_submit" value="Actualizar Slider">
 				</form>
-				<form class="d-inline" action="/cms/delete/slider/image/{{$slider->id}}" method="GET"><input type="submit" class="btn btn-outline-danger px-4 mt-3" value="Eliminar Slider"></form>
+				<form class="d-inline" action="/cms/delete/slider/image/{{$slider->id}}" method="GET">
+					<button type="button" class="btn btn-outline-danger px-4 mt-3 slider_eliminar" data-toggle="modal" data-target="#EliminarUsuarios">Eliminar Slider</button>
+				</form>
 			</div>
 		</div>
 		@endforeach
+	</div>
+
+	<div class="modal fade" id="EliminarUsuarios" tabindex="-1" role="dialog" aria-labelledby="EliminarUsuarios" aria-hidden="true" >
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="">¿Seguro que desea Eliminar este slider?</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	<form id="modal_eliminar_usuario_form" method="GET">
+	      		@csrf
+	      	</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+	        <button type="button" class="btn btn-danger px-4" id="submitModalEliminar">Eliminar</button>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 
 </section>
@@ -79,7 +103,32 @@
 </script>
 
 <script type="text/javascript">
-	let sliderSubmit = document.querySelectorAll('.slider_submit')
+	let sliderSubmit = document.querySelectorAll('.slider_submit');
+
+	let eliminarButtons = document.querySelectorAll('.slider_eliminar');
+	let formModal = document.getElementById('modal_eliminar_usuario_form')
+	let submitEliminar = document.getElementById('submitModalEliminar');
+
+
+	submitEliminar.addEventListener('click', () => {
+		formModal.submit();
+	});	
+
+	if(eliminarButtons)
+	{
+		eliminarButtons.forEach(button => {
+			button.addEventListener('click', (e) =>{
+				e.preventDefault();
+				
+
+				formPadre = e.target.parentNode;
+				console.log(formPadre);
+
+				formModal.action = formPadre.action
+			});
+		});
+	}
+
 
 	if(sliderSubmit){
 		sliderSubmit.forEach( submit => {
