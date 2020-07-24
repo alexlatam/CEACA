@@ -41,7 +41,7 @@
                 </h6>
                 <nav class="sidenav d-flex flex-column mb-5 mb-md-0">
                     @foreach ($cat_servicios as $categoria)
-                    <a class="text-uppercase text-xs mb-2" href="#!">
+                    <a class="text-uppercase text-xs mb-2" href="/capacitacion?categoria={{$categoria->id}}">
                         {{ $categoria->name }}
                     </a>
                     @endforeach
