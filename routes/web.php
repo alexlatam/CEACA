@@ -8,6 +8,8 @@ use App\Service;
 use App\Service_Category;
 use App\Info;
 use App\Plan;
+use App\Revista;
+use App\Capacitacion;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,9 +77,14 @@ Route::get('/detalles_servicio/{id}', function ($id) {
 	return view('detalles_servicio', ["info" => $info, "servicios" => $servicios, "servicio" => $servicio, "publicidad" => $publicidad]);
 })->name('detalles_servicio');
 
-/* REVITA */
+/* REVISTA */
 Route::get('/revistas', 'RevistaController@revistaHome')->name('revistas');
 Route::get('/descargar/revista/{id}', 'RevistaController@descargarRevistas');
+Route::get('/ver_revista/{id}', function ($id) {
+	$revista = Revista::find($id);
+	$info = Info::All();
+	return view('revista_details', ["info" => $info, "revista" => $revista]);
+});
 
 /* CONTACTO */
 Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
@@ -96,6 +103,13 @@ Route::get('/download/membresias', 'ClubController@membresiasDownload');
 
 /* Vista Capacitaciones */
 Route::get('/capacitacion', 'CapacitacionesController@home')->name('capacitacion');
+Route::get('/detalles_capacitacion/{id}', function ($id) {
+	$info = Info::All();
+	$capacitacion = Capacitacion::find($id);
+	$publicidad = Ads::All();
+	return view('detalles_capacitacion', ["info" => $info, "capacitacion" => $capacitacion, "publicidad" => $publicidad]);
+})->name('detalles_capacitacion');
+
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
 Route::middleware('admin')->group(function () {
@@ -228,10 +242,7 @@ Route::middleware('admin')->group(function () {
 	Route::post('/cms/actualizar/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@editCategory');
 
 });
-
-
 /*------------------------------------ END --------------------------*/
-
 
 /*------------------------------------ PERFIL RUTAS --------------------------*/
 

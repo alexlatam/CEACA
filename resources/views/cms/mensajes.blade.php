@@ -21,7 +21,7 @@
 			<th>Nombre</th>
 			<th>Correo</th>
 			<th>Mensaje</th>
-			<th>Ver</th>
+			<th>Acciones</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -99,6 +99,10 @@
 			//para usar los botones   
 			responsive: "true",
 			pageLength: 50,
+			"columnDefs": [{
+				"width": "17%",
+				"targets": 4
+			}]
 		});
 	}
 </script>

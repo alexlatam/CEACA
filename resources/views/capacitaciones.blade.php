@@ -20,15 +20,11 @@
             </div>
             <div class="col-12 col-md-5">
                 <h1 class="mb-4 font-weight-bold" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
-                    Guía del usuario - Revista Técnica
+                    CURSOS Y TALLERES CEACA
                 </h1>
                 <p class="mb-5 text-muted">
-                    “Calderas…Guía del Usuario (en la industria y comercio)” es una Revista técnico-comercial especializada en Calderas, en versión digital, con una frecuencia trimestral.
-                    Además cuenta con distribución gratuita entre todos los Usuarios de Calderas a nivel de Latinoamérica.
+                    Ha sido el área de especialidad de Combustión, Energía & Ambiente, S.A. y de Carlos Lasarte, la auditoría, evaluación de la confiabilidad y seguridad de las Calderas, los sistemas de Generación y Distribución de Vapor, con particular énfasis en las Calderas, sus Equipos Auxiliares y sus Procesos, por esta razón contamos con un equipo de especialistas - instructores que podrían darle forma a un programa de especialización en cuidados, operación, inspección, análisis de fallas y mantenimiento de calderas, algunos ejemplos de los cursos que se ofrecen se presentan a continuación.
                 </p>
-                <!--a-- href="{{route('contacto')}}" class="btn btn-outline-primary">
-                    Contáctanos <i class="fas fa-arrow-right ml-2"></i>
-                </!--a-->
             </div>
         </div>
     </div>
@@ -45,7 +41,7 @@
                 </h6>
                 <nav class="sidenav d-flex flex-column mb-5 mb-md-0">
                     @foreach ($cat_servicios as $categoria)
-                    <a class="text-uppercase text-xs mb-2" href="#!">
+                    <a class="text-uppercase text-xs mb-2" href="/capacitacion?categoria={{$categoria->id}}">
                         {{ $categoria->name }}
                     </a>
                     @endforeach
@@ -53,7 +49,7 @@
             </div>
             <div class="col-12 col-md-9 col-lg-10 order-md-1">
                 @foreach ($capacitaciones as $capacitacion)
-                <a class="row align-items-center text-nounderline" href="#">
+                <a class="row align-items-center text-nounderline" href="detalles_capacitacion/{{$capacitacion->id}}">
                     <div class="col-12 col-md-3">
                         <img src="{{asset('/capacitaciones/'. $capacitacion->imagen )}}" alt="{{ $capacitacion->titulo }}" class="img-fluid mb-3 mb-md-0">
                     </div>

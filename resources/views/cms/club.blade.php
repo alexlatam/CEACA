@@ -2,18 +2,19 @@
 
 
 @section('content')
-<section>
+<section class="px-0">
 
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Miembros del club</h1>
     <a href="/cms/club" class="px-5 btn btn-outline-success col-auto ml-auto">Volver</a>
-  </div>
+  </div>  
   <div class="container-fluid">
     @if(session('message'))
           <div class="alert alert-success my-3" role="alert">
             {{session('message')}}
           </div>
     @endif
+
 
     @if(session('error'))
           <div class="alert alert-danger my-3" role="alert">
