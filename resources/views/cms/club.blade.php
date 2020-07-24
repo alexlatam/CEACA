@@ -2,13 +2,13 @@
 
 
 @section('content')
-<section>
+<section class="px-0">
 
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Miembros del club</h1>
     <a href="/cms/club" class="px-5 btn btn-outline-success col-auto ml-auto">Volver</a>
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid px-0">
 
     <div class="table-responsive" style="max-width:100%!important;">
       <table class="table table-hover" id="table1">
@@ -22,6 +22,10 @@
             <th>Empresa</th>
             <th>Planta</th>
             <th>Cargo</th>
+            <th>Tipo caldera</th>
+            <th>Actividad</th>
+            <th>Especialidad</th>
+            <th>Sector</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -36,6 +40,10 @@
             <td>{{$user->empresa}}</td>
             <td>{{$user->planta}}</td>
             <td>{{$user->cargo}}</td>
+            <td>{{$user->tipo_caldera}}</td>
+            <td>{{$user->actividad}}</td>
+            <td>{{$user->especialidad}}</td>
+            <td>{{$user->sector}}</td>
             <td>
               @if($user->status === 'activo')
               <form action="/club/user/pause/{{$user->id}}" method="POST">

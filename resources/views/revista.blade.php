@@ -13,9 +13,10 @@
         object-fit: cover;
         background-size: cover !important;
     }
-    .aux{
-height: 100vh;
-width: 100%;
+
+    .aux {
+        height: 100vh;
+        width: 100%;
     }
 </style>
 @endsection
@@ -32,8 +33,8 @@ width: 100%;
                     Guía del usuario - Revista Técnica
                 </h1>
                 <p class="mb-5 text-muted">
-                “Calderas…Guía del Usuario (en la industria y comercio)” es una Revista técnico-comercial especializada en Calderas, en versión digital, con una frecuencia trimestral.
-                Además cuenta con distribución gratuita entre todos los Usuarios de Calderas a nivel de Latinoamérica.
+                    “Calderas…Guía del Usuario (en la industria y comercio)” es una Revista técnico-comercial especializada en Calderas, en versión digital, con una frecuencia trimestral.
+                    Además cuenta con distribución gratuita entre todos los Usuarios de Calderas a nivel de Latinoamérica.
                 </p>
                 <!--a-- href="{{route('contacto')}}" class="btn btn-outline-primary">
                     Contáctanos <i class="fas fa-arrow-right ml-2"></i>
@@ -48,11 +49,10 @@ width: 100%;
 
 <!-- publicidad -->
 <section class="mt-5 pt-3">
-  <!--a href="{{$publicidad[0]->url}}" target="_blank"-->
+    <!--a href="{{$publicidad[0]->url}}" target="_blank"-->
     <img src="{{asset('img/publicidad_revista.jpg')}}" alt="" width="100%" style="max-height:70vh;">
-  <!--a-->
+    <!--a-->
 </section>
-
 
 <section>
     <div class="container section pb-0">
@@ -72,7 +72,7 @@ width: 100%;
                         <h4>
                             {{ $revista->titulo }}
                         </h4>
-                        <a href="{{asset('revista/'. $revista->archivo)}}" target="_blank" class="btn btn-sm btn-outline-success mt-2">Ver en linea</a>
+                        <a href="/ver_revista/{{$revista->id}}" target="_blank" class="btn btn-sm btn-outline-success mt-2">Ver en linea</a>
                         <a href="#" class="btn btn-sm btn-success px-5 mt-2" data-toggle="modal" data-target=".modalRevista">Descargar</a>
                     </div>
                 </div>
@@ -82,9 +82,17 @@ width: 100%;
         </div>
     </div>
 </section>
+<script type='text/javascript'>
+    document.oncontextmenu = function() {
+        return false
+    }
+    var iframe = document.getElementById("revista").children.oncontextmenu = function() {
+        return false
+    };
+    //console.log(iframe)
+</script>
 
 
-@include('home.servicios_cat')
 @include('home.modal_revista')
 
 

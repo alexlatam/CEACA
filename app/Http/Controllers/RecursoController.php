@@ -12,6 +12,7 @@ class RecursoController extends Controller
     public function index()
     {
     	$recursos = Resource::all();
+        //dd($recursos[0]->plans[0]->title);
     	return view('cms.recursos.index', compact('recursos'));
     }
 
@@ -112,6 +113,16 @@ class RecursoController extends Controller
         }
 
     }
+
+    public function descargarRecurso($id)
+    {
+        $recurso = Resource::find($id);
+
+        $path = public_path() . '/recursos/' . $recurso->recurso;
+
+        return response()->download($path);
+    }
+
 
     // ELIMINAR RECURSO
 

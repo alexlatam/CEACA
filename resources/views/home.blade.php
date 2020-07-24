@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6">
         <h2 class="text-center mb-4" data-aos="fade-up" data-aos-duration="1000">
-        Calderas - Guía del Usuario
+        Calderas Guía del Usuario
         </h2>
         <p class="text-muted text-center mb-5">
         REVISTA TÉCNICO-COMERCIAL ESPECIALIZADA EN CALDERAS.  VERSIÓN TRIMESTRAL
@@ -41,7 +41,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="#" class="card border-0 mb-3 mb-md-0" data-toggle="modal" data-target=".modalRevista">
+        <a href="/registro" class="card border-0 mb-3 mb-md-0">
           <div class="card-img-top">
             <img src="{{asset('img/img_button3.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
             <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;">
@@ -89,7 +89,7 @@
         </a>
         <h4 class="card-title mt-3 pt-3">
           <a href="{{route('servicios')}}">
-            NUESTROS SERVICIOS
+            SERVICIOS TÉCNICOS
           </a>          
         </h4>
       </div>

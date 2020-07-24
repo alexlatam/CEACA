@@ -143,6 +143,11 @@
             Contáctanos
           </a>
         </li>
+        <!--li-- class="nav-item">
+          <a href="{{route('capacitacion')}}" class="nav-link">
+            Capacitaciones
+          </a>
+        </!--li-->
         <li class="nav-item-divider">
           <span class="nav-link">
             <span></span>
@@ -153,8 +158,16 @@
             <img id="sesion_img" src="{{asset('images/sesion_icon.svg')}}">
           </a>
           <div id="sesion_card" class="sesion-card">
-            <a href="/sesion">Iniciar sesión</a>
-            <a href="/registro">Registrarse</a>
+            @guest
+              <a href="/sesion">Iniciar sesión</a>
+              <a href="/registro">Registrarse</a>
+            @else
+              <a href="/perfil">Ir al perfil</a>
+              <form method="POST" id="form_logout" action="/logout">
+                @csrf
+                <a href="#" id="submit_logout">Cerrar Sesion</a>
+              </form>
+            @endguest
           </div>
         </li>
       </ul>
@@ -163,8 +176,19 @@
 </nav>
 
 <script type="text/javascript">
-  let sesion_submit = document.getElementById('sesion_icon');
+
+  let logout_form = document.getElementById('form_logout');
+
+  let logout_button_navbar = document.getElementById('submit_logout');
   
+
+  if(logout_button_navbar)
+  {
+    logout_button_navbar.addEventListener('click', (e) => {
+      logout_form.submit();
+    });
+  }
+
 
   document.addEventListener('click', (e) => {
     let sesion_card = document.getElementById('sesion_card');
@@ -181,8 +205,5 @@
     {
       sesion_card.classList.remove('active')
     }
-  });
-
-
-  
+  });  
 </script>

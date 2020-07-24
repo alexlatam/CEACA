@@ -33,6 +33,18 @@
 				<input type="text" id="url" name="publicidad_url" placeholder="url..." class="form-control" name="">
 			</div>
 			<div class="form-group col-12">
+				<h5>Sección </h5>
+				<select class="form-control" name="publicidad_seccion">
+					<option value="home">Home</option>
+					<option value="quienes somos">Quienes Somos</option>
+					<option value="revista">Revistas</option>
+					<option value="club ceaca">Club ceaca</option>
+					<option value="contactanos">Contactanos</option>
+					<option value="capacitaciones">Capacitaciones</option>
+					<option value="perfil">Perfil Usuario</option>
+				</select>
+			</div>
+			<div class="form-group col-12">
 				<h5>Imagen</h5>
 				<input type="file" id="file_input" name="publicidad_imagen">
 			</div>

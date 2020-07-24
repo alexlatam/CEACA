@@ -8,6 +8,7 @@ use App\Service;
 use App\Service_Category;
 use App\Info;
 use App\Plan;
+use App\Revista;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,10 +76,14 @@ Route::get('/detalles_servicio/{id}', function ($id) {
 	return view('detalles_servicio', ["info" => $info, "servicios" => $servicios, "servicio" => $servicio, "publicidad" => $publicidad]);
 })->name('detalles_servicio');
 
-/* REVITA */
+/* REVISTA */
 Route::get('/revistas', 'RevistaController@revistaHome')->name('revistas');
 Route::get('/descargar/revista/{id}', 'RevistaController@descargarRevistas');
-
+Route::get('/ver_revista/{id}', function ($id) {
+	$revista = Revista::find($id);
+	$info = Info::All();
+	return view('revista_details', ["info" => $info, "revista" => $revista]);
+});
 
 /* CONTACTO */
 Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
@@ -93,11 +98,10 @@ Route::get('/download/membresias', 'ClubController@membresiasDownload');
 
 /*Subscribirse a revista*/
 
-Route::post('/subscricion', 'SubscripcionController@subscribirUsuario');
+//Route::post('/subscricion', 'SubscripcionController@subscribirUsuario');
 
-
-
-
+/* Vista Capacitaciones */
+Route::get('/capacitacion', 'CapacitacionesController@home')->name('capacitacion');
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
 Route::middleware('admin')->group(function () {
@@ -204,11 +208,49 @@ Route::middleware('admin')->group(function () {
 	Route::post('/cms/guardar/recurso', 'RecursoController@guardarRecurso');
 	Route::get('/cms/editar/recurso/{id}', 'RecursoController@editarRecurso');
 	Route::post('/cms/actualizar/recurso/{id}', 'RecursoController@actualizarRecurso');
+	Route::get('/cms/download/recurso/{id}', 'RecursoController@descargarRecurso');
 	Route::post('/cms/eliminar/recurso/{id}', 'RecursoController@eliminarRecurso');
+
+
+	/* ----------  RUTA CAPACITACIONES CONTROLLADOR ---------*/
+	Route::get('/cms/capacitacion', 'Capacitacion\IndexController@index');
+
+	Route::get('/cms/capacitaciones', 'Capacitacion\CapacitacionController@index');
+	Route::get('/cms/crear/capacitacion', 'Capacitacion\CapacitacionController@crearCapacitacion');
+	Route::post('/cms/guardar/capacitacion', 'Capacitacion\CapacitacionController@guardarCapacitacion');
+	Route::get('/cms/editar/capacitacion/{id}', 'Capacitacion\CapacitacionController@editarCapacitacion');
+	Route::post('/cms/actualizar/capacitacion/{id}', 'Capacitacion\CapacitacionController@actualizarCapacitacion');
+	Route::post('/cms/eliminar/capacitacion/{id}', 'Capacitacion\CapacitacionController@eliminarCapacitacion');
+
+	/* ----------  RUTA CAPACITACIONES CATEGORIAS CONTROLLADOR ---------*/
+	Route::get('/cms/capacitaciones/categorias', 'Capacitacion\CategoriaCapacitacionController@index');
+	Route::post('/cms/crear/category/capacitacion', 'Capacitacion\CategoriaCapacitacionController@crearCategoria');
+	Route::post('/cms/eliminar/category/capacitacion/{id}', 'Capacitacion\CategoriaCapacitacionController@deleteCapacitacionCategory');
+	Route::get('/cms/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@getCategory');
+	Route::post('/cms/actualizar/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@editCategory');
+
 });
 
 
 /*------------------------------------ END --------------------------*/
+
+
+/*------------------------------------ PERFIL RUTAS --------------------------*/
+
+Route::middleware('auth')->group(function () {
+
+	Route::get('/perfil', 'Perfil\PerfilController@home');
+	Route::get('/perfil/membresia', 'Perfil\PerfilController@membresias');
+	Route::get('/perfil/recursos', 'Perfil\PerfilController@recursos');
+
+
+	//Descargar recursos
+	Route::get('/download/recurso/{id}', 'RecursoController@descargarRecurso');
+
+});
+
+
+/*------------------------------------ END PERFIL --------------------------*/
 
 
 
@@ -219,9 +261,11 @@ Route::get('admin', 'Admin\loginController@showLoginForm')->name('login.admin');
 Route::post('admin', 'Admin\loginController@login')->name('login.admin');
 
 /*-------------------------------LOGIN COMUN  --------------------------*/
-Route::get('/sesion', 'User\LoginController@index');
+
+
+Route::get('/sesion', 'User\LoginController@index')->name('sesion');
 Route::post('/user/login', 'User\LoginController@login')->name('user.login');
 
 /*-------------------------------  REGISTRO   --------------------------*/
-Route::get('/registro', 'User\RegisterController@registerForm');
+Route::get('/registro/{name?}', 'User\RegisterController@registerForm');
 Route::post('/user/registrar', 'User\RegisterController@registrar');

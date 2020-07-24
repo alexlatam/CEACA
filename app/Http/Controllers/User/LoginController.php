@@ -6,13 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Info;
+
 use Hash;
 use Auth;
 class LoginController extends Controller
 {
     public function index()
-    {
-    	return view('auth.sesion');
+    {   
+        $info = Info::All();
+    	return view('auth.sesion', compact('info'));
     }
 
     public function login(Request $request)
@@ -39,7 +42,9 @@ class LoginController extends Controller
     				{	
     					Auth::login($user, true);
     					return response('sesion iniciada', 200);
-    				}
+    				}else {
+                        return response(null, 204);
+                    }
 
     				
     			} elseif ($user->password === null) {
@@ -52,6 +57,7 @@ class LoginController extends Controller
     						$user->password = Hash::make($new_password);
     						$user->save();
 
+                            Auth::login($user, true);
     						return response()->json([
     							'message' => 'cotraseña creada con éxito'
     						], 200);
@@ -59,7 +65,7 @@ class LoginController extends Controller
     					} else {
     						return response()->json([
     							'err' => 'las contraseñas no coinciden'
-    						]);
+    						], 204);
     					}
 
     				}

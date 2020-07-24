@@ -36,7 +36,7 @@ class CategoryController extends Controller
     	return back();
     }
 
-    public function deleteCategory(Request $requeest, $id){
+    public function deleteCategory(Request $request, $id){
     	$categoria = Service_Category::find($id);
         if($categoria->imagen){
                 if(substr($categoria->imagen, 0, 4)  === "http"){

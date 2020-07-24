@@ -96,15 +96,9 @@
                 <p>
                     @php {{echo nl2br($membresia->description);}} @endphp
                 </p>
-                @if($x==0)
-                <a href="#" class="btn btn-outline-primary" data-toggle="modal" data-target=".modalRevista">
+                <a href="/registro/{{strtolower($membresia->title)}}" class="btn btn-outline-primary">
                     Suscribirme
                 </a>
-                @else
-                <a href="{{route('contacto')}}" class="btn btn-outline-primary">
-                    Contáctanos
-                </a>
-                @endif
             </div>
         </div>
     </div>
@@ -125,11 +119,9 @@
                 <p>
                     @php {{echo nl2br($membresia->description);}} @endphp
                 </p>
-                @if($x!=0)
-                <a href="{{route('contacto')}}" class="btn btn-outline-primary">
-                    Contáctanos
+                <a href="/registro/{{strtolower($membresia->title)}}" class="btn btn-outline-primary">
+                    Suscribirme
                 </a>
-                @endif
             </div>
         </div>
     </div>
@@ -137,19 +129,6 @@
 @endif
 @php {{ ++$x; }} @endphp
 @endforeach
-
-
-<!-- Tablas Adicionales -->
-<section class="container my-5">
-    <div class="row justify-content-center">
-        <img src="{{asset('img/tabla_1.jpg')}}" alt="" width="80%">
-    </div>
-</section>
-<section class="container my-5">
-    <div class="row justify-content-center">
-        <img src="{{asset('img/tabla_2.jpg')}}" alt="" width="80%">
-    </div>
-</section>
 <!-- Notas -->
 <section class="container my-5 pb-4">
     <div class="row">
@@ -165,19 +144,34 @@
                 <br>
                 1.3.Las consultas ha de estar relacionadas con los temas a los que se refirieron los cursos en los que participó.
             </p>
-            <p>
-                -Nota 2 <br>
-                En el caso de la bolsa de trabajo, los resúmenes curricualres recibidos estarán a disposición de las empresas que tengan vacantes dentro de su área de acción
-            </p>
         </div>
     </div>
 </section>
 
-<!-- publicidad -->
-<section>
-    <img src="{{asset('img/publicidad_club.jpg')}}" alt="" width="100%" style="max-height:70vh;">
+<!-- estamos trabajando -->
+<section class="my-5">
+    <img src="{{asset('img/estamos_trabajando.jpg')}}" alt="" width="100%" style="max-height:70vh;">
 </section>
 
-@include('home.servicios_cat')
+<!-- Tablas Adicionales -->
+<!--section-- class="container my-5">
+    <div class="row justify-content-center">
+        <img src="{{asset('img/tabla_1.jpg')}}" alt="" width="80%">
+    </div>
+</!--section-->
+<!--section-- class="container my-5">
+    <div class="row justify-content-center">
+        <img src="{{asset('img/tabla_2.jpg')}}" alt="" width="80%">
+    </div>
+</!--section-->
+
+
+<!-- publicidad -->
+<section class="my-5">
+    <a href="{{route('servicios')}}">
+        <img src="{{asset('img/publicidad_club.jpg')}}" alt="" width="100%" style="max-height:70vh;">
+    </a>
+</section>
+
 
 @endsection

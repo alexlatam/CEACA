@@ -37,12 +37,12 @@
     }
   }
 </script>
-<nav class="navbar navbar-expand-xl navbar-type fixed-top py-0 bg-light" id="navbarPage">
+<nav class="navbar navbar-expand-xl navbar-type fixed-top py-0" id="navbarPage">
   <div class="container">
-    <a class="navbar-brand" href="{{route('home')}}">
+    <a class="navbar-brand" style="width:75%;" href="{{route('home')}}">
       <img src="{{asset('img/logo.png')}}" alt="" class="brandNavbar">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="clickNavabar()">
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="35">
         <path d="M0 0h24v24H0z" fill="none" />
         <path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z" /></svg>
@@ -129,6 +129,11 @@
           </div>
         </!--li-->
         <li class="nav-item">
+          <a href="{{route('revistas')}}" class="nav-link">
+            Revistas
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="{{route('club')}}" class="nav-link" style="min-width:115px;">
             Club Ceaca
           </a>
@@ -138,12 +143,66 @@
             Contáctanos
           </a>
         </li>
+        <!--li-- class="nav-item">
+          <a href="{{route('capacitacion')}}" class="nav-link">
+            Capacitaciones
+          </a>
+        </!--li-->
         <li class="nav-item-divider">
           <span class="nav-link">
             <span></span>
           </span>
         </li>
+        <li class="nav-item sesion-container">
+          <a href="#" id="sesion_icon" class="nav-link">
+            <img id="sesion_img" src="{{asset('images/sesion_icon.svg')}}">
+          </a>
+          <div id="sesion_card" class="sesion-card">
+            @guest
+              <a href="/sesion">Iniciar sesión</a>
+              <a href="/registro">Registrarse</a>
+            @else
+              <a href="/perfil">Ir al perfil</a>
+              <form method="POST" id="form_logout" action="/logout">
+                @csrf
+                <a href="#" id="submit_logout">Cerrar Sesion</a>
+              </form>
+            @endguest
+          </div>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+<script type="text/javascript">
+
+  let logout_form = document.getElementById('form_logout');
+
+  let logout_button_navbar = document.getElementById('submit_logout');
+  
+
+  if(logout_button_navbar)
+  {
+    logout_button_navbar.addEventListener('click', (e) => {
+      logout_form.submit();
+    });
+  }
+
+
+  document.addEventListener('click', (e) => {
+    let sesion_card = document.getElementById('sesion_card');
+
+    if(e.target.id == 'sesion_icon' || e.target.id == 'sesion_img')
+    {
+      
+      e.preventDefault();
+      sesion_card.classList.toggle('active')
+      
+    }
+
+    if(e.target.id != 'sesion_icon' && e.target.id != 'sesion_img')
+    {
+      sesion_card.classList.remove('active')
+    }
+  });  
+</script>

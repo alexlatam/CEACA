@@ -47,11 +47,11 @@
 .sesion-card{
 	display: none;
 	position: absolute;
-	top: 120%;
+	top: 100%;
 	transform: translateX(-25%);
 	background-color: #fff;
-	width:  125px;
-	text-align: center;
+	width:  135px;
+	padding: 10px 12px;
 }
 
 .sesion-card.active{

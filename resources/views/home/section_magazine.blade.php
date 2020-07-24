@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
                 <h2 class="text-white text-center mb-4">
-                    Descarga la revista “Calderas” Guía de Usuario en la Industria y Comercio.
+                    Descarga la revista Calderas Guía del Usuario (en la Industria y Comercio)
                 </h2>
                 <p class="text-white text-muted text-center mb-5">
                     Nuestra Revista técnico-comercial en versión digital, con una frecuencia trimestral, empezando en este mes de julio 2020 y con distribución gratuita entre todos los Usuarios de Calderas a nivel de Latinoamérica.
