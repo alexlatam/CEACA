@@ -9,6 +9,7 @@ use App\Service_Category;
 use App\Info;
 use App\Plan;
 use App\Revista;
+use App\Capacitacion;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -102,6 +103,13 @@ Route::get('/download/membresias', 'ClubController@membresiasDownload');
 
 /* Vista Capacitaciones */
 Route::get('/capacitacion', 'CapacitacionesController@home')->name('capacitacion');
+Route::get('/detalles_capacitacion/{id}', function ($id) {
+	$info = Info::All();
+	$capacitacion = Capacitacion::find($id);
+	$publicidad = Ads::All();
+	return view('detalles_capacitacion', ["info" => $info, "capacitacion" => $capacitacion, "publicidad" => $publicidad]);
+})->name('detalles_capacitacion');
+
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
 Route::middleware('admin')->group(function () {
@@ -230,10 +238,7 @@ Route::middleware('admin')->group(function () {
 	Route::post('/cms/actualizar/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@editCategory');
 
 });
-
-
 /*------------------------------------ END --------------------------*/
-
 
 /*------------------------------------ PERFIL RUTAS --------------------------*/
 

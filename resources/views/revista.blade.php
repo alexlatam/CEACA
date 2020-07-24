@@ -18,6 +18,12 @@
         height: 100vh;
         width: 100%;
     }
+
+    @media only screen and (max-width: 600px) {
+        .ver_en_linea {
+            display: none;
+        }
+    }
 </style>
 @endsection
 @section('content')
@@ -72,7 +78,7 @@
                         <h4>
                             {{ $revista->titulo }}
                         </h4>
-                        <a href="/ver_revista/{{$revista->id}}" target="_blank" class="btn btn-sm btn-outline-success mt-2">Ver en linea</a>
+                        <a href="/ver_revista/{{$revista->id}}" target="_blank" class="btn btn-sm btn-outline-success mt-2 ver_en_linea">Ver en linea</a>
                         <a href="#" class="btn btn-sm btn-success px-5 mt-2" data-toggle="modal" data-target=".modalRevista">Descargar</a>
                     </div>
                 </div>

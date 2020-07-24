@@ -6,13 +6,37 @@
 .imagen_servicios_principal{
     width: 100%;
     height: 100vh;
+    margin-top: 5%;
+}
+#navbarPage{
+    background-color: #fff!important;
 }
 </style>
 @endsection
 @section('content')
 @include('common.navbar')
 
-<img src="{{asset('img/banner_servicios.jpg')}}" alt="" class="imagen_servicios_principal">
+<section class="mb-5">
+    <div class="container section pb-0">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-7 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
+                <img src="{{asset('img/banner_servicios.jpg')}}" alt="Servicios de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
+            </div>
+            <div class="col-12 col-md-5 order-md-1">
+                <h1 class="mb-4 font-weight-bold" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
+                    Conoce Nuestros Servicios Técnicos 
+                </h1>
+                <!--p-- class="mb-5 text-muted">
+                    “Calderas…Guía del Usuario (en la industria y comercio)” es una Revista técnico-comercial especializada en Calderas, en versión digital, con una frecuencia trimestral.
+                    Además cuenta con distribución gratuita entre todos los Usuarios de Calderas a nivel de Latinoamérica.
+                </!--p-->
+                <a href="{{route('contacto')}}" class="btn btn-outline-primary px-3">
+                    Contáctanos <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section>
     <div class="container section pb-0">
@@ -21,13 +45,6 @@
                 <h6 class="title">
                     Servicos Técnicos
                 </h6>
-                <!--nav-- class="sidenav d-flex flex-column mb-5 mb-md-0">
-                    @foreach ($cat_servicios as $categoria)
-                    <a class="text-uppercase text-xs mb-2" href="#!">
-                        {{ $categoria->name }}
-                    </a>
-                    @endforeach
-                </!--nav-->
             </div>
             <div class="col-12 col-md-9 col-lg-10 order-md-1">
                 @foreach ($servicios as $servicio)
