@@ -96,15 +96,9 @@
                 <p>
                     @php {{echo nl2br($membresia->description);}} @endphp
                 </p>
-                @if($x==0)
-                <a href="/registro/{{strtolower($membresia->title)}}" class="btn btn-outline-primary" data-toggle="modal" data-target=".modalRevista">
+                <a href="/registro/{{strtolower($membresia->title)}}" class="btn btn-outline-primary">
                     Suscribirme
                 </a>
-                @else
-                <a href="{{route('contacto')}}" class="btn btn-outline-primary">
-                    Contáctanos
-                </a>
-                @endif
             </div>
         </div>
     </div>
@@ -125,11 +119,9 @@
                 <p>
                     @php {{echo nl2br($membresia->description);}} @endphp
                 </p>
-                @if($x!=0)
-                <a href="{{route('contacto')}}" class="btn btn-outline-primary">
-                    Contáctanos
+                <a href="/registro/{{strtolower($membresia->title)}}" class="btn btn-outline-primary">
+                    Suscribirme
                 </a>
-                @endif
             </div>
         </div>
     </div>

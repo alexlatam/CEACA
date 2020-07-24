@@ -2,7 +2,7 @@
 
 
 @section('head')
-  <title>Dashboard | recursos</title>
+  <title>Ceaca | recursos</title>
 @endsection
 
 @section('content')

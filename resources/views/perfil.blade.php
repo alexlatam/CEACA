@@ -33,12 +33,12 @@
                 Membresias
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="/">
                 <span data-feather="home"></span>
                 Cursos
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="/perfil/recursos">
                 <span data-feather="home"></span>

@@ -12,7 +12,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+
                 <div class="card-header">{{ __('Iniciar sesión como miembro del Club') }}</div>
+
                 @if(session('message'))
                   <div class="alert alert-success" role="alert">
                     {{session('message')}}

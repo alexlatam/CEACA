@@ -134,7 +134,7 @@
         alert('Debe Cargar un logo');
         return false
       } else if (categoriaServicio.selectedIndex === 0) {
-          alert('Debe seleccionar una carategor');
+          alert('Debe seleccionar una carategoria');
           return false
       } else {
         return true;

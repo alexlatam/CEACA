@@ -8,8 +8,6 @@
 
 <body class="cuerpo-main">
 
-    
-
     @yield('content')
 
     @include('common.footer')

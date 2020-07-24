@@ -2,7 +2,7 @@
 
 
 @section('head')
-  <title>Dashboard | membresia</title>
+  <title>Ceaca | membresia</title>
 @endsection
 
 @section('content')
@@ -23,6 +23,13 @@
                     <h4>
                         {{ $plan->title }}
                     </h4>
+
+                    @if(auth()->user()->plan->title == $plan->title)
+                        <a class="btn btn-sm btn-success px-5 mt-2" style="background: grey; border: none; cursor: initial; color: #fff">Actual</a>
+                    @else
+                        <a href="#" class="btn btn-sm btn-success px-5 mt-2">Actuaizar membresia</a>
+                    @endif
+
                 </div>
             </div>
             <hr class="my-4">

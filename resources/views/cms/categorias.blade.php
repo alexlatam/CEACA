@@ -3,8 +3,14 @@
 
 @section('content')
 <section>
-  @if(session('message') === 'Categoría guardada correctamente' || session('message') === 'Categoria eliminada con éxito' || session('message') === 'Categoria actualizada con éxito')
+  @if(session('message') === 'Categoría guardada correctamente' || session('message') === 'Categoria actualizada con éxito')
         <div class="alert alert-success my-3" role="alert">
+          {{session('message')}}
+        </div>
+  @endif
+
+  @if(session('message') === 'Categoria eliminada con éxito')
+        <div class="alert alert-danger my-3" role="alert">
           {{session('message')}}
         </div>
   @endif
@@ -51,7 +57,7 @@
               <button type="button" id="{{ $categoria->id }}" class="btn btn-sm btn-outline-success mr-2 editar"  data-toggle="modal" data-target="#modalCategoriaEditar">Editar</button>
               <form action="/cms/categoria/delete/{{$categoria->id}}" method="POST">
                 @csrf
-                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-success">
+                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-danger">
               </form>
             </td>
           </tr>
