@@ -113,10 +113,14 @@ Route::middleware('admin')->group(function () {
 	Route::get('/cms/mensajes', 'CmsController@mensajesView');
 
 	/* ----------  RUTA USUARIOS CONTROLLADOR ---------*/
+	Route::get('/user/{id}', 'UserController@getUser');
 	Route::post('cms/guardar/usuario', 'UserController@crearUsuario');
 	Route::get('cms/password/usuario/{id}', 'UserController@cambiarContraseña');
 	Route::post('cms/actualizar/password/usuario', 'UserController@actualizarContraseña');
 	Route::post('cms/delete/usuario/{id}', 'UserController@deleteUsuario');
+
+	//actualizar membresia usuario
+	Route::post('/user/membership/update/{id}', 'UserController@changeMembership');
 
 	/* ----------  RUTA CLUB CONTROLLADOR ---------*/
 	Route::get('/cms/miembros', 'CmsController@clubView');

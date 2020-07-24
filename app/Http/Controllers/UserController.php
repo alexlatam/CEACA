@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Admin;
+use App\User;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -56,5 +57,28 @@ class UserController extends Controller
         return back()->with('message', 'Usuario eliminado con éxito');
     }
 
+
+    public function getUser($id)
+    {
+        $user = User::find($id);
+
+        return $user;
+    }
+
+    public function changeMembership(Request $request, $id)
+    {
+        $user = User::find($id);
+
+
+        if($user)
+        {
+            $user->plan_id = $request->user_membership;
+            $user->save();
+
+            return back()->with('message', 'Membresia de usuario actualizada con éxito');
+        }else {
+            return back()->with('error', 'Hubo un error en actualizar la membresia');
+        }
+    }
 
 }

@@ -23,7 +23,8 @@ class CmsController extends Controller
 
     public function clubView(){
     	$users = User::all();
-    	return view('cms.club')->with(compact('users'));
+        $membresias = Plan::all();
+    	return view('cms.club')->with(compact('users', 'membresias'));
     }
 
     public function informationView(){

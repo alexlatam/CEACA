@@ -9,7 +9,17 @@
     <a href="/cms/club" class="px-5 btn btn-outline-success col-auto ml-auto">Volver</a>
   </div>
   <div class="container-fluid">
+    @if(session('message'))
+          <div class="alert alert-success my-3" role="alert">
+            {{session('message')}}
+          </div>
+    @endif
 
+    @if(session('error'))
+          <div class="alert alert-danger my-3" role="alert">
+            {{session('error')}}
+          </div>
+    @endif
     <div class="table-responsive" style="max-width:100%!important;">
       <table class="table table-hover" id="table1">
         <thead class="thead-light">
@@ -25,6 +35,7 @@
             <th>Tipo caldera</th>
             <th>Actividad</th>
             <th>Especialidad</th>
+            <th>membresia</th>
             <th>Sector</th>
             <th>Acciones</th>
           </tr>
@@ -43,8 +54,9 @@
             <td>{{$user->tipo_caldera}}</td>
             <td>{{$user->actividad}}</td>
             <td>{{$user->especialidad}}</td>
+            <td>{{$user->plan->title}}</td>
             <td>{{$user->sector}}</td>
-            <td>
+            <td class="d-flex">
               @if($user->status === 'activo')
               <form action="/club/user/pause/{{$user->id}}" method="POST">
                 @csrf
@@ -56,6 +68,7 @@
                 <input type="submit" value="Activar" class="btn btn-sm btn-outline-success">
               </form>
               @endif
+              <button type="button" id="{{ $user->id }}" class="btn btn-sm btn-outline-success ml-2 editar"  data-toggle="modal" data-target="#modalMembresia">Membresia</button>
             </td>
           </tr>
           @endforeach
@@ -97,6 +110,92 @@
     </div>
   </div>
 </div>
+
+  <div class="modal fade" id="modalMembresia" tabindex="-1" role="dialog" aria-labelledby="modalMembresia" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="">Cambiar Membresia</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="POST" id="form_change_membership">
+            @csrf
+            <div class="form-group">
+              <h5 id="form_user_name"></h5>
+              <hr>
+            <div>
+              <h5>Tipo de membresia</h5>
+              @foreach($membresias as $membresia)
+                <div class="form-check">
+                    <input id="radio-{{$membresia->id}}" type="radio" class="form-check-input member-radio @error('cargo') is-invalid @enderror" name="user_membership" value="{{$membresia->id}}"  autocomplete="cargo"
+                    >
+                    <label class="form-check-label">
+                        {{$membresia->title}}
+                    </label>
+                </div>
+              @endforeach
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success px-4" id="submitMembership">Actualizar membresia</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script type="text/javascript">
+  let userEdits = document.querySelectorAll('.editar');
+  let formUser = document.getElementById('form_change_membership');
+
+
+
+  document.getElementById('submitMembership').addEventListener('click', () => {
+    formUser.submit();
+  });
+
+  if(userEdits)
+  {
+    userEdits.forEach( userEdit => {
+      userEdit.addEventListener('click', (e) => {
+        formMembership(e.target.id);
+      });
+    });
+  }
+
+
+  function formMembership(id)
+  {
+    axios.get(`/user/${id}`)
+      .then(response => {
+        membershipModal(response.data);
+      });
+  }
+
+  function membershipModal(user){
+    let modalName = document.getElementById('form_user_name');
+    let radioButtons = document.querySelectorAll('.member-radio');
+
+
+    radioButtons.forEach(radio => {
+      if(radio.id === `radio-${user.plan_id}`)
+      {
+        radio.setAttribute('checked', true);
+      }
+    });
+
+    modalName.textContent = `Nombre: ${user.name} | Correo ${user.email}`;
+    formUser.action = `/user/membership/update/${user.id}`
+  }
+
+</script>
+
 <script>
   window.onload = function() {
   $('#table1').DataTable({

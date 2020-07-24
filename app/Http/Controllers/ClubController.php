@@ -61,7 +61,7 @@ class ClubController extends Controller
         $user->status = 'inactivo';
         $user->save();
 
-        return back();
+        return back()->with('message', 'Usuario Pausado');
     }
 
     public function activeClubMember(Request $request, $id)
@@ -70,7 +70,7 @@ class ClubController extends Controller
         $user->status = 'activo';
         $user->save();
 
-        return back();
+        return back()->with('message', 'Usuario activado');
     }
 
     public function membresiasDownload()
