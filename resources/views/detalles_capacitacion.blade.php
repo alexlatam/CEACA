@@ -36,7 +36,7 @@
 <section class="section pb-0">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 col-lg-10 col-xl-8">
+      <div class="col-12 col-lg-10">
         <h1 class="mb-5 font-weight-bold text-center">
           {{ $capacitacion->titulo }}
         </h1>
@@ -53,7 +53,7 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10 col-xl-8">
         <p>
-          {{ $capacitacion->descripcion }}
+          @php {{ echo nl2br($capacitacion->descripcion); }} @endphp
         </p>
       </div>
     </div>

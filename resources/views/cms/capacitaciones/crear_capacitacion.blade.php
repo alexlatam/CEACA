@@ -23,7 +23,7 @@
         <div class="row">
           <div class="col-12 mb-4">
             <h5>Titulo</h5>
-            <input class="form-control" id="input-title" type="text" name="titulo_capacitacion" value="" placeholder="Titulo">
+            <input class="form-control" id="input-title" type="text" name="titulo_capacitacion" value="" placeholder="Titulo" required maxlength="255">
           </div>
           <div class="col-6 mb-4">
             <h5>Categoría</h5>
@@ -36,16 +36,16 @@
           </div>
           <div class="col-12 mb-4">
             <h5>Descripción</h5>
-            <textarea id="input-descripcion" class="form-control" name="descripcion_capacitacion"></textarea>
+            <textarea id="input-descripcion" class="form-control" rows="6" name="descripcion_capacitacion" required></textarea>
           </div>
           <div class="col-12 mb-4">
             <h5 style="display: block">Imagen</h5>
             <input type="file" id="file_input" name="imagen_capacitacion">
           </div>
-          <div class="col-12 mb-4">
+          <!--div-- class="col-12 mb-4">
             <h5 style="display: block">Logo</h5>
             <input type="file" id="file_logo" name="logo_capacitacion">
-          </div>
+          </!--div-->
           <div class="col-12 mb-5">
             <input type="submit" id="submit_button" class="btn btn-success px-5" value="Crear Capacitación">
           </div>
@@ -59,7 +59,7 @@
   let submit = document.getElementById('submit_button');
   let file = document.getElementById('file_input');
   let formulario = document.getElementById('form');
-  let logo = document.getElementById('file_logo');
+ // let logo = document.getElementById('file_logo');
   let tituloServico = document.getElementById('input-title');
   let descripcionServicio = document.getElementById('input-descripcion');
   let categoriaServicio = document.getElementById('servicio-categoria');
@@ -71,7 +71,7 @@
 
   texts = document.querySelectorAll('.input-text');
 
-  document.addEventListener('DOMContentLoaded', () => {
+  /*document.addEventListener('DOMContentLoaded', () => {
     if(submit)
     {
       submit.addEventListener('click', (e) => {
@@ -83,9 +83,9 @@
         }
 
         const archivo = file.files[0];
-        
+        formulario.submit();
 
-        if(logo)
+        /*if(logo)
         {
           const logoArchivo = logo.files[0];
           if(archivo.size > maximoBytes || logoArchivo.size > maximoBytes) {
@@ -110,10 +110,10 @@
           } else {
             formulario.submit();
           }
-        }
+        }*/
       });
     }
-  });
+  });*/
 
 
 
