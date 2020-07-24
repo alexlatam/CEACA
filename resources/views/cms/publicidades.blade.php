@@ -26,7 +26,7 @@
 						@csrf
 						<div class="form-group">
 							<h5 title="Al dar click sobre la publicidad se redireccionara a este enlace">Enlace de redirección <small class="text-muted">(opcional)</small></h5>
-							<input type="text" id="url" name="publicidad_url" value="{{$publicidad->url}}" placeholder="Descripcion..." class="form-control">
+							<input type="text" id="url" name="publicidad_url" value="{{$publicidad->url}}" placeholder="Descripcion..." class="form-control" maxlength="191">
 						</div>
 						<div>
 							<h5>Sección</h5>
