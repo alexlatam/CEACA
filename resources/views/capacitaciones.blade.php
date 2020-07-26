@@ -12,11 +12,11 @@
 @section('content')
 @include('common.navbar')
 
-<section class="mb-5">
+<section class="my-5">
     <div class="container section pb-0">
         <div class="row align-items-center">
             <div class="col-12 col-md-7" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
-                <img src="{{asset('img/banner_revista.jpg')}}" alt="Servicios de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
+                <img src="{{asset('img/banner_capacitaciones.jpg')}}" alt="Servicios de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
             </div>
             <div class="col-12 col-md-5">
                 <h1 class="mb-4 font-weight-bold" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
@@ -58,8 +58,14 @@
                             {{ $capacitacion->titulo }}
                         </h4>
                         <p class="mb-0 text-sm text-muted">
-                            @php {{ $descripcion = substr($capacitacion->descripcion,0,350); }} @endphp
-                            {{ $descripcion.'...' }}
+                            @if(!empty($capacitacion->descripcion))
+                            @if(strlen($capacitacion->descripcion)>349)
+                            @php {{ $descripcion = substr($capacitacion->descripcion,0,350).'...'; }} @endphp
+                            @else
+                            @php {{ $descripcion=$capacitacion->descripcion; }} @endphp
+                            @endif
+                            {{ $descripcion }}
+                            @endif
                         </p>
                     </div>
                 </a>

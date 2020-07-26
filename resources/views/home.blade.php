@@ -12,10 +12,10 @@
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6">
         <h2 class="text-center mb-4" data-aos="fade-up" data-aos-duration="1000">
-        Calderas Guía del Usuario
+          Calderas Guía del Usuario
         </h2>
         <p class="text-muted text-center mb-5">
-        REVISTA TÉCNICO-COMERCIAL ESPECIALIZADA EN CALDERAS.  VERSIÓN TRIMESTRAL
+          REVISTA TÉCNICO-COMERCIAL ESPECIALIZADA EN CALDERAS. VERSIÓN TRIMESTRAL
         </p>
       </div>
     </div>
@@ -79,7 +79,7 @@
         </a>
         <h4 class="card-title mt-3 pt-3">
           <a href="{{route('nosotros')}}">
-          QUIENES SOMOS  
+            QUIENES SOMOS
           </a>
         </h4>
       </div>
@@ -90,7 +90,7 @@
         <h4 class="card-title mt-3 pt-3">
           <a href="{{route('servicios')}}">
             SERVICIOS TÉCNICOS
-          </a>          
+          </a>
         </h4>
       </div>
       <div class="col-md-6 col-lg-3 text-center">
@@ -100,7 +100,7 @@
         <h4 class="card-title mt-3 pt-3">
           <a href="{{route('club')}}">
             CLUB CEACA
-          </a>          
+          </a>
         </h4>
       </div>
       <div class="col-md-6 col-lg-3 text-center">
@@ -110,7 +110,7 @@
         <h4 class="card-title mt-3 pt-3">
           <a href="{{route('contacto')}}">
             CONTÁCTANOS
-          </a>          
+          </a>
         </h4>
       </div>
     </div>
@@ -120,18 +120,12 @@
 <!-- Publicidad -->
 <section class="section pb-0 mt-5 pt-2">
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <img src="{{asset('img/publicidad_home.jpg')}}" alt="" width="100%">
-      </div>
-    </div>
+    <a href="{{route('servicios')}}">
+      <img src="{{asset('img/publicidad_home.jpg')}}" alt="" width="100%">
+    </a>
   </div>
 </section>
 
 @include('home.servicios_cat')
-
-
-
-
 
 @endsection

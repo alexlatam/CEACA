@@ -126,23 +126,23 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/cms/publicidades">
-                <span data-feather="users"></span>
-                Publicidad
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/cms/mensajes">
-                <span data-feather="users"></span>
-                Solicitudes de Contacto
-              </a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="/cms/capacitacion">
                 <span data-feather="users"></span>
                 Capacitaciones
               </a>
             </li>
+            <!--li-- class="nav-item">
+              <a class="nav-link" href="/cms/publicidades">
+                <span data-feather="users"></span>
+                Publicidad
+              </a>
+            </!--li-->
+            <li class="nav-item">
+              <a class="nav-link" href="/cms/mensajes">
+                <span data-feather="users"></span>
+                Solicitudes de Contacto
+              </a>
+            </li>            
           </ul>
         </div>
       </nav>

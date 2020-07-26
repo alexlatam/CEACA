@@ -35,7 +35,7 @@
 				<textarea class="form-control" id="seccion_content" name="recurso_descripcion"></textarea>
 			</div>
 			<div class="form-group col-12">
-				<h5>Tipo de membresia</h5>
+				<h5>Membresias donde se podrá ver y descargar el recurso</h5>
 				@foreach($membresias as $membresia)
 				<div class="">
 					<label class="form-check-label" for="exampleCheck1">

@@ -1,8 +1,13 @@
 <style>
   .brandNavbar {
-    width: 50%;
+    width: 70%;
   }
-
+/* Si la pantalla es mayor a 1200px se aplicaran los estilos*/
+@media only screen and (min-width: 1500px) {
+    .brandNavbar {
+      width: 35%;
+    }
+  }
   /* Si la pantalla es menor a 1199px se aplicaran los estilos*/
   @media only screen and (max-width: 1200px) {
     .brandNavbar {
@@ -26,19 +31,19 @@
 <script>
   function clickNavabar() {
     var navbar = document.getElementById("navbarPage")
-    var menuCollapse =document.getElementById("navbarCollapse")
+    var menuCollapse = document.getElementById("navbarCollapse")
     navbar.classList.add('bg-white')
-      if (menuCollapse.classList.contains('show')) {
-        //se deberia quitar el bg-white, porq estara al inicio de la pagina
-        navbar.classList.remove('bg-white')
-      }else{
-        //se deberia agregar el bg-white, porq ya se habra dado suficinete scroll
-        navbar.classList.add('bg-white')
-      }
+    if (menuCollapse.classList.contains('show')) {
+      //se deberia quitar el bg-white, porq estara al inicio de la pagina
+      navbar.classList.remove('bg-white')
+    } else {
+      //se deberia agregar el bg-white, porq ya se habra dado suficinete scroll
+      navbar.classList.add('bg-white')
+    }
   }
 </script>
 <nav class="navbar navbar-expand-xl navbar-type fixed-top py-0" id="navbarPage">
-  <div class="container">
+  <div class="container-fluid">
     <a class="navbar-brand" style="width:75%;" href="{{route('home')}}">
       <img src="{{asset('img/logo.png')}}" alt="" class="brandNavbar">
     </a>
@@ -101,14 +106,18 @@
             Servicios
           </a>
         </li>
-        <!--li-- class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Servicios
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Capacitaciones
           </a>
-          <!--div-- class="dropdown-menu" aria-labelledby="navbarWelcome">
-            
-          </!--div-->
-        <!--/--li-->
+          <div class="dropdown-menu" aria-labelledby="navbarLandings">
+            @foreach ($cat_capacitaciones as $categoria_cap)
+            <a class="dropdown-item" href="/capacitacion?categoria={{$categoria_cap->id}}">
+               {{ $categoria_cap->name }}
+            </a>
+            @endforeach
+          </div>
+        </li>
         <!--li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Capacitación
@@ -143,11 +152,6 @@
             Contáctanos
           </a>
         </li>
-        <!--li-- class="nav-item">
-          <a href="{{route('capacitacion')}}" class="nav-link">
-            Capacitaciones
-          </a>
-        </!--li-->
         <li class="nav-item-divider">
           <span class="nav-link">
             <span></span>
@@ -159,14 +163,14 @@
           </a>
           <div id="sesion_card" class="sesion-card">
             @guest
-              <a href="/sesion">Iniciar sesión</a>
-              <a href="/registro">Registrarse</a>
+            <a href="/sesion">Iniciar sesión</a>
+            <a href="/registro">Registrarse</a>
             @else
-              <a href="/perfil">Ir al perfil</a>
-              <form method="POST" id="form_logout" action="/logout">
-                @csrf
-                <a href="#" id="submit_logout">Cerrar Sesion</a>
-              </form>
+            <a href="/perfil">Ir al perfil</a>
+            <form method="POST" id="form_logout" action="/logout">
+              @csrf
+              <a href="#" id="submit_logout">Cerrar Sesion</a>
+            </form>
             @endguest
           </div>
         </li>
@@ -176,14 +180,12 @@
 </nav>
 
 <script type="text/javascript">
-
   let logout_form = document.getElementById('form_logout');
 
   let logout_button_navbar = document.getElementById('submit_logout');
-  
 
-  if(logout_button_navbar)
-  {
+
+  if (logout_button_navbar) {
     logout_button_navbar.addEventListener('click', (e) => {
       logout_form.submit();
     });
@@ -193,17 +195,15 @@
   document.addEventListener('click', (e) => {
     let sesion_card = document.getElementById('sesion_card');
 
-    if(e.target.id == 'sesion_icon' || e.target.id == 'sesion_img')
-    {
-      
+    if (e.target.id == 'sesion_icon' || e.target.id == 'sesion_img') {
+
       e.preventDefault();
       sesion_card.classList.toggle('active')
-      
+
     }
 
-    if(e.target.id != 'sesion_icon' && e.target.id != 'sesion_img')
-    {
+    if (e.target.id != 'sesion_icon' && e.target.id != 'sesion_img') {
       sesion_card.classList.remove('active')
     }
-  });  
+  });
 </script>

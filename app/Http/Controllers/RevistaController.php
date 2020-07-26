@@ -8,6 +8,7 @@ use App\Ads;
 use App\Service_Category;
 use App\Info;
 use App\Service;
+use App\Cat_capacitacion;
 use File;
 class RevistaController extends Controller
 {
@@ -18,10 +19,12 @@ class RevistaController extends Controller
         $info = Info::All();
         $publicidad = Ads::All();
         $servicios = Service::All();
+        $cat_capacitaciones = Cat_capacitacion::all();
 
         return view('revista', [
             'revistas' => $revistas,
             'info' => $info,
+            'cat_capacitaciones' => $cat_capacitaciones,
             'servicios' => $servicios,
             'publicidad' => $publicidad,
         ]);

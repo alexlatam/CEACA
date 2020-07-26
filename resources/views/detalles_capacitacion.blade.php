@@ -33,21 +33,18 @@
 
 <!-- SERVICIO
     ================================================== -->
-<section class="section pb-0">
+<section class="section pb-5">
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row">
+      <div class="col-12 text-center">
+        <img src="{{asset('/capacitaciones/' . $capacitacion->imagen )}}" alt="{{ $capacitacion->titulo }}" class="img-fluid mb-3">
+      </div>
+    </div>
+    <div class="row justify-content-center my-5 pt-4">
       <div class="col-12 col-lg-10">
         <h1 class="mb-5 font-weight-bold text-center">
           {{ $capacitacion->titulo }}
         </h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 text-center">
-        <img src="{{asset('/capacitaciones/' . $capacitacion->imagen )}}" alt="{{ $capacitacion->titulo }}" class="img-fluid mb-3">
-        <p class="text-center text-sm text-muted mb-5">
-          {{ $capacitacion->titulo }} - Ceaca
-        </p>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -61,8 +58,17 @@
 </section>
 
 
-@include('home.publicidad_lateral')
 
 @include('home.section_magazine')
+@include('home.modal_revista')
+
+<!-- Publicidad -->
+<section class="section pb-0 mt-5 pt-2">
+  <div class="container">
+    <a href="{{route('servicios')}}">
+      <img src="{{asset('img/publicidad_home.jpg')}}" alt="" width="100%">
+    </a>
+  </div>
+</section>
 
 @endsection
