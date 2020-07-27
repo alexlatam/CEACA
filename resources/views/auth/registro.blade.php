@@ -9,7 +9,7 @@
         }
     </style>
     {{-- recaptcha  --}}
-    {{-- <script src="https://www.google.com/recaptcha/api.js"></script> --}}
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 @endsection
 
 @section('content')
@@ -372,12 +372,8 @@
                             <div class="col-md-6 offset-md-4">
 
                                 {{-- recaptcha --}}
-                                {{-- <input type="hidden" name="action" value="validate_captcha"> --}}
-                                {{-- <button class="btn btn-outline-primary g-recaptcha" data-sitekey="6LcnwLIZAAAAAKQiVWCAHH72PWf2-Dg-69YaV41e" data-callback='onSubmit' data-action='submit'>
-                                    Enviar Mensaje
-                                  </button> --}}
-
-                                <button type="submit" id="registro_submit" class="btn btn-success px-5 ">
+                                <input type="hidden" name="action" value="validate_captcha">
+                                <button id="registro_submit" class="btn btn-success px-5  g-recaptcha" data-sitekey="6LcnwLIZAAAAAKQiVWCAHH72PWf2-Dg-69YaV41e" data-callback='onSubmit' data-action='submit'>
                                     {{ __('Registrarse') }}
                                 </button>
                             </div>
@@ -395,98 +391,74 @@
 </div>
 
 {{-- recaptcha  --}}
-{{-- <script>
-    function onSubmit(token) {
-      if (document.getElementById("form-contacto").checkValidity()) {
-        document.getElementById("form-contacto").submit();
-      } else {
-        $error = "¡Complete los campos de manera correcta!\n";
-  
-        if (!document.getElementById("name").checkValidity()) {
-          $error = $error + "- Ingrese un nombre.\n";
-        }
-  
-        if (!document.getElementById("email").checkValidity()) {
-          $error = $error + "- Ingrese un correo valido.\n";
-        }
-        if (!document.getElementById("message").checkValidity()) {
-          $error = $error + "- Ingrese un comentario.\n";
-        }
-        alert($error);
-      }
-  
-    }
-  </script> --}}
-
 <script type="text/javascript">
+    function onSubmit(token) {
+
+        let submitRegistro = document.getElementById('registro_submit');
+
+        let name = document.getElementById('name');
+        let email = document.getElementById('email');
+        let pais = document.getElementById('pais');
+        let empresa = document.getElementById('empresa');
+        let planta = document.getElementById('planta');
+        let cargo = document.getElementById('cargo');
+        let especialidad = document.getElementById('especialidad');
+
+        let sector = document.getElementsByName('sector[]');
 
 
+        console.log(sector);
 
+        submitRegistro.addEventListener('click', (e) => {
+            e.preventDefault();
+            let form = document.getElementById('registro_form');
+            let password = document.getElementById('password');
+            let confirmPass = document.getElementById('password-confirm');
+            let membresia = document.getElementById('membresia');
 
-    let submitRegistro = document.getElementById('registro_submit');
-
-    let name = document.getElementById('name');
-    let email = document.getElementById('email');
-    let pais = document.getElementById('pais');
-    let empresa = document.getElementById('empresa');
-    let planta = document.getElementById('planta');
-    let cargo = document.getElementById('cargo');
-    let especialidad = document.getElementById('especialidad');
-
-    let sector = document.getElementsByName('sector[]');
-
-
-    console.log(sector);
-
-    submitRegistro.addEventListener('click', (e) => {
-        e.preventDefault();
-        let form = document.getElementById('registro_form');
-        let password = document.getElementById('password');
-        let confirmPass = document.getElementById('password-confirm');
-        let membresia = document.getElementById('membresia');
-
-        if(validarCheckbox(sector) === 0){
-            return alert('Debes escoger un sector');
-        }
-
-        if(name.value == ''){
-            return alert('Debes agregar tu nombre')
-        }else if (email.value == ''){
-            return alert('Debes agregar tu email')
-        }else if(pais.value == ''){
-            return alert('Debes agregar tu país')
-        }else if(empresa.value == ''){
-            return alert('Debes agregar tu empresa');
-        }else if(planta.value  == ''){
-            return alert('Debes agregar tu planta');
-        }else if(cargo.value == ''){
-            return alert('Debes agregar tu cargo');
-        }else if(especialidad.value == ''){
-            return alert('Debes agregar tu especialidad');
-        }else if(membresia.selectedIndex === 0){
-            return alert('Debe seleccionar una membresia');
-        }
-
-        if(password.value === confirmPass.value && password.value != ''){
-            form.submit();
-        } else {
-            alert('Las contraseñas tienen que ser iguales');
-            password.value = ''
-            confirmPass.value = ''
-        }
-
-    });
-
-    const validarCheckbox = (sectores) => {
-        let contador = 0;
-        sectores.forEach(sector => {
-            if(sector.checked){
-                contador++
+            if(validarCheckbox(sector) === 0){
+                return alert('Debes escoger un sector');
             }
-        });
 
-        return contador
+            if(name.value == ''){
+                return alert('Debes agregar tu nombre')
+            }else if (email.value == ''){
+                return alert('Debes agregar tu email')
+            }else if(pais.value == ''){
+                return alert('Debes agregar tu país')
+            }else if(empresa.value == ''){
+                return alert('Debes agregar tu empresa');
+            }else if(planta.value  == ''){
+                return alert('Debes agregar tu planta');
+            }else if(cargo.value == ''){
+                return alert('Debes agregar tu cargo');
+            }else if(especialidad.value == ''){
+                return alert('Debes agregar tu especialidad');
+            }else if(membresia.selectedIndex === 0){
+                return alert('Debe seleccionar una membresia');
+            }
+
+            if(password.value === confirmPass.value && password.value != ''){
+                form.submit();
+            } else {
+                alert('Las contraseñas tienen que ser iguales');
+                password.value = ''
+                confirmPass.value = ''
+            }
+
+            });
+
+            const validarCheckbox = (sectores) => {
+                let contador = 0;
+                sectores.forEach(sector => {
+                    if(sector.checked){
+                        contador++
+                    }
+                });
+
+                return contador
+            }
     }
+  </script>
 
-</script>
 @endsection
