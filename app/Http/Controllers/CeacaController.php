@@ -12,7 +12,7 @@ class CeacaController extends Controller
 {
     public function index(){
 		$info = Info::all();
-		$publicidad = Ads::all();
+		$publicidad = Ads::where('seccion', 'home')->get();
 		$categorias = Service_Category::all();
 		$servicios = Service::all();
     	$images = Image_slider::all();

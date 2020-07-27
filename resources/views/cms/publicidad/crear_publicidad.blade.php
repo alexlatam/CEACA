@@ -42,6 +42,7 @@
 					<option value="contactanos">Contactanos</option>
 					<option value="capacitaciones">Capacitaciones</option>
 					<option value="perfil">Perfil Usuario</option>
+					<option value="servicios">Servicios</option>
 				</select>
 			</div>
 			<div class="form-group col-12">

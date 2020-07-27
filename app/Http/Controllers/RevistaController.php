@@ -16,7 +16,7 @@ class RevistaController extends Controller
     {
         $revistas = Revista::all();
         $info = Info::All();
-        $publicidad = Ads::All();
+        $publicidad = Ads::where('seccion', 'revista')->get();
         $servicios = Service::All();
 
         return view('revista', [

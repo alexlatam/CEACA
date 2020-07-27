@@ -118,7 +118,8 @@
 
 </section>
 <!-- Publicidad -->
-<section class="section pb-0 mt-5 pt-2">
+@include('home.publicidad_lateral')
+<!-- <section class="section pb-0 mt-5 pt-2">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -126,7 +127,8 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
+
 
 @include('home.servicios_cat')
 

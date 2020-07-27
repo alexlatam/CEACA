@@ -54,11 +54,8 @@
 
 
 <!-- publicidad -->
-<section class="mt-5 pt-3">
-    <!--a href="{{$publicidad[0]->url}}" target="_blank"-->
-    <img src="{{asset('img/publicidad_revista.jpg')}}" alt="" width="100%" style="max-height:70vh;">
-    <!--a-->
-</section>
+
+@include('home.publicidad_lateral')
 
 <section>
     <div class="container section pb-0">

@@ -27,7 +27,7 @@ Route::get('/', 'CeacaController@index')->name('home');
 
 /* NOSOTROS */
 Route::get('/nosotros', function () {
-	$publicidad = Ads::All();
+	$publicidad = Ads::where('seccion', 'quienes somos')->get();
 	$nosotros_array = Info::All();
 	$info = Info::All();
 	$servicios = Service::All();
@@ -46,7 +46,7 @@ Route::get('/club', function () {
 	$membresias = Plan::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
-	$publicidad = Ads::All();
+	$publicidad = Ads::where('seccion', 'club ceaca')->get();
 	return view('club', [
 		"info" => $info,
 		"servicios" => $servicios,
@@ -60,7 +60,7 @@ Route::get('/servicios', function () {
 	$info = Info::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
-	$publicidad = Ads::All();
+	$publicidad = Ads::where('seccion', 'servicios')->get();
 	return view('servicios', [
 		"info" => $info,
 		"servicios" => $servicios,
@@ -106,7 +106,7 @@ Route::get('/capacitacion', 'CapacitacionesController@home')->name('capacitacion
 Route::get('/detalles_capacitacion/{id}', function ($id) {
 	$info = Info::All();
 	$capacitacion = Capacitacion::find($id);
-	$publicidad = Ads::All();
+	$publicidad = Ads::where('seccion', 'capacitaciones')->get();
 	return view('detalles_capacitacion', ["info" => $info, "capacitacion" => $capacitacion, "publicidad" => $publicidad]);
 })->name('detalles_capacitacion');
 
