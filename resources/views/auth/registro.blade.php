@@ -8,6 +8,8 @@
             background-color: #fff;
         }
     </style>
+    {{-- recaptcha  --}}
+    {{-- <script src="https://www.google.com/recaptcha/api.js"></script> --}}
 @endsection
 
 @section('content')
@@ -368,6 +370,13 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
+
+                                {{-- recaptcha --}}
+                                {{-- <input type="hidden" name="action" value="validate_captcha"> --}}
+                                {{-- <button class="btn btn-outline-primary g-recaptcha" data-sitekey="6LcnwLIZAAAAAKQiVWCAHH72PWf2-Dg-69YaV41e" data-callback='onSubmit' data-action='submit'>
+                                    Enviar Mensaje
+                                  </button> --}}
+
                                 <button type="submit" id="registro_submit" class="btn btn-success px-5 ">
                                     {{ __('Registrarse') }}
                                 </button>
@@ -385,7 +394,35 @@
     </div>
 </div>
 
+{{-- recaptcha  --}}
+{{-- <script>
+    function onSubmit(token) {
+      if (document.getElementById("form-contacto").checkValidity()) {
+        document.getElementById("form-contacto").submit();
+      } else {
+        $error = "¡Complete los campos de manera correcta!\n";
+  
+        if (!document.getElementById("name").checkValidity()) {
+          $error = $error + "- Ingrese un nombre.\n";
+        }
+  
+        if (!document.getElementById("email").checkValidity()) {
+          $error = $error + "- Ingrese un correo valido.\n";
+        }
+        if (!document.getElementById("message").checkValidity()) {
+          $error = $error + "- Ingrese un comentario.\n";
+        }
+        alert($error);
+      }
+  
+    }
+  </script> --}}
+
 <script type="text/javascript">
+
+
+
+
     let submitRegistro = document.getElementById('registro_submit');
 
     let name = document.getElementById('name');
