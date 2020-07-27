@@ -57,7 +57,7 @@
               <button type="button" id="{{ $categoria->id }}" class="btn btn-sm btn-outline-success mr-2 editar"  data-toggle="modal" data-target="#modalCategoriaEditar">Editar</button>
               <form action="/cms/categoria/delete/{{$categoria->id}}" method="POST">
                 @csrf
-                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-danger">
+                <button type="button" class="btn btn-sm btn-outline-danger categoria_eliminar" data-toggle="modal" data-target="#EliminarUsuarios">Eliminar</button>
               </form>
             </td>
           </tr>
@@ -82,7 +82,7 @@
           @csrf
           <div class="form-group">
             <h5>Nombre</h5>
-            <input class="form-control" id="crear_categoriaNombre" type="text" name="category_name" placeholder="Nombre Categoria">
+            <input class="form-control" id="crear_categoriaNombre" type="text" name="category_name" placeholder="Nombre Categoria" maxlength="191">
           </div>
           <div class="form-group">
             <h5>Descripción</h5>
@@ -116,7 +116,7 @@
         <form action="/cms/categoria/edit" method="POST" id="form_edit_category" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
-            <input class="form-control" type="text" name="category_name" id="categoria_nombre" placeholder="Nombre Categoria">
+            <input class="form-control" type="text" name="category_name" id="categoria_nombre" placeholder="Nombre Categoria" maxlength="191">
           </div>
           <div class="form-group">
             <textarea class="form-control" id="categoria_descripcion" name="category_description"></textarea>
@@ -133,6 +133,29 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="EliminarUsuarios" tabindex="-1" role="dialog" aria-labelledby="EliminarUsuarios" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">¿Seguro que desea eliminar esta categoria?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="modal_eliminar_usuario_form" method="POST">
+          @csrf
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger px-4" id="submitModalEliminar">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
   let formularioCategorias = document.getElementById('form_create_category');
@@ -149,6 +172,32 @@
   //inputs editar
   let categoriaNombre = document.getElementById('categoria_nombre');
   let categoriaDescripcion = document.getElementById('categoria_descripcion');
+
+  //eliminar buttons
+
+  let eliminarButtons = document.querySelectorAll('.categoria_eliminar');
+  let formModal = document.getElementById('modal_eliminar_usuario_form')
+  let submitEliminar = document.getElementById('submitModalEliminar');
+
+
+  submitEliminar.addEventListener('click', () => {
+    formModal.submit();
+  }); 
+
+  if(eliminarButtons)
+  {
+    eliminarButtons.forEach(button => {
+      button.addEventListener('click', (e) =>{
+        e.preventDefault();
+        
+
+        formPadre = e.target.parentNode;
+        console.log(formPadre);
+
+        formModal.action = formPadre.action
+      });
+    });
+  }
 
   document.getElementById('agregarCategoria').addEventListener('click', (e) => {
     e.preventDefault();

@@ -30,7 +30,7 @@
 			</!--div-->
 			<div class="form-group col-12">
 				<h5 title="Al dar click sobre la publicidad se redireccionara a este enlace">Enlace de redirección <small class="text-muted">(opcional)</small></h5>
-				<input type="text" id="url" name="publicidad_url" placeholder="url..." class="form-control" name="">
+				<input type="text" id="url" name="publicidad_url" placeholder="url..." class="form-control" maxlength="191">
 			</div>
 			<div class="form-group col-12">
 				<h5>Sección </h5>
@@ -42,6 +42,7 @@
 					<option value="contactanos">Contactanos</option>
 					<option value="capacitaciones">Capacitaciones</option>
 					<option value="perfil">Perfil Usuario</option>
+					<option value="servicios">Servicios</option>
 				</select>
 			</div>
 			<div class="form-group col-12">
@@ -90,10 +91,7 @@
 
 
 	const validarServicio = () => {
-		if(urlPublicidad.value === ""){
-			alert('Debe agregar una url');
-			return false;
-		} else if(imagenPublicidad.files.length <= 0)
+		 if(imagenPublicidad.files.length <= 0)
 		{	
 			alert('Debe agregar una imagen');
 			return false;

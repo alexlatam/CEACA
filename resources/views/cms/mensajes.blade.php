@@ -37,7 +37,7 @@
 			</td>
 			<td>
 				<a href="#" class="btn btn-sm btn-success mensaje px-4" data-toggle="modal" data-target="#modalMensje">Ver</a>
-				<a href="/cms/mensajes/delete/{{$mensaje->id}}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+				<a href="/cms/mensajes/delete/{{$mensaje->id}}" data-toggle="modal" data-target="#EliminarUsuarios" class="btn btn-sm btn-outline-danger mensajes_eliminar">Eliminar</a>
 			</td>
 		</tr>
 		@endforeach
@@ -70,6 +70,28 @@
 	</div>
 </div>
 
+<div class="modal fade" id="EliminarUsuarios" tabindex="-1" role="dialog" aria-labelledby="EliminarUsuarios" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">¿Seguro que desea Eliminar esta revista?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="modal_eliminar_usuario_form" method="GET">
+          @csrf
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger px-4" id="submitModalEliminar">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
 	let mensajesButton = document.querySelectorAll('.mensaje')
 
@@ -82,8 +104,7 @@
 				let nombre = e.target.parentNode.parentNode.children[1]
 				let correo = e.target.parentNode.parentNode.children[2]
 				let mensaje = e.target.parentNode.parentNode.children[3].lastElementChild
-				console.log(mensaje)
-
+				
 
 				title.textContent = nombre.textContent
 				email.textContent = `Correo: ${correo.textContent}`
@@ -94,6 +115,30 @@
 	}
 </script>
 <script>
+	let eliminarButtons = document.querySelectorAll('.mensajes_eliminar');
+	let formModal = document.getElementById('modal_eliminar_usuario_form')
+	let submitEliminar = document.getElementById('submitModalEliminar');
+
+
+	submitEliminar.addEventListener('click', () => {
+	  formModal.submit();
+	}); 
+
+	if(eliminarButtons)
+	{
+	  eliminarButtons.forEach(button => {
+	    button.addEventListener('click', (e) =>{
+	      e.preventDefault();
+	      
+
+	      formPadre = e.target.attributes[0].value;
+
+	      formModal.action = formPadre
+	    });
+	  });
+	}
+
+
 	window.onload = function() {
 		$('#table1').DataTable({
 			//para usar los botones   

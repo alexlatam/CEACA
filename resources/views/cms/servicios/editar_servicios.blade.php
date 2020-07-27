@@ -23,7 +23,7 @@
         <div class="row col-md-6">
           <div class="col-12 mb-4">
             <h5>Titulo</h5>
-            <input class="form-control" type="text" name="titulo_servicio" value="{{$servicio->titulo}}" placeholder="Titulo">
+            <input class="form-control" type="text" name="titulo_servicio" value="{{$servicio->titulo}}" placeholder="Titulo" maxlength="191">
           </div>
           <div class="col-12 mb-4">
             <h5>Descripción</h5>

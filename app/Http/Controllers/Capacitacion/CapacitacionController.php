@@ -184,7 +184,7 @@ class CapacitacionController extends Controller
                 $deleted = File::delete($fullpath);
             }
         }
-        if($deleted || $capacitacion->imagen === null){
+        if(isset($deleted) || $capacitacion->imagen == null){
             $capacitacion->delete();
             return back()->with('message','Eliminado con éxito');
         } else {

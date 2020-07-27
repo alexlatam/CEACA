@@ -17,7 +17,7 @@ class RevistaController extends Controller
     {
         $revistas = Revista::all();
         $info = Info::All();
-        $publicidad = Ads::All();
+        $publicidad = Ads::where('seccion', 'revista')->get();
         $servicios = Service::All();
         $cat_capacitaciones = Cat_capacitacion::all();
 
@@ -181,7 +181,7 @@ class RevistaController extends Controller
             return back()->with('error', 'No se pudo eliminar');
         }
 
-    	if($deleted || $revista->archivo === null){
+    	if(isset($deleted) || $revista->archivo == null){
     	    $revista->delete();
     	    return back()->with('error','Eliminado con éxito');
     	} else {

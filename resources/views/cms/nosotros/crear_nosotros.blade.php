@@ -22,11 +22,11 @@
 			@csrf
 			<div class="form-group col-12">
 				<h5>Titulo de la sección</h5>
-				<input type="text" id="seccion_title" name="nosotros_title" placeholder="Titulo..." class="form-control">
+				<input type="text" id="seccion_title" name="nosotros_title" placeholder="Titulo..." class="form-control" maxlength="191">
 			</div>
 			<div class="form-group col-12">
 				<h5>Subtitulo de la sección</h5>
-				<input type="text" id="seccion_subtitle" name="nosotros_subtitle" placeholder="SubTitulo..." class="form-control">
+				<input type="text" id="seccion_subtitle" name="nosotros_subtitle" placeholder="SubTitulo..." class="form-control" maxlength="191">
 			</div>
 			<div class="form-group col-12">
 				<h5>Contenido</h5>

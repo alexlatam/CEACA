@@ -16,11 +16,11 @@
 			<div class="row mt-3">
 				<div class="col-md-6 mb-4">
 					<label>Telefono Principal</label>
-					<input class="form-control" type="text" name="telefono_uno" value="{{$telefono1->valor}}" placeholder="Telefono1">
+					<input class="form-control" type="text" name="telefono_uno" value="{{$telefono1->valor}}" placeholder="Telefono1" maxlength="191">
 				</div>
 				<div class="col-md-6 mb-4">
 					<label>Telefono 2</label>
-					<input class="form-control"  type="text" name="telefono_dos" value="{{$telefono2->valor}}" placeholder="Telefono 2">
+					<input class="form-control"  type="text" name="telefono_dos" value="{{$telefono2->valor}}" placeholder="Telefono 2" maxlength="191">
 				</div>
 				<div class="col-12 mb-4">
 					<label>Emails</label>
@@ -40,19 +40,19 @@
 				
 				<div class="col-md-6 mb-4">
 					<label>Twitter</label>
-					<input class="form-control"  type="text" name="twitter" value="{{$twitter->valor}}" placeholder="Twiter">
+					<input class="form-control"  type="text" name="twitter" value="{{$twitter->valor}}" placeholder="Twiter" maxlength="191">
 				</div>
 				<div class="col-md-6 mb-4">
 					<label>Facebook</label>
-					<input class="form-control"  type="text" name="facebook" value="{{$facebook->valor}}" placeholder="Facebook">
+					<input class="form-control"  type="text" name="facebook" value="{{$facebook->valor}}" placeholder="Facebook" maxlength="191">
 				</div>
 				<div class="col-md-6 mb-4">
 					<label>linkedin</label>
-					<input class="form-control"  type="text" name="linkedin" value="{{$linkedin->valor}}" placeholder="linkedin">
+					<input class="form-control"  type="text" name="linkedin" value="{{$linkedin->valor}}" placeholder="linkedin" maxlength="191">
 				</div>
 				<div class="col-md-6 mb-4">
 					<label>Instagram</label>
-					<input class="form-control"  type="text" name="instagram" value="{{$instagram->valor}}" placeholder="Instagram">
+					<input class="form-control"  type="text" name="instagram" value="{{$instagram->valor}}" placeholder="Instagram" maxlength="191">
 				</div>
 				<div class="col-12 mb-5">
 					<input type="submit" class="btn btn-success px-5" value="Guardar informacion">

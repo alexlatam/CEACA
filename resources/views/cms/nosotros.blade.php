@@ -23,11 +23,11 @@
 					@csrf
 					<div class="form-group">
 						<h5>Titulo de la Sección</h5>
-						<input type="text" name="nosotros_title" value="{{$info->atributo}}" placeholder="Titulo..." class="form-control">
+						<input type="text" name="nosotros_title" value="{{$info->atributo}}" placeholder="Titulo..." class="form-control" maxlength="191">
 					</div>
 					<div class="form-group">
 						<h5>SubTitulo de la Sección</h5>
-						<input type="text" name="nosotros_subtitle" value="{{$info->valor2}}" placeholder="Titulo..." class="form-control">
+						<input type="text" name="nosotros_subtitle" value="{{$info->valor2}}" placeholder="Titulo..." class="form-control" maxlength="191">
 					</div>
 					<div class="form-group">
 						<h5>Contenido</h5>

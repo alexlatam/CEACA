@@ -57,7 +57,7 @@
 @include('home.modal_revista')
 
 <!-- Publicidad -->
-<section class="section pb-0 my-5 py-2">
+<!-- <section class="section pb-0 mt-5 pt-2">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -65,6 +65,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
+@include('home.publicidad_lateral')
 
 @endsection

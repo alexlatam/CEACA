@@ -42,17 +42,14 @@
           <h5>Cambiar Imagen</h5>
           <input type="file" name="imagen_capacitacion">
         </div>
-        <!--div-- class="col-12 mb-4">
-          <h5>Cambiar Logo</h5>
-          <input type="file" name="logo_capacitacion">
-        </!--div-->
-        <div class="col-12 mb-5">
-          <input type="submit" class="btn btn-success" value="Actualizar Capacitación">
-        </div>
-      </div>
-    </form>
-
-
+        <!--div class="col-12 mb-4">
+            <h5>Cambiar Logo</h5>
+            <input type="file" name="logo_capacitacion">
+         </div-->
+         <div class="col-12 mb-5">
+            <input type="submit" class="btn btn-success" value="Actualizar Capacitación">
+          </div>
+          </form>
   </div>
 </section>
 

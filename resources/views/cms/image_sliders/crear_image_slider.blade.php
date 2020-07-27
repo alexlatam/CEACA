@@ -23,7 +23,7 @@
 			@csrf
 			<div class="form-group col-12">
 				<h5>Titulo <span class="text-muted">(opcional)</span></h5>
-				<input type="text" id="slider_title" name="slider_titulo" placeholder="Titulo..." class="form-control">
+				<input type="text" id="slider_title" name="slider_titulo" placeholder="Titulo..." class="form-control" maxlength="191">
 			</div>
 			<div class="form-group col-12">
 				<h5 title="Pequeña descripción que se mostrara en el Banner">Descripción <span class="text-muted">(opcional)</span></h5>

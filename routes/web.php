@@ -28,7 +28,7 @@ Route::get('/', 'CeacaController@index')->name('home');
 
 /* NOSOTROS */
 Route::get('/nosotros', function () {
-	$publicidad = Ads::All();
+	$publicidad = Ads::where('seccion', 'quienes somos')->get();
 	$nosotros_array = Info::All();
 	$cat_capacitaciones = Cat_capacitacion::All();
 	$info = Info::All();
@@ -50,7 +50,7 @@ Route::get('/club', function () {
 	$membresias = Plan::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
-	$publicidad = Ads::All();
+	$publicidad = Ads::where('seccion', 'club ceaca')->get();
 	return view('club', [
 		"info" => $info,
 		"servicios" => $servicios,
@@ -66,7 +66,7 @@ Route::get('/servicios', function () {
 	$cat_capacitaciones = Cat_capacitacion::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
-	$publicidad = Ads::All();
+	$publicidad = Ads::where('seccion', 'servicios')->get();
 	return view('servicios', [
 		"info" => $info,
 		"servicios" => $servicios,
@@ -113,11 +113,11 @@ Route::get('/download/membresias', 'ClubController@membresiasDownload');
 Route::get('/capacitacion', 'CapacitacionesController@home')->name('capacitacion');
 Route::get('/detalles_capacitacion/{id}', function ($id) {
 	$capacitacion = Capacitacion::find($id);
-	$info = Info::All();
-	$cat_capacitaciones = Cat_capacitacion::All();
-	$publicidad = Ads::All();
+  $info = Info::All();
+  $cat_capacitaciones = Cat_capacitacion::All();  
+	$publicidad = Ads::where('seccion', 'capacitaciones')->get();
 	return view('detalles_capacitacion', ["info" => $info, "capacitacion" => $capacitacion, "cat_capacitaciones" => $cat_capacitaciones, "publicidad" => $publicidad]);
-})->name('detalles_capacitacion');
+ })->name('detalles_capacitacion');
 
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
 
@@ -225,6 +225,7 @@ Route::middleware('admin')->group(function () {
 
 	/* ----------  RUTA RECURSOS CONTROLLADOR ---------*/
 	Route::get('/cms/recursos', 'RecursoController@index');
+	Route::get('/cms/obtener/recurso/{id}', 'RecursoController@obtenerRecurso');
 	Route::get('/cms/crear/recurso', 'RecursoController@crearRecurso');
 	Route::post('/cms/guardar/recurso', 'RecursoController@guardarRecurso');
 	Route::get('/cms/editar/recurso/{id}', 'RecursoController@editarRecurso');

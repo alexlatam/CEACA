@@ -15,11 +15,11 @@
 			<div class="row">
 				<div class="col-md-6 mb-4">
 					<label>Nombre</label>
-					<input class="form-control" id="admin_title" type="text" name="name" value="" placeholder="Nombre">
+					<input class="form-control" id="admin_title" type="text" name="name" value="" placeholder="Nombre" maxlength="191">
 				</div>
 				<div class="col-md-6 mb-4">
 					<label>Email</label>
-					<input class="form-control" id="admin_email"  type="text" name="email" value="" placeholder="Email">
+					<input class="form-control" id="admin_email"  type="text" name="email" value="" placeholder="Email" maxlength="191">
 				</div>
 				<div class="col-6 mb-4">
 					<label>Contraseña</label>
@@ -52,7 +52,7 @@
 	            <a href="/cms/password/usuario/{{$usuario->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Cambiar contraseña</a>
 	            <form action="/cms/delete/usuario/{{$usuario->id}}" method="POST">
 	              @csrf
-	              <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-success">
+	              <button type="button" class="btn btn-sm btn-outline-danger user_eliminar" data-toggle="modal" data-target="#EliminarUsuarios">Eliminar</button>
 	            </form>
 	          </td>
 	        </tr>
@@ -62,6 +62,29 @@
 	</div>
 </section>
 
+
+<div class="modal fade" id="EliminarUsuarios" tabindex="-1" role="dialog" aria-labelledby="EliminarUsuarios" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">¿Seguro que desea Eliminar este usuario?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<form id="modal_eliminar_usuario_form" method="POST">
+      		@csrf
+      	</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger px-4" id="submitModalEliminar">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
 	let adminForm = document.getElementById('admin_form')
 	let adminTitle = document.getElementById('admin_title')
@@ -70,6 +93,28 @@
 	let adminSent = document.getElementById('admin_submit')
 
 
+	let eliminarButtons = document.querySelectorAll('.user_eliminar');
+	let formModal = document.getElementById('modal_eliminar_usuario_form')
+	let submitEliminar = document.getElementById('submitModalEliminar');
+
+
+	submitEliminar.addEventListener('click', () => {
+		formModal.submit();
+	});	
+
+	if(eliminarButtons)
+	{
+		eliminarButtons.forEach(button => {
+			button.addEventListener('click', (e) =>{
+
+				
+
+				formPadre = e.target.parentNode;
+
+				formModal.action = formPadre.action
+			});
+		});
+	}
 
 	adminSent.addEventListener('click', (e) => {
 		e.preventDefault()
