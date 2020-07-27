@@ -10,6 +10,10 @@ use App\Info;
 use App\Plan;
 use App\Revista;
 use App\Capacitacion;
+
+use App\Mail\UserCreated;
+use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +28,7 @@ use App\Capacitacion;
 /* HOME */
 
 Route::get('/', 'CeacaController@index')->name('home');
+
 
 /* NOSOTROS */
 Route::get('/nosotros', function () {

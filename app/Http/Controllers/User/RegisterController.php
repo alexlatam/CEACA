@@ -5,10 +5,14 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Mail\UserCreated;
+use Illuminate\Support\Facades\Mail;
+
 use App\User;
 use App\Info;
 use App\Plan;
 use Hash;
+
 
 class RegisterController extends Controller
 {
@@ -67,6 +71,8 @@ class RegisterController extends Controller
                 $user->password = Hash::make($request->password);
                 $user->save();
 
+                Mail::to('test@example.com')->send(new UserCreated($user));
+
                 return redirect('/sesion')->with('message', 'Te has registrado con éxito, puedes iniciar sesión');
             }else{ 
                 return back()->with('error', 'Las contraseñas no coinciden');
@@ -91,6 +97,8 @@ class RegisterController extends Controller
             if($request->password === $request->password_confirmation){
                 $user->password = Hash::make($request->password);
                 $user->save();
+
+                Mail::to('test@example.com')->queue(new UserCreated($user));
 
                 return redirect('/sesion')->with('message', 'Te has registrado con éxito, puedes iniciar sesión');
             }else{ 
