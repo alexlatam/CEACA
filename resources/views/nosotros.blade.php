@@ -20,6 +20,24 @@
     .bg-overlay {
         margin-top: 6%;
     }
+
+    @media only screen and (min-width: 1400px) {
+        #subtitle_header {
+            font-size: 2rem;
+            padding-top: 2rem;
+        }
+        #title_header {
+            font-size: 3rem;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        #subtitle_header {
+            font-size: 1rem;
+        }
+        #title_header {
+            font-size: 2rem;
+        }
+    }
 </style>
 @endsection
 @section('content')
@@ -37,11 +55,11 @@
 
         <div class="container">
             <div class="row justify-content-center align-items-center">
-                <div class="col-md-8 col-lg-7">
-                    <p class="font-weight-medium text-center text-xs text-uppercase text-white text-muted" data-toggle="animation" data-animation="fadeUp" data-animation-order="0" data-animation-trigger="load">
+                <div class="col-md-10 col-lg-10">
+                    <p class="font-weight-medium text-center text-uppercase text-white text-white" data-toggle="animation" data-animation="fadeUp" data-animation-order="0" data-animation-trigger="load" id="subtitle_header">
                         CEACA - Combustión, Energía & Ambiente, s. a.
                     </p>
-                    <h1 class="text-white text-center mb-4" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
+                    <h1 class="text-white text-center mb-4" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load" id="title_header">
                         23 años sirviendo con calidad y compromiso, en temas de Consultoría, Servicio Técnico y Capacitación en toda Latinoamérica
                     </h1>
                 </div>

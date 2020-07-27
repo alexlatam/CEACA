@@ -31,7 +31,7 @@ class ClubController extends Controller
             $user->empresa = $request->empresa;
             $user->planta = $request->planta;
             $user->cargo = $request->cargo;
-            // $user->plan_id = 1;
+            $user->plan_id = 1;
             //$user->password = Hash::make($request->password);
             $user->save();
         }

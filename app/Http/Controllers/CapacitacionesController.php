@@ -15,7 +15,8 @@ class CapacitacionesController extends Controller
     	
     	$info = Info::all();
     	$capacitaciones = Capacitacion::all();
-    	$cat_servicios = Cat_capacitacion::all();
+		$cat_servicios = Cat_capacitacion::all();
+		$cat_capacitaciones = Cat_capacitacion::all();
 
     	if(isset($request->categoria))
     	{
@@ -23,6 +24,6 @@ class CapacitacionesController extends Controller
 
     	}
 
-    	return view('capacitaciones', compact('capacitaciones', 'cat_servicios', 'info'));
+    	return view('capacitaciones', compact('capacitaciones', 'cat_servicios', 'info', 'cat_capacitaciones'));
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Info;
 use App\Plan;
+use App\Cat_capacitacion;
 use Hash;
 
 class RegisterController extends Controller
@@ -20,9 +21,10 @@ class RegisterController extends Controller
     	}
         $info = Info::All();
         $membresias = Plan::all();
+        $cat_capacitaciones = Cat_capacitacion::All();
         $actual = $name;
 
-        return view('auth.registro', compact('info', 'membresias', 'actual'));
+        return view('auth.registro', compact('info', 'membresias', 'actual' ,'cat_capacitaciones'));
 
     	
     }
