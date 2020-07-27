@@ -392,50 +392,76 @@
 
 {{-- recaptcha  --}}
 <script type="text/javascript">
-    function onSubmit(token) {
 
-        let submitRegistro = document.getElementById('registro_submit');
-
-        let name = document.getElementById('name');
-        let email = document.getElementById('email');
-        let pais = document.getElementById('pais');
-        let empresa = document.getElementById('empresa');
-        let planta = document.getElementById('planta');
-        let cargo = document.getElementById('cargo');
-        let especialidad = document.getElementById('especialidad');
-
-        let sector = document.getElementsByName('sector[]');
-
+        var sector = document.getElementsByName('sector[]');
 
         console.log(sector);
+        const validarCheckbox = (sectores) => {
+                let contador = 0;
+                sectores.forEach(sector => {
+                    if(sector.checked){
+                        contador++
+                    }
+                });
+                return contador
+        }
 
-        submitRegistro.addEventListener('click', (e) => {
-            e.preventDefault();
+    function onSubmit(token) {
+        // vars
+            var membresia = document.getElementById('membresia');
+            var name = document.getElementById('name');
+            var email = document.getElementById('email');
+            var pais = document.getElementById('pais');
+            var empresa = document.getElementById('empresa');
+            var planta = document.getElementById('planta');
+            var cargo = document.getElementById('cargo');
+
+            var especialidad = document.getElementById('especialidad');
+
             let form = document.getElementById('registro_form');
             let password = document.getElementById('password');
             let confirmPass = document.getElementById('password-confirm');
-            let membresia = document.getElementById('membresia');
+            // e.preventDefault();
+
+            if(membresia.selectedIndex === 0){
+                return alert('Debe seleccionar una membresia');
+            }
+            if(name.value == ''){
+                return alert('Debes agregar tu nombre')
+            }
+            if (email.value == ''){
+                return alert('Debes agregar tu email')
+            }
+
+            emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+            if (!emailRegex.test(email.value)){
+                return alert("Verifique la dirección de email.");
+            }
+            if(pais.value == ''){
+                return alert('Debes agregar tu país')
+            }
+            if(empresa.value == ''){
+                return alert('Debes agregar tu empresa');
+            }
+            if(planta.value  == ''){
+                return alert('Debes agregar tu planta');
+            }
+            if(cargo.value == ''){
+                return alert('Debes agregar tu cargo');
+            }
 
             if(validarCheckbox(sector) === 0){
                 return alert('Debes escoger un sector');
+            } 
+            if(especialidad.value == ''){
+                return alert('Debes agregar tu especialidad');
             }
 
-            if(name.value == ''){
-                return alert('Debes agregar tu nombre')
-            }else if (email.value == ''){
-                return alert('Debes agregar tu email')
-            }else if(pais.value == ''){
-                return alert('Debes agregar tu país')
-            }else if(empresa.value == ''){
-                return alert('Debes agregar tu empresa');
-            }else if(planta.value  == ''){
-                return alert('Debes agregar tu planta');
-            }else if(cargo.value == ''){
-                return alert('Debes agregar tu cargo');
-            }else if(especialidad.value == ''){
-                return alert('Debes agregar tu especialidad');
-            }else if(membresia.selectedIndex === 0){
-                return alert('Debe seleccionar una membresia');
+            if(password.value==''){
+                return alert ('Debe agregar la contraseña');
+            }
+            if(confirmPass.value==''){
+                return alert ('Debe repetir la contraseña');
             }
 
             if(password.value === confirmPass.value && password.value != ''){
@@ -446,19 +472,9 @@
                 confirmPass.value = ''
             }
 
-            });
-
-            const validarCheckbox = (sectores) => {
-                let contador = 0;
-                sectores.forEach(sector => {
-                    if(sector.checked){
-                        contador++
-                    }
-                });
-
-                return contador
-            }
+          
     }
+
   </script>
 
 @endsection
