@@ -8,6 +8,8 @@
             background-color: #fff;
         }
     </style>
+    {{-- recaptcha  --}}
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 @endsection
 
 @section('content')
@@ -368,7 +370,10 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" id="registro_submit" class="btn btn-success px-5 ">
+
+                                {{-- recaptcha --}}
+                                <input type="hidden" name="action" value="validate_captcha">
+                                <button id="registro_submit" class="btn btn-success px-5  g-recaptcha" data-sitekey="6LcnwLIZAAAAAKQiVWCAHH72PWf2-Dg-69YaV41e" data-callback='onSubmit' data-action='submit'>
                                     {{ __('Registrarse') }}
                                 </button>
                             </div>
@@ -385,71 +390,91 @@
     </div>
 </div>
 
+{{-- recaptcha  --}}
 <script type="text/javascript">
-    let submitRegistro = document.getElementById('registro_submit');
 
-    let name = document.getElementById('name');
-    let email = document.getElementById('email');
-    let pais = document.getElementById('pais');
-    let empresa = document.getElementById('empresa');
-    let planta = document.getElementById('planta');
-    let cargo = document.getElementById('cargo');
-    let especialidad = document.getElementById('especialidad');
+        var sector = document.getElementsByName('sector[]');
 
-    let sector = document.getElementsByName('sector[]');
-
-
-    console.log(sector);
-
-    submitRegistro.addEventListener('click', (e) => {
-        e.preventDefault();
-        let form = document.getElementById('registro_form');
-        let password = document.getElementById('password');
-        let confirmPass = document.getElementById('password-confirm');
-        let membresia = document.getElementById('membresia');
-
-        if(validarCheckbox(sector) === 0){
-            return alert('Debes escoger un sector');
+        console.log(sector);
+        const validarCheckbox = (sectores) => {
+                let contador = 0;
+                sectores.forEach(sector => {
+                    if(sector.checked){
+                        contador++
+                    }
+                });
+                return contador
         }
 
-        if(name.value == ''){
-            return alert('Debes agregar tu nombre')
-        }else if (email.value == ''){
-            return alert('Debes agregar tu email')
-        }else if(pais.value == ''){
-            return alert('Debes agregar tu país')
-        }else if(empresa.value == ''){
-            return alert('Debes agregar tu empresa');
-        }else if(planta.value  == ''){
-            return alert('Debes agregar tu planta');
-        }else if(cargo.value == ''){
-            return alert('Debes agregar tu cargo');
-        }else if(especialidad.value == ''){
-            return alert('Debes agregar tu especialidad');
-        }else if(membresia.selectedIndex === 0){
-            return alert('Debe seleccionar una membresia');
-        }
+    function onSubmit(token) {
+        // vars
+            var membresia = document.getElementById('membresia');
+            var name = document.getElementById('name');
+            var email = document.getElementById('email');
+            var pais = document.getElementById('pais');
+            var empresa = document.getElementById('empresa');
+            var planta = document.getElementById('planta');
+            var cargo = document.getElementById('cargo');
 
-        if(password.value === confirmPass.value && password.value != ''){
-            form.submit();
-        } else {
-            alert('Las contraseñas tienen que ser iguales');
-            password.value = ''
-            confirmPass.value = ''
-        }
+            var especialidad = document.getElementById('especialidad');
 
-    });
+            let form = document.getElementById('registro_form');
+            let password = document.getElementById('password');
+            let confirmPass = document.getElementById('password-confirm');
+            // e.preventDefault();
 
-    const validarCheckbox = (sectores) => {
-        let contador = 0;
-        sectores.forEach(sector => {
-            if(sector.checked){
-                contador++
+            if(membresia.selectedIndex === 0){
+                return alert('Debe seleccionar una membresia');
             }
-        });
+            if(name.value == ''){
+                return alert('Debes agregar tu nombre')
+            }
+            if (email.value == ''){
+                return alert('Debes agregar tu email')
+            }
 
-        return contador
+            emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+            if (!emailRegex.test(email.value)){
+                return alert("Verifique la dirección de email.");
+            }
+            if(pais.value == ''){
+                return alert('Debes agregar tu país')
+            }
+            if(empresa.value == ''){
+                return alert('Debes agregar tu empresa');
+            }
+            if(planta.value  == ''){
+                return alert('Debes agregar tu planta');
+            }
+            if(cargo.value == ''){
+                return alert('Debes agregar tu cargo');
+            }
+
+            if(validarCheckbox(sector) === 0){
+                return alert('Debes escoger un sector');
+            } 
+            if(especialidad.value == ''){
+                return alert('Debes agregar tu especialidad');
+            }
+
+            if(password.value==''){
+                return alert ('Debe agregar la contraseña');
+            }
+            if(confirmPass.value==''){
+                return alert ('Debe repetir la contraseña');
+            }
+
+            if(password.value === confirmPass.value && password.value != ''){
+                form.submit();
+            } else {
+                alert('Las contraseñas tienen que ser iguales');
+                password.value = ''
+                confirmPass.value = ''
+            }
+
+          
     }
 
-</script>
+  </script>
+
 @endsection
