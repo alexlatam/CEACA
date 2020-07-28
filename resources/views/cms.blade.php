@@ -143,10 +143,16 @@
                 Capacitaciones
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cms/cursos">
+                <span data-feather="users"></span>
+                Cursos
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
-
+      
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
         @yield('content')
       </main>

@@ -126,7 +126,6 @@ Route::middleware('admin')->group(function () {
 	Route::get('/cms/informacion', 'InformationController@index');
 	Route::get('/cms/servicios', 'ServicioController@index');
 	Route::get('/cms/publicidades', 'PublicidadController@index');
-	Route::get('/cms/cursos', 'CursoController@index');
 	Route::get('/cms/slider/image', 'SliderImageController@index');
 	Route::get('/cms/crear/usuario', 'UserController@index');
 	Route::get('/cms/mensajes', 'CmsController@mensajesView');
@@ -179,6 +178,7 @@ Route::middleware('admin')->group(function () {
 	Route::post('/cms/eliminar/publicidad/{id}', 'PublicidadController@eliminarPublicidad');
 
 	/* ----------  RUTA CURSO CONTROLLADOR ---------*/
+	Route::get('/cms/cursos', 'CursoController@index');
 	Route::get('/cms/cursos/home', 'CursoController@cursosHome');
 	Route::get('/cms/crear/curso', 'CursoController@crearCurso');
 	Route::post('/cms/guardar/curso', 'CursoController@guardarCurso');
@@ -246,6 +246,11 @@ Route::middleware('admin')->group(function () {
 	Route::post('/cms/eliminar/category/capacitacion/{id}', 'Capacitacion\CategoriaCapacitacionController@deleteCapacitacionCategory');
 	Route::get('/cms/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@getCategory');
 	Route::post('/cms/actualizar/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@editCategory');
+
+	/* ----------  RUTA RECURSOS CURSOS CONTROLLADOR ---------*/
+	Route::get('/cms/course/resource', 'RecursosCursosController@index');
+	Route::get('/cms/crear/curso/recurso', 'RecursosCursosController@crearRecurso');
+
 
 });
 /*------------------------------------ END --------------------------*/
