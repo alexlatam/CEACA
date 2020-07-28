@@ -9,6 +9,7 @@ use App\Service_Category;
 use App\Info;
 use App\Plan;
 use App\Revista;
+use App\Cat_capacitacion;
 use App\Capacitacion;
 
 use App\Mail\UserCreated;
@@ -34,6 +35,7 @@ Route::get('/', 'CeacaController@index')->name('home');
 Route::get('/nosotros', function () {
 	$publicidad = Ads::where('seccion', 'quienes somos')->get();
 	$nosotros_array = Info::All();
+	$cat_capacitaciones = Cat_capacitacion::All();
 	$info = Info::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
@@ -42,12 +44,14 @@ Route::get('/nosotros', function () {
 		"nosotros_array" => $nosotros_array,
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
-		"publicidad" => $publicidad
+		"publicidad" => $publicidad,
+		"cat_capacitaciones" => $cat_capacitaciones
 	]);
 })->name('nosotros');
 /* CLUB */
 Route::get('/club', function () {
 	$info = Info::All();
+	$cat_capacitaciones = Cat_capacitacion::All();
 	$membresias = Plan::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
@@ -57,12 +61,14 @@ Route::get('/club', function () {
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
 		"publicidad" => $publicidad,
-		"membresias" => $membresias
+		"membresias" => $membresias,
+		"cat_capacitaciones" => $cat_capacitaciones
 	]);
 })->name('club');
 /* SERVICIOS */
 Route::get('/servicios', function () {
 	$info = Info::All();
+	$cat_capacitaciones = Cat_capacitacion::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
 	$publicidad = Ads::where('seccion', 'servicios')->get();
@@ -70,16 +76,18 @@ Route::get('/servicios', function () {
 		"info" => $info,
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
-		"publicidad" => $publicidad
+		"publicidad" => $publicidad,
+		"cat_capacitaciones" => $cat_capacitaciones
 	]);
 })->name('servicios');
 
 Route::get('/detalles_servicio/{id}', function ($id) {
 	$info = Info::All();
+	$cat_capacitaciones = Cat_capacitacion::All();
 	$servicios = Service::All();
 	$servicio = Service::find($id);
-	$publicidad = Ads::All();
-	return view('detalles_servicio', ["info" => $info, "servicios" => $servicios, "servicio" => $servicio, "publicidad" => $publicidad]);
+	$publicidad = Ads::where('seccion', 'servicios')->get();
+	return view('detalles_servicio', ["info" => $info, "cat_capacitaciones" => $cat_capacitaciones, "servicios" => $servicios, "servicio" => $servicio, "publicidad" => $publicidad]);
 })->name('detalles_servicio');
 
 /* REVISTA */
@@ -88,7 +96,9 @@ Route::get('/descargar/revista/{id}', 'RevistaController@descargarRevistas');
 Route::get('/ver_revista/{id}', function ($id) {
 	$revista = Revista::find($id);
 	$info = Info::All();
-	return view('revista_details', ["info" => $info, "revista" => $revista]);
+	$cat_capacitaciones = Cat_capacitacion::All();
+	$publicidad = Ads::where('seccion', 'revista')->get();
+	return view('revista_details', ["info" => $info, "publicidad" => $publicidad, "revista" => $revista, "cat_capacitaciones" => $cat_capacitaciones]);
 });
 
 /* CONTACTO */
@@ -96,11 +106,10 @@ Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
 Route::post('/enviar/mensaje', 'MessageController@createMessage');
 
 /* SUSCRIBIRSE Y DESCARGAR REVISTA */
-Route::post('/user/createmagazine/','ClubController@crearUsuarioDownload');
+Route::post('/user/createmagazine/', 'ClubController@crearUsuarioDownload');
 
 /* Descargar Membresias */
 Route::get('/download/membresias', 'ClubController@membresiasDownload');
-
 
 /*Subscribirse a revista*/
 
@@ -109,10 +118,11 @@ Route::get('/download/membresias', 'ClubController@membresiasDownload');
 /* Vista Capacitaciones */
 Route::get('/capacitacion', 'CapacitacionesController@home')->name('capacitacion');
 Route::get('/detalles_capacitacion/{id}', function ($id) {
-	$info = Info::All();
 	$capacitacion = Capacitacion::find($id);
+	$info = Info::All();
+	$cat_capacitaciones = Cat_capacitacion::All();
 	$publicidad = Ads::where('seccion', 'capacitaciones')->get();
-	return view('detalles_capacitacion', ["info" => $info, "capacitacion" => $capacitacion, "publicidad" => $publicidad]);
+	return view('detalles_capacitacion', ["info" => $info, "capacitacion" => $capacitacion, "cat_capacitaciones" => $cat_capacitaciones, "publicidad" => $publicidad]);
 })->name('detalles_capacitacion');
 
 /* ----------------------------  RUTAS DE PRUEBA PARA EL CMS -----------------------*/
@@ -144,7 +154,7 @@ Route::middleware('admin')->group(function () {
 	Route::get('/cms/miembros', 'CmsController@clubView');
 	Route::post('/club/user/pause/{id}', 'ClubController@pauseClubMember');
 	Route::post('/club/user/active/{id}', 'ClubController@activeClubMember');
-	
+
 	/* ----------  RUTA MEMBRESIAS-CLUB CONTROLLADOR ---------*/
 	Route::get('/cms/membresias', 'CmsController@membresiasView');
 	Route::post('cms/membresia/create', 'PlanController@createPlan');
@@ -272,7 +282,6 @@ Route::middleware('auth')->group(function () {
 
 	//Descargar recursos
 	Route::get('/download/recurso/{id}', 'RecursoController@descargarRecurso');
-
 });
 
 

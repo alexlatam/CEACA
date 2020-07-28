@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Info;
+use App\Cat_capacitacion;
 
 use Hash;
 use Auth;
@@ -14,8 +15,9 @@ class LoginController extends Controller
 {
     public function index()
     {   
-        $info = Info::All();
-    	return view('auth.sesion', compact('info'));
+		$info = Info::All();
+		$cat_capacitaciones = Cat_capacitacion::All();
+    	return view('auth.sesion', compact('info','cat_capacitaciones'));
     }
 
     public function login(Request $request)

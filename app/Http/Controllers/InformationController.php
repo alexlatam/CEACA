@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Info;
+use App\Ads;
 use File;
+use App\Cat_capacitacion;
 
 class InformationController extends Controller
 {
@@ -17,9 +19,10 @@ class InformationController extends Controller
     	$facebook = Info::where('atributo', 'facebook')->first();
     	$linkedin = Info::where('atributo', 'linkedin')->first();
         $instagram = Info::where('atributo', 'instagram')->first();
-        
+        $cat_capacitaciones = Cat_capacitacion::All();
+        $publicidad = Ads::where('seccion', 'contacto')->get();
 
-    	return view('cms.informacion')->with(compact('telefono1', 'telefono2', 'direccion', 'twitter', 'facebook', 'linkedin', 'instagram', 'email'));
+    	return view('cms.informacion')->with(compact('cat_capacitaciones','publicidad','telefono1', 'telefono2', 'direccion', 'twitter', 'facebook', 'linkedin', 'instagram', 'email'));
     }
 
     public function contactoView(){
@@ -32,9 +35,10 @@ class InformationController extends Controller
     	$facebook = Info::where('atributo', 'facebook')->first();
     	$linkedin = Info::where('atributo', 'linkedin')->first();
         $instagram = Info::where('atributo', 'instagram')->first();
+        $cat_capacitaciones = Cat_capacitacion::All();
+        $publicidad = Ads::where('seccion', 'contacto')->get();
         
-
-    	return view('contacto')->with(compact('info','telefono1', 'telefono2', 'direccion', 'twitter', 'facebook', 'linkedin', 'instagram', 'email'));
+    	return view('contacto')->with(compact('cat_capacitaciones','publicidad','info','telefono1', 'telefono2', 'direccion', 'twitter', 'facebook', 'linkedin', 'instagram', 'email'));
     }
 
     public function actualizarInformacion(Request $request){

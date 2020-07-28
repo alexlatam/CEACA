@@ -19,6 +19,12 @@
         width: 100%;
     }
 
+    .img_revista {
+        min-height: 35vh !important;
+        max-height: 35vh !important;
+        width: auto;
+    }
+
     @media only screen and (max-width: 600px) {
         .ver_en_linea {
             display: none;
@@ -50,40 +56,40 @@
     </div>
 </section>
 
-
-
-
 <!-- publicidad -->
-
 @include('home.publicidad_lateral')
 
 <section>
     <div class="container section pb-0">
         <div class="row">
-            <div class="col-12 col-md-3 col-lg-2 order-md-2 pl-md-4 border-left">
-                <h6 class="title">
-                    Nuestras ediciones
-                </h6>
-            </div>
             <div class="col-12 col-md-9 col-lg-10 order-md-1">
                 @foreach ($revistas as $revista)
                 <div class="row align-items-center text-nounderline">
-                    <div class="col-12 col-md-3">
-                        <img src="{{asset('revista/portada/'. $revista->portada )}}" alt="{{ $revista->titulo }}" class="img-fluid mb-3 mb-md-0">
+                    <div class="col-auto">
+                        <img src="{{asset('revista/portada/'. $revista->portada )}}" alt="{{ $revista->titulo }}" class="img-fluid mb-3 mb-md-0 img_revista">
                     </div>
-                    <div class="col-12 col-md-9">
-                        <h4>
-                            {{ $revista->titulo }}
-                        </h4>
-                        <a href="/ver_revista/{{$revista->id}}" target="_blank" class="btn btn-sm btn-outline-success mt-2 ver_en_linea">Ver en linea</a>
+                    <div class="col-auto">
+                        <h4>{{ $revista->titulo }}</h4>
+                        <a href="/ver_revista/{{$revista->id}}" class="btn btn-sm btn-outline-success mt-2 ver_en_linea">Ver en linea</a>
                         <a href="#" class="btn btn-sm btn-success px-5 mt-2" data-toggle="modal" data-target=".modalRevista">Descargar</a>
                     </div>
                 </div>
                 <hr class="my-4">
                 @endforeach
             </div>
+            <div class="col-12 col-md-3 col-lg-2 order-md-2 border-left">
+                <h6 class="title">
+                    Nuestras ediciones
+                </h6>
+            </div>
         </div>
     </div>
+</section>
+<hr>
+<section class="container my-5">
+    <span class="d-md-none">* Puedes ver la revista desde tu computadora.</span>
+    <br>
+    <span class="d-md-none">* Para ver desde su móvil debe descargar la revista.</span>
 </section>
 <script type='text/javascript'>
     document.oncontextmenu = function() {
@@ -92,11 +98,8 @@
     var iframe = document.getElementById("revista").children.oncontextmenu = function() {
         return false
     };
-    //console.log(iframe)
 </script>
 
-
 @include('home.modal_revista')
-
 
 @endsection

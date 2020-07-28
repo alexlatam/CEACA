@@ -25,7 +25,6 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Logo</th>
           <th>Imagen</th>
           <th>Titulo</th>
           <th>Descripción</th>
@@ -36,9 +35,9 @@
         @foreach($capacitaciones as $capacitacion)
           <tr>
             <td>{{$capacitacion->id}}</td>
-            <td>
-               <img src="{{ asset('/capacitaciones/logos/'. $capacitacion->logo) }}" alt="" style="width: 40px; height: 40px;">
-            </td>
+            <!--td-->
+               <!--img src="{{ asset('/capacitaciones/logos/'. $capacitacion->logo) }}" alt="" style="width: 40px; height: 40px;">
+            </!--td-->
             <td>
               <img src="{{ asset('/capacitaciones/'. $capacitacion->imagen) }}" alt="" style="width: 40px; height: 40px;">
             </td>

@@ -3,17 +3,19 @@
 
 <head>
   @include('common.head')
-  @yield('head')  
+  @yield('head')
 
 </head>
+
 <body>
   <style>
-    
-
-    .perfil-main{
-      padding-top: 5rem;
+    #navbarPage {
+      background-color: #fff;
     }
 
+    .perfil-main {
+      padding-top: 5rem;
+    }
   </style>
   @include('common.navbar')
   <div class="container-fluid perfil-main">
@@ -54,7 +56,7 @@
       </main>
     </div>
   </div>
-  
+
   <script src="{{asset('vendor/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 </body>

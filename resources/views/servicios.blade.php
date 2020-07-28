@@ -15,22 +15,17 @@
 @endsection
 @section('content')
 @include('common.navbar')
-
 <section class="mb-5">
     <div class="container section pb-0">
         <div class="row align-items-center">
-            <div class="col-12 col-md-7 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
+            <div class="col-12 col-md-8 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
                 <img src="{{asset('img/banner_servicios.jpg')}}" alt="Servicios de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
             </div>
-            <div class="col-12 col-md-5 order-md-1">
+            <div class="col-12 col-md-4 order-md-1">
                 <h1 class="mb-4 font-weight-bold" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
-                    Conoce Nuestros Servicios Técnicos 
+                    Conoce Nuestros Servicios Técnicos
                 </h1>
-                <!--p-- class="mb-5 text-muted">
-                    “Calderas…Guía del Usuario (en la industria y comercio)” es una Revista técnico-comercial especializada en Calderas, en versión digital, con una frecuencia trimestral.
-                    Además cuenta con distribución gratuita entre todos los Usuarios de Calderas a nivel de Latinoamérica.
-                </!--p-->
-                <a href="{{route('contacto')}}" class="btn btn-outline-primary px-3">
+                <a href="{{route('contacto')}}" class="btn btn-outline-primary">
                     Contáctanos <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>

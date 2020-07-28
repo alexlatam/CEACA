@@ -38,7 +38,7 @@
 
 								<option value="club ceaca"  <?php if($publicidad->seccion == "club ceaca" ) echo 'selected'?>>Club ceaca</option>
 
-								<option value="contactanos"  <?php if($publicidad->seccion == "contactanos" ) echo 'selected'?>>Contactanos</option>
+								<option value="contacto"  <?php if($publicidad->seccion == "contacto" ) echo 'selected'?>>Contacto</option>
 
 								<option value="capacitaciones"  <?php if($publicidad->seccion == "capacitaciones" ) echo 'selected'?>>Capacitaciones</option>
 

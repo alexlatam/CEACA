@@ -3,7 +3,7 @@
 @section('content')
 <section>
   <div class="row mt-4">
-  <div class="col-auto"><h4>Club CEACA</h4></div>
+  <div class="col-auto"><h4>Capacitaciones</h4></div>
   </div>
   <hr>
   <div class="row">
