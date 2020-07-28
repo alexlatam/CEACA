@@ -39,7 +39,7 @@
 					<option value="quienes somos">Quienes Somos</option>
 					<option value="revista">Revistas</option>
 					<option value="club ceaca">Club ceaca</option>
-					<option value="contactanos">Contactanos</option>
+					<option value="contacto">Contacto</option>
 					<option value="capacitaciones">Capacitaciones</option>
 					<option value="perfil">Perfil Usuario</option>
 					<option value="servicios">Servicios</option>

@@ -36,7 +36,7 @@
         </div>
         <div class="col-12 mb-4">
           <h5>Descripción</h5>
-          <textarea class="form-control" name="descripcion_capacitacion" required rows="5">{{$capacitacion->descripcion}}</textarea>
+          <textarea class="form-control" name="descripcion_capacitacion" rows="5">{{$capacitacion->descripcion}}</textarea>
         </div>
         <div class="col-12 mb-4">
           <h5>Cambiar Imagen</h5>

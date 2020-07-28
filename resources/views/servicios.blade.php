@@ -15,8 +15,23 @@
 @endsection
 @section('content')
 @include('common.navbar')
-
-<img src="{{asset('img/banner_servicios.jpg')}}" alt="" class="imagen_servicios_principal">
+<section class="mb-5">
+    <div class="container section pb-0">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-8 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
+                <img src="{{asset('img/banner_servicios.jpg')}}" alt="Servicios de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
+            </div>
+            <div class="col-12 col-md-4 order-md-1">
+                <h1 class="mb-4 font-weight-bold" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
+                    Conoce Nuestros Servicios Técnicos
+                </h1>
+                <a href="{{route('contacto')}}" class="btn btn-outline-primary">
+                    Contáctanos <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section>
     <div class="container section pb-0">

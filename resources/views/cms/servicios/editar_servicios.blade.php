@@ -16,11 +16,9 @@
         </div>
       @endif
 
-
-
       <form action="/cms/actualizar/servicio/{{$servicio->id}}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="row col-md-6">
+        <div class="row">
           <div class="col-12 mb-4">
             <h5>Titulo</h5>
             <input class="form-control" type="text" name="titulo_servicio" value="{{$servicio->titulo}}" placeholder="Titulo" maxlength="191">
@@ -47,7 +45,7 @@
             </select>
           </div>
           <div class="col-12 mb-5">
-            <input type="submit" class="btn btn-primary" value="Actualizar Servicio">
+            <input type="submit" class="btn btn-success" value="Actualizar Servicio">
           </div>
         </div>
       </form>

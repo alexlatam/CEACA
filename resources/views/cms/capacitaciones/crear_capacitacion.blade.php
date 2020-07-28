@@ -36,7 +36,7 @@
           </div>
           <div class="col-12 mb-4">
             <h5>Descripción</h5>
-            <textarea id="input-descripcion" class="form-control" rows="6" name="descripcion_capacitacion" required></textarea>
+            <textarea id="input-descripcion" class="form-control" rows="6" name="descripcion_capacitacion"></textarea>
           </div>
           <div class="col-12 mb-4">
             <h5 style="display: block">Imagen</h5>

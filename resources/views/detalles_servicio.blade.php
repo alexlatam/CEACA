@@ -53,7 +53,7 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10 col-xl-8">
         <p>
-          @php {{ echo nl2br($servicio->descripcion) }} @endphp
+          @php {{ echo nl2br($servicio->descripcion); }} @endphp
         </p>
       </div>
     </div>
