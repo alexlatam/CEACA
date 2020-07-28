@@ -105,10 +105,14 @@
           </div>
           <input type="hidden" name="action" value="validate_captcha">
           <div class="form-row">
-            <div class="col-12">
-              <button class="btn btn-outline-primary g-recaptcha" data-sitekey="6LcnwLIZAAAAAKQiVWCAHH72PWf2-Dg-69YaV41e" data-callback='onSubmit' data-action='submit'>
-                Enviar Mensaje
-              </button>
+          <div class="col-12">
+
+              <button   class="btn btn-outline-primary g-recaptcha" 
+              data-sitekey="6LcnwLIZAAAAAKQiVWCAHH72PWf2-Dg-69YaV41e" 
+              data-callback='onSubmit' 
+              data-action='submit'>
+              Enviar Mensaje
+            </button>
               <button type="reset" class="btn btn-link">
                 Vaciar Formulario
               </button>
@@ -221,20 +225,21 @@
 
 <script>
   function onSubmit(token) {
-    if (document.getElementById("form-contacto").checkValidity()) {
+    if(document.getElementById("form-contacto").checkValidity()){
       document.getElementById("form-contacto").submit();
-    } else {
-      $error = "¡Complete los campos de manera correcta!\n";
+    }else{
+      $error= "¡Complete los campos de manera correcta!\n";
 
-      if (!document.getElementById("name").checkValidity()) {
-        $error = $error + "- Ingrese un nombre.\n";
+      if(!document.getElementById("name").checkValidity()){
+       $error = $error+"- Ingrese un nombre.\n";
       }
 
-      if (!document.getElementById("email").checkValidity()) {
-        $error = $error + "- Ingrese un correo valido.\n";
+      if(!document.getElementById("email").checkValidity()){
+         $error = $error+"- Ingrese un correo valido.\n";
       }
-      if (!document.getElementById("message").checkValidity()) {
-        $error = $error + "- Ingrese un comentario.\n";
+      if(!document.getElementById("message").checkValidity()){
+         $error = $error+"- Ingrese un comentario.\n";
+
       }
       alert($error);
     }
