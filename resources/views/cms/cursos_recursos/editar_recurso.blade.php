@@ -6,10 +6,10 @@
 	<div class="container-fluid">
 	<div class="row align-items-center">
 			<h2 class="my-3">
-				Crear Recurso
+				Editar Recurso
 			</h2>
 			<div class="col-auto ml-auto">
-			<a href="/cms/recursos" class="btn btn-sm btn-outline-success px-5">Volver</a>
+			<a href="/cms/course/resource" class="btn btn-sm btn-outline-success px-5">Volver</a>
 			</div>
 		</div>
 		<hr>
@@ -24,7 +24,7 @@
 			{{session('error')}}
 		</div>
 		@endif
-		<form action="/cms/actualizar/recurso/{{$recurso->id}}" class="row" id="recurso_form" method="POST" enctype="multipart/form-data">
+		<form action="/cms/actualizar/recurso/curso/{{$recurso->id}}" class="row" id="recurso_form" method="POST" enctype="multipart/form-data">
 			@csrf
 			<div class="form-group col-12">
 				<h5>Titulo</h5>
@@ -35,15 +35,13 @@
 				<textarea class="form-control" id="seccion_content" name="recurso_descripcion">{{$recurso->descripcion}}</textarea>
 			</div>
 			<div class="form-group col-12">
-				<h5>Tipo de membresia</h5>
-				@foreach($membresias as $membresia)
-				<div class="">
-					<label class="form-check-label" for="exampleCheck1">
-						{{$membresia->title}}
-						<input type="checkbox" value="{{$membresia->id}}" name="recurso_membership[]" id="exampleCheck1">
-					</label> 
-				 </div>
+				<h5>Cursos</h5>
+				<select class="form-control" name="recurso_curso_id">
+					<option>Selecciona un curso</option>
+				@foreach($cursos as $curso)
+					<option value="{{$curso->id}}" <?php if($recurso->course->id == $curso->id) echo 'selected'?>>{{$curso->titulo}}</option>
 				@endforeach
+				</select>
 			</div>
 			<div class="form-group col-12">
 				<h5>Recurso</h5>

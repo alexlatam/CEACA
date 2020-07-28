@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Recurso_Curso;
 use App\Course;
-
+use File;
 
 class RecursosCursosController extends Controller
 {
@@ -61,8 +61,8 @@ class RecursosCursosController extends Controller
 
     public function editarRecurso ($id){
         $recurso = Recurso_Curso::find($id);
-        $membresias = Plan::all();
-        return view('cms.recursos.editar_recurso', compact('recurso', 'membresias'));
+        $cursos = Course::all();
+        return view('cms.cursos_recursos.editar_recurso', compact('recurso', 'cursos'));
     }
 
 

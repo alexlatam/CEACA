@@ -24,7 +24,7 @@
 			{{session('error')}}
 		</div>
 		@endif
-		<form action="/cms/guardar/recurso" class="row" id="recurso_form" method="POST" enctype="multipart/form-data">
+		<form action="/cms/guardar/curso/recurso" class="row" id="recurso_form" method="POST" enctype="multipart/form-data">
 			@csrf
 			<div class="form-group col-12">
 				<h5>Titulo</h5>

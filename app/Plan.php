@@ -12,4 +12,9 @@ class Plan extends Model
     {
     	return $this->belongsToMany('App\Resource', 'plan_resource', 'plan_id', 'resource_id');
     }
+
+    public function courses()
+    {
+    	return $this->hasMany('App\Course');
+    }
 }

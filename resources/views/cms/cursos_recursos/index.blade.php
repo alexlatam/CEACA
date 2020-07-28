@@ -39,9 +39,8 @@
 	    			{{$recurso->course->titulo}}
 	    		</td>
 	    		<td class="d-flex">
-	    			<a href="/cms/editar/recurso/{{$recurso->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
-	    			<a href="/cms/download/recurso/{{$recurso->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Descargar</a>
-	    			<form action="/cms/eliminar/recurso/{{$recurso->id}}" method="POST">
+	    			<a href="/cms/editar/curso/recurso/{{$recurso->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
+	    			<form action="/cms/eliminar/recurso/curso/{{$recurso->id}}" method="POST">
 	    			  @csrf
 	    			  <button type="button" class="btn btn-sm btn-outline-danger recurso_eliminar" data-toggle="modal" data-target="#EliminarUsuarios">Eliminar</button>
 	    			</form>

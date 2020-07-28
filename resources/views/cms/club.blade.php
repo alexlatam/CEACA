@@ -70,6 +70,7 @@
               </form>
               @endif
               <button type="button" id="{{ $user->id }}" class="btn btn-sm btn-outline-success ml-2 editar"  data-toggle="modal" data-target="#modalMembresia">Membresia</button>
+              <button type="button" id="{{ $user->id }}" class="btn btn-sm btn-outline-success ml-2 curso" data-toggle="modal" data-target="#modalCurso">Cursos</button>
             </td>
           </tr>
           @endforeach
@@ -79,34 +80,26 @@
   </div>
 </section>
 
-<div class="modal fade" id="modalMiembro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalCurso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar miembro</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Cursos</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <input class="form-control" type="text" name="name" placeholder="Nombre">
-          </div>
-          <div class="form-group">
-            <input class="form-control" type="email" name="email" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <input class="form-control" type="text" name="pais" placeholder="Pais">
-          </div>
-          <div class="form-group">
-            <input class="form-control" type="text" name="empresa" placeholder="Empresa">
+        <form id="cursos-form" method="POST" action="">
+          @csrf
+          <div id="form_container">
+            
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Agregar</button>
+        <button type="button" id="cancelar-button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" id="agregarCursos" class="btn btn-success">Agregar</button>
       </div>
     </div>
   </div>
@@ -116,7 +109,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="">Cambiar Membresia</h5>
+          <h5 class="modal-title" id="">Membresias</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -142,24 +135,43 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button"  class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
           <button type="button" class="btn btn-success px-4" id="submitMembership">Actualizar membresia</button>
         </div>
       </div>
     </div>
   </div>
 
+
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script type="text/javascript">
   let userEdits = document.querySelectorAll('.editar');
   let formUser = document.getElementById('form_change_membership');
+  let userCurso = document.querySelectorAll('.curso');
+  let formContainer = document.getElementById('form_container');
 
 
+  if(userCurso)
+  {
+    userCurso.forEach(curso => {
+      curso.addEventListener('click', (e) => {
+        getUserCourse(e.target.id)
+      });
+    });
+  }
+
+  document.getElementById('agregarCursos').addEventListener('click', () => {
+    const formCursos = document.getElementById('cursos-form');
+
+    formCursos.submit();
+  })
 
   document.getElementById('submitMembership').addEventListener('click', () => {
     formUser.submit();
   });
+
+
 
   if(userEdits)
   {
@@ -167,6 +179,35 @@
       userEdit.addEventListener('click', (e) => {
         formMembership(e.target.id);
       });
+    });
+  }
+
+
+  function getUserCourse(id){
+    axios.get(`/cms/obtener/cursos/${id}`)
+      .then(response => {
+          let cursos = response.data;
+          formCourse(id, cursos)
+      })
+  }
+
+
+  function formCourse(id, cursos){
+    const formCursos = document.getElementById('cursos-form');
+
+    formCursos.action = `/cms/guardar/curso/usuario/${id}`;
+    formContainer.innerHTML = '';
+
+
+    cursos.forEach(curso => {
+      formContainer.innerHTML += `
+          <div class="form-check">
+              <input  type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="user_curso[]" value="${curso.id}">
+              <label class="form-check-label">
+                  ${curso.titulo}
+              </label>
+          </div>
+      `
     });
   }
 
@@ -191,7 +232,7 @@
       }
     });
 
-    modalName.textContent = `Nombre: ${user.name} | Correo ${user.email}`;
+    modalName.textContent = `Nombre: ${user.name} | Correo: ${user.email}`;
     formUser.action = `/user/membership/update/${user.id}`
   }
 

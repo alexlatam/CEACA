@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Course;
 use App\Plan;
+use App\User;
 use File;
 
 class CursoController extends Controller
@@ -104,6 +105,23 @@ class CursoController extends Controller
         }
 
     	
+    }
+
+
+    public function getCourse($id){
+        $user = User::find($id);
+
+        $cursos = $user->plan->courses;
+
+        return $cursos;
+    }
+
+    public function agregarCursoParaUsuario(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->courses()->attach($request->get('user_curso'));
+
+        return back()->with('message', 'Curso agregao con éxito al usuario');
     }
 
 

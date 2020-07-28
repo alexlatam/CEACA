@@ -179,6 +179,8 @@ Route::middleware('admin')->group(function () {
 
 	/* ----------  RUTA CURSO CONTROLLADOR ---------*/
 	Route::get('/cms/cursos', 'CursoController@index');
+	Route::get('/cms/obtener/cursos/{id}', 'CursoController@getCourse');
+	Route::post('/cms/guardar/curso/usuario/{id}', 'CursoController@agregarCursoParaUsuario');
 	Route::get('/cms/cursos/home', 'CursoController@cursosHome');
 	Route::get('/cms/crear/curso', 'CursoController@crearCurso');
 	Route::post('/cms/guardar/curso', 'CursoController@guardarCurso');
@@ -250,6 +252,10 @@ Route::middleware('admin')->group(function () {
 	/* ----------  RUTA RECURSOS CURSOS CONTROLLADOR ---------*/
 	Route::get('/cms/course/resource', 'RecursosCursosController@index');
 	Route::get('/cms/crear/curso/recurso', 'RecursosCursosController@crearRecurso');
+	Route::post('/cms/guardar/curso/recurso', 'RecursosCursosController@guardarRecurso');
+	Route::get('/cms/editar/curso/recurso/{id}', 'RecursosCursosController@editarRecurso');
+	Route::post('/cms/actualizar/recurso/curso/{id}', 'RecursosCursosController@actualizarRecurso');
+	Route::post('/cms/eliminar/recurso/curso/{id}', 'RecursosCursosController@eliminarRecurso');
 
 
 });
