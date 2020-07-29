@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Message;
 
+use App\Mail\UserCreated;
+use Illuminate\Support\Facades\Mail;
+
 class MessageController extends Controller
 {
     
@@ -17,6 +20,8 @@ class MessageController extends Controller
         $message->message = $request->message;
 
     	$message->save();
+
+        Mail::to('test@example.com')->send(new UserCreated($message));
 
     	return back()->with('message', 'Tu mensaje ha sido enviado con éxito');
     }

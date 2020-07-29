@@ -11,7 +11,7 @@ class UserCreated extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = "Usuario Registrado";
+    public $subject = "Mensaje de contacto";
 
     public $usuario;
 
