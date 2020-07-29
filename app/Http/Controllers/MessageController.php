@@ -52,7 +52,7 @@ class MessageController extends Controller
         }
 
 
-        Mail::to('gazuiandres@gmail.com')->send(new UserCreated($message));
+        //Mail::to('gazuiandres@gmail.com')->send(new UserCreated($message));
 
     	return back()->with('message', 'Tu mensaje ha sido enviado con éxito');
 
