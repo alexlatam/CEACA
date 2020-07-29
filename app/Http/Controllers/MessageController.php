@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Message;
 
+use App\Mail\UserCreated;
+use Illuminate\Support\Facades\Mail;
+
 class MessageController extends Controller
 {
 
@@ -47,6 +50,11 @@ class MessageController extends Controller
         // Código para aviso de error
         return back()->with('message',  'Tu mensaje NO ha sido enviado, Se ha detectado como visitante robot' );
         }
+
+
+        //Mail::to('gazuiandres@gmail.com')->send(new UserCreated($message));
+
+    	return back()->with('message', 'Tu mensaje ha sido enviado con éxito');
 
     }
 

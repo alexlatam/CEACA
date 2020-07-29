@@ -14,7 +14,7 @@
     <h1 class="h2">Cursos</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <a href="/cms/crear/curso" type="button" class="btn btn-sm btn-outline-secondary">Agregar Curso</a>
+        <a href="/cms/crear/curso" type="button" class="btn btn-sm btn-outline-success">Agregar Curso</a>
       </div>
     </div>
   </div>
@@ -28,9 +28,7 @@
           <th>Titulo</th>
           <th>Descripción</th>
           <th>Imagen</th>
-          <th>Duracion</th>
-          <th>fecha inicio</th>
-          <th>instructor</th>
+          <th>Membresia</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -44,17 +42,17 @@
               @if(substr($curso->imagen, 0, 4) === 'http')
                   <img src="{{ $curso->imagen }}" class="publicidades_card-img" alt="" style="width: 60px; height: 60px;">
               @elseif($curso->imagen)
-                   <img src="{{ asset('cursos_imagen/'. $curso->imagen) }}" alt="" style="width: 60px; height: 60px;">
+                   <img src="{{ asset('cursos/imagenes/'. $curso->imagen) }}" alt="" style="width: 60px; height: 60px;">
               @endif
             </td>
-            <td>{{$curso->duracion}}</td>
-            <td>{{$curso->fecha_inicio}}</td>
-            <td>{{$curso->instructor}}</td>
+            <td>
+              {{$curso->plan->title}}
+            </td>
             <td class="d-flex">
-              <a href="/cms/editar/curso/{{$curso->id}}"class="btn btn-sm btn-outline-secondary mr-2 editar">Editar</a>
+              <a href="/cms/editar/curso/{{$curso->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
               <form action="/cms/eliminar/curso/{{$curso->id}}" method="POST">
                 @csrf
-                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-secondary">
+                <input type="submit" value="Eliminar" type="button" class="btn btn-sm btn-outline-danger">
               </form>
             </td>
           </tr>

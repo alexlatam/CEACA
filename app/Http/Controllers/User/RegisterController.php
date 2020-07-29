@@ -5,11 +5,14 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
+
 use App\User;
 use App\Info;
 use App\Plan;
 use App\Cat_capacitacion;
 use Hash;
+
 
 class RegisterController extends Controller
 {
@@ -41,7 +44,8 @@ class RegisterController extends Controller
         
         
             $ch = curl_init(); 
-            
+
+
             curl_setopt($ch, CURLOPT_URL, $recaptcha_url );
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

@@ -26,18 +26,6 @@
             <label>Descripción</label>
             <textarea class="form-control" name="descripcion_curso"></textarea>
           </div>
-          <div class="col-12 mb-4">
-            <label>Duración</label>
-            <input class="form-control" type="number" name="duracion_curso" value="" placeholder="Duracion">
-          </div>
-          <div class="col-12 mb-4">
-            <label>Fecha de inicio</label>
-            <input class="form-control" type="date" name="fecha_curso" value="" placeholder="Fecha de inicio">
-          </div>
-          <div class="col-12 mb-4">
-            <label>instructor</label>
-            <input class="form-control" type="text" name="instructor_curso" value="" placeholder="Instructor">
-          </div>
 
           <div class="col-12 mb-4">
             <label style="display: block">Imagen</label>
@@ -45,11 +33,11 @@
           </div>
 
           <div class="col-12 mb-4">
-            <label>Categoría</label>
-            <select name="categoria_curso" class="form-control form-control">
-              <option>Seleccionar Categoria</option>
-              @foreach($categorias as $categoria)
-              <option value="{{$categoria->id}}">{{$categoria->titulo}}</option>
+            <label>Membresia</label>
+            <select name="plan_curso" class="form-control form-control">
+              <option>Seleccionar Membresia</option>
+              @foreach($membresias as $membresia)
+              <option value="{{$membresia->id}}">{{$membresia->title}}</option>
               @endforeach
             </select>
           </div>
