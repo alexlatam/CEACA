@@ -149,6 +149,12 @@
                 Cursos
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cms/encabezados">
+                <span data-feather="users"></span>
+                Encabezados
+              </a>
+            </li>
           </ul>
         </div>
       </nav>

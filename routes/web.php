@@ -266,7 +266,14 @@ Route::middleware('admin')->group(function () {
 	Route::get('/cms/editar/curso/recurso/{id}', 'RecursosCursosController@editarRecurso');
 	Route::post('/cms/actualizar/recurso/curso/{id}', 'RecursosCursosController@actualizarRecurso');
 	Route::post('/cms/eliminar/recurso/curso/{id}', 'RecursosCursosController@eliminarRecurso');
-
+	
+	/* ----------  RUTA RECURSOS CURSOS CONTROLLADOR ---------*/
+	Route::get('/cms/encabezados', 'EncabezadoController@index');
+	Route::get('/cms/crear/encabezado', 'EncabezadoController@crearEncabezado');
+	Route::post('/cms/guardar/encabezado', 'EncabezadoController@guardarEncabezado');
+	Route::get('/cms/editar/encabezado/{id}', 'EncabezadoController@editarEncabezado');
+	Route::post('/cms/actualizar/encabezado/{id}', 'EncabezadoController@actualizarEncabezado');
+	Route::post('/cms/eliminar/encabezado/{id}', 'EncabezadoController@eliminarEncabezado');
 
 });
 /*------------------------------------ END --------------------------*/
