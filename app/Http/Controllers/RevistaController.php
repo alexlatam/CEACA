@@ -9,6 +9,7 @@ use App\Service_Category;
 use App\Info;
 use App\Service;
 use App\Cat_capacitacion;
+use App\Encabezado;
 use File;
 class RevistaController extends Controller
 {
@@ -19,6 +20,7 @@ class RevistaController extends Controller
         $info = Info::All();
         $publicidad = Ads::where('seccion', 'revista')->get();
         $servicios = Service::All();
+        $encabezado = Encabezado::where('seccion', 'revista')->first();
         $cat_capacitaciones = Cat_capacitacion::all();
 
         return view('revista', [
@@ -27,6 +29,7 @@ class RevistaController extends Controller
             'cat_capacitaciones' => $cat_capacitaciones,
             'servicios' => $servicios,
             'publicidad' => $publicidad,
+            'encabezado' => $encabezado
         ]);
     }
 

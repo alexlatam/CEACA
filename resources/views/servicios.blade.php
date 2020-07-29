@@ -19,11 +19,17 @@
     <div class="container section pb-0">
         <div class="row align-items-center">
             <div class="col-12 col-md-8 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
-                <img src="{{asset('img/banner_servicios.jpg')}}" alt="Servicios de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
+                @if(isset($encabezado))
+                    <img src="{{asset('img/encabezados/'. $encabezado->imagen)}}" alt="Servicios de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
+                @else
+                    <img src="#" alt="Servicio de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
+                @endif
             </div>
             <div class="col-12 col-md-4 order-md-1">
                 <h1 class="mb-4 font-weight-bold" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
-                    Conoce Nuestros Servicios Técnicos
+                    @if(isset($encabezado))
+                        {{$encabezado->descripcion}}
+                    @endif
                 </h1>
                 <a href="{{route('contacto')}}" class="btn btn-outline-primary">
                     Contáctanos <i class="fas fa-arrow-right ml-2"></i>

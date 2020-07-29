@@ -11,6 +11,7 @@ use App\Plan;
 use App\Revista;
 use App\Cat_capacitacion;
 use App\Capacitacion;
+use App\Encabezado;
 
 use App\Mail\UserCreated;
 use Illuminate\Support\Facades\Mail;
@@ -71,13 +72,15 @@ Route::get('/servicios', function () {
 	$cat_capacitaciones = Cat_capacitacion::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
+	$encabezado= Encabezado::where('seccion', 'servicio')->first();
 	$publicidad = Ads::where('seccion', 'servicios')->get();
 	return view('servicios', [
 		"info" => $info,
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
 		"publicidad" => $publicidad,
-		"cat_capacitaciones" => $cat_capacitaciones
+		"cat_capacitaciones" => $cat_capacitaciones,
+		"encabezado" => $encabezado
 	]);
 })->name('servicios');
 
