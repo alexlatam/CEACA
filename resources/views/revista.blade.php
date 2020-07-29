@@ -63,8 +63,12 @@
     </div>
 </section>
 
-<!-- publicidad -->
-@include('home.publicidad_lateral')
+<section class="my-5 py-2 container-fluid">
+    <div class="row justify-content-center">
+        <img src="{{asset('img/publicidad_revista.jpg')}}" style="max-height:70vh;width:100%;">
+    </div>
+</section>
+
 
 <section>
     <div class="container section pb-0">
@@ -98,6 +102,9 @@
     <br>
     <span class="d-md-none">* Para ver desde su móvil debe descargar la revista.</span>
 </section>
+
+<!-- publicidad -->
+@include('home.publicidad_lateral')
 <script type='text/javascript'>
     document.oncontextmenu = function() {
         return false
