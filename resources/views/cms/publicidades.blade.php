@@ -33,15 +33,11 @@
 							<select class="form-control" name="publicidad_seccion">
 								<option value="home" <?php if($publicidad->seccion == "home" ) echo 'selected'?> >Home</option>
 								<option value="quienes somos" <?php if($publicidad->seccion == "quienes somos" ) echo 'selected'?>>Quienes Somos</option>
-
 								<option value="revista"  <?php if($publicidad->seccion == "revista" ) echo 'selected'?>>Revistas</option>
-
 								<option value="club ceaca"  <?php if($publicidad->seccion == "club ceaca" ) echo 'selected'?>>Club ceaca</option>
-
 								<option value="contacto"  <?php if($publicidad->seccion == "contacto" ) echo 'selected'?>>Contacto</option>
-
+								<option value="servicios"  <?php if($publicidad->seccion == "servicios" ) echo 'selected'?>>Servicios</option>
 								<option value="capacitaciones"  <?php if($publicidad->seccion == "capacitaciones" ) echo 'selected'?>>Capacitaciones</option>
-
 								<option value="perfil"  <?php if($publicidad->seccion == "perfil" ) echo 'selected'?> >Perfil Usuario</option>
 							</select>
 						</div>

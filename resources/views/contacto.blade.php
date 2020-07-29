@@ -138,9 +138,6 @@
         <h3 class="mb-4">
           Puedes escribirnos <span class="text-primary">directamente</span>
         </h3>
-        <!--p-- class="text-muted mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt nam voluptatum facilis, atque officiis possimus totam placeat maiores at tempore nulla corporis rem aliquid iusto ab, distinctio, nostrum cumque asperiores!
-        </!--p-->
         <div class="row">
           <div class="col-md-6 col-lg-5">
             <h5>
@@ -204,6 +201,12 @@
               <i class="fab fa-linkedin"></i>
               <span class="ml-1">
                 Linkedin
+              </span>
+            </a>
+            <a href="{{$twitter->valor}}" class="ml-4 enlace_contact" target="_blank">
+              <i class="fab fa-twitter"></i>
+              <span class="ml-1">
+                Twitter
               </span>
             </a>
           </div>
