@@ -50,7 +50,7 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10 col-xl-8">
         <p style="font-size:1.2rem;">
-          @php {{ echo nl2br($capacitacion->descripcion); }} @endphp
+          @php {{ echo ($capacitacion->descripcion); }} @endphp
         </p>
       </div>
     </div>

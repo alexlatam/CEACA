@@ -6,6 +6,9 @@
 
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Crear Encabezado</h1>
+    <div class="btn-group mr-2">
+      <a href="/cms/encabezados" type="button" class="btn btn-sm btn-outline-success">Volver</a>
+    </div>
   </div>
 
 
@@ -24,7 +27,7 @@
         </div>
         <div class="col-12 mb-4">
           <h5>Descripción</h5>
-          <textarea id="input-descripcion" class="form-control" name="descripcion_encabezado">{{$encabezado->descripcion}}</textarea>
+          <textarea class="ckeditor" id="input-descripcion" name="descripcion_encabezado">{{$encabezado->descripcion}}</textarea>
         </div>
         <div class="col-6 mb-4">
           <h5>Sección</h5>
@@ -41,6 +44,7 @@
           <input type="file" id="file_input" name="imagen_encabezado">
         </div>
         <div class="col-12 mb-5">
+          <a href="/cms/encabezados" type="button" class="btn btn-outline-danger px-4 mr-4">Cancelar</a>
           <input type="submit" id="submit_button" class="btn btn-success px-5" value="Actualizar Encabezado">
         </div>
       </div>
@@ -69,7 +73,7 @@
           return;
         }
 
-          formulario.submit();
+        formulario.submit();
       });
     }
   });
@@ -84,4 +88,5 @@
     }
   }
 </script>
+<script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
 @endsection

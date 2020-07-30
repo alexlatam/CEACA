@@ -28,7 +28,7 @@
                 </h1>
                 <p class="mb-3">
                     @if(isset($encabezado))
-                    @php {{ echo nl2br($encabezado->descripcion); }} @endphp
+                    @php {{ echo ($encabezado->descripcion); }} @endphp
                     @endif
                 </p>
             </div>

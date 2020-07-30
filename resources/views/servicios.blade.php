@@ -3,14 +3,15 @@
 @section('head')
 <title>Ceaca</title>
 <style>
-.imagen_servicios_principal{
-    width: 100%;
-    height: 100vh;
-    margin-top: 5%;
-}
-#navbarPage{
-    background-color: #fff!important;
-}
+    .imagen_servicios_principal {
+        width: 100%;
+        height: 100vh;
+        margin-top: 5%;
+    }
+
+    #navbarPage {
+        background-color: #fff !important;
+    }
 </style>
 @endsection
 @section('content')
@@ -20,18 +21,18 @@
         <div class="row align-items-center">
             <div class="col-12 col-md-8 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
                 @if(isset($encabezado))
-                    <img src="{{asset('img/encabezados/'. $encabezado->imagen)}}" alt="{{$encabezado->titulo}}" class="img-fluid img-incline-left mb-5 mb-md-0">
+                <img src="{{asset('img/encabezados/'. $encabezado->imagen)}}" alt="{{$encabezado->titulo}}" class="img-fluid img-incline-left mb-5 mb-md-0">
                 @endif
             </div>
             <div class="col-12 col-md-4 order-md-1">
                 <h1 class="mb-4 font-weight-bold" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
                     @if(isset($encabezado))
-                        {{$encabezado->titulo}}
+                    {{$encabezado->titulo}}
                     @endif
                 </h1>
-                <p class="class="mb-5"">
-                @if(isset($encabezado))
-                        {{$encabezado->descripcion}}
+                <p class="class=" mb-5"">
+                    @if(isset($encabezado))
+                    @php {{ echo nl2br($encabezado->descripcion); }} @endphp
                     @endif
                 </p>
             </div>
@@ -58,12 +59,12 @@
                             {{ $servicio->titulo }}
                         </h4>
                         <p class="mb-0 text-sm text-muted">
-                        @if(strlen($servicio->descripcion)>349)
-                        @php {{ $descripcion = substr($servicio->descripcion,0,350).'...'; }} @endphp
-                        @else
-                        @php {{ $descripcion=$servicio->descripcion; }} @endphp
-                        @endif
-                        {{ $descripcion }}
+                            @if(strlen($servicio->descripcion)>249)
+                            @php {{ $descripcion = substr($servicio->descripcion,0,250).'...'; }} @endphp
+                            @else
+                            @php {{ $descripcion=$servicio->descripcion; }} @endphp
+                            @endif
+                            @php {{ echo ($descripcion); }} @endphp
                         </p>
                     </div>
                 </a>
