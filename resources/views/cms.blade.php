@@ -102,6 +102,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/cms/encabezados">
+                <span data-feather="users"></span>
+                Encabezados
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/cms/nosotros">
                 <span data-feather="file"></span>
                 Sección de Nosotros (Quienes Somos)
@@ -147,12 +153,6 @@
               <a class="nav-link" href="/cms/cursos">
                 <span data-feather="users"></span>
                 Cursos
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/cms/encabezados">
-                <span data-feather="users"></span>
-                Encabezados
               </a>
             </li>
           </ul>
