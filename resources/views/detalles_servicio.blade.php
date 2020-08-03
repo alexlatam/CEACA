@@ -45,12 +45,9 @@
     <div class="row">
       <div class="col-12 text-center">
         <img src="{{asset('img/services/' . $servicio->imagen )}}" alt="..." class="img-fluid mb-3">
-        <p class="text-center text-sm text-muted mb-5">
-          {{ $servicio->titulo }} - Ceaca
-        </p>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5 pt-4">
       <div class="col-12 col-lg-10 col-xl-8">
         <p>
           @php {{ echo ($servicio->descripcion); }} @endphp
