@@ -36,21 +36,18 @@
         </div>
         <div class="col-12 mb-4">
           <h5>Descripción</h5>
-          <textarea class="form-control" name="descripcion_capacitacion" rows="5">{{$capacitacion->descripcion}}</textarea>
+          <textarea class="ckeditor" id="input-descripcion" name="descripcion_capacitacion">{{$capacitacion->descripcion}}</textarea>
         </div>
         <div class="col-12 mb-4">
           <h5>Cambiar Imagen</h5>
           <input type="file" name="imagen_capacitacion">
         </div>
-        <!--div class="col-12 mb-4">
-            <h5>Cambiar Logo</h5>
-            <input type="file" name="logo_capacitacion">
-         </div-->
-         <div class="col-12 mb-5">
-            <input type="submit" class="btn btn-success" value="Actualizar Capacitación">
-          </div>
-          </form>
+        <div class="col-12 mb-5">
+          <a href="/cms/capacitaciones" type="button" class="btn btn-outline-danger px-4 mr-4">Cancelar</a>
+          <input type="submit" class="btn btn-success" value="Actualizar Capacitación">
+        </div>
+    </form>
   </div>
 </section>
-
+<script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
 @endsection

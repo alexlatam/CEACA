@@ -53,47 +53,12 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10 col-xl-8">
         <p>
-          @php {{ echo nl2br($servicio->descripcion); }} @endphp
+          @php {{ echo ($servicio->descripcion); }} @endphp
         </p>
       </div>
     </div>
   </div>
 </section>
-
-<!--section-- class="mb-4">
-    <div class="container section pb-0">
-        <div class="row align-items-stretch">
-        @php {{$x=0;}} @endphp
-            @foreach ($servicios as $servicio)
-            @if($x>2)
-            @break
-            @endif
-            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                <a class="card h-100" href="/detalles_servicio/{{$servicio->id}}">
-                    <div class="card-body">
-                        <div class="row align-items-center no-gutters mb-4">
-                            <div class="col-auto">
-                                <div class="avatar mr-3">
-                                    <img src="{{asset('img/services/' . $servicio->imagen )}}" alt="..." class="img-cover rounded-circle">
-                                </div>
-                            </div>
-                        </div>
-                        <h4>
-                            {{ $servicio->titulo }}
-                        </h4>
-                        <p class="mb-0 text-sm text-muted">
-                        @php {{ $descripcion = substr($servicio->descripcion,0,100).'...'; }} @endphp
-                            {{ $descripcion }}
-                        </p>
-                    </div>
-                </a>
-            </div>
-            @php {{++$x;}} @endphp
-            
-            @endforeach
-        </div>
-    </div>
-</!--section-->
 
 @include('home.publicidad_lateral')
 

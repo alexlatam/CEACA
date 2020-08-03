@@ -49,8 +49,8 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10 col-xl-8">
-        <p>
-          @php {{ echo nl2br($capacitacion->descripcion); }} @endphp
+        <p style="font-size:1.2rem;">
+          @php {{ echo ($capacitacion->descripcion); }} @endphp
         </p>
       </div>
     </div>
@@ -62,13 +62,6 @@
 @include('home.section_magazine')
 @include('home.modal_revista')
 
-<!-- Publicidad -->
-<section class="section pb-0 mt-5 pt-2">
-  <div class="container">
-    <a href="{{route('servicios')}}">
-      <img src="{{asset('img/publicidad_home.jpg')}}" alt="" width="100%">
-    </a>
-  </div>
-</section>
+@include('home.publicidad_lateral')
 
 @endsection

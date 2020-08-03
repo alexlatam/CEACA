@@ -35,16 +35,17 @@
         @foreach($capacitaciones as $capacitacion)
           <tr>
             <td>{{$capacitacion->id}}</td>
-            <!--td-->
-               <!--img src="{{ asset('/capacitaciones/logos/'. $capacitacion->logo) }}" alt="" style="width: 40px; height: 40px;">
-            </!--td-->
             <td>
               <img src="{{ asset('/capacitaciones/'. $capacitacion->imagen) }}" alt="" style="width: 40px; height: 40px;">
             </td>
             <td>{{$capacitacion->titulo}}</td>
             <td>
-            @php {{ $descripcion = substr($capacitacion->descripcion,0,250); }} @endphp
-                            {{ $descripcion.'...' }}
+            @if(strlen($capacitacion->descripcion)>75)
+            @php {{ $descripcion = substr($capacitacion->descripcion,0,75).'...'; }} @endphp
+            @else
+            @php {{ $descripcion=$capacitacion->descripcion; }} @endphp
+            @endif
+            @php {{ echo ($descripcion); }} @endphp
             </td>
             <td class="d-flex">
               <a href="/cms/editar/capacitacion/{{$capacitacion->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
