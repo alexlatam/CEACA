@@ -106,7 +106,7 @@ Route::get('/ver_revista/{id}', function ($id) {
 
 /* CONTACTO */
 Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
-Route::post('/enviar/mensaje', 'MessageController@createMessage');
+Route::get('/enviar/mensaje', 'MessageController@createMessage');
 
 /* SUSCRIBIRSE Y DESCARGAR REVISTA */
 Route::post('/user/createmagazine/', 'ClubController@crearUsuarioDownload');
