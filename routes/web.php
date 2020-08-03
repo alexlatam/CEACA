@@ -289,15 +289,12 @@ Route::middleware('auth')->group(function () {
 	Route::get('/perfil/membresia', 'Perfil\PerfilController@membresias');
 	Route::get('/perfil/recursos', 'Perfil\PerfilController@recursos');
 
-
 	//Descargar recursos
 	Route::get('/download/recurso/{id}', 'RecursoController@descargarRecurso');
 });
 
 
 /*------------------------------------ END PERFIL --------------------------*/
-
-
 
 Auth::routes();
 
@@ -306,8 +303,6 @@ Route::get('admin', 'Admin\loginController@showLoginForm')->name('login.admin');
 Route::post('admin', 'Admin\loginController@login')->name('login.admin');
 
 /*-------------------------------LOGIN COMUN  --------------------------*/
-
-
 Route::get('/sesion', 'User\LoginController@index')->name('sesion');
 Route::post('/user/login', 'User\LoginController@login')->name('user.login');
 
