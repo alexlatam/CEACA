@@ -11,6 +11,11 @@ use App\Plan;
 use App\Revista;
 use App\Cat_capacitacion;
 use App\Capacitacion;
+use App\Encabezado;
+
+use App\Mail\UserCreated;
+use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +30,7 @@ use App\Capacitacion;
 /* HOME */
 
 Route::get('/', 'CeacaController@index')->name('home');
+
 
 /* NOSOTROS */
 Route::get('/nosotros', function () {
@@ -66,13 +72,15 @@ Route::get('/servicios', function () {
 	$cat_capacitaciones = Cat_capacitacion::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
+	$encabezado= Encabezado::where('seccion', 'servicio')->first();
 	$publicidad = Ads::where('seccion', 'servicios')->get();
 	return view('servicios', [
 		"info" => $info,
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
 		"publicidad" => $publicidad,
-		"cat_capacitaciones" => $cat_capacitaciones
+		"cat_capacitaciones" => $cat_capacitaciones,
+		"encabezado" => $encabezado
 	]);
 })->name('servicios');
 
@@ -131,7 +139,6 @@ Route::middleware('admin')->group(function () {
 	Route::get('/cms/informacion', 'InformationController@index');
 	Route::get('/cms/servicios', 'ServicioController@index');
 	Route::get('/cms/publicidades', 'PublicidadController@index');
-	Route::get('/cms/cursos', 'CursoController@index');
 	Route::get('/cms/slider/image', 'SliderImageController@index');
 	Route::get('/cms/crear/usuario', 'UserController@index');
 	Route::get('/cms/mensajes', 'CmsController@mensajesView');
@@ -184,6 +191,9 @@ Route::middleware('admin')->group(function () {
 	Route::post('/cms/eliminar/publicidad/{id}', 'PublicidadController@eliminarPublicidad');
 
 	/* ----------  RUTA CURSO CONTROLLADOR ---------*/
+	Route::get('/cms/cursos', 'CursoController@index');
+	Route::get('/cms/obtener/cursos/{id}', 'CursoController@getCourse');
+	Route::post('/cms/guardar/curso/usuario/{id}', 'CursoController@agregarCursoParaUsuario');
 	Route::get('/cms/cursos/home', 'CursoController@cursosHome');
 	Route::get('/cms/crear/curso', 'CursoController@crearCurso');
 	Route::post('/cms/guardar/curso', 'CursoController@guardarCurso');
@@ -251,6 +261,23 @@ Route::middleware('admin')->group(function () {
 	Route::post('/cms/eliminar/category/capacitacion/{id}', 'Capacitacion\CategoriaCapacitacionController@deleteCapacitacionCategory');
 	Route::get('/cms/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@getCategory');
 	Route::post('/cms/actualizar/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@editCategory');
+
+	/* ----------  RUTA RECURSOS CURSOS CONTROLLADOR ---------*/
+	Route::get('/cms/course/resource', 'RecursosCursosController@index');
+	Route::get('/cms/crear/curso/recurso', 'RecursosCursosController@crearRecurso');
+	Route::post('/cms/guardar/curso/recurso', 'RecursosCursosController@guardarRecurso');
+	Route::get('/cms/editar/curso/recurso/{id}', 'RecursosCursosController@editarRecurso');
+	Route::post('/cms/actualizar/recurso/curso/{id}', 'RecursosCursosController@actualizarRecurso');
+	Route::post('/cms/eliminar/recurso/curso/{id}', 'RecursosCursosController@eliminarRecurso');
+	
+	/* ----------  RUTA RECURSOS CURSOS CONTROLLADOR ---------*/
+	Route::get('/cms/encabezados', 'EncabezadoController@index');
+	Route::get('/cms/crear/encabezado', 'EncabezadoController@crearEncabezado');
+	Route::post('/cms/guardar/encabezado', 'EncabezadoController@guardarEncabezado');
+	Route::get('/cms/editar/encabezado/{id}', 'EncabezadoController@editarEncabezado');
+	Route::post('/cms/actualizar/encabezado/{id}', 'EncabezadoController@actualizarEncabezado');
+	Route::post('/cms/eliminar/encabezado/{id}', 'EncabezadoController@eliminarEncabezado');
+
 });
 /*------------------------------------ END --------------------------*/
 

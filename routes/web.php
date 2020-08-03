@@ -56,6 +56,7 @@ Route::get('/club', function () {
 	$membresias = Plan::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
+	$encabezado= Encabezado::where('seccion', 'quienes somos')->first();
 	$publicidad = Ads::where('seccion', 'club ceaca')->get();
 	return view('club', [
 		"info" => $info,
