@@ -12,6 +12,17 @@
 			  </div>
 			</div>	
 		</div>
+		@if(session('message'))
+		<div class="alert alert-success" role="alert">
+		  {{session('message')}}
+		</div>
+		@endif
+
+		@if(session('error'))
+		<div class="alert alert-danger" role="alert">
+		  {{session('error')}}
+		</div>
+		@endif
 		@php {{$x=0;}} @endphp
 		@foreach($publicidades as $publicidad)
 		@php {{++$x;}} @endphp
@@ -19,7 +30,7 @@
 				@if(substr($publicidad->imagen, 0, 4) === 'http')
                     <img src="{{ $publicidad->imagen }}" class="publicidades_card-img" alt="">
                 @elseif($publicidad->imagen)
-                     <img src="{{ asset('img/publicidad/'. $publicidad->imagen) }}" class="publicidades_card-img" alt="">
+                     <img src="{{ asset('img/seccionp/'. $publicidad->imagen) }}" class="publicidades_card-img" alt="">
                 @endif
 				<div class="publicidades_card-body">
 					<form action="/cms/actualizar/publicidad/{{$publicidad->id}}" id="formPublicidad" method="POST" enctype="multipart/form-data">
@@ -46,12 +57,58 @@
 							<input type="file" id="publicidad_imagen" class="file-input" name="publicidad_imagen">
 						</div>
 						<input type="submit" id="submit_publicidad" class="btn btn-success btn-sm px-5 mt-3" value="Actualizar Publicidad">
+						<button class="btn btn-danger btn-sm px-5 mt-3 publicidad_eliminar" type="button" data-toggle="modal" data-target="#EliminarUsuarios" id="{{$publicidad->id}}">Eliminar</button>
 					</form>
 				</div>
 			</div>
 		@endforeach
 	</div>
 </section>
+
+<div class="modal fade" id="EliminarUsuarios" tabindex="-1" role="dialog" aria-labelledby="EliminarUsuarios" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">¿Seguro que desea Eliminar esta publicidad?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="modal_eliminar_usuario_form" method="POST">
+          @csrf
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger px-4" id="submitModalEliminar">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+	let eliminarButtons = document.querySelectorAll('.publicidad_eliminar');
+	let formModal = document.getElementById('modal_eliminar_usuario_form')
+	let submitEliminar = document.getElementById('submitModalEliminar');
+
+
+	submitEliminar.addEventListener('click', () => {
+	  formModal.submit();
+	}); 
+
+	if(eliminarButtons)
+	{
+	  eliminarButtons.forEach(button => {
+	    button.addEventListener('click', (e) =>{
+	      e.preventDefault();
+	      
+
+	      formModal.action = `/cms/eliminar/publicidad/${e.target.id}`
+	    });
+	  });
+	}
+</script>
 
 <script type="text/javascript">
 	let urlPublicidad = document.getElementById('url');
