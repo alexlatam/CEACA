@@ -29,9 +29,6 @@ class EncabezadoController extends Controller
     	$encabezado->seccion = $request->seccion_encabezado; 
     	$encabezado->descripcion =$request->descripcion_encabezado;
 
-
-  
-
          //verificamos que la imagen exista
         if($file){
             $path = public_path() . '/img/encabezados';
@@ -65,7 +62,6 @@ class EncabezadoController extends Controller
     	$encabezado->seccion = $request->seccion_encabezado; 
     	$encabezado->descripcion =$request->descripcion_encabezado;
         
-
 
         if($file){
 

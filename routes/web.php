@@ -106,7 +106,7 @@ Route::get('/ver_revista/{id}', function ($id) {
 
 /* CONTACTO */
 Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
-Route::post('/enviar/mensaje', 'MessageController@createMessage');
+Route::get('/enviar/mensaje', 'MessageController@createMessage');
 
 /* SUSCRIBIRSE Y DESCARGAR REVISTA */
 Route::post('/user/createmagazine/', 'ClubController@crearUsuarioDownload');
@@ -157,6 +157,8 @@ Route::middleware('admin')->group(function () {
 	Route::get('/cms/miembros', 'CmsController@clubView');
 	Route::post('/club/user/pause/{id}', 'ClubController@pauseClubMember');
 	Route::post('/club/user/active/{id}', 'ClubController@activeClubMember');
+	Route::get('/club/user/membresia/{id}', 'ClubController@getUserMembership');
+	Route::post('/club/user/membership/{id}', 'ClubController@actualizarMembresia');
 
 	/* ----------  RUTA MEMBRESIAS-CLUB CONTROLLADOR ---------*/
 	Route::get('/cms/membresias', 'CmsController@membresiasView');

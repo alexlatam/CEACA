@@ -27,7 +27,7 @@
                     @if(auth()->user()->plan->title == $plan->title)
                         <a class="btn btn-sm btn-success px-5 mt-2" style="background: grey; border: none; cursor: initial; color: #fff">Actual</a>
                     @else
-                        <a href="#" class="btn btn-sm btn-success px-5 mt-2">Actuaizar membresia</a>
+                        <a href="#" data-toggle="modal" id="" data-target="#CambiarMembresia" class="btn btn-sm btn-success px-5 mt-2">Actuaizar membresia</a>
                     @endif
 
                 </div>
@@ -36,6 +36,28 @@
             @endforeach
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="CambiarMembresia" tabindex="-1" role="dialog" aria-labelledby="CambiarMembresia" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">¿Seguro que desea cambiar de membresia?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="modal_eliminar_usuario_form" method="POST">
+          @csrf
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success px-4" id="submitModalEliminar">Solcitar Cambio</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 @endsection

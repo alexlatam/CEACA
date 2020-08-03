@@ -16,29 +16,28 @@
     <div class="container section pb-0">
         <div class="row align-items-center">
             <div class="col-12 col-md-7" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
-                <img src="{{asset('img/banner_capacitaciones.jpg')}}" alt="Servicios de auditoria y mantenimiento en Calderas" class="img-fluid img-incline-left mb-5 mb-md-0">
+                @if(isset($encabezado))
+                <img src="{{asset('img/encabezados/'. $encabezado->imagen)}}" alt="{{$encabezado->titulo}}" class="img-fluid img-incline-left mb-5 mb-md-0">
+                @endif
             </div>
             <div class="col-12 col-md-5">
                 <h1 class="mb-1 font-weight-bold" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
-                    CURSOS Y TALLERES CEACA
+                    @if(isset($encabezado))
+                    {{$encabezado->titulo}}
+                    @endif
                 </h1>
-                <h4 class="text-success mb-2">
-                    EN EL ÁREA ESPECÍFICA DEL CUIDADO DE CALDERAS
-                </h4>
-                <p class="mb-1 text-muted">
-                    Ha sido el área de especialidad de Combustión, Energía & Ambiente, S.A. y de Carlos Lasarte, la auditoría, evaluación de la confiabilidad y seguridad de las Calderas, los sistemas de Generación y Distribución de Vapor, con particular énfasis en las Calderas, sus Equipos Auxiliares y sus Procesos, por esta razón contamos con un equipo de especialistas - instructores que podrían darle forma a un programa de especialización en cuidados, operación, inspección, análisis de fallas y mantenimiento de calderas, algunos ejemplos de los cursos que se ofrecen se presentan a continuación.
-                </p>
-                <p class="text-success">
-                    La Programación de los Cursos se irá Notificando Periódicamente
+                <p class="mb-3">
+                    @if(isset($encabezado))
+                    @php {{ echo ($encabezado->descripcion); }} @endphp
+                    @endif
                 </p>
             </div>
         </div>
-        <div class="row justify-content-center text-success mt-2">
+        <div class="row justify-content-center text-success mt-4">
             <strong>Todos los cursos están disponibles bajo la modalidad presencial, distancia y modalidad mixta. Abiertos e In-company.</strong>
         </div>
     </div>
 </section>
-
 <section class="mb-5">
     <div class="container section pb-0">
         <div class="row">
@@ -78,6 +77,8 @@
     </div>
 </section>
 
+@if(isset($encabezado))
+@if(stripos($categoria_name, 'CEACA'))
 <section class="container my-4">
     <div class="row">
         <p>
@@ -96,6 +97,10 @@
         </p>
     </div>
 </section>
+@endif
+@endif
+
+
 @include('home.download_magazine_simple')
 @include('home.modal_revista')
 <!-- Publicidad -->

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Revista;
 use App\Info;
+use App\Plan;
 use Illuminate\Support\Facades\Hash;
 
 class ClubController extends Controller
@@ -93,5 +94,31 @@ class ClubController extends Controller
         //$info = Info::all();
         //return view('miembros')->with(compact('info','message'));
         return back()->with('respuesta', 'La descarga ha sido exitosa');
+    }
+
+
+    public function getUserMembership($id)
+    {
+        $user = User::find($id);
+
+        $membresia = $user->plan->id;
+
+        $membresias = Plan::all();
+
+        return response()->json([
+            'user_id' => $user->id,
+            'membresia_id' => $membresia,
+            'membresias' => $membresias,
+        ], 200);
+    }
+
+    public function actualizarMembresia(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        $user->plan_id = $request->membership;
+        $user->save();
+
+        return back()->with('message', 'Membresia actualizada con éxito');
     }
 }

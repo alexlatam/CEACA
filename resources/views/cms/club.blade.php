@@ -8,6 +8,11 @@
     <h1 class="h2">Miembros del club</h1>
     <a href="/cms/club" class="px-5 btn btn-outline-success col-auto ml-auto">Volver</a>
   </div>
+  @if(session('message'))
+    <div class="alert alert-success" role="alert">
+      {{session('message')}}
+    </div>
+  @endif
   <div class="container-fluid px-0">
 
     <div class="table-responsive" style="max-width:100%!important;">
@@ -26,6 +31,7 @@
             <th>Actividad</th>
             <th>Especialidad</th>
             <th>Sector</th>
+            <th>Membresia</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -44,7 +50,8 @@
             <td>{{$user->actividad}}</td>
             <td>{{$user->especialidad}}</td>
             <td>{{$user->sector}}</td>
-            <td>
+            <td>{{$user->plan->title}}</td>
+            <td class="d-flex">
               @if($user->status === 'activo')
               <form action="/club/user/pause/{{$user->id}}" method="POST">
                 @csrf
@@ -56,6 +63,7 @@
                 <input type="submit" value="Activar" class="btn btn-sm btn-outline-success">
               </form>
               @endif
+              <button type="button" id="{{$user->id}}" class="btn btn-sm btn-outline-success ml-2 membresia_modal" data-toggle="modal" data-target="#modalMembresia">Membresia</button>
             </td>
           </tr>
           @endforeach
@@ -64,6 +72,32 @@
     </div>
   </div>
 </section>
+
+<div class="modal fade" id="modalMembresia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tipo de membresia</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="form-membresias-modal" method="POST">
+          @csrf
+          <div id="membresia_modal_content">
+            
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" id="modalMembresiaSubmit" class="btn btn-success">Actualizar Membresia</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="modal fade" id="modalMiembro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -97,6 +131,78 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+   let modalButton = document.querySelectorAll('.membresia_modal');
+   let formModal = document.getElementById('form-membresias-modal');
+   let containerModal = document.getElementById('membresia_modal_content');
+   let modalSubmit = document.getElementById('modalMembresiaSubmit');
+
+
+   modalSubmit.addEventListener('click', () => {
+    formModal.submit();
+   });  
+
+   if(modalButton){
+    modalButton.forEach(button => {
+      button.addEventListener('click', (e) => {
+        containerModal.innerHTML = '';
+        getMemberhip(e.target.id)
+      });
+    });
+   }
+
+
+   function getMemberhip(id)
+   {
+    axios.get(`/club/user/membresia/${id}`)
+      .then(response => {
+        let user_id = response.data.user_id
+        let membresia_id = response.data.membresia_id
+        let membresias = response.data.membresias;
+
+        renderMembership(user_id, membresia_id, membresias)
+
+      });
+   }
+
+
+
+   function renderMembership(user_id, m_id, membresias){
+      
+
+      if(membresias.length > 0)
+      {
+        membresias.forEach(membresia => {
+
+          let m_template = document.createElement('div')
+          m_template.classList.add('form-check');
+
+           m_template.innerHTML = `
+
+                <input id="" type="radio" class="form-check-input" name="membership" value="${membresia.id}" required autocomplete="cargo">
+                <label class="form-check-label">
+                    ${membresia.title}
+                </label>
+
+
+          `
+
+          if(membresia.id == m_id)
+          {
+            m_template.firstElementChild.setAttribute('checked', true);
+          }
+
+          containerModal.appendChild(m_template)
+
+        })
+
+        formModal.action = `/club/user/membership/${user_id}`;
+      }
+   }  
+
+</script>
+
 <script>
   window.onload = function() {
   $('#table1').DataTable({
