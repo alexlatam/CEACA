@@ -216,15 +216,8 @@
   </div>
 </section>
 
-<section class="section pb-0 my-5 py-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <img src="{{asset('img/1.jpg')}}" alt="" width="100%">
-      </div>
-    </div>
-  </div>
-</section>
+<!-- publicidad -->
+@include('home.publicidad_lateral')
 
 <script>
   function onSubmit(token) {

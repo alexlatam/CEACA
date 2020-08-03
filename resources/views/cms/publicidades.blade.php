@@ -57,7 +57,7 @@
 							<input type="file" id="publicidad_imagen" class="file-input" name="publicidad_imagen">
 						</div>
 						<input type="submit" id="submit_publicidad" class="btn btn-success btn-sm px-5 mt-3" value="Actualizar Publicidad">
-						<button class="btn btn-danger btn-sm px-5 mt-3 publicidad_eliminar" type="button" data-toggle="modal" data-target="#EliminarUsuarios" id="{{$publicidad->id}}">Eliminar</button>
+						<button class="btn btn-outline-danger btn-sm px-5 mt-3 publicidad_eliminar" type="button" data-toggle="modal" data-target="#EliminarUsuarios" id="{{$publicidad->id}}">Eliminar</button>
 					</form>
 				</div>
 			</div>

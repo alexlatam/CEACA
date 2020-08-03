@@ -20,7 +20,6 @@ class MessageController extends Controller
 
         $post_data = "secret=".$recaptcha_secret."&response=".$recaptcha_response."&remoteip=".$_SERVER['REMOTE_ADDR'] ;
 
-  
         $ch = curl_init(); 
         
         curl_setopt($ch, CURLOPT_URL, $recaptcha_url );
