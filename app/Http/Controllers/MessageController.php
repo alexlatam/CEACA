@@ -52,6 +52,7 @@ class MessageController extends Controller
         }
 
 
+
         Mail::send('emails.user_created', $message, function ($msg) {
             $msg->from('contacto@ceaca.com', 'Ceaca');
             $msg->to('contacto@ceaca.com')->subject('Mensaje de Contacto');
