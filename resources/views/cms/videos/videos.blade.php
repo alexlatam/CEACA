@@ -66,7 +66,7 @@
 								<input type="text" class="form-control" disabled value="Carga de video desactivada por uso de enlace" id="input_disabled" style="display: none;">
 							@endif
 						</div>
-						<input type="submit" id="submit_publicidad" class="btn btn-success btn-sm px-5 mt-3" value="Actualizar Publicidad">
+						<input type="submit" id="submit_publicidad" class="btn btn-success btn-sm px-5 mt-3 video_submit" value="Actualizar Publicidad">
 						<button class="btn btn-outline-danger btn-sm px-5 mt-3 publicidad_eliminar" type="button" data-toggle="modal" data-target="#EliminarUsuarios" id="{{$video->id}}">Eliminar</button>
 					</form>
 				</div>
@@ -144,46 +144,31 @@
 </script>
 
 <script type="text/javascript">
-	let urlPublicidad = document.getElementById('url');
-	let formPublicidad = document.getElementById('formPublicidad')
-	let imagenPublicidad = document.getElementById('publicidad_imagen')
-	let submitPublicidad = document.getElementById('submit_publicidad')
-
-	submitPublicidad.addEventListener('click', (e) => {
-		e.preventDefault();
+	let submitVideo = document.querySelectorAll('.video_submit')
 
 
-		if(!validarServicio())
-		{
-		  return;
-		}
+	submitVideo.forEach(video => {
+		video.addEventListener('click', (e) => {
+			e.preventDefault();
 
-		const archivo = imagenPublicidad.files[0];
+			form = e.target.parentNode
 
+			inputUrl = form[1]
+			fileInput = form[3]
 
-		if(archivo)
-		{
-			if(archivo.size > maximoBytes) {
-			  const alertSize = maximoBytes / 50000000000;
-
-			  alert(`el tamaño máximo por archivo es ${alertSize} MB`);
-
-			  imagenPublicidad.value = "";
+			if(inputUrl.value == '' && fileInput.files.length <= 0){
+				return alert('Debes agregar un enlace o cargar un video');
 			} else {
-			  formPublicidad.submit();
+				form.submit();
 			}
-		} else {
-			formPublicidad.submit();
-		}
 
-		
 
+		});
 	});
+	
 
 
-	const validarServicio = () => {
-		return true;
-	} 
+	
 
 </script>
 
