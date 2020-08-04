@@ -30,6 +30,11 @@
             display: none;
         }
     }
+
+    .img_principal_section {
+        width: 100% !important;
+        height: auto !important;
+    }
 </style>
 @endsection
 @section('content')
@@ -39,18 +44,18 @@
         <div class="row align-items-center">
             <div class="col-12 col-md-7 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
                 @if(isset($encabezado))
-                    <img src="{{asset('img/encabezados/'. $encabezado->imagen)}}" alt="{{$encabezado->titulo}}" class="img-fluid img-incline-left mb-5 mb-md-0">
+                <img src="{{asset('img/encabezados/'. $encabezado->imagen)}}" alt="{{$encabezado->titulo}}" class="img-fluid mb-5 mb-md-0 img_principal_section">
                 @endif
             </div>
             <div class="col-12 col-md-5 order-md-1">
                 <h1 class="mb-4 font-weight-bold" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
                     @if(isset($encabezado))
-                        {{$encabezado->titulo}}
+                    {{$encabezado->titulo}}
                     @endif
                 </h1>
                 <p class="mb-5">
-                @if(isset($encabezado))
-                        {{$encabezado->descripcion}}
+                    @if(isset($encabezado))
+                    {{$encabezado->descripcion}}
                     @endif
                 </p>
             </div>

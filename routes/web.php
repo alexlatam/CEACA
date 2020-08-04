@@ -40,9 +40,11 @@ Route::get('/nosotros', function () {
 	$info = Info::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
+	$encabezado= Encabezado::where('seccion', 'quienes somos')->first();
 	return view('nosotros', [
 		"info" => $info,
 		"nosotros_array" => $nosotros_array,
+		"encabezado" => $encabezado,
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
 		"publicidad" => $publicidad,
@@ -56,7 +58,6 @@ Route::get('/club', function () {
 	$membresias = Plan::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
-	$encabezado= Encabezado::where('seccion', 'quienes somos')->first();
 	$publicidad = Ads::where('seccion', 'club ceaca')->get();
 	return view('club', [
 		"info" => $info,

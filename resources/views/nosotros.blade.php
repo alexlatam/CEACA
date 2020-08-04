@@ -26,17 +26,14 @@
             font-size: 2rem;
             padding-top: 2rem;
         }
-
         #title_header {
             font-size: 3rem;
         }
     }
-
     @media only screen and (max-width: 600px) {
         #subtitle_header {
             font-size: 1rem;
         }
-
         #title_header {
             font-size: 2rem;
         }
@@ -49,7 +46,7 @@
     <div class="section section-top section_header">
 
         <!-- Cover -->
-        <div class="bg-cover section_header" style="background-image: url({{asset('img/encabezados/'. $encabezado->imagen)}});"></div>
+        <div class="bg-cover section_header" style="background-image: url({{asset('img/header_nosotros.jpg')}});"></div>
 
         <div class="bg-overlay section_header"></div>
 
@@ -60,14 +57,9 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-10 col-lg-10">
                     <p class="font-weight-medium text-center text-uppercase text-white text-white" data-toggle="animation" data-animation="fadeUp" data-animation-order="0" data-animation-trigger="load" id="subtitle_header">
-                        @if(isset($encabezado))
-                        {{$encabezado->titulo}}
-                        @endif
+                        CEACA - Combustión, Energía & Ambiente, s. a.
                     </p>
                     <h1 class="text-white text-center mb-4" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load" id="title_header">
-                        @if(isset($encabezado))
-                        {{$encabezado->descripcion}}
-                        @endif
                         23 años sirviendo con calidad y compromiso, en temas de Consultoría, Servicio Técnico y Capacitación en toda Latinoamérica
                     </h1>
                 </div>
@@ -76,15 +68,7 @@
     </div>
 </section>
 
-<section class="section pb-0 mt-5 pt-2">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <img src="{{asset('img/publicidad_nosotros.jpg')}}" alt="" width="100%">
-            </div>
-        </div>
-    </div>
-</section>
+@include('home.publicidad_lateral')
 
 <!-- ABOUT -->
 <section class="fp-section border-bottom">
@@ -142,11 +126,14 @@
 </section>
 
 @include('home.section_magazine')
+<section class="section bg-light">
+  <div class="line line-top"></div>
+  <div class="bg-triangle bg-triangle-dark bg-triangle-top bg-triangle-left"></div>
+  <div class="bg-triangle bg-triangle-dark bg-triangle-bottom bg-triangle-right"></div>
+</section>
 @include('home.modal_revista')
 
 @include('home.servicios_cat')
-
-@include('home.publicidad_lateral')
 
 @include('home.capacidades')
 
