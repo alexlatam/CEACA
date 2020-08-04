@@ -114,7 +114,6 @@ class PublicidadController extends Controller
                 return back()->with('error','Ha ocurrido un error al eliminar la publicidad');
             }
         } else {
-            dd($publicidad);
             $publicidad->delete();
             return back()->with('message','Publicidad eliminada con éxito');
         }

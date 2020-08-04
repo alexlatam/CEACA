@@ -280,12 +280,20 @@ Route::middleware('admin')->group(function () {
 	Route::post('/cms/actualizar/encabezado/{id}', 'EncabezadoController@actualizarEncabezado');
 	Route::post('/cms/eliminar/encabezado/{id}', 'EncabezadoController@eliminarEncabezado');
 
+	/* ----------  RUTA VIDEOS CONTROLLADOR ---------*/
+	Route::get('/cms/videos', 'VideoController@index');
+	Route::get('/cms/crear/videos', 'VideoController@crearVideos');
+	Route::post('/cms/guardar/videos', 'VideoController@guardarVideo');
+	Route::post('/cms/actualizar/video/{id}', 'VideoController@actualizarPublicidad');
+	Route::post('/cms/eliminar/video/{id}', 'VideoController@eliminarVideo');
+
 });
 /*------------------------------------ END --------------------------*/
 
 /*------------------------------------ PERFIL RUTAS --------------------------*/
 
 Route::middleware('auth')->group(function () {
+
 
 	Route::get('/perfil', 'Perfil\PerfilController@home');
 	Route::get('/perfil/membresia', 'Perfil\PerfilController@membresias');
