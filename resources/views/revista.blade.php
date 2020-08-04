@@ -103,6 +103,9 @@
     <span class="d-md-none">* Para ver desde su móvil debe descargar la revista.</span>
 </section>
 
+<!-- Video -->
+@include('home.videos_publicitarios');
+
 <!-- publicidad -->
 @include('home.publicidad_lateral')
 <script type='text/javascript'>

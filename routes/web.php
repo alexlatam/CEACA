@@ -12,6 +12,7 @@ use App\Revista;
 use App\Cat_capacitacion;
 use App\Capacitacion;
 use App\Encabezado;
+use App\Video;
 
 use App\Mail\UserCreated;
 use Illuminate\Support\Facades\Mail;
@@ -35,6 +36,7 @@ Route::get('/', 'CeacaController@index')->name('home');
 /* NOSOTROS */
 Route::get('/nosotros', function () {
 	$publicidad = Ads::where('seccion', 'quienes somos')->get();
+	$videos = Video::where('seccion', 'quienes somos')->get();
 	$nosotros_array = Info::All();
 	$cat_capacitaciones = Cat_capacitacion::All();
 	$info = Info::All();
@@ -48,7 +50,8 @@ Route::get('/nosotros', function () {
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
 		"publicidad" => $publicidad,
-		"cat_capacitaciones" => $cat_capacitaciones
+		"cat_capacitaciones" => $cat_capacitaciones,
+		"videos" => $videos
 	]);
 })->name('nosotros');
 /* CLUB */
@@ -59,13 +62,15 @@ Route::get('/club', function () {
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
 	$publicidad = Ads::where('seccion', 'club ceaca')->get();
+	$videos = Video::where('seccion', 'club ceaca')->get();
 	return view('club', [
 		"info" => $info,
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
 		"publicidad" => $publicidad,
 		"membresias" => $membresias,
-		"cat_capacitaciones" => $cat_capacitaciones
+		"cat_capacitaciones" => $cat_capacitaciones,
+		"videos" => $videos
 	]);
 })->name('club');
 /* SERVICIOS */
@@ -76,13 +81,15 @@ Route::get('/servicios', function () {
 	$cat_servicios = Service_Category::All();
 	$encabezado= Encabezado::where('seccion', 'servicio')->first();
 	$publicidad = Ads::where('seccion', 'servicios')->get();
+	$videos = Video::where('seccion', 'servicios')->get();
 	return view('servicios', [
 		"info" => $info,
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
 		"publicidad" => $publicidad,
 		"cat_capacitaciones" => $cat_capacitaciones,
-		"encabezado" => $encabezado
+		"encabezado" => $encabezado,
+		"videos" => $videos
 	]);
 })->name('servicios');
 
@@ -92,7 +99,8 @@ Route::get('/detalles_servicio/{id}', function ($id) {
 	$servicios = Service::All();
 	$servicio = Service::find($id);
 	$publicidad = Ads::where('seccion', 'servicios')->get();
-	return view('detalles_servicio', ["info" => $info, "cat_capacitaciones" => $cat_capacitaciones, "servicios" => $servicios, "servicio" => $servicio, "publicidad" => $publicidad]);
+	$videos = Video::where('seccion', 'servicios')->get();
+	return view('detalles_servicio', ["info" => $info, "cat_capacitaciones" => $cat_capacitaciones, "servicios" => $servicios, "servicio" => $servicio, "publicidad" => $publicidad,  "videos" => $videos]);
 })->name('detalles_servicio');
 
 /* REVISTA */
@@ -103,7 +111,8 @@ Route::get('/ver_revista/{id}', function ($id) {
 	$info = Info::All();
 	$cat_capacitaciones = Cat_capacitacion::All();
 	$publicidad = Ads::where('seccion', 'revista')->get();
-	return view('revista_details', ["info" => $info, "publicidad" => $publicidad, "revista" => $revista, "cat_capacitaciones" => $cat_capacitaciones]);
+	$videos = Video::where('seccion', 'revista')->get();
+	return view('revista_details', ["info" => $info, "publicidad" => $publicidad, "revista" => $revista, "cat_capacitaciones" => $cat_capacitaciones, "videos" => $videos]);
 });
 
 /* CONTACTO */

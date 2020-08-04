@@ -30,7 +30,7 @@
 				@if(substr($video->video, 0, 4) === 'http')
                     <iframe width="560" height="315" src="{{$video->video}}" frameborder="0" allow="accelerometer"></iframe>
                 @elseif($video->video)
-                     <video src="{{asset('video/' . $video->video)}}"></video>
+                     <video src="{{asset('video/' . $video->video)}}" controls style="max-width: 500px"></video>
                 @endif
 				<div class="publicidades_card-body">
 					<form action="/cms/actualizar/video/{{$video->id}}" id="formPublicidad" method="POST" enctype="multipart/form-data">
@@ -38,7 +38,7 @@
 						<div class="form-group">
 							<h5 title="Al dar click sobre la publicidad se redireccionara a este enlace">Enlace de video <small class="text-muted">(opcional)</small></h5>
 						@if(substr($video->video, 0, 4) === 'http')
-							<input type="text"  name="video_url" value="{{$video->video}}" placeholder="Descripcion..." class="form-control url-video" maxlength="191">
+							<input type="text"  name="video_url" value="{{$video->video}}" placeholder="Enlace..." class="form-control url-video" maxlength="191">
 						@elseif($video->video)
 							<input type="text"   name="video_url" value="" placeholder="Descripcion..." class="form-control url-video" maxlength="191">
 						@endif

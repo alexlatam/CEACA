@@ -100,6 +100,9 @@
 		{	
 			alert('Debe agregar una url o cargar un video');
 			return false;
+		} else if(urlPublicidad.value.substr(0, 4) != "http"){
+			alert('Agregar una url valida que empiece con http')	
+			return false;
 		} else {
 			return true;
 		}
