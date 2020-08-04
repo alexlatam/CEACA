@@ -117,6 +117,8 @@
   </div>
 
 </section>
+<!-- Video -->
+@include('home.videos_publicitarios');
 <!-- Publicidad -->
 @include('home.publicidad_lateral')
 <!-- <section class="section pb-0 mt-5 pt-2">

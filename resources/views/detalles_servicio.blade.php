@@ -57,6 +57,9 @@
   </div>
 </section>
 
+<!-- Video -->
+@include('home.videos_publicitarios');
+
 @include('home.publicidad_lateral')
 
 @include('home.section_magazine')

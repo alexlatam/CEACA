@@ -150,12 +150,12 @@
                 Solicitudes de Contacto
               </a>
             </li>
-<!--             <li class="nav-item">
-              <a class="nav-link" href="/cms/cursos">
+            <li class="nav-item">
+              <a class="nav-link" href="/cms/videos">
                 <span data-feather="users"></span>
-                Cursos
+                Videos
               </a>
-            </li> -->
+            </li>
           </ul>
         </div>
       </nav>

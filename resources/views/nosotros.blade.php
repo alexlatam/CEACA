@@ -79,6 +79,10 @@
 
 
 
+
+
+
+
 <!-- ABOUT -->
 <section class="fp-section border-bottom">
     <div class="section section-top" style="padding-top: calc(2.5rem + 5.8125rem);">
@@ -145,6 +149,9 @@
 @include('home.servicios_cat')
 
 @include('home.capacidades')
+
+<!-- Video -->
+@include('home.videos_publicitarios');
 
 @include('home.publicidad_lateral')
 

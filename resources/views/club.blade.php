@@ -165,6 +165,8 @@
     </div>
 </!--section-->
 
+<!-- Video -->
+@include('home.videos_publicitarios');
 
 <!-- publicidad -->
 @include('home.publicidad_lateral')
