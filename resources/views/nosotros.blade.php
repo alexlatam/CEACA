@@ -68,6 +68,9 @@
     </div>
 </section>
 
+<!-- Video -->
+@include('home.videos_publicitarios');
+<!-- Publicidad -->
 @include('home.publicidad_lateral')
 
 <!-- ABOUT -->
