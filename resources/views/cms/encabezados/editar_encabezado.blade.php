@@ -33,6 +33,7 @@
           <h5>Sección</h5>
           <select name="seccion_encabezado" id="servicio-categoria" class="form-control form-control">
             <option value="">Seleccionar Sección</option>
+            <option value="quienes somos" <?php if ($encabezado->seccion == "quienes somos") echo 'selected' ?>>Quienes Somos</option>
             <option value="servicio" <?php if ($encabezado->seccion == "servicio") echo 'selected' ?>>Servicios</option>
             <option value="revista" <?php if ($encabezado->seccion == "revista") echo 'selected' ?>>Revista</option>
             <option value="capacitacion ceaca" <?php if ($encabezado->seccion == "capacitacion ceaca") echo 'selected' ?>>Capacitacion Ceaca</option>

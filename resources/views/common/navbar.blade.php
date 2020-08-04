@@ -6,7 +6,7 @@
   /* Si la pantalla es mayor a 1200px se aplicaran los estilos*/
   @media only screen and (min-width: 1500px) {
     .brandNavbar {
-      width: 35%;
+      width: 30%;
     }
   }
 

@@ -68,15 +68,7 @@
     </div>
 </section>
 
-<section class="section pb-0 mt-5 pt-2">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <img src="{{asset('img/publicidad_nosotros.jpg')}}" alt="" width="100%">
-            </div>
-        </div>
-    </div>
-</section>
+@include('home.publicidad_lateral')
 
 <!-- ABOUT -->
 <section class="fp-section border-bottom">
@@ -134,11 +126,14 @@
 </section>
 
 @include('home.section_magazine')
+<section class="section bg-light">
+  <div class="line line-top"></div>
+  <div class="bg-triangle bg-triangle-dark bg-triangle-top bg-triangle-left"></div>
+  <div class="bg-triangle bg-triangle-dark bg-triangle-bottom bg-triangle-right"></div>
+</section>
 @include('home.modal_revista')
 
 @include('home.servicios_cat')
-
-@include('home.publicidad_lateral')
 
 @include('home.capacidades')
 

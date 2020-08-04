@@ -40,9 +40,11 @@ Route::get('/nosotros', function () {
 	$info = Info::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
+	$encabezado= Encabezado::where('seccion', 'quienes somos')->first();
 	return view('nosotros', [
 		"info" => $info,
 		"nosotros_array" => $nosotros_array,
+		"encabezado" => $encabezado,
 		"servicios" => $servicios,
 		"cat_servicios" => $cat_servicios,
 		"publicidad" => $publicidad,
@@ -106,7 +108,7 @@ Route::get('/ver_revista/{id}', function ($id) {
 
 /* CONTACTO */
 Route::get('/contacto', 'InformationController@contactoView')->name('contacto');
-Route::get('/enviar/mensaje', 'MessageController@createMessage');
+Route::post('/enviar/mensaje', 'MessageController@createMessage');
 
 /* SUSCRIBIRSE Y DESCARGAR REVISTA */
 Route::post('/user/createmagazine/', 'ClubController@crearUsuarioDownload');
@@ -299,15 +301,12 @@ Route::middleware('auth')->group(function () {
 	Route::get('/perfil/membresia', 'Perfil\PerfilController@membresias');
 	Route::get('/perfil/recursos', 'Perfil\PerfilController@recursos');
 
-
 	//Descargar recursos
 	Route::get('/download/recurso/{id}', 'RecursoController@descargarRecurso');
 });
 
 
 /*------------------------------------ END PERFIL --------------------------*/
-
-
 
 Auth::routes();
 
@@ -316,8 +315,6 @@ Route::get('admin', 'Admin\loginController@showLoginForm')->name('login.admin');
 Route::post('admin', 'Admin\loginController@login')->name('login.admin');
 
 /*-------------------------------LOGIN COMUN  --------------------------*/
-
-
 Route::get('/sesion', 'User\LoginController@index')->name('sesion');
 Route::post('/user/login', 'User\LoginController@login')->name('user.login');
 

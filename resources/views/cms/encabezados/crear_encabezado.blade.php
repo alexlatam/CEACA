@@ -30,6 +30,7 @@
           <h5 title="Sección de la página web donde será visible este encabezado">Sección de la página</h5>
           <select name="seccion_encabezado" id="servicio-categoria" class="form-control form-control">
             <option value="">Seleccionar Sección</option>
+            <option value="quienes somos">Quienes Somos</option>
             <option value="servicio">Servicios</option>
             <option value="revista">Revista</option>
             <option value="capacitacion ceaca">Capacitacion Ceaca</option>

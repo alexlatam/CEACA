@@ -3,14 +3,13 @@
 @section('head')
 <title>Ceaca</title>
 <style>
-    .imagen_servicios_principal {
-        width: 100%;
-        height: 100vh;
-        margin-top: 5%;
-    }
 
     #navbarPage {
         background-color: #fff !important;
+    }
+    .img_principal_section{
+        width: 100%!important;
+        height: auto;
     }
 </style>
 @endsection
@@ -21,7 +20,7 @@
         <div class="row align-items-center">
             <div class="col-12 col-md-8 order-md-2" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
                 @if(isset($encabezado))
-                <img src="{{asset('img/encabezados/'. $encabezado->imagen)}}" alt="{{$encabezado->titulo}}" class="img-fluid img-incline-left mb-5 mb-md-0">
+                <img src="{{asset('img/encabezados/'. $encabezado->imagen)}}" alt="{{$encabezado->titulo}}" class="img-fluid img-incline-left mb-5 mb-md-0 img_principal_section">
                 @endif
             </div>
             <div class="col-12 col-md-4 order-md-1">
