@@ -2,14 +2,14 @@
 
 
 @section('title')
-    <title>Ceaca | Registro</title>
-    <style type="text/css">
-        .navbar{
-            background-color: #fff;
-        }
-    </style>
-    {{-- recaptcha  --}}
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+<title>Ceaca | Registro</title>
+<style type="text/css">
+    .navbar {
+        background-color: #fff;
+    }
+</style>
+{{-- recaptcha  --}}
+<script src="https://www.google.com/recaptcha/api.js"></script>
 @endsection
 
 @section('content')
@@ -19,16 +19,16 @@
         <div class="col-md-8">
             <div class="card">
                 @if($actual != '')
-                    <div class="card-header">Registrarse con membresia {{$actual}}</div>
+                <div class="card-header">Registrarse con membresia {{$actual}}</div>
                 @else
-                    <div class="card-header">{{ __('Registrarse') }}</div>
+                <div class="card-header">{{ __('Registrarse') }}</div>
                 @endif
 
                 <div class="card-body">
                     @if(session('error'))
-                      <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-danger" role="alert">
                         {{session('error')}}
-                      </div>
+                    </div>
                     @endif
                     <form method="POST" id="registro_form" action="/user/registrar">
                         @csrf
@@ -40,14 +40,14 @@
                                 <select name="membership" id="membresia" class="form-control">
                                     <option value="0">Seleccionar membresia</option>
                                     @foreach($membresias as $membresia)
-                                        <option value="{{$membresia->id}}" <?php if(strtolower($membresia->title) == $actual) echo 'selected'?>>{{$membresia->title}}</option>
+                                    <option value="{{$membresia->id}}" <?php if (strtolower($membresia->title) == $actual) echo 'selected' ?>>{{$membresia->title}}</option>
                                     @endforeach
                                 </select>
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -59,9 +59,9 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -73,71 +73,71 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label  class="col-md-4 col-form-label text-md-right">{{ __('Pais *') }}</label>
+                            <label class="col-md-4 col-form-label text-md-right">{{ __('Pais *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="pais" type="text" class="form-control @error('pais') is-invalid @enderror" name="pais" value="{{ old('pais') }}" required autocomplete="pais">
 
                                 @error('pais')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label  class="col-md-4 col-form-label text-md-right">{{ __('Empresa *') }}</label>
+                            <label class="col-md-4 col-form-label text-md-right">{{ __('Empresa o Institución *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="empresa" type="text" class="form-control @error('empresa') is-invalid @enderror" name="empresa" value="{{ old('empresa') }}" required autocomplete="empresa">
 
                                 @error('empresa')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label  class="col-md-4 col-form-label text-md-right">{{ __('Planta *') }}</label>
+                            <label class="col-md-4 col-form-label text-md-right">{{ __('Planta / Instalación *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="planta" type="text" class="form-control @error('planta') is-invalid @enderror" name="planta" value="{{ old('planta') }}" required autocomplete="planta">
 
                                 @error('planta')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label  class="col-md-4 col-form-label text-md-right">{{ __('Cargo *') }}</label>
+                            <label class="col-md-4 col-form-label text-md-right">{{ __('Cargo *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="cargo" type="text" class="form-control @error('cargo') is-invalid @enderror" name="cargo" value="{{ old('cargo') }}" required autocomplete="cargo">
 
                                 @error('cargo')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label  class="col-md-4 col-form-label text-md-right">{{ __('Tipos de calderas *') }}</label>
+                            <label class="col-md-4 col-form-label text-md-right">{{ __('Tipos de calderas *') }}</label>
 
                             <div class="col-md-6">
                                 <div class="form-check">
@@ -245,85 +245,85 @@
 
                             <div class="col-md-6">
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Hoteles"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Hoteles" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Hoteles
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Hospitales"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Hospitales" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Hospitales*
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Farmacéutica"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Farmacéutica" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Farmacéutica*
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Alimentos y bebidas"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Alimentos y bebidas" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Alimentos y bebidas
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Ingeniería"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Ingeniería" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Ingeniería
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Azúcar y/o Alcohol"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Azúcar y/o Alcohol" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Azúcar y/o Alcohol
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Pulpa & Papel"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Pulpa & Papel" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Pulpa & Papel
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Plásticos y Petroquímica"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Plásticos y Petroquímica" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Plásticos y Petroquímica
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Refinería de Petróleo"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Refinería de Petróleo" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Refinería de Petróleo
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Termoeléctricas"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Termoeléctricas" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Termoeléctricas
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Servicios"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Servicios" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Servicios
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Suministros y materiales"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Suministros y materiales" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Suministros y materiales
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Instituciones Reguladoras"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Instituciones Reguladoras" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Instituciones Reguladoras
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Univerisidades - Academia"  autocomplete="cargo">
+                                    <input id="" type="checkbox" class="form-check-input @error('cargo') is-invalid @enderror" name="sector[]" value="Univerisidades - Academia" autocomplete="cargo">
                                     <label class="form-check-label">
                                         Univerisidades - Academia
                                     </label>
@@ -333,15 +333,15 @@
 
 
                         <div class="form-group row">
-                            <label  class="col-md-4 col-form-label text-md-right">{{ __('Especialidad en particular *') }}</label>
+                            <label class="col-md-4 col-form-label text-md-right">{{ __('Especialidad en particular *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="especialidad" type="text" class="form-control @error('cargo') is-invalid @enderror" name="especialidad" value="{{ old('cargo') }}" required autocomplete="cargo">
 
                                 @error('cargo')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -353,9 +353,9 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -366,6 +366,11 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
+                        </div>
+
+                        <div class="form-group my-2">
+                            <input id="aceptoTerminos" type="checkbox" onchange="terminos()" checked>
+                            Acepto recibir las notificaciones relacionadas con el Club CEACA y la Revista Calderas…Guía del Usuario (en la Industria y Comercio): *
                         </div>
 
                         <div class="form-group row mb-0">
@@ -381,6 +386,7 @@
                             <hr>
                         </div>
                     </form>
+                    <hr>
                     <div class="d-flex justify-content-center mt-3" style="position: relative; left: -5px">
                         <a href="/sesion" class="btn btn-outline-success px-5">Iniciar Sesión</a>
                     </div>
@@ -389,92 +395,100 @@
         </div>
     </div>
 </div>
-
+<script>
+    function terminos() {
+        let checkboxterminos = document.getElementById("aceptoTerminos");
+        let bottonSubmit = document.getElementById("registro_submit");
+        if (checkboxterminos.checked) {
+            bottonSubmit.removeAttribute("disabled");
+        } else {
+            bottonSubmit.setAttribute("disabled","");
+        }
+    }
+</script>
 {{-- recaptcha  --}}
 <script type="text/javascript">
+    var sector = document.getElementsByName('sector[]');
 
-        var sector = document.getElementsByName('sector[]');
-
-        console.log(sector);
-        const validarCheckbox = (sectores) => {
-                let contador = 0;
-                sectores.forEach(sector => {
-                    if(sector.checked){
-                        contador++
-                    }
-                });
-                return contador
-        }
+    console.log(sector);
+    const validarCheckbox = (sectores) => {
+        let contador = 0;
+        sectores.forEach(sector => {
+            if (sector.checked) {
+                contador++
+            }
+        });
+        return contador
+    }
 
     function onSubmit(token) {
         // vars
-            var membresia = document.getElementById('membresia');
-            var name = document.getElementById('name');
-            var email = document.getElementById('email');
-            var pais = document.getElementById('pais');
-            var empresa = document.getElementById('empresa');
-            var planta = document.getElementById('planta');
-            var cargo = document.getElementById('cargo');
+        var membresia = document.getElementById('membresia');
+        var name = document.getElementById('name');
+        var email = document.getElementById('email');
+        var pais = document.getElementById('pais');
+        var empresa = document.getElementById('empresa');
+        var planta = document.getElementById('planta');
+        var cargo = document.getElementById('cargo');
 
-            var especialidad = document.getElementById('especialidad');
+        var especialidad = document.getElementById('especialidad');
 
-            let form = document.getElementById('registro_form');
-            let password = document.getElementById('password');
-            let confirmPass = document.getElementById('password-confirm');
-            // e.preventDefault();
+        let form = document.getElementById('registro_form');
+        let password = document.getElementById('password');
+        let confirmPass = document.getElementById('password-confirm');
+        // e.preventDefault();
 
-            if(membresia.selectedIndex === 0){
-                return alert('Debe seleccionar una membresia');
-            }
-            if(name.value == ''){
-                return alert('Debes agregar tu nombre')
-            }
-            if (email.value == ''){
-                return alert('Debes agregar tu email')
-            }
+        if (membresia.selectedIndex === 0) {
+            return alert('Debe seleccionar una membresia');
+        }
+        if (name.value == '') {
+            return alert('Debes agregar tu nombre')
+        }
+        if (email.value == '') {
+            return alert('Debes agregar tu email')
+        }
 
-            emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-            if (!emailRegex.test(email.value)){
-                return alert("Verifique la dirección de email.");
-            }
-            if(pais.value == ''){
-                return alert('Debes agregar tu país')
-            }
-            if(empresa.value == ''){
-                return alert('Debes agregar tu empresa');
-            }
-            if(planta.value  == ''){
-                return alert('Debes agregar tu planta');
-            }
-            if(cargo.value == ''){
-                return alert('Debes agregar tu cargo');
-            }
+        emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+        if (!emailRegex.test(email.value)) {
+            return alert("Verifique la dirección de email.");
+        }
+        if (pais.value == '') {
+            return alert('Debes agregar tu país')
+        }
+        if (empresa.value == '') {
+            return alert('Debes agregar tu empresa');
+        }
+        if (planta.value == '') {
+            return alert('Debes agregar tu planta');
+        }
+        if (cargo.value == '') {
+            return alert('Debes agregar tu cargo');
+        }
 
-            if(validarCheckbox(sector) === 0){
-                return alert('Debes escoger un sector');
-            } 
-            if(especialidad.value == ''){
-                return alert('Debes agregar tu especialidad');
-            }
+        if (validarCheckbox(sector) === 0) {
+            return alert('Debes escoger un sector');
+        }
+        if (especialidad.value == '') {
+            return alert('Debes agregar tu especialidad');
+        }
 
-            if(password.value==''){
-                return alert ('Debe agregar la contraseña');
-            }
-            if(confirmPass.value==''){
-                return alert ('Debe repetir la contraseña');
-            }
+        if (password.value == '') {
+            return alert('Debe agregar la contraseña');
+        }
+        if (confirmPass.value == '') {
+            return alert('Debe repetir la contraseña');
+        }
 
-            if(password.value === confirmPass.value && password.value != ''){
-                form.submit();
-            } else {
-                alert('Las contraseñas tienen que ser iguales');
-                password.value = ''
-                confirmPass.value = ''
-            }
+        if (password.value === confirmPass.value && password.value != '') {
+            form.submit();
+        } else {
+            alert('Las contraseñas tienen que ser iguales');
+            password.value = ''
+            confirmPass.value = ''
+        }
 
-          
+
     }
-
-  </script>
+</script>
 
 @endsection

@@ -24,10 +24,10 @@ class ClubController extends Controller
 
 
         $recaptcha_secret = "6LcnwLIZAAAAAFUSyNHCfNfwK45uIQnhsCgViTog";
-        $recaptcha_response =  $request->input('g-recaptcha-response');
+        $recaptcha_response = $request->input('g-recaptcha-response');
         $recaptcha_url= "https://www.google.com/recaptcha/api/siteverify";
 
-        $post_data = "secret=".$recaptcha_secret."&response=".$recaptcha_response."&remoteip=".$_SERVER['REMOTE_ADDR'] ;
+        $post_data = "secret=".$recaptcha_secret."&response=".$recaptcha_response."&remoteip=".$_SERVER['REMOTE_ADDR'];
 
         $ch = curl_init(); 
         
@@ -45,6 +45,7 @@ class ClubController extends Controller
 
         
         if ($jsonResponse->success === true){
+            return "ok";
             //confirmo si el correo ya se encuentra ne base de datos
             $email = $request->email;
             if (User::where('email', '=', $email)->exists()) {
@@ -82,7 +83,6 @@ class ClubController extends Controller
             // Código para aviso de error
             return back()->with('message',  'Tu mensaje NO ha sido enviado, Se ha detectado como visitante robot' );
         }
-
 
     }
 
