@@ -251,6 +251,14 @@ Route::middleware('admin')->group(function () {
 	Route::get('/cms/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@getCategory');
 	Route::post('/cms/actualizar/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@editCategory');
 
+
+		/* ----------  RUTA FAQ CONTROLLADOR ---------*/
+		Route::get('/cms/faq_', function(){
+			return view('cms.faq_main');
+		});
+		Route::resource('/cms/faq', 'FaqController');
+		Route::resource('/cms/faq_topic', 'FaqTopicController');
+
 });
 /*------------------------------------ END --------------------------*/
 

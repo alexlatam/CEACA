@@ -142,6 +142,12 @@
                 <span data-feather="users"></span>
                 Solicitudes de Contacto
               </a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="/cms/faq_">
+                <span data-feather="users"></span>
+                FAQ (Preguntas Frecuentes)
+              </a>
             </li>            
           </ul>
         </div>
