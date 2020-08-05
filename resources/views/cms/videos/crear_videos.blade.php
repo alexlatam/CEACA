@@ -20,10 +20,10 @@
 		@endif
 		<form action="/cms/guardar/videos" id="form" class="row" method="POST" enctype="multipart/form-data">
 			@csrf
-			<div class="form-group col-12">
+			<!--div-- class="form-group col-12">
 				<h5 title="Al dar click sobre la publicidad se redireccionara a este enlace">Enlace de video <small class="text-muted">(opcional)</small></h5>
 				<input type="text" id="url" name="video_url" placeholder="url..." class="form-control" maxlength="191">
-			</div>
+			</!--div-->
 			<div class="form-group col-12">
 				<h5>Sección </h5>
 				<select class="form-control" name="video_seccion">
@@ -38,13 +38,12 @@
 				</select>
 			</div>
 			<div class="form-group col-12">
-				<h5>Video</h5>
+				<h5>Archivo de Video</h5>
 				<input type="file" id="file_input" name="video_file">
 				<input type="text" class="form-control" disabled value="Carga de video desactivada por uso de enlace" id="input_disabled" style="display: none;">
 			</div>
 			<div class="col-auto">
 				<input type="submit" class="btn btn-success px-5 col-auto" id="submit_button" value="Crear Video">
-				
 			</div>
 		</form>
 	</div>
@@ -52,14 +51,14 @@
 
 <script type="text/javascript">
 	let formulario = document.getElementById('form');
-	let urlPublicidad = document.getElementById('url');
+	//let urlPublicidad = document.getElementById('url');
 	let botonPublicidad = document.getElementById('submit_button');
 	let imagenPublicidad = document.getElementById('file_input');
 
 	let input_disabled = document.getElementById('input_disabled')
 
 
-	urlPublicidad.addEventListener('keyup', () => {
+	/*urlPublicidad.addEventListener('keyup', () => {
 		if(urlPublicidad.value == '')
 		{	
 			imagenPublicidad.style.display = 'block';
@@ -70,43 +69,26 @@
 			imagenPublicidad.style.display = 'none';
 			imagenPublicidad.value = "";
 		}
-	});
+	});*/
 
 	if(botonPublicidad){
 		botonPublicidad.addEventListener('click', (e) => {
 			e.preventDefault();
 
-			if(!validarServicio())
-			{
-			  return;
-			}
-
 			const archivo = imagenPublicidad.files[0];
-
 
 			if(archivo)
 			{
 				formulario.submit();
 			} else {
-				formulario.submit();
+				alert('Debe cargar un video');
+			return false;
 			}
 
 		});
 	}
 
 
-	const validarServicio = () => {
-		 if(imagenPublicidad.files.length <= 0 && urlPublicidad.value == '')
-		{	
-			alert('Debe agregar una url o cargar un video');
-			return false;
-		} else if(urlPublicidad.value.substr(0, 4) != "http"){
-			alert('Agregar una url valida que empiece con http')	
-			return false;
-		} else {
-			return true;
-		}
-	} 
 
 </script>
 

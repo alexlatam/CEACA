@@ -5,7 +5,7 @@
 <section class="publicidades">
 	<div class="publicidades-tipo-2">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-			<h3 class="h2">Videos</h3>
+			<h3 class="h2">Videos Promocionales</h3>
 			<div class="btn-toolbar mb-2 mb-md-0">
 			  <div class="btn-group mr-2">
 			    <a href="/cms/crear/videos" type="button" class="btn btn-sm btn-outline-success">Agregar Videos</a>
@@ -35,14 +35,14 @@
 				<div class="publicidades_card-body">
 					<form action="/cms/actualizar/video/{{$video->id}}" id="formPublicidad" method="POST" enctype="multipart/form-data">
 						@csrf
-						<div class="form-group">
+						<!--div-- class="form-group">
 							<h5 title="Al dar click sobre la publicidad se redireccionara a este enlace">Enlace de video <small class="text-muted">(opcional)</small></h5>
 						@if(substr($video->video, 0, 4) === 'http')
-							<input type="text"  name="video_url" value="{{$video->video}}" placeholder="Enlace..." class="form-control url-video" maxlength="191">
+							<input type="text" name="video_url" value="{{$video->video}}" placeholder="Enlace..." class="form-control url-video" maxlength="191">
 						@elseif($video->video)
-							<input type="text"   name="video_url" value="" placeholder="Descripcion..." class="form-control url-video" maxlength="191">
+							<input type="text" name="video_url" value="" placeholder="Descripcion..." class="form-control url-video" maxlength="191">
 						@endif
-						</div>
+						</!--div-->
 						<div>
 							<h5>Sección</h5>
 							<select class="form-control" name="video_seccion">
@@ -102,30 +102,8 @@
 	let formModal = document.getElementById('modal_eliminar_usuario_form')
 	let submitEliminar = document.getElementById('submitModalEliminar');
 
-	let urlInput = document.querySelectorAll('.url-video');
+	//let urlInput = document.querySelectorAll('.url-video');
 	
-
-	urlInput.forEach(url => {
-		url.addEventListener('keyup', (e)=> {
-			input = e.target;
-
-			form = e.target.parentNode.parentNode
-			inputDisabled = form[4]
-			inputFile = form[3]
-
-			if(input.value == ''){
-				inputDisabled.style.display = 'none';
-				inputFile.style.display = 'block';
-			} else {
-				inputDisabled.style.display = 'block';
-				inputFile.style.display = 'none';
-
-				inputFile.value = ''
-			}
-		});
-	});
-
-
 	submitEliminar.addEventListener('click', () => {
 	  formModal.submit();
 	}); 
@@ -136,40 +114,10 @@
 	    button.addEventListener('click', (e) =>{
 	      e.preventDefault();
 	      
-
 	      formModal.action = `/cms/eliminar/video/${e.target.id}`
 	    });
 	  });
 	}
-</script>
-
-<script type="text/javascript">
-	let submitVideo = document.querySelectorAll('.video_submit')
-
-
-	submitVideo.forEach(video => {
-		video.addEventListener('click', (e) => {
-			e.preventDefault();
-
-			form = e.target.parentNode
-
-			inputUrl = form[1]
-			fileInput = form[3]
-
-			if(inputUrl.value == '' && fileInput.files.length <= 0){
-				return alert('Debes agregar un enlace o cargar un video');
-			} else {
-				form.submit();
-			}
-
-
-		});
-	});
-	
-
-
-	
-
 </script>
 
 <script type="text/javascript">
@@ -180,16 +128,13 @@
 			let padre = e.target.parentNode.parentNode.parentNode.parentNode
 			let imgContainer = padre.children[0];
 
-
 			let reader = new FileReader();
 			reader.readAsDataURL(e.target.files[0]);
 
 			reader.onload = function (){
 				imgContainer.src = reader.result;
 			}
-
-			
-
+		
 		}
 	});
 </script>
