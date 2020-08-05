@@ -35,7 +35,7 @@
         </div>
         <div class="col-12 mb-4">
           <h5>Descripción</h5>
-          <textarea class="ckeditor" id="input-descripcion" name="descripcion_servicio"></textarea>
+          <textarea class="ckeditor" id="input_descripcion" name="descripcion_servicio"></textarea>
           <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
         </div>
         <div class="col-12 mb-4">
@@ -61,7 +61,7 @@
   let formulario = document.getElementById('form');
   let logo = document.getElementById('file_logo');
   let tituloServico = document.getElementById('input-title');
-  let descripcionServicio = document.getElementById('input-descripcion');
+  let descripcionServicio = document.getElementById('input_descripcion');
   let categoriaServicio = document.getElementById('servicio-categoria');
 
 
@@ -69,7 +69,7 @@
 
   //inputs
 
-  texts = document.querySelectorAll('.input-text');
+
 
   document.addEventListener('DOMContentLoaded', () => {
     if (submit) {
@@ -116,6 +116,9 @@
   const validarServicio = () => {
     if (tituloServico.value <= 0) {
       alert('Debe agregar un titulo');
+      return false;
+    } else if(CKEDITOR.instances.input_descripcion.getData() == '') {
+      alert('Debes agregar una descripción');
       return false;
     } else if (file.files.length <= 0) {
       alert('Debe cargar una imagen')

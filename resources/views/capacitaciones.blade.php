@@ -7,6 +7,12 @@
         width: 100%!important;
         height: auto;
     }
+
+    @media (max-width: 768px){
+        .capacitacion_message{
+            padding: 0 1rem;
+        }
+    }
 </style>
 @endsection
 @section('content')
@@ -33,7 +39,7 @@
                 </p>
             </div>
         </div>
-        <div class="row justify-content-center text-success mt-4">
+        <div class="row justify-content-center capacitacion_message text-success mt-4">
             <strong>Todos los cursos están disponibles bajo la modalidad presencial, distancia y modalidad mixta. Abiertos e In-company.</strong>
         </div>
     </div>

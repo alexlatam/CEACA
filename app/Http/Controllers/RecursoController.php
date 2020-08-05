@@ -64,8 +64,11 @@ class RecursoController extends Controller
 
     public function editarRecurso ($id){
         $recurso = Resource::find($id);
+
+        $m_relaciones = $recurso->plans;
+
         $membresias = Plan::all();
-        return view('cms.recursos.editar_recurso', compact('recurso', 'membresias'));
+        return view('cms.recursos.editar_recurso', compact('recurso', 'membresias', 'm_relaciones'));
     }
 
 
