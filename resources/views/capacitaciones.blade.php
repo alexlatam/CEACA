@@ -12,7 +12,7 @@
 @section('content')
 @include('common.navbar')
 
-<section class="mt-5 mb-3">
+<section class="mb-3">
     <div class="container section pb-0">
         <div class="row align-items-center">
             <div class="col-12 col-md-7" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
