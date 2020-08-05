@@ -1,3 +1,4 @@
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <div class="modal fade modalRevista" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -32,14 +33,19 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" onclick="descargarRevista()">Suscribirse y Descargar la Revista</button>
+                    <button type="submit" class="btn btn-outline-primary g-recaptcha" 
+                    data-sitekey="6LcnwLIZAAAAAKQiVWCAHH72PWf2-Dg-69YaV41e" 
+                    data-callback='onSubmit'>
+                        Suscribirse y Descargar la Revista
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 <script>
-    function descargarRevista() {
+    function onSubmit(token) {
         var name = document.getElementById("name").value.trim()
         var email = document.getElementById("email").value.trim()
         var pais = document.getElementById("pais").value.trim()
