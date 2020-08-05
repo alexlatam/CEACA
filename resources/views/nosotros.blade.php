@@ -139,17 +139,13 @@
 </section>
 
 @include('home.section_magazine')
-<section class="section bg-light">
-    <div class="line line-top"></div>
-    <div class="bg-triangle bg-triangle-dark bg-triangle-top bg-triangle-left"></div>
-    <div class="bg-triangle bg-triangle-dark bg-triangle-bottom bg-triangle-right"></div>
-</section>
+
 @include('home.modal_revista')
 
 @include('home.capacidades')
 
 <!-- Video -->
-@include('home.videos_publicitarios');
+@include('home.videos_publicitarios')
 
 @include('home.publicidad_lateral')
 

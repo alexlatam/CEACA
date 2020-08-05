@@ -169,6 +169,7 @@ Route::middleware('admin')->group(function () {
 	Route::get('/cms/miembros', 'CmsController@clubView');
 	Route::post('/club/user/pause/{id}', 'ClubController@pauseClubMember');
 	Route::post('/club/user/active/{id}', 'ClubController@activeClubMember');
+	Route::post('/club/user/delete/{id}', 'ClubController@deleteClubMember');
 	Route::get('/club/user/membresia/{id}', 'ClubController@getUserMembership');
 	Route::post('/club/user/membership/{id}', 'ClubController@actualizarMembresia');
 

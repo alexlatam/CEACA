@@ -117,6 +117,8 @@
     };
 </script>
 
+@include('home.redes_sociales')
+
 @include('home.modal_revista')
 
 @endsection

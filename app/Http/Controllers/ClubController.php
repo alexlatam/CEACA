@@ -121,4 +121,12 @@ class ClubController extends Controller
 
         return back()->with('message', 'Membresia actualizada con éxito');
     }
+
+    public function deleteClubMember(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        $user->delete();
+        return back()->with('message', 'Usuario eliminado con éxito');
+    }
 }
