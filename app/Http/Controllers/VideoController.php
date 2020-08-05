@@ -93,7 +93,6 @@ class VideoController extends Controller
                 }
             }
         } else {
-        	$video->video = $request->video_url;
             $video->save();
             return back()->with('message', '¡Video actualizado con éxito!');
         }
@@ -103,7 +102,6 @@ class VideoController extends Controller
 
     public function eliminarVideo(Request $request, $id){
         $video = Video::find($id);
-
 
         if(isset($video->video))
         {

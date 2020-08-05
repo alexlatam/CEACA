@@ -153,7 +153,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/cms/videos">
                 <span data-feather="users"></span>
-                Videos
+                Videos Promocionales
               </a>
             </li>
           </ul>
