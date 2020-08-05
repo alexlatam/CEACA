@@ -121,14 +121,6 @@
 @include('home.videos_publicitarios');
 <!-- Publicidad -->
 @include('home.publicidad_lateral')
-<!-- <section class="section pb-0 mt-5 pt-2">
-  <div class="container">
-    <a href="{{route('servicios')}}">
-      <img src="{{asset('img/publicidad_home.jpg')}}" alt="" width="100%">
-    </a>
-  </div>
-</section> -->
-
 
 @include('home.servicios_cat')
 

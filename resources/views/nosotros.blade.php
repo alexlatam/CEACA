@@ -146,13 +146,13 @@
 </section>
 @include('home.modal_revista')
 
-@include('home.servicios_cat')
-
 @include('home.capacidades')
 
 <!-- Video -->
 @include('home.videos_publicitarios');
 
 @include('home.publicidad_lateral')
+
+@include('home.redes_sociales')
 
 @endsection

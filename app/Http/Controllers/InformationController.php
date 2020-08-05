@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Info;
 use App\Ads;
+use App\Video;
 use File;
 use App\Cat_capacitacion;
 
@@ -21,8 +22,9 @@ class InformationController extends Controller
         $instagram = Info::where('atributo', 'instagram')->first();
         $cat_capacitaciones = Cat_capacitacion::All();
         $publicidad = Ads::where('seccion', 'contacto')->get();
+        $videos = Video::where('seccion', 'contacto')->get();
 
-    	return view('cms.informacion')->with(compact('cat_capacitaciones','publicidad','telefono1', 'telefono2', 'direccion', 'twitter', 'facebook', 'linkedin', 'instagram', 'email'));
+    	return view('cms.informacion')->with(compact('cat_capacitaciones','publicidad','telefono1', 'telefono2', 'direccion', 'twitter', 'facebook', 'linkedin', 'instagram', 'email','videos'));
     }
 
     public function contactoView(){
