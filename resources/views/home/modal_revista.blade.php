@@ -8,7 +8,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="pb-2" action="/user/createmagazine" method="POST">
+            <form class="pb-2" action="/user/createmagazine" method="POST" id="form-modalrevista">
                 @csrf
                 @method('POST')
                 <div class="modal-body">
@@ -35,9 +35,14 @@
                         Acepto recibir las notificaciones relacionadas con el Club CEACA y la Revista Calderas…Guía del Usuario (en la Industria y Comercio): *
                     </div>
                 </div>
+                <input type="hidden" name="action" value="validate_captcha">
                 <div class="modal-footer" style="border-top: 1px solid #ddd;">
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success g-recaptcha" data-sitekey="6LcnwLIZAAAAAKQiVWCAHH72PWf2-Dg-69YaV41e" data-callback='onSubmit' id="buttonSubmitModal">
+                    <button class="btn btn-success g-recaptcha"
+                    data-sitekey="6LcnwLIZAAAAAKQiVWCAHH72PWf2-Dg-69YaV41e"
+                    data-callback='onSubmit'
+                    data-action='submit'
+                    id="buttonSubmitModal">
                         Suscribirse y Descargar la Revista
                     </button>
                 </div>
@@ -52,7 +57,7 @@
         if (checkboxterminos.checked) {
             bottonSubmit.removeAttribute("disabled");
         } else {
-            bottonSubmit.setAttribute("disabled","");
+            bottonSubmit.setAttribute("disabled", "");
         }
     }
 </script>
@@ -67,6 +72,7 @@
         var cargo = document.getElementById("cargo").value.trim()
         if (name != "" && email != "" && pais != "" && empresa != "" && planta != "" &&
             cargo != "") {
+                document.getElementById("form-modalrevista").submit();
             document.getElementById("closeModalRevista").click();
             const toast = swal.mixin({
                 toast: true,
