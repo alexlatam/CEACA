@@ -139,39 +139,14 @@
 				let title = e.target.parentNode[1]
 				let img = e.target.parentNode[3]
 
-				if(!validarSlider(title)){
-					return;
-				}
+
 
 				let archivo = img.files[0]
-
-				if(archivo)
-				{
-				  if(archivo.size > maximoBytes) {
-				    const alertSize = maximoBytes / 1000000;
-
-				    alert(`el tamaño máximo por archivo es ${alertSize} MB`);
-
-				    img.value = "";
-				  } else {
-				    formulario.submit();
-				  }
-				} else {
-					formulario.submit();
-				}
+				formulario.submit();
 
 			});
 		});
 	}
 
-
-	const validarSlider = (title) => {
-		if(title.value === ""){
-			alert('El campo titulo no debe estar vacio')
-			return false
-		}else {
-			return true;
-		}
-	}
 </script>
 @endsection

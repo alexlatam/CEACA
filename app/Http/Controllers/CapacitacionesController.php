@@ -7,6 +7,7 @@ use App\Capacitacion;
 use App\Cat_capacitacion;
 use App\Info;
 use App\Ads;
+use App\Video;
 use App\Encabezado;
 
 
@@ -17,6 +18,7 @@ class CapacitacionesController extends Controller
 
 		$info = Info::all();
 		$capacitaciones = Capacitacion::all();
+		$videos = Video::where('seccion', 'capacitaciones')->get();
 		$cat_servicios = Cat_capacitacion::all();
 		$cat_capacitaciones = Cat_capacitacion::all();
 		$categoria_name = "CEACA";
@@ -38,6 +40,6 @@ class CapacitacionesController extends Controller
 			$encabezado = Encabezado::where('seccion', 'capacitacion ceaca')->first();
 		}
 
-		return view('capacitaciones', compact('capacitaciones','categoria_name','encabezado', 'publicidad', 'cat_servicios', 'info', 'cat_capacitaciones'));
+		return view('capacitaciones', compact('capacitaciones','categoria_name','encabezado', 'publicidad', 'cat_servicios', 'info', 'cat_capacitaciones','videos'));
 	}
 }

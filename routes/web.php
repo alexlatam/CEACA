@@ -136,6 +136,7 @@ Route::get('/detalles_capacitacion/{id}', function ($id) {
 	$info = Info::All();
 	$cat_capacitaciones = Cat_capacitacion::All();
 	$publicidad = Ads::where('seccion', 'capacitaciones')->get();
+	$videos = Video::where('seccion', 'capacitaciones')->get();
 	return view('detalles_capacitacion', ["info" => $info, "capacitacion" => $capacitacion, "cat_capacitaciones" => $cat_capacitaciones, "publicidad" => $publicidad]);
 })->name('detalles_capacitacion');
 

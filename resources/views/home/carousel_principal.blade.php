@@ -23,21 +23,13 @@
                 <!-- Slider -->
                 <div id="hero-slider" class="slider slider-no-controls slider-no-draggable slider-fade mb-5 mb-md-0" data-bind="slider" data-target="#hero-slider-bg">
                 @foreach($images as $image)
-                <div class="slider-item">                        
-                        <!-- Heading -->
+                <div class="slider-item">
                         <h1 class="text-white text-center mb-4">
                         {{$image->titulo}}
                         </h1>
-                        <!-- Subheading -->
                         <p class="lead text-white text-muted text-center mb-5">
                         {{$image->descripcion}}
                         </p>
-                        <!-- Button -->
-                        <!--p-- class="text-center mb-0">
-                            <a href="$image->url" target="_blank" class="btn btn-outline-primary text-white">
-                                Purchase now
-                            </a>
-                        </!--p-->
                     </div>
                 @endforeach
                 </div>
@@ -52,7 +44,7 @@
             </div>
             <div class="col-6 col-md-2 order-md-3">
                 <div class="text-right">
-                    <a href="#hero-slider" class="slider-control" data-slide="next">
+                    <a href="#hero-slider" class="slider-control" data-slide="next" id="boton_banner">
                         <span class="icon-arrow-right icon-2x"></span>
                     </a>
                 </div>
@@ -60,3 +52,9 @@
         </div>
     </div>
 </section>
+<script>
+setInterval('pasarBanner()',5500);
+function pasarBanner(){
+    document.getElementById("boton_banner").click();
+}
+</script>
