@@ -110,6 +110,10 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $faq = Faq::find($id);
+        $faq->delete();
+
+        $message = "Se ha eliminado exitosamente la pregunta frecuente" ;
+        return back()->with(compact('message'));
     }
 }

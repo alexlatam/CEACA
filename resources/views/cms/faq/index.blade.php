@@ -43,19 +43,26 @@
 			<tr>
 	    		<td>{{$c}}</td>
 	    		<td>{{$faq->titulo}}</td>
-	    		<td>{{$faq->topico->topico}}</td>
+	    		<td>
+					@isset($faq->topico->topico)
+					{{$faq->topico->topico}}
+					@else
+						Sin categoria
+					@endisset
+				</td>
 	    		<td class="d-flex">
 	    			<a href="/cms/faq/{{$faq->id}}/edit"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
-	    			<form action="" method="POST">
-	    			  @csrf
-	    			  <button type="button" class="btn btn-sm btn-outline-danger recurso_eliminar" data-toggle="modal" data-target="#EliminarUsuarios">Eliminar</button>
+					<form action="/cms/faq/{{$faq->id}}" method="POST">
+						@method('delete')
+						@csrf
+	    			  <button type="submit" class="btn btn-sm btn-outline-danger recurso_eliminar">Eliminar</button>
 	    			</form>
 	    		</td>
 			</tr>
 	    	@endforeach
 	    </tbody>
 	  </table>
-
+{{-- 
 	 <div class="modal fade" id="EliminarUsuarios" tabindex="-1" role="dialog" aria-labelledby="EliminarUsuarios" aria-hidden="true" >
 	   <div class="modal-dialog" role="document">
 	     <div class="modal-content">
@@ -76,30 +83,6 @@
 	       </div>
 	     </div>
 	   </div>
-	 </div>
+	 </div> --}}
 
-	 <script type="text/javascript">
-	 	let eliminarButtons = document.querySelectorAll('.recurso_eliminar');
-	 	let formModal = document.getElementById('modal_eliminar_usuario_form')
-	 	let submitEliminar = document.getElementById('submitModalEliminar');
-
-
-	 	submitEliminar.addEventListener('click', () => {
-	 	  formModal.submit();
-	 	}); 
-
-	 	if(eliminarButtons)
-	 	{
-	 	  eliminarButtons.forEach(button => {
-	 	    button.addEventListener('click', (e) =>{
-	 	      e.preventDefault();
-	 	      
-
-	 	      formPadre = e.target.parentNode;
-
-	 	      formModal.action = formPadre.action
-	 	    });
-	 	  });
-	 	}
-	 </script>
 @endsection

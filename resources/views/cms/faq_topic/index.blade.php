@@ -43,7 +43,7 @@
 	    		<td>{{$c}}</td>
 	    		<td>{{$faq_topic->topico}}</td>
 	    		<td class="d-flex">
-	    			<a href="/cms/faq_topic/{{$faq_topic->id}}/edit "class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
+	    			<a href="/cms/faq_topic/{{$faq_topic->id}}/edit  "class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
 	    			<form id="eliminar-form" action="/cms/faq_topic/{{$faq_topic->id}}" method="POST">
 					  @csrf
 					  @method('delete')

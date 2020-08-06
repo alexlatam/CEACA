@@ -269,6 +269,8 @@ Route::middleware('auth')->group(function () {
 	Route::get('/perfil', 'Perfil\PerfilController@home');
 	Route::get('/perfil/membresia', 'Perfil\PerfilController@membresias');
 	Route::get('/perfil/recursos', 'Perfil\PerfilController@recursos');
+	Route::get('/perfil/faq', 'Perfil\PerfilController@faq')->name('faq');
+	Route::get('/perfil/faq/{topico_id}', 'Perfil\PerfilController@faq_topico');
 
 
 	//Descargar recursos
