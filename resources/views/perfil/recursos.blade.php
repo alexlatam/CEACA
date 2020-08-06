@@ -23,9 +23,10 @@
                         <h4>
                             {{ $recurso->titulo }}
                         </h4>
-                        <a href="{{asset('recursos/' . $recurso->recurso)}}" target="_blank" class="btn btn-sm btn-outline-success mt-2">Ver en linea</a>
                         @if($recurso->recurso)
+                            <a href="{{asset('recursos/' . $recurso->recurso)}}" target="_blank" class="btn btn-sm btn-outline-success mt-2">Ver en linea</a>
                             <a href="/download/recurso/{{$recurso->id}}" class="btn btn-sm btn-success px-5 mt-2">Descargar</a>
+
                         @endif
                         <button class="btn btn-sm btn-success px-5 mt-2 detalle_button" data-toggle="modal" data-target="#modalDetalles" id="{{$recurso->id}}">Detalle</button>
                     </div>

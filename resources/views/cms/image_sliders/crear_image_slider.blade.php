@@ -80,10 +80,7 @@
 	});
 
 	const validarSlider = () => {
-		if(sliderTitle.value === ""){
-			alert('Debes colocar un titulo')
-			return false
-		} else if (sliderImg.files.length <= 0){
+		 if (sliderImg.files.length <= 0){
 			alert('Debes colocar una imagen')
 			return false
 		} else {

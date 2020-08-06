@@ -34,7 +34,7 @@ class PublicidadController extends Controller
 
     	 //verificamos que la imagen exista
         if($file){
-            $path = public_path() . '/img/publicidad';
+            $path = public_path() . '/img/seccionp';
             $fileName = uniqid() . $file->getClientOriginalName();
             $moved = $file->move($path, $fileName);
 
@@ -64,7 +64,7 @@ class PublicidadController extends Controller
                 if(substr($publicidad->imagen, 0, 4)  === "http"){
                     $deleted = true;
                 } else {
-                    $fullpath = public_path() . '/publicidades_imagen/' . $publicidad->imagen;
+                    $fullpath = public_path() . '/img/seccionp/' . $publicidad->imagen;
                     $deleted = File::delete($fullpath);
                 }
             }
@@ -74,7 +74,7 @@ class PublicidadController extends Controller
 
                 //verificamos que la imagen exista
                 if($file){
-                    $path = public_path() . '/img/publicidad';
+                    $path = public_path() . '/img/seccionp';
                     $fileName = uniqid() . $file->getClientOriginalName();
                     $moved = $file->move($path, $fileName);
             
@@ -101,9 +101,24 @@ class PublicidadController extends Controller
     public function eliminarPublicidad(Request $request, $id){
         $publicidad = Ads::find($id);
 
-        $publicidad->delete();
 
-        return back()->with('message','Publicidad eliminada con éxito');
+        if(isset($publicidad->imagen))
+        {
+            $fullpath = public_path() . '/img/seccionp/' . $publicidad->imagen;
+            $deleted = File::delete($fullpath);
+
+            if(isset($deleted) || $publicidad->imagen == null){
+                $publicidad->delete();
+                return back()->with('message','Publicidad eliminada con éxito');
+            } else {
+                return back()->with('error','Ha ocurrido un error al eliminar la publicidad');
+            }
+        } else {
+            $publicidad->delete();
+            return back()->with('message','Publicidad eliminada con éxito');
+        }
+
+        
     }
 
 }

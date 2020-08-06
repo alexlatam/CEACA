@@ -165,13 +165,10 @@
     </div>
 </!--section-->
 
+<!-- Video -->
+@include('home.videos_publicitarios');
 
 <!-- publicidad -->
-<!-- <section class="my-5">
-    <a href="{{route('servicios')}}">
-        <img src="{{asset('img/publicidad_club.jpg')}}" alt="" width="100%" style="max-height:70vh;">
-    </a>
-</section> -->
 @include('home.publicidad_lateral')
 
 

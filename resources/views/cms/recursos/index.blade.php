@@ -42,7 +42,9 @@
 	    		</td>
 	    		<td class="d-flex">
 	    			<a href="/cms/editar/recurso/{{$recurso->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
-	    			<a href="/cms/download/recurso/{{$recurso->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Descargar</a>
+	    			@if($recurso->recurso)
+	    				<a href="/cms/download/recurso/{{$recurso->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Descargar</a>
+	    			@endif
 	    			<form action="/cms/eliminar/recurso/{{$recurso->id}}" method="POST">
 	    			  @csrf
 	    			  <button type="button" class="btn btn-sm btn-outline-danger recurso_eliminar" data-toggle="modal" data-target="#EliminarUsuarios">Eliminar</button>
@@ -56,7 +58,7 @@
 	   <div class="modal-dialog" role="document">
 	     <div class="modal-content">
 	       <div class="modal-header">
-	         <h5 class="modal-title" id="">¿Seguro que desea Eliminar esta capacitación?</h5>
+	         <h5 class="modal-title" id="">¿Seguro que desea Eliminar este recurso?</h5>
 	         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	           <span aria-hidden="true">&times;</span>
 	         </button>

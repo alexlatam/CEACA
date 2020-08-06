@@ -5,9 +5,9 @@
 <section>
 
   @if(session('message'))
-    <div class="alert alert-danger" role="alert">
-      {{session('message')}}
-    </div>
+  <div class="alert alert-danger my-4" role="alert">
+    {{session('message')}}
+  </div>
   @endif
 
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -34,42 +34,46 @@
       </thead>
       <tbody>
         @foreach($servicios as $servicio)
-          <tr>
-            <td>{{$servicio->id}}</td>
-            <td>
-              @if(substr($servicio->logo, 0, 4) === 'http')
-                  <img src="{{ $servicio->logo }}" class="publicidades_card-img" alt="" style="width: 40px; height: 40px;">
-              @elseif($servicio->logo)
-                   <img src="{{ asset('img/services/logos/'. $servicio->logo) }}" alt="" style="width: 40px; height: 40px;">
-              @endif
-            </td>
-            <td>
-              @if(substr($servicio->imagen, 0, 4) === 'http')
-                  <img src="{{ $servicio->imagen }}" class="publicidades_card-img" alt="" style="width: 40px; height: 40px;">
-              @elseif($servicio->imagen)
-                   <img src="{{ asset('img/services/'. $servicio->imagen) }}" alt="" style="width: 40px; height: 40px;">
-              @endif
-            </td>
-            <td>{{$servicio->titulo}}</td>
-            <td>
-            @php {{ $descripcion = substr($servicio->descripcion,0,250); }} @endphp
-                            {{ $descripcion.'...' }}
-            </td>
-            <td class="d-flex">
-              <a href="/cms/editar/servicio/{{$servicio->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
-              <form action="/cms/eliminar/servicio/{{$servicio->id}}" method="POST">
-                @csrf
-                <button type="button" class="btn btn-sm btn-outline-danger servicio_eliminar" data-toggle="modal" data-target="#EliminarUsuarios">Eliminar</button>
-              </form>
-            </td>
-          </tr>
+        <tr>
+          <td>{{$servicio->id}}</td>
+          <td>
+            @if(substr($servicio->logo, 0, 4) === 'http')
+            <img src="{{ $servicio->logo }}" class="publicidades_card-img" alt="" style="width: 40px; height: 40px;">
+            @elseif($servicio->logo)
+            <img src="{{ asset('img/services/logos/'. $servicio->logo) }}" alt="" style="width: 40px; height: 40px;">
+            @endif
+          </td>
+          <td>
+            @if(substr($servicio->imagen, 0, 4) === 'http')
+            <img src="{{ $servicio->imagen }}" class="publicidades_card-img" alt="" style="width: 40px; height: 40px;">
+            @elseif($servicio->imagen)
+            <img src="{{ asset('img/services/'. $servicio->imagen) }}" alt="" style="width: 40px; height: 40px;">
+            @endif
+          </td>
+          <td>{{$servicio->titulo}}</td>
+          <td>
+            @if(strlen($servicio->descripcion)>75)
+            @php {{ $descripcion = substr($servicio->descripcion,0,75).'...'; }} @endphp
+            @else
+            @php {{ $descripcion=$servicio->descripcion; }} @endphp
+            @endif
+            @php {{ echo ($descripcion); }} @endphp
+          </td>
+          <td class="d-flex">
+            <a href="/cms/editar/servicio/{{$servicio->id}}" class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
+            <form action="/cms/eliminar/servicio/{{$servicio->id}}" method="POST">
+              @csrf
+              <button type="button" class="btn btn-sm btn-outline-danger servicio_eliminar" data-toggle="modal" data-target="#EliminarUsuarios">Eliminar</button>
+            </form>
+          </td>
+        </tr>
         @endforeach
       </tbody>
     </table>
   </div>
 </section>
 
-<div class="modal fade" id="EliminarUsuarios" tabindex="-1" role="dialog" aria-labelledby="EliminarUsuarios" aria-hidden="true" >
+<div class="modal fade" id="EliminarUsuarios" tabindex="-1" role="dialog" aria-labelledby="EliminarUsuarios" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -99,14 +103,13 @@
 
   submitEliminar.addEventListener('click', () => {
     formModal.submit();
-  }); 
+  });
 
-  if(eliminarButtons)
-  {
+  if (eliminarButtons) {
     eliminarButtons.forEach(button => {
-      button.addEventListener('click', (e) =>{
+      button.addEventListener('click', (e) => {
         e.preventDefault();
-        
+
 
         formPadre = e.target.parentNode;
         console.log(formPadre);
@@ -117,9 +120,3 @@
   }
 </script>
 @endsection
-
-
-
-
-
-

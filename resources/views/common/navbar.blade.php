@@ -1,13 +1,26 @@
 <style>
   .brandNavbar {
-    width: 70%;
+    width: 85%;
   }
-/* Si la pantalla es mayor a 1200px se aplicaran los estilos*/
-@media only screen and (min-width: 1500px) {
+
+  /* Si la pantalla es mayor a 2500px se aplicaran los estilos*/
+  @media only screen and (min-width: 2500px) {
     .brandNavbar {
-      width: 35%;
+      width: 20%;
     }
   }
+  @media only screen and (min-width: 2000px) {
+    .brandNavbar {
+      width: 18%;
+    }
+  }
+  /* Si la pantalla es mayor a 1200px se aplicaran los estilos*/
+  @media only screen and (min-width: 1401px) {
+    .brandNavbar {
+      width: 30%;
+    }
+  }
+
   /* Si la pantalla es menor a 1199px se aplicaran los estilos*/
   @media only screen and (max-width: 1200px) {
     .brandNavbar {
@@ -87,6 +100,15 @@
             </span>
           </a>
         </li>
+        @elseif ($inf->atributo == "twitter")
+        <li class="nav-item">
+          <a href="{{$inf->valor}}" class="nav-link" target="_blank">
+            <i class="fab fa-twitter"></i>
+            <span class="d-xl-none ml-2">
+              Twitter
+            </span>
+          </a>
+        </li>
         @endif
         @endforeach
       </ul>
@@ -108,12 +130,12 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Capacitaciones
+            Capacitación
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarLandings">
             @foreach ($cat_capacitaciones as $categoria_cap)
             <a class="dropdown-item" href="/capacitacion?categoria={{$categoria_cap->id}}">
-               {{ $categoria_cap->name }}
+              {{ $categoria_cap->name }}
             </a>
             @endforeach
           </div>

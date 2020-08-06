@@ -41,11 +41,11 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="/registro" class="card border-0 mb-3 mb-md-0">
+        <a href="/capacitacion?categoria=1" class="card border-0 mb-3 mb-md-0">
           <div class="card-img-top">
             <img src="{{asset('img/img_button3.jpg')}}" alt="App landing" class="img-fluid" style="width:100%">
             <h2 class="card-title text-white" style="position: absolute;top:45%;left:25%;">
-              SUSCRIPCIÓN
+              CAPACITACIÓN
             </h2>
           </div>
         </a>
@@ -117,16 +117,10 @@
   </div>
 
 </section>
+<!-- Video -->
+@include('home.videos_publicitarios');
 <!-- Publicidad -->
 @include('home.publicidad_lateral')
-<!-- <section class="section pb-0 mt-5 pt-2">
-  <div class="container">
-    <a href="{{route('servicios')}}">
-      <img src="{{asset('img/publicidad_home.jpg')}}" alt="" width="100%">
-    </a>
-  </div>
-</section> -->
-
 
 @include('home.servicios_cat')
 

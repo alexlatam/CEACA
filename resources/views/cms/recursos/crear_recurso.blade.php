@@ -40,7 +40,7 @@
 				<div class="">
 					<label class="form-check-label" for="exampleCheck1">
 						{{$membresia->title}}
-						<input type="checkbox" value="{{$membresia->id}}" name="recurso_membership[]" id="exampleCheck1">
+						<input type="checkbox" class="checkbox_validate" value="{{$membresia->id}}" name="recurso_membership[]" id="exampleCheck1">
 					</label> 
 				 </div>
 				@endforeach
@@ -74,6 +74,8 @@
   </div>
 </div>
 
+
+
 <script type="text/javascript">
 	let seccionForm = document.getElementById('recurso_form')
 	let seccionTitle = document.getElementById('seccion_title')
@@ -82,7 +84,13 @@
 
 	let seccionSubmit = document.getElementById('seccion_submit')
 
+	let modal = document.getElementById('EliminarUsuarios');
 	let submitModal = document.getElementById('submitModalEliminar');
+
+	let checkboxButtons = document.querySelectorAll('.checkbox_validate');
+
+
+
 
 	if(submitModal)
 	{
@@ -95,16 +103,32 @@
 		e.preventDefault()
 
 
-
 		if (!validarSeccion()) {
+			modal.remove();
 			return;
+		}
+
+		if(checkboxButtons)
+		{
+			let contador = 0;
+			checkboxButtons.forEach(checkbox => {
+				if(checkbox.checked){
+					contador ++ 
+				}
+			});
+
+			if(contador === 0){
+				modal.remove();
+				alert('Debe escoger una membresia')
+				return;
+			}
 		}
 
 		let archivo = seccionImg.files[0]
 
 		if(archivo)
 		{
-			let modal = document.getElementById('EliminarUsuarios');
+			
 			modal.remove();	
 
 		  if(archivo.size > maximoBytes) {
@@ -116,6 +140,8 @@
 		  } else {
 		    seccionForm.submit();
 		  }
+		} else {
+			modal.style.display = 'block';
 		}
 	});
 

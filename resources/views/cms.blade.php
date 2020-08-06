@@ -53,7 +53,8 @@
   <!--font awesome con CDN-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-
+  <!-- Axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -102,6 +103,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/cms/encabezados">
+                <span data-feather="users"></span>
+                Encabezados
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/cms/nosotros">
                 <span data-feather="file"></span>
                 Sección de Nosotros (Quienes Somos)
@@ -131,17 +138,18 @@
                 Capacitaciones
               </a>
             </li>
-            <!--li-- class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="/cms/publicidades">
                 <span data-feather="users"></span>
                 Publicidad
               </a>
-            </!--li-->
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="/cms/mensajes">
                 <span data-feather="users"></span>
                 Solicitudes de Contacto
               </a>
+
             </li> 
             <li class="nav-item">
               <a class="nav-link" href="/cms/faq_">
@@ -149,10 +157,19 @@
                 FAQ (Preguntas Frecuentes)
               </a>
             </li>            
+
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cms/videos">
+                <span data-feather="users"></span>
+                Videos Promocionales
+              </a>
+            </li>
+
           </ul>
         </div>
       </nav>
-
+      
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
         @yield('content')
       </main>

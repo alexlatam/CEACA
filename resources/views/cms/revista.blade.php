@@ -80,7 +80,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="agregarRevista">Subir Revista</button>
+        <button type="button" class="btn btn-success" id="agregarRevista">Subir Revista</button>
       </div>
     </div>
   </div>
@@ -115,7 +115,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="actualizarRevista">Actualizar Revista</button>
+        <button type="button" class="btn btn-success" id="actualizarRevista">Actualizar Revista</button>
       </div>
     </div>
   </div>
@@ -238,6 +238,13 @@
   }
 
   editarSubmit.addEventListener('click', () => {
+    let titleEdit = document.getElementById('editar_revista_title');
+
+    if(titleEdit.value.trim() == ''){
+      return alert('Debes agregar un titulo')
+
+    }
+
     formEdit.submit();
   });
 </script>

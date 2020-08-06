@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Course;
-use App\Course_Category;
+use App\Plan;
+use App\User;
 use File;
 
 class CursoController extends Controller
@@ -19,8 +20,8 @@ class CursoController extends Controller
     }
 
     public function crearCurso(){
-        $categorias = Course_Category::all();
-    	return view('cms.cursos.crear_curso')->with(compact('categorias'));;
+        $membresias = Plan::all();
+    	return view('cms.cursos.crear_curso')->with(compact('membresias'));;
     }
 
     public function guardarCurso(Request $request){
@@ -29,14 +30,12 @@ class CursoController extends Controller
     	$curso = new Course;
     	$curso->titulo = $request->titulo_curso;
     	$curso->descripcion =$request->descripcion_curso;
-        $curso->duracion =$request->duracion_curso;
-        $curso->instructor =$request->instructor_curso;
-        $curso->fecha_inicio =$request->fecha_curso;
+        $curso->plan_id =$request->plan_curso;
         //$curso->course_category_id =$request->categoria_curso;
 
          //verificamos que la imagen exista
         if($file){
-            $path = public_path() . '/cursos_imagen';
+            $path = public_path() . '/cursos/imagenes';
             $fileName = uniqid() . $file->getClientOriginalName();
             $moved = $file->move($path, $fileName);
 
@@ -55,8 +54,8 @@ class CursoController extends Controller
 
     public function editarCurso(Request $request, $id){
     	$curso = Course::find($id);
-        $categorias = Course_Category::all();
-        return view('cms.cursos.editar_curso')->with(compact('curso', 'categorias'));
+        $membresias = Plan::all();
+        return view('cms.cursos.editar_curso')->with(compact('curso', 'membresias'));
     }
 
     public function actualizarCurso(Request $request, $id){
@@ -66,10 +65,7 @@ class CursoController extends Controller
 
     	$curso->titulo = $request->titulo_curso;
         $curso->descripcion =$request->descripcion_curso;
-        $curso->duracion =$request->duracion_curso;
-        $curso->instructor =$request->instructor_curso;
-        $curso->fecha_inicio =$request->fecha_curso;
-        $curso->course_category_id =$request->categoria_curso;
+        $curso->plan_id =$request->plan_curso;
 
         if($file)
         {
@@ -77,7 +73,7 @@ class CursoController extends Controller
                 if(substr($curso->imagen, 0, 4)  === "http"){
                     $deleted = true;
                 } else {
-                    $fullpath = public_path() . '/cursos_imagen/' . $curso->imagen;
+                    $fullpath = public_path() . '/cursos/imagenes/' . $curso->imagen;
                     $deleted = File::delete($fullpath);
                 }
             }
@@ -112,13 +108,30 @@ class CursoController extends Controller
     }
 
 
+    public function getCourse($id){
+        $user = User::find($id);
+
+        $cursos = $user->plan->courses;
+
+        return $cursos;
+    }
+
+    public function agregarCursoParaUsuario(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->courses()->attach($request->get('user_curso'));
+
+        return back()->with('message', 'Curso agregao con éxito al usuario');
+    }
+
+
     public function eliminarCurso(Request $request, $id){
     	$curso = Course::find($id);
         if($curso->imagen){
                 if(substr($curso->imagen, 0, 4)  === "http"){
                     $deleted = true;
                 } else {
-                    $fullpath = public_path() . '/cursos_imagen/' . $curso->imagen;
+                    $fullpath = public_path() . '/cursos/imagenes/' . $curso->imagen;
                     $deleted = File::delete($fullpath);
                 }
         }
