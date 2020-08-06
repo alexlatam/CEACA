@@ -13,16 +13,16 @@ class UserCreated extends Mailable
 
     public $subject = "Mensaje de contacto";
 
-    public $usuario;
+    public $mensaje;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($usuario)
+    public function __construct($mensaje)
     {
-        $this->usuario = $usuario;
+        $this->mensaje = $mensaje;
     }
 
     /**

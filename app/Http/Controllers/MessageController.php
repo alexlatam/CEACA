@@ -43,6 +43,8 @@ class MessageController extends Controller
         $message->message = $request->message;
         $message->save();
 
+        Mail::to('gazuiandres@gmail.com')->send(new  UserCreated($request->all());
+        
         return back()->with('message', 'Tu mensaje ha sido enviado con éxito');
 
         } else {
@@ -51,10 +53,7 @@ class MessageController extends Controller
         }
 
 
-        Mail::send('emails.user_created', $message, function ($msg) {
-            $msg->from('test@ceaca.com', 'Ceaca');
-            $msg->to('gazuiandres@gmail.com')->subject('Mensaje de Contacto');
-        });
+        
 
 
     	return back()->with('message', 'Tu mensaje ha sido enviado con éxito');
