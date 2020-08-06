@@ -277,6 +277,15 @@ Route::middleware('admin')->group(function () {
 	Route::get('/cms/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@getCategory');
 	Route::post('/cms/actualizar/capacitacion/category/{id}', 'Capacitacion\CategoriaCapacitacionController@editCategory');
 
+
+
+		/* ----------  RUTA FAQ CONTROLLADOR ---------*/
+		Route::get('/cms/faq_', function(){
+			return view('cms.faq_main');
+		});
+		Route::resource('/cms/faq', 'FaqController');
+		Route::resource('/cms/faq_topic', 'FaqTopicController');
+
 	/* ----------  RUTA RECURSOS CURSOS CONTROLLADOR ---------*/
 	Route::get('/cms/course/resource', 'RecursosCursosController@index');
 	Route::get('/cms/crear/curso/recurso', 'RecursosCursosController@crearRecurso');
@@ -300,6 +309,7 @@ Route::middleware('admin')->group(function () {
 	Route::post('/cms/actualizar/video/{id}', 'VideoController@actualizarPublicidad');
 	Route::post('/cms/eliminar/video/{id}', 'VideoController@eliminarVideo');
 
+
 });
 /*------------------------------------ END --------------------------*/
 
@@ -311,6 +321,8 @@ Route::middleware('auth')->group(function () {
 	Route::get('/perfil', 'Perfil\PerfilController@home');
 	Route::get('/perfil/membresia', 'Perfil\PerfilController@membresias');
 	Route::get('/perfil/recursos', 'Perfil\PerfilController@recursos');
+	Route::get('/perfil/faq', 'Perfil\PerfilController@faq')->name('faq');
+	Route::get('/perfil/faq/{topico_id}', 'Perfil\PerfilController@faq_topico');
 
 	//Descargar recursos
 	Route::get('/download/recurso/{id}', 'RecursoController@descargarRecurso');
