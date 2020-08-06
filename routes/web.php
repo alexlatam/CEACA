@@ -311,6 +311,8 @@ Route::middleware('auth')->group(function () {
 	Route::get('/perfil/membresia', 'Perfil\PerfilController@membresias');
 	Route::get('/perfil/recursos', 'Perfil\PerfilController@recursos');
 
+	Route::post('/club/change/membership', 'ClubController@solicitudCambioMembresia');
+
 	//Descargar recursos
 	Route::get('/download/recurso/{id}', 'RecursoController@descargarRecurso');
 });
