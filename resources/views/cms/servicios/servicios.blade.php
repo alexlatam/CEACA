@@ -5,7 +5,7 @@
 <section>
 
   @if(session('message'))
-  <div class="alert alert-danger" role="alert">
+  <div class="alert alert-danger my-4" role="alert">
     {{session('message')}}
   </div>
   @endif

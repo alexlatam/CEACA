@@ -149,12 +149,7 @@
 
 
 	const validarServicio = () => {
-		if(urlPublicidad.value === ""){
-			alert('Debe agregar una url');
-			return false;
-		}else {
-			return true;
-		}
+		return true;
 	} 
 
 </script>

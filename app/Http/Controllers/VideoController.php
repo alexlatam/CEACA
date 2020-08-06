@@ -66,7 +66,7 @@ class VideoController extends Controller
                 if(substr($video->video, 0, 4)  === "http"){
                     $deleted = true;
                 } else {
-                    $fullpath = public_path() . '/video/' . $publicidad->imagen;
+                    $fullpath = public_path() . '/video/' . $video->video;
                     $deleted = File::delete($fullpath);
                 }
             }

@@ -24,7 +24,7 @@
         </div>
         <div class="col-12 mb-4">
           <h5>Descripción</h5>
-          <textarea class="ckeditor" id="input-descripcion" name="descripcion_encabezado"></textarea>
+          <textarea class="ckeditor" id="input_descripcion" name="descripcion_encabezado"></textarea>
         </div>
         <div class="col-6 mb-4">
           <h5 title="Sección de la página web donde será visible este encabezado">Sección de la página</h5>
@@ -55,7 +55,7 @@
   let file = document.getElementById('file_input');
   let formulario = document.getElementById('form');
   let tituloServico = document.getElementById('input-title');
-  let descripcionServicio = document.getElementById('input-descripcion');
+  let descripcionServicio = document.getElementById('input_descripcion');
   let categoriaServicio = document.getElementById('servicio-categoria');
   //inputs
   texts = document.querySelectorAll('.input-text');
@@ -69,7 +69,18 @@
           return;
         }
 
-        formulario.submit();
+        const archivo = file.files[0];
+
+        if (archivo.size > maximoBytes) {
+          const alertSize = maximoBytes / 1000000;
+
+          alert(`el tamaño máximo por archivo es ${alertSize} MB`);
+
+          file.value = "";
+        } else {
+          formulario.submit();
+        }
+
 
       });
     }
@@ -78,6 +89,15 @@
   const validarServicio = () => {
     if (categoriaServicio.selectedIndex === 0) {
       alert('Debe seleccionar una sección');
+      return false
+    } else if(tituloServico.value.trim() == ''){
+      alert('Debe agregar un titulo');
+      return false
+    } else if(CKEDITOR.instances.input_descripcion.getData() == ''){
+      alert('Debe agregar una descripción');
+      return false
+    } else if(file.files.length <= 0){
+      alert('Debe agregar una imagen');
       return false
     } else {
       return true;

@@ -5,7 +5,7 @@
 <section>
 
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Crear Encabezado</h1>
+    <h1 class="h2">Editar Encabezado</h1>
     <div class="btn-group mr-2">
       <a href="/cms/encabezados" type="button" class="btn btn-sm btn-outline-success">Volver</a>
     </div>
@@ -27,7 +27,7 @@
         </div>
         <div class="col-12 mb-4">
           <h5>Descripción</h5>
-          <textarea class="ckeditor" id="input-descripcion" name="descripcion_encabezado">{{$encabezado->descripcion}}</textarea>
+          <textarea class="ckeditor" id="input_descripcion" name="descripcion_encabezado">{{$encabezado->descripcion}}</textarea>
         </div>
         <div class="col-6 mb-4">
           <h5>Sección</h5>
@@ -58,7 +58,7 @@
   let file = document.getElementById('file_input');
   let formulario = document.getElementById('form');
   let tituloServico = document.getElementById('input-title');
-  let descripcionServicio = document.getElementById('input-descripcion');
+  let descripcionServicio = document.getElementById('input_descripcion');
   let categoriaServicio = document.getElementById('servicio-categoria');
 
   //inputs
@@ -74,7 +74,17 @@
           return;
         }
 
-        formulario.submit();
+        const archivo = file.files[0];
+
+        if (archivo && archivo.size > maximoBytes) {
+          const alertSize = maximoBytes / 1000000;
+
+          alert(`el tamaño máximo por archivo es ${alertSize} MB`);
+
+          file.value = "";
+        } else {
+          formulario.submit();
+        }
       });
     }
   });
@@ -83,6 +93,12 @@
   const validarServicio = () => {
     if (categoriaServicio.selectedIndex === 0) {
       alert('Debe seleccionar una sección');
+      return false
+    } else if(tituloServico.value.trim() == ''){
+      alert('Debe agregar un titulo');
+      return false
+    } else if(CKEDITOR.instances.input_descripcion.getData() == ''){
+      alert('Debe agregar una descripción');
       return false
     } else {
       return true;

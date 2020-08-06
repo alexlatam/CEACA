@@ -106,7 +106,7 @@
   //inputs 
 
   let membresiaNombre = document.getElementById('membresia_nombre')
-  let membresíaDesc = document.getElementById('membresia_descripcion')
+  let membresiaDesc = document.getElementById('membresia_descripcion')
   let membresiaCost = document.getElementById('membresia_costo')
   let membresiaImg = document.getElementById('membresia_imagen')
 
@@ -205,10 +205,10 @@
     if(membresiaNombre.value === ""){
       alert('Debes colocar un nombre')
       return false
-    } else if(membresíaDesc.value === "") {
+    } else if(membresiaDesc.value === "") {
       alert('Debes colocar una descripción')
       return false;
-    } else if (membresia_descripcion.value <= 0) {
+    } else if (membresiaCost.value <= 0) {
       alert('debes colocar un costo')
       return false
     } else if (membresiaImg.files.length <= 0) {
