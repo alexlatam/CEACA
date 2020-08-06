@@ -12,11 +12,10 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
-
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have emailed your password reset link!',
-    'throttled' => 'Please wait before retrying.',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that email address.",
+    'reset' => '!Su password ha sido reiniciado!',
+    'sent' => '!Hemos enviado a su correo el link de reinicio de password!',
+    'throttled' => 'Por favor espere un momento antes de volver a intentar.',
+    'token' => 'Este codigo de reinicio de passwrod es invalido.',
+    'user' => "No se pudo encontrar un usuario con este correo.",
 
 ];

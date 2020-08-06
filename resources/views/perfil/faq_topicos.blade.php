@@ -17,7 +17,7 @@
                 @if (count($faqs)>0)
                     <div class="row mx-2">
                         <div class="ml-auto">
-                            Deseo <a href="faq">volver</a>   
+                            <a href="faq">Volver</a>   
                         </div>
                     </div>
                     <div class="faq">

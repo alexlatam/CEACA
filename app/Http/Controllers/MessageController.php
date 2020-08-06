@@ -43,19 +43,17 @@ class MessageController extends Controller
         $message->message = $request->message;
         $message->save();
 
+        Mail::send('emails.user_created', $message, function ($msg) {
+            //$msg->from('test@ceaca.com', 'Ceaca');
+            $msg->to('gazuiandres@gmail.com')->subject('Mensaje de Contacto');
+        });
+
         return back()->with('message', 'Tu mensaje ha sido enviado con éxito');
 
         } else {
         // Código para aviso de error
         return back()->with('message',  'Tu mensaje NO ha sido enviado, Se ha detectado como visitante robot' );
         }
-
-
-        Mail::send('emails.user_created', $message, function ($msg) {
-            $msg->from('test@ceaca.com', 'Ceaca');
-            $msg->to('gazuiandres@gmail.com')->subject('Mensaje de Contacto');
-        });
-
 
     	return back()->with('message', 'Tu mensaje ha sido enviado con éxito');
 
