@@ -4,11 +4,11 @@
 	<title>Nuevo Mensaje de contacto</title>
 </head>
 <body>
-	<h2>Se ha enviado un mensaje de contacto: </h2>
+	<h2>Se ha enviado un mensaje de contacto desde el sitio web: ceaca.com </h2>
 
-	<p>Nombre:  <strong>{{$message->name}}</strong></p>
-	<p>Correo: <strong>{{$message->email}}</strong></p>
-	<hr>
-	<p>Mensaje: {{$message->message}}</p>
+	<p>Nombre:  <strong>{{$mensaje['name']}}</strong> </p>
+	<p>Correo:  <strong>{{$mensaje['email']}}</strong> </p>
+	<p>Mensaje: {{$mensaje['message']}}</p>
+
 </body>
 </html>

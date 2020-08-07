@@ -9,6 +9,10 @@ use App\Info;
 use App\Plan;
 use Illuminate\Support\Facades\Hash;
 
+
+use App\Mail\ChangeMembership;
+use Illuminate\Support\Facades\Mail;
+
 class ClubController extends Controller
 {
     public function index()
@@ -152,11 +156,26 @@ class ClubController extends Controller
         return back()->with('message', 'Membresia actualizada con éxito');
     }
 
+
+    public function solicitudCambioMembresia(Request $request){
+        $solicitada = Plan::find($request->membership)->title;
+        
+        $user = auth()->user();
+
+        $actual = $user->plan->title;
+
+        Mail::to('club@ceaca')->send(new ChangeMembership($user, $solicitada, $actual));
+
+        return back()->with('message', '¡Solicitud para cambio de membresía realizada con éxito!');
+}
+
     public function deleteClubMember(Request $request, $id)
     {
         $user = User::find($id);
 
         $user->delete();
         return back()->with('message', 'Usuario eliminado con éxito');
+
     }
 }
+  

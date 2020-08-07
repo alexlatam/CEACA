@@ -324,6 +324,8 @@ Route::middleware('auth')->group(function () {
 	Route::get('/perfil/faq', 'Perfil\PerfilController@faq')->name('faq');
 	Route::get('/perfil/faq/{topico_id}', 'Perfil\PerfilController@faq_topico');
 
+	Route::post('/club/change/membership', 'ClubController@solicitudCambioMembresia');
+
 	//Descargar recursos
 	Route::get('/download/recurso/{id}', 'RecursoController@descargarRecurso');
 });

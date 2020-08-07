@@ -6,6 +6,13 @@
 @endsection
 
 @section('content')
+
+@if(session('message'))
+  <div class="alert alert-success mt-5" role="alert">
+    {{session('message')}}
+  </div>
+@endif
+
 <div class="container section pb-0">
     <div class="row">
         <div class="col-12 col-md-3 col-lg-2 order-md-2 pl-md-4 border-left">
@@ -27,7 +34,7 @@
                     @if(auth()->user()->plan->title == $plan->title)
                         <a class="btn btn-sm btn-success px-5 mt-2" style="background: grey; border: none; cursor: initial; color: #fff">Actual</a>
                     @else
-                        <a href="#" data-toggle="modal" id="" data-target="#CambiarMembresia" class="btn btn-sm btn-success px-5 mt-2">Actualizar membresia</a>
+                        <a href="#" data-toggle="modal" id="{{$plan->id}}" data-target="#CambiarMembresia" class="btn btn-sm btn-success px-5 mt-2 membership_change">Actualizar membresia</a>
                     @endif
 
                 </div>
@@ -48,16 +55,44 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="modal_eliminar_usuario_form" method="POST">
+        <form id="modal_cambiar_membresia_form" action="/club/change/membership" method="POST">
           @csrf
+          <input id="m_value" type="hidden" name="membership">
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success px-4" id="submitModalEliminar">Solcitar Cambio</button>
+        <button type="button" class="btn btn-success px-4" id="submitModalMembresia">Solicitar Cambio</button>
       </div>
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript">
+  let membershipSubmit = document.querySelectorAll('.membership_change');
+  console.log(membershipSubmit)
+
+
+  document.getElementById('submitModalMembresia').addEventListener('click', () =>{
+    let form = document.getElementById('modal_cambiar_membresia_form')
+
+    form.submit();
+  });
+
+  if(membershipSubmit)
+  {
+    membershipSubmit.forEach(membership => {
+      membership.addEventListener('click', (e) => {
+        let membresia_id = e.target.id
+        let input = document.getElementById('m_value');
+
+        input.value = membresia_id;
+        console.log(input)
+        
+      });
+    });
+  }
+</script>
 
 @endsection

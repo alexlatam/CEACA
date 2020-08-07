@@ -7,22 +7,26 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class UserCreated extends Mailable
+class ChangeMembership extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = "Mensaje de contacto";
+    public $subject = "Solicitud cambio de membresia";
 
-    public $mensaje;
+    public $usuario;
+    public $solicitada;
+    public $actual;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($mensaje)
+    public function __construct($user, $s, $a)
     {
-        $this->mensaje = $mensaje;
+        $this->usuario = $user;
+        $this->solicitada = $s;
+        $this->actual = $a;
     }
 
     /**
@@ -32,6 +36,6 @@ class UserCreated extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.user_created');
+        return $this->view('emails.change_membership');
     }
 }
