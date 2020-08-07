@@ -52,10 +52,6 @@ class MessageController extends Controller
         return back()->with('message',  'Tu mensaje NO ha sido enviado, Se ha detectado como visitante robot' );
         }
 
-
-        
-
-
     	return back()->with('message', 'Tu mensaje ha sido enviado con éxito');
 
     }

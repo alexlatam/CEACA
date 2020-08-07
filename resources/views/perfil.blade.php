@@ -47,6 +47,12 @@
                 Recursos
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/perfil/faq">
+                <span data-feather="home"></span>
+                Preguntas frecuentes
+              </a>
+            </li>
           </ul>
         </div>
       </nav>

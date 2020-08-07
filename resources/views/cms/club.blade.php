@@ -9,9 +9,9 @@
     <a href="/cms/club" class="px-5 btn btn-outline-success col-auto ml-auto">Volver</a>
   </div>
   @if(session('message'))
-    <div class="alert alert-success" role="alert">
-      {{session('message')}}
-    </div>
+  <div class="alert alert-success" role="alert">
+    {{session('message')}}
+  </div>
   @endif
   <div class="container-fluid px-0">
 
@@ -63,7 +63,11 @@
                 <input type="submit" value="Activar" class="btn btn-sm btn-outline-success">
               </form>
               @endif
-              <button type="button" id="{{$user->id}}" class="btn btn-sm btn-outline-success ml-2 membresia_modal" data-toggle="modal" data-target="#modalMembresia">Membresia</button>
+              <button type="button" id="{{$user->id}}" class="btn btn-sm btn-outline-success mx-2 membresia_modal" data-toggle="modal" data-target="#modalMembresia">Membresia</button>
+              <form action="/club/user/delete/{{$user->id}}" method="POST">
+                @csrf
+                <input type="submit" value="Eliminar" class="btn btn-sm btn-outline-danger">
+              </form>
             </td>
           </tr>
           @endforeach
@@ -86,7 +90,7 @@
         <form id="form-membresias-modal" method="POST">
           @csrf
           <div id="membresia_modal_content">
-            
+
           </div>
         </form>
       </div>
@@ -133,28 +137,27 @@
 </div>
 
 <script type="text/javascript">
-   let modalButton = document.querySelectorAll('.membresia_modal');
-   let formModal = document.getElementById('form-membresias-modal');
-   let containerModal = document.getElementById('membresia_modal_content');
-   let modalSubmit = document.getElementById('modalMembresiaSubmit');
+  let modalButton = document.querySelectorAll('.membresia_modal');
+  let formModal = document.getElementById('form-membresias-modal');
+  let containerModal = document.getElementById('membresia_modal_content');
+  let modalSubmit = document.getElementById('modalMembresiaSubmit');
 
 
-   modalSubmit.addEventListener('click', () => {
+  modalSubmit.addEventListener('click', () => {
     formModal.submit();
-   });  
+  });
 
-   if(modalButton){
+  if (modalButton) {
     modalButton.forEach(button => {
       button.addEventListener('click', (e) => {
         containerModal.innerHTML = '';
         getMemberhip(e.target.id)
       });
     });
-   }
+  }
 
 
-   function getMemberhip(id)
-   {
+  function getMemberhip(id) {
     axios.get(`/club/user/membresia/${id}`)
       .then(response => {
         let user_id = response.data.user_id
@@ -164,21 +167,20 @@
         renderMembership(user_id, membresia_id, membresias)
 
       });
-   }
+  }
 
 
 
-   function renderMembership(user_id, m_id, membresias){
-      
+  function renderMembership(user_id, m_id, membresias) {
 
-      if(membresias.length > 0)
-      {
-        membresias.forEach(membresia => {
 
-          let m_template = document.createElement('div')
-          m_template.classList.add('form-check');
+    if (membresias.length > 0) {
+      membresias.forEach(membresia => {
 
-           m_template.innerHTML = `
+        let m_template = document.createElement('div')
+        m_template.classList.add('form-check');
+
+        m_template.innerHTML = `
 
                 <input id="" type="radio" class="form-check-input" name="membership" value="${membresia.id}" required autocomplete="cargo">
                 <label class="form-check-label">
@@ -188,63 +190,61 @@
 
           `
 
-          if(membresia.id == m_id)
-          {
-            m_template.firstElementChild.setAttribute('checked', true);
-          }
+        if (membresia.id == m_id) {
+          m_template.firstElementChild.setAttribute('checked', true);
+        }
 
-          containerModal.appendChild(m_template)
+        containerModal.appendChild(m_template)
 
-        })
+      })
 
-        formModal.action = `/club/user/membership/${user_id}`;
-      }
-   }  
-
+      formModal.action = `/club/user/membership/${user_id}`;
+    }
+  }
 </script>
 
 <script>
   window.onload = function() {
-  $('#table1').DataTable({
-    language: {
-      "lengthMenu": "Mostrar _MENU_ registros",
-      "zeroRecords": "No se encontraron resultados",
-      "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-      "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-      "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-      "sSearch": "Buscar:",
-      "oPaginate": {
-        "sFirst": "Primero",
-        "sLast": "Último",
-        "sNext": "Siguiente",
-        "sPrevious": "Anterior"
+    $('#table1').DataTable({
+      language: {
+        "lengthMenu": "Mostrar _MENU_ registros",
+        "zeroRecords": "No se encontraron resultados",
+        "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+        "sSearch": "Buscar:",
+        "oPaginate": {
+          "sFirst": "Primero",
+          "sLast": "Último",
+          "sNext": "Siguiente",
+          "sPrevious": "Anterior"
+        },
+        "sProcessing": "Procesando...",
       },
-      "sProcessing": "Procesando...",
-    },
-    //para usar los botones   
-    responsive: "true",
-    pageLength: 50,
-    dom: 'Bfrtilp',
-    buttons: [{
-        extend: 'excelHtml5',
-        text: '<i class="fas fa-file-excel"></i> ',
-        titleAttr: 'Exportar a Excel',
-        className: 'btn btn-success'
-      },
-      {
-        extend: 'pdfHtml5',
-        text: '<i class="fas fa-file-pdf"></i> ',
-        titleAttr: 'Exportar a PDF',
-        className: 'btn btn-danger'
-      },
-      {
-        extend: 'print',
-        text: '<i class="fa fa-print"></i> ',
-        titleAttr: 'Imprimir',
-        className: 'btn btn-info'
-      },
-    ]
-  });
+      //para usar los botones   
+      responsive: "true",
+      pageLength: 50,
+      dom: 'Bfrtilp',
+      buttons: [{
+          extend: 'excelHtml5',
+          text: '<i class="fas fa-file-excel"></i> ',
+          titleAttr: 'Exportar a Excel',
+          className: 'btn btn-success'
+        },
+        {
+          extend: 'pdfHtml5',
+          text: '<i class="fas fa-file-pdf"></i> ',
+          titleAttr: 'Exportar a PDF',
+          className: 'btn btn-danger'
+        },
+        {
+          extend: 'print',
+          text: '<i class="fa fa-print"></i> ',
+          titleAttr: 'Imprimir',
+          className: 'btn btn-info'
+        },
+      ]
+    });
   }
 </script>
 

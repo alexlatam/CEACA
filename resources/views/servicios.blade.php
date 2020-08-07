@@ -77,16 +77,8 @@
 @include('home.download_magazine_simple')
 @include('home.modal_revista')
 
-<!-- Publicidad -->
-<!-- <section class="section pb-0 mt-5 pt-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <img src="{{asset('img/publicidad_servicios.jpg')}}" alt="" width="100%">
-      </div>
-    </div>
-  </div>
-</section> -->
 @include('home.publicidad_lateral')
+
+@include('home.redes_sociales')
 
 @endsection
