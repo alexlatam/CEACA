@@ -9,10 +9,6 @@ use App\Info;
 use App\Plan;
 use Illuminate\Support\Facades\Hash;
 
-
-use App\Mail\ChangeMembership;
-use Illuminate\Support\Facades\Mail;
-
 class ClubController extends Controller
 {
     public function index()
@@ -25,25 +21,29 @@ class ClubController extends Controller
     /* Crear Usuario de Club y descargar revista*/
     public function crearUsuarioDownload(Request $request)
     {
-        $recaptcha_secret = "6LcnwLIZAAAAAFUSyNHCfNfwK45uIQnhsCgViTog";
-        $recaptcha_response = $request->input('g-recaptcha-response');
-        $recaptcha_url = "https://www.google.com/recaptcha/api/siteverify";
 
-        $post_data = "secret=" . $recaptcha_secret . "&response=" . $recaptcha_response . "&remoteip=" . $_SERVER['REMOTE_ADDR'];
+
+        $recaptcha_secret = "6LcnwLIZAAAAAFUSyNHCfNfwK45uIQnhsCgViTog";
+        $recaptcha_response =  $request->input('g-recaptcha-response');
+        $recaptcha_url= "https://www.google.com/recaptcha/api/siteverify";
+
+        $post_data = "secret=".$recaptcha_secret."&response=".$recaptcha_response."&remoteip=".$_SERVER['REMOTE_ADDR'] ;
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $recaptcha_url);
+        curl_setopt($ch, CURLOPT_URL, $recaptcha_url );
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded; charset=utf-8', 'Content-Length: ' . strlen($post_data)));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-        $response = curl_exec($ch);
+
+        $response = curl_exec($ch); 
         curl_close($ch);
+
 
         $jsonResponse = json_decode($response);
 
-
-        if ($jsonResponse->success === true) {
+        
+        if ($jsonResponse->success === true){
             //confirmo si el correo ya se encuentra ne base de datos
             $email = $request->email;
             if (User::where('email', '=', $email)->exists()) {
@@ -79,7 +79,7 @@ class ClubController extends Controller
             return back()->with('band', '1');
         } else {
             // Código para aviso de error
-            return back()->with('message',  'Tu mensaje NO ha sido enviado, Se ha detectado como visitante robot');
+            return back()->with('message', 'Se ha detectado como visitante robot' );
         }
     }
 
@@ -147,20 +147,6 @@ class ClubController extends Controller
         $user->save();
 
         return back()->with('message', 'Membresia actualizada con éxito');
-    }
-
-
-    public function solicitudCambioMembresia(Request $request)
-    {
-        $solicitada = Plan::find($request->membership)->title;
-
-        $user = auth()->user();
-
-        $actual = $user->plan->title;
-
-        Mail::to('club@ceaca')->send(new ChangeMembership($user, $solicitada, $actual));
-
-        return back()->with('message', '¡Tu solicitud para cambio de membresía ha sido realizada con éxito! \n Nos estaremos comunicando contigo para confirmar tu solicitud.');
     }
 
     public function deleteClubMember(Request $request, $id)

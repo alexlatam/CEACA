@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Nuevo Mensaje</title>
+	<title>Solicitud de cambio de membresia</title>
 </head>
 <body>
-	<h2>Se ha solicitado un cambio de membresia. </h2>
+	<h2>Se ha solicitado un cambio de membresia por uno de los miembros del Club Ceaca. </h2>
 
-	<p>Usuario:  {{$usuario->name}}</p>
-	<p>Correo:  {{$usuario->email}}</p>
-	<p>Membresía actual: {{$actual}}</p>
-	<p>Membresia solicitada: {{$solicitada}}</p>
+	<p>Usuario:  <strong>{{$usuario->name}}</strong> </p>
+	<p>Correo:  <strong>{{$usuario->email}}</strong> </p>
+	<p>Membresía actual: <strong>{{$actual}}</strong> </p>
+	<p>Membresia solicitada: <strong>{{$solicitada}}</strong> </p>
 </body>
 </html>
