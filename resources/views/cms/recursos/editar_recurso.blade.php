@@ -54,31 +54,24 @@
 				<input type="file" id="seccion_img" name="recurso_file">
 			</div>
 			<div class="col-auto mt-3">
-				<input type="submit" class="btn btn-success px-5 col-auto" id="seccion_submit" value="Actualizar Recurso">
+				<input type="button" class="btn btn-success px-5 col-auto" id="buttonSubmitForm" value="Actualizar Recurso" onclick="submitForm()">
 			</div>
 		</form>
 	</div>
 </section>
 
-
 <script type="text/javascript">
 	let seccionForm = document.getElementById('recurso_form')
 	let seccionTitle = document.getElementById('seccion_title')
 	let seccionContent = document.getElementById('seccion_content')
-	let seccionImg = document.getElementById('seccion_img')
+	let checkboxButtons = document.querySelectorAll('.checkbox_validate')
 
-	let seccionSubmit = document.getElementById('seccion_submit')
-
-	let checkboxButtons = document.querySelectorAll('.checkbox_validate');
-
-	seccionSubmit.addEventListener('click', (e) => {
-		e.preventDefault()
+	function submitForm(){
 		if (!validarSeccion()) {
 			return;
 		}
 
-		if(checkboxButtons)
-		{
+		if(checkboxButtons)	{
 			let contador = 0;
 			checkboxButtons.forEach(checkbox => {
 				if(checkbox.checked){
@@ -92,38 +85,21 @@
 			}
 		}
 
-
-		let archivo = seccionImg.files[0]
-
-		if(archivo)
-		{
-		  if(archivo.size > maximoBytes) {
-		    const alertSize = maximoBytes / 1000000;
-
-		    alert(`el tamaño máximo por archivo es ${alertSize} MB`);
-
-		    seccionImg.value = "";
-		  } else {
-		    seccionForm.submit();
-		  }
-		} else {
-			seccionForm.submit();
-		}
-	});
-
+		seccionForm.submit();
+	}
 
 	const validarSeccion = () => {
 		if(seccionTitle.value === ""){
 			alert('Debes agregar un titulo')
 			return false;
-		} else if(seccionContent.value === ""){
+		}else if(seccionContent.value === ""){
 			alert('Debes agregar una descripción')
 			return false;
-		} else {
+		}else {
 			return true;
 		}
 	}
 
-</script>
+</script> 
 
 @endsection

@@ -47,27 +47,28 @@
 			</div>
 			<div class="form-group col-12">
 				<h5>Recurso</h5>
-				<input type="file" id="seccion_img" name="recurso_file">
+				<input type="file" id="recursoFile" name="recurso_file">
 			</div>
 			<div class="col-auto mt-3">
-				<button type="button" class="btn btn-success px-5 col-auto" id="seccion_submit" data-toggle="modal" data-target="#EliminarUsuarios">Crear Recurso</button>
+				<button type="button" class="btn btn-success px-5 col-auto" id="seccion_submit" onclick="crearRecurso()">Crear Recurso</button>
+				<span hidden data-toggle="modal" data-target="#enviarSinArchivo" id="buttonModalActive"></span>
 			</div>
 		</form>
 	</div>
 </section>
 
-<div class="modal fade" id="EliminarUsuarios" tabindex="-1" role="dialog" aria-labelledby="EliminarUsuarios" aria-hidden="true" >
+<div class="modal fade" id="enviarSinArchivo" tabindex="-1" role="dialog" aria-labelledby="EliminarUsuarios" aria-hidden="true" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="">¿Seguro que desea crear este recurso sin un archivo?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="modalCloseButton">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-footer">
       	<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-      	<button type="button" class="btn btn-success px-4" id="submitModalEliminar">Continuar</button>
+      	<button type="button" class="btn btn-success px-4" onclick="enviarRecurso()">Continuar</button>
       </div>
       </div>
     </div>
@@ -80,36 +81,23 @@
 	let seccionForm = document.getElementById('recurso_form')
 	let seccionTitle = document.getElementById('seccion_title')
 	let seccionContent = document.getElementById('seccion_content')
-	let seccionImg = document.getElementById('seccion_img')
-
-	let seccionSubmit = document.getElementById('seccion_submit')
-
-	let modal = document.getElementById('EliminarUsuarios');
-	let submitModal = document.getElementById('submitModalEliminar');
-
 	let checkboxButtons = document.querySelectorAll('.checkbox_validate');
+	let recursoFile = document.getElementById('recursoFile')
+	let modal = document.getElementById('enviarSinArchivo');
+	let modalCloseButton = document.getElementById('modalCloseButton')	
+	let buttonModalActive = document.getElementById('buttonModalActive')
 
-
-
-
-	if(submitModal)
-	{
-		submitModal.addEventListener('click', () =>{
-			seccionForm.submit();
-		});
+	function enviarRecurso(){
+		modalCloseButton.click()
+		seccionForm.submit();
 	}
 
-	seccionSubmit.addEventListener('click', (e) => {
-		e.preventDefault()
-
-
+	function crearRecurso(){
 		if (!validarSeccion()) {
-			modal.remove();
 			return;
 		}
 
-		if(checkboxButtons)
-		{
+		if(checkboxButtons)	{
 			let contador = 0;
 			checkboxButtons.forEach(checkbox => {
 				if(checkbox.checked){
@@ -118,40 +106,26 @@
 			});
 
 			if(contador === 0){
-				modal.remove();
 				alert('Debe escoger una membresia')
 				return;
 			}
 		}
 
-		let archivo = seccionImg.files[0]
+		let archivo = recursoFile.files.length
 
-		if(archivo)
-		{
-			
-			modal.remove();	
-
-		  if(archivo.size > maximoBytes) {
-		    const alertSize = maximoBytes / 1000000;
-
-		    alert(`el tamaño máximo por archivo es ${alertSize} MB`);
-
-		    seccionImg.value = "";
-		  } else {
+		if(archivo>0){
 		    seccionForm.submit();
-		  }
 		} else {
-			modal.style.display = 'block';
+			buttonModalActive.click()
 		}
-	});
-
+	}
 
 	const validarSeccion = () => {
 		if(seccionTitle.value === ""){
 			alert('Debes agregar un titulo')
 			return false;
 		}else if(seccionContent.value === ""){
-			alert('Debes agregar un contenido')
+			alert('Debes agregar una descripción')
 			return false;
 		}else {
 			return true;

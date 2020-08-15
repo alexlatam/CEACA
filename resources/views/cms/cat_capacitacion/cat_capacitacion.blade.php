@@ -15,9 +15,10 @@
         </div>
   @endif
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Categorias de capacitaciones</h1>
+  <h1 class="h2">Categorias de capacitaciones</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
+        <a href="/cms/capacitacion" class="btn btn-sm btn-outline-danger px-4 mr-3">Volver</a>
         <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#modalCategoria">Agregar Categoria </button>
       </div>
     </div>

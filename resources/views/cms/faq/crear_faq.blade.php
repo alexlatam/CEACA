@@ -66,7 +66,7 @@
 			</div>
 			<div class="form-group col-12">
 				<h5>Contenido</h5>
-				<textarea class="form-control" id="contenido" name="contenido" required>@isset($faq){{$faq->cuerpo}}@endisset</textarea>
+				<textarea class="ckeditor" id="contenido" name="contenido" required>@isset($faq){{$faq->cuerpo}}@endisset</textarea>
 			</div>
 			<div class="col-auto mt-3">
 				<button type="submit" class="btn btn-success px-5 col-auto" id="seccion_submit">
@@ -75,7 +75,7 @@
 					@else
 						Crear FAQ
 					@endisset
-			</button>
+				</button>
 			</div>
 		</form>
 	</div>
@@ -100,7 +100,30 @@
 </div>
 
 <script type="text/javascript">
-	//vars
-</script> 
+	let submit = document.getElementById("seccion_submit");
+	let select = document.getElementById("topicos");
+	let formulario = document.getElementById("form_faq");
+	document.addEventListener('DOMContentLoaded', () => {
+    if (submit) {
+      submit.addEventListener('click', (e) => {
+        e.preventDefault();
+		
+		if (!validarServicio()) {
+          return;
+        }
 
+        formulario.submit();
+      });
+    }
+  });
+  const validarServicio = () => {
+    if (select.value == 0) {
+      alert('Debe seleccionar una categoria');
+      return false
+    } else {
+      return true;
+    }
+  }
+</script> 
+<script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
 @endsection

@@ -12,7 +12,6 @@
 	</div>
 	@endif
 
-
 </section>
 <table class="table table-hover" id="table1">
 	<thead class="thead-light">
@@ -137,7 +136,6 @@
 	    });
 	  });
 	}
-
 
 	window.onload = function() {
 		$('#table1').DataTable({

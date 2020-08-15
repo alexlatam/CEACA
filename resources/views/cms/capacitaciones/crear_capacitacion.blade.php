@@ -59,8 +59,6 @@
   let descripcionServicio = document.getElementById('input_descripcion');
   let categoriaServicio = document.getElementById('servicio_categoria');
 
-
-
   //inputs
 
   texts = document.querySelectorAll('.input-text');
@@ -86,17 +84,13 @@
 
   });
 
-
   const validarServicio = () => {
     if (tituloServico.value <= 0) {
       alert('Debe agregar un titulo');
       return false;
-
-
     } else if (CKEDITOR.instances.input_descripcion.getData() == '') {
       alert('Debe Agregar una descripción');
       return false
-
     } else if (file.files.length <= 0) {
       alert('Debe cargar una imagen')
       return false

@@ -18,7 +18,8 @@
     <h1 class="h2">Membresías del Club Ceaca</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#modalCategoria">Agregar Membresía</button>
+        <a href="/cms/club" class="btn btn-sm btn-outline-danger px-4 mr-3">Volver</a>
+        <button type="button" class="btn btn-sm btn-outline-success px-4" data-toggle="modal" data-target="#modalCategoria">Agregar Membresía</button>
       </div>
     </div>
   </div>
@@ -101,7 +102,7 @@
 
 <script type="text/javascript">
   let formulario = document.getElementById('form_create_category');
-  let botonesEditar = document.querySelectorAll('.editar'); 
+  let botonesEditar = document.querySelectorAll('.editar');
 
   //inputs 
 
@@ -116,26 +117,25 @@
 
 
   document.addEventListener('DOMContentLoaded', () => {
-    membresiaEditSubmit.forEach( submit => {
+    membresiaEditSubmit.forEach(submit => {
       submit.addEventListener('click', (e) => {
         e.preventDefault();
         let membresiaFormEdit = e.target.parentNode
         const membresiaEditName = e.target.parentNode[1]
         const membresiaEditCost = e.target.parentNode[2]
         const membresiaEditDesc = e.target.parentNode[3]
-        const membresiaEditImg  = e.target.parentNode[4]
-        
+        const membresiaEditImg = e.target.parentNode[4]
 
-        if(!validarMembresiaEdit(membresiaEditName, membresiaEditCost, membresiaEditDesc)){
+
+        if (!validarMembresiaEdit(membresiaEditName, membresiaEditCost, membresiaEditDesc)) {
           return;
         }
 
         const archivo = membresiaEditImg.files[0];
 
 
-        if(archivo)
-        {
-          if(archivo.size > maximoBytes) {
+        if (archivo) {
+          if (archivo.size > maximoBytes) {
             const alertSize = maximoBytes / 1000000;
 
             alert(`el tamaño máximo por archivo es ${alertSize} MB`);
@@ -156,16 +156,15 @@
   document.getElementById('agregarCategoria').addEventListener('click', (e) => {
     e.preventDefault()
 
-    if(!validarMembresia()) {
+    if (!validarMembresia()) {
       return;
     }
 
     const archivo = membresiaImg.files[0];
 
 
-    if(archivo)
-    {
-      if(archivo.size > maximoBytes) {
+    if (archivo) {
+      if (archivo.size > maximoBytes) {
         const alertSize = maximoBytes / 1000000;
 
         alert(`el tamaño máximo por archivo es ${alertSize} MB`);
@@ -202,10 +201,10 @@
 
 
   const validarMembresia = () => {
-    if(membresiaNombre.value === ""){
+    if (membresiaNombre.value === "") {
       alert('Debes colocar un nombre')
       return false
-    } else if(membresiaDesc.value === "") {
+    } else if (membresiaDesc.value === "") {
       alert('Debes colocar una descripción')
       return false;
     } else if (membresiaCost.value <= 0) {
@@ -219,11 +218,11 @@
     }
   }
 
-  const validarMembresiaEdit= (title, cost, desc) => {
-    if(title.value === ""){
+  const validarMembresiaEdit = (title, cost, desc) => {
+    if (title.value === "") {
       alert('Debes colocar un nombre')
       return false
-    } else if (cost.value <= 0){
+    } else if (cost.value <= 0) {
       alert('Debes colocar un precio')
       return false;
     } else if (desc.value === "") {

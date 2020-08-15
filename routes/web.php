@@ -42,7 +42,7 @@ Route::get('/nosotros', function () {
 	$info = Info::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
-	$encabezado= Encabezado::where('seccion', 'quienes somos')->first();
+	$encabezado = Encabezado::where('seccion', 'quienes somos')->first();
 	return view('nosotros', [
 		"info" => $info,
 		"nosotros_array" => $nosotros_array,
@@ -79,7 +79,7 @@ Route::get('/servicios', function () {
 	$cat_capacitaciones = Cat_capacitacion::All();
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
-	$encabezado= Encabezado::where('seccion', 'servicio')->first();
+	$encabezado = Encabezado::where('seccion', 'servicio')->first();
 	$publicidad = Ads::where('seccion', 'servicios')->get();
 	$videos = Video::where('seccion', 'servicios')->get();
 	return view('servicios', [
@@ -279,12 +279,12 @@ Route::middleware('admin')->group(function () {
 
 
 
-		/* ----------  RUTA FAQ CONTROLLADOR ---------*/
-		Route::get('/cms/faq_', function(){
-			return view('cms.faq_main');
-		});
-		Route::resource('/cms/faq', 'FaqController');
-		Route::resource('/cms/faq_topic', 'FaqTopicController');
+	/* ----------  RUTA FAQ CONTROLLADOR ---------*/
+	Route::get('/cms/faq_', function () {
+		return view('cms.faq_main');
+	});
+	Route::resource('/cms/faq', 'FaqController');
+	Route::resource('/cms/faq_topic', 'FaqTopicController');
 
 	/* ----------  RUTA RECURSOS CURSOS CONTROLLADOR ---------*/
 	Route::get('/cms/course/resource', 'RecursosCursosController@index');
@@ -293,7 +293,7 @@ Route::middleware('admin')->group(function () {
 	Route::get('/cms/editar/curso/recurso/{id}', 'RecursosCursosController@editarRecurso');
 	Route::post('/cms/actualizar/recurso/curso/{id}', 'RecursosCursosController@actualizarRecurso');
 	Route::post('/cms/eliminar/recurso/curso/{id}', 'RecursosCursosController@eliminarRecurso');
-	
+
 	/* ----------  RUTA RECURSOS CURSOS CONTROLLADOR ---------*/
 	Route::get('/cms/encabezados', 'EncabezadoController@index');
 	Route::get('/cms/crear/encabezado', 'EncabezadoController@crearEncabezado');
@@ -308,8 +308,6 @@ Route::middleware('admin')->group(function () {
 	Route::post('/cms/guardar/videos', 'VideoController@guardarVideo');
 	Route::post('/cms/actualizar/video/{id}', 'VideoController@actualizarPublicidad');
 	Route::post('/cms/eliminar/video/{id}', 'VideoController@eliminarVideo');
-
-
 });
 /*------------------------------------ END --------------------------*/
 

@@ -2,10 +2,15 @@
 
 @section('content')
 <section>
-	<div class="row mt-4 px-3">
-			<h4>Recursos Descargables</h4>
-			<a href="/cms/crear/recurso" class="btn btn-sm btn-outline-success col-auto ml-auto px-4">Agregar recurso</a>
-	</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Recursos Descargables</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a href="/cms/club" class="btn btn-sm btn-outline-danger px-4 mr-3">Volver</a>
+        <a href="/cms/crear/recurso" class="btn btn-sm btn-outline-success col-auto ml-auto px-4">Agregar recurso</a>
+      </div>
+    </div>
+  </div>
 	<hr>
 	@if(session('message'))
 	<div class="alert alert-success my-3" role="alert">
@@ -24,14 +29,15 @@
 	    <thead>
 	      <tr>
 	        <th>#</th>
-          <th>Titulo</th>
+         	<th>Titulo</th>
 	        <th>Descripcion</th>
 	        <th>Membresias</th>
 	        <th>Acciones</th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	    	@foreach($recursos as $recurso)
+			@foreach($recursos as $recurso)
+				<tr>
 	    		<td>{{$recurso->id}}</td>
 	    		<td>{{$recurso->titulo}}</td>
 	    		<td>{{$recurso->descripcion}}</td>
@@ -49,7 +55,8 @@
 	    			  @csrf
 	    			  <button type="button" class="btn btn-sm btn-outline-danger recurso_eliminar" data-toggle="modal" data-target="#EliminarUsuarios">Eliminar</button>
 	    			</form>
-	    		</td>
+				</td>
+			</tr>
 	    	@endforeach
 	    </tbody>
 	  </table>

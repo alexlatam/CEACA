@@ -14,11 +14,11 @@
     <h1 class="h2">Servicios Técnicos</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
+        <a href="/cms/servicios" class="btn btn-sm btn-outline-danger px-4 mr-3">Volver</a>
         <a href="/cms/crear/servicios" type="button" class="btn btn-sm btn-outline-success">Agregar Servicio</a>
       </div>
     </div>
   </div>
-
 
   <div class="table-responsive">
     <table class="table table-striped table-sm">

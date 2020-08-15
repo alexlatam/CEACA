@@ -5,16 +5,21 @@
 <section>
 
   @if(session('message'))
-    <div class="alert alert-danger my-4" role="alert">
-      {{session('message')}}
-    </div>
+  <div class="alert alert-danger my-4" role="alert">
+    {{session('message')}}
+  </div>
   @endif
 
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Encabezados</h1>
-    <div class="btn-toolbar mb-2 mb-md-0">
-      <div class="btn-group mr-2">
-        <a href="/cms/crear/encabezado" type="button" class="btn btn-sm btn-outline-success">Agregar Encabezado</a>
+  <div class="row align-items-center pt-3 pb-2 mb-3">
+    <div class="col-md-10">
+      <h1 class="h2">Encabezados</h1>
+      <span  class="text-muted">Los encabezados corresponden a la imagen, titulo y contenido principal de las secciones: Quienes somos, Revista y Capacitaciones.</span>
+    </div>
+    <div class="col-md-2">
+      <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+          <a href="/cms/crear/encabezado" type="button" class="btn btn-sm btn-outline-success">Agregar Encabezado</a>
+        </div>
       </div>
     </div>
   </div>
@@ -34,32 +39,32 @@
       </thead>
       <tbody>
         @foreach($encabezados as $encabezado)
-          <tr>
-            <td>{{$encabezado->id}}</td>
-            <td>
-              <img src="{{ asset('img/encabezados/'. $encabezado->imagen) }}" alt="" style="width: 40px; height: 40px;">
-            </td>
-            <td>{{$encabezado->titulo}}</td>
-            <td>
+        <tr>
+          <td>{{$encabezado->id}}</td>
+          <td>
+            <img src="{{ asset('img/encabezados/'. $encabezado->imagen) }}" alt="" style="width: 40px; height: 40px;">
+          </td>
+          <td>{{$encabezado->titulo}}</td>
+          <td>
             @php {{ $descripcion = substr($encabezado->descripcion,0,250); }} @endphp
-                            {{ $descripcion.'...' }}
-            </td>
-            <td>{{$encabezado->seccion}}</td>
-            <td class="d-flex">
-              <a href="/cms/editar/encabezado/{{$encabezado->id}}"class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
-              <form action="/cms/eliminar/encabezado/{{$encabezado->id}}" method="POST">
-                @csrf
-                <button type="button" class="btn btn-sm btn-outline-danger encabezado_eliminar" data-toggle="modal" data-target="#EliminarUsuarios">Eliminar</button>
-              </form>
-            </td>
-          </tr>
+            {{ $descripcion.'...' }}
+          </td>
+          <td>{{$encabezado->seccion}}</td>
+          <td class="d-flex">
+            <a href="/cms/editar/encabezado/{{$encabezado->id}}" class="btn btn-sm btn-outline-success mr-2 editar">Editar</a>
+            <form action="/cms/eliminar/encabezado/{{$encabezado->id}}" method="POST">
+              @csrf
+              <button type="button" class="btn btn-sm btn-outline-danger encabezado_eliminar" data-toggle="modal" data-target="#EliminarUsuarios">Eliminar</button>
+            </form>
+          </td>
+        </tr>
         @endforeach
       </tbody>
     </table>
   </div>
 </section>
 
-<div class="modal fade" id="EliminarUsuarios" tabindex="-1" role="dialog" aria-labelledby="EliminarUsuarios" aria-hidden="true" >
+<div class="modal fade" id="EliminarUsuarios" tabindex="-1" role="dialog" aria-labelledby="EliminarUsuarios" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -89,14 +94,13 @@
 
   submitEliminar.addEventListener('click', () => {
     formModal.submit();
-  }); 
+  });
 
-  if(eliminarButtons)
-  {
+  if (eliminarButtons) {
     eliminarButtons.forEach(button => {
-      button.addEventListener('click', (e) =>{
+      button.addEventListener('click', (e) => {
         e.preventDefault();
-        
+
 
         formPadre = e.target.parentNode;
 
@@ -106,9 +110,3 @@
   }
 </script>
 @endsection
-
-
-
-
-
-

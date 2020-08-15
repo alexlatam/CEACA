@@ -20,7 +20,7 @@
 
     .hidden1 {
         position: absolute;
-        width: 100%;
+        width: 98.6%;
         height: 8.5%;
         top: 0;
         background-color: #fff;

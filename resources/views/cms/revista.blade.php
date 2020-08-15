@@ -192,15 +192,7 @@
 
     if(archivo)
     {
-      if(archivo.size > maximoBytes) {
-        const alertSize = maximoBytes / 1000000;
-
-        alert(`el tamaño máximo por archivo es ${alertSize} MB`);
-
-        resvitaFile.value = "";
-      } else {
         formulario.submit();
-      }
     }
 
 	});
