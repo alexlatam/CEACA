@@ -50,6 +50,9 @@
 @include('common.navbar')
 {{-- carousel --}}
 @include('home.carousel_principal')
+
+
+
 <section class="section" id="pages">
   <div class="container">
     <div class="row justify-content-center">

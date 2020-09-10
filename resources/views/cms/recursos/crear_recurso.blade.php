@@ -32,7 +32,8 @@
 			</div>
 			<div class="form-group col-12">
 				<h5>Descripción</h5>
-				<textarea class="form-control" id="seccion_content" name="recurso_descripcion"></textarea>
+				<textarea class="ckeditor" id="seccion_content" name="recurso_descripcion"></textarea>
+				<script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
 			</div>
 			<div class="form-group col-12">
 				<h5>Membresias donde se podrá ver y descargar el recurso</h5>
@@ -123,9 +124,6 @@
 	const validarSeccion = () => {
 		if(seccionTitle.value === ""){
 			alert('Debes agregar un titulo')
-			return false;
-		}else if(seccionContent.value === ""){
-			alert('Debes agregar una descripción')
 			return false;
 		}else {
 			return true;

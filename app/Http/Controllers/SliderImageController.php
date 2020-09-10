@@ -32,6 +32,7 @@ class SliderImageController extends Controller
         if($file){
             $path = public_path() . '/img/banners';
             $fileName = uniqid() . $file->getClientOriginalName();
+            $fileName = str_replace(' ', '', $fileName);
             $moved = $file->move($path, $fileName);
 
             //verificamos que la imagen haya sido movida y guardamos la ruta
@@ -78,6 +79,7 @@ class SliderImageController extends Controller
                 if($file){
                     $path = public_path() . '/img/banners';
                     $fileName = uniqid() . $file->getClientOriginalName();
+                    $fileName = str_replace(' ', '', $fileName);
                     $moved = $file->move($path, $fileName);
             
                     //verificamos que la imagen haya sido movida y guardamos la ruta

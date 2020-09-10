@@ -131,8 +131,10 @@ class RecursoController extends Controller
     public function obtenerRecurso($id)
     {
         $recurso = Resource::find($id);
-
-        return $recurso;
+        $titulo = $recurso->titulo;
+        $description = $recurso->descripcion;
+        $response = [ "titulo" => $titulo, "description" => $description ];
+        return $response;
     }
 
 

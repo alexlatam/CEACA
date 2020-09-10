@@ -38,7 +38,7 @@
                             <div class="faq-item-content collapse" id="faq-item-content-{{$c}}">
                                 <div class="faq-item-content-inner">
                                 <p class="mb-0">
-                                {{$faq->cuerpo}}
+                                {{print($faq->cuerpo)}}
                                 </p>
                                 </div>
                             </div>

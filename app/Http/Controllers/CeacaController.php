@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ads;
 use App\Image_slider;
+use App\Home_Slider;
 use App\Service_Category;
 use App\Service;
 use App\Info;
@@ -19,7 +20,7 @@ class CeacaController extends Controller
 		$cat_capacitaciones = Cat_capacitacion::All();
 		$categorias = Service_Category::all();
 		$servicios = Service::all();
-    	$images = Image_slider::all();
+    	$images = Home_Slider::all();
     	return view('home')->with(compact('info','cat_capacitaciones','images','categorias','servicios','publicidad', 'videos'));
     }
 }

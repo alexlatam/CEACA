@@ -32,7 +32,8 @@
 			</div>
 			<div class="form-group col-12">
 				<h5>Descripción</h5>
-				<textarea class="form-control" id="seccion_content" name="recurso_descripcion">{{$recurso->descripcion}}</textarea>
+				<textarea class="ckeditor" id="seccion_content" name="recurso_descripcion">{{$recurso->descripcion}}</textarea>
+				<script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
 			</div>
 			<div class="form-group col-12">
 				<h5>Tipo de membresia</h5>

@@ -53,7 +53,8 @@
                     <hr>
                     <div class="form-group">
                         <h6><strong>Descripción</strong> </h6>
-                        <div id="recurso_descripcion"></div>
+                        <div id="recurso_descripcion">
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -65,7 +66,6 @@
 
     <script type="text/javascript">
         let detalleButtons = document.querySelectorAll('.detalle_button');
-
 
         if(detalleButtons)
         {
@@ -79,16 +79,25 @@
         function getRecurso(id){
             axios.get(`/cms/obtener/recurso/${id}`)
                 .then(response => {
-                    editModal(response.data.titulo, response.data.descripcion)
+                    editModal(response.data.titulo, response.data.description)
                 });
         }
 
         function editModal(nombre, descripcion){
             let nombreModal = document.getElementById('recurso_nombre');
             let descripcionModal = document.getElementById('recurso_descripcion');
+            console.log(descripcionModal);
 
             nombreModal.textContent = `Titutlo: ${nombre}`;
-            descripcionModal.textContent = descripcion;
+            descripcionModal.innerHTML = nl2br(descripcion);
+        }
+
+        function nl2br (str, is_xhtml) {
+            if (typeof str === 'undefined' || str === null) {
+                return '';
+            }
+            var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+            return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
         }
     </script>
 
