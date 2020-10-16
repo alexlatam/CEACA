@@ -15,3 +15,18 @@
 <script>
     AOS.init();
 </script>
+<script type="text/javascript">
+
+    //agregar id de la revista a descargar
+
+    const botonesDescargar = document.querySelectorAll('.descargar_button')
+    let revistaId = document.getElementById('revista_id')
+
+    if(botonesDescargar) {
+        botonesDescargar.forEach(boton => {
+            boton.addEventListener('click', e => {
+                revistaId.value = e.target.id
+            })
+        })
+    }
+</script>

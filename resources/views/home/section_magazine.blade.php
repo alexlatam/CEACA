@@ -64,7 +64,7 @@
             </div>
         </div>
         <diw class="row justify-content-center mt-5">
-            <a class="btn btn-outline-primary px-5 text-primary" href="#" data-toggle="modal" data-target=".modalRevista">Descargar Revista</a>
+            <a class="btn btn-outline-primary px-5 text-primary descargar_button" id="{{$revista->id}}" href="#" data-toggle="modal" data-target=".modalRevista">Descargar Revista</a>
         </diw>
     </div>
 </section>

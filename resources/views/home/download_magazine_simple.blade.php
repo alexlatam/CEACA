@@ -12,7 +12,7 @@
                 </p>
             </div>
             <div class="col-md-4">
-                <a href="#" class="btn btn-outline-primary text-white px-5" data-toggle="modal" data-target=".modalRevista">
+                <a href="#" class="btn btn-outline-primary text-white px-5 descargar_button" id="{{$revista->id}}" data-toggle="modal" data-target=".modalRevista">
                     Descargar Revista
                 </a>
             </div>

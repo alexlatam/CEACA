@@ -8,6 +8,7 @@ use App\Cat_capacitacion;
 use App\Info;
 use App\Ads;
 use App\Video;
+use App\Revista;
 use App\Encabezado;
 
 
@@ -22,7 +23,7 @@ class CapacitacionesController extends Controller
 		$cat_servicios = Cat_capacitacion::all();
 		$cat_capacitaciones = Cat_capacitacion::all();
 		$categoria_name = "CEACA";
-
+		$revista = Revista::latest('id')->first();
 		$publicidad = Ads::where('seccion', 'capacitaciones')->get();
 
 
@@ -40,6 +41,6 @@ class CapacitacionesController extends Controller
 			$encabezado = Encabezado::where('seccion', 'capacitacion ceaca')->first();
 		}
 
-		return view('capacitaciones', compact('capacitaciones','categoria_name','encabezado', 'publicidad', 'cat_servicios', 'info', 'cat_capacitaciones','videos'));
+		return view('capacitaciones', compact('capacitaciones','categoria_name','encabezado', 'publicidad', 'cat_servicios', 'info', 'cat_capacitaciones','videos', 'revista'));
 	}
 }

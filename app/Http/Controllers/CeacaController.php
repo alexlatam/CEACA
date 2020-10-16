@@ -11,6 +11,7 @@ use App\Service;
 use App\Info;
 use App\Cat_capacitacion;
 use App\Video;
+use App\Revista;
 class CeacaController extends Controller
 {
     public function index(){
@@ -21,6 +22,7 @@ class CeacaController extends Controller
 		$categorias = Service_Category::all();
 		$servicios = Service::all();
     	$images = Home_Slider::all();
-    	return view('home')->with(compact('info','cat_capacitaciones','images','categorias','servicios','publicidad', 'videos'));
+    	$revista = Revista::latest('id')->first();
+    	return view('home')->with(compact('info','cat_capacitaciones','images','categorias','servicios','publicidad', 'videos', 'revista'));
     }
 }

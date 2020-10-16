@@ -13,7 +13,6 @@ use App\Cat_capacitacion;
 use App\Capacitacion;
 use App\Encabezado;
 use App\Video;
-
 use App\Mail\UserCreated;
 use Illuminate\Support\Facades\Mail;
 
@@ -43,6 +42,7 @@ Route::get('/nosotros', function () {
 	$servicios = Service::All();
 	$cat_servicios = Service_Category::All();
 	$encabezado = Encabezado::where('seccion', 'quienes somos')->first();
+	$revista = Revista::latest('id')->first();
 	return view('nosotros', [
 		"info" => $info,
 		"nosotros_array" => $nosotros_array,
@@ -51,7 +51,8 @@ Route::get('/nosotros', function () {
 		"cat_servicios" => $cat_servicios,
 		"publicidad" => $publicidad,
 		"cat_capacitaciones" => $cat_capacitaciones,
-		"videos" => $videos
+		"videos" => $videos,
+		"revista" => $revista,
 	]);
 })->name('nosotros');
 /* CLUB */
@@ -82,6 +83,7 @@ Route::get('/servicios', function () {
 	$encabezado = Encabezado::where('seccion', 'servicio')->first();
 	$publicidad = Ads::where('seccion', 'servicios')->get();
 	$videos = Video::where('seccion', 'servicios')->get();
+	$revista = Revista::latest('id')->first();
 	return view('servicios', [
 		"info" => $info,
 		"servicios" => $servicios,
@@ -89,7 +91,8 @@ Route::get('/servicios', function () {
 		"publicidad" => $publicidad,
 		"cat_capacitaciones" => $cat_capacitaciones,
 		"encabezado" => $encabezado,
-		"videos" => $videos
+		"videos" => $videos,
+		"revista" => $revista,
 	]);
 })->name('servicios');
 
