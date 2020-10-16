@@ -24,7 +24,8 @@ class ClubController extends Controller
     }
     /* Crear Usuario de Club y descargar revista*/
     public function crearUsuarioDownload(Request $request)
-    {
+    { 
+
         $recaptcha_secret = "6LcnwLIZAAAAAFUSyNHCfNfwK45uIQnhsCgViTog";
         $recaptcha_response = $request->input('g-recaptcha-response');
         $recaptcha_url = "https://www.google.com/recaptcha/api/siteverify";
@@ -61,8 +62,8 @@ class ClubController extends Controller
             }
 
             //descargar el archivo
-            $revista = Revista::all();
-            $file = $revista[0]->archivo;
+            $revista = Revista::find($request->revista_id);
+            $file = $revista->archivo;
             //$file ='revista_calderas_ceaca.pdf';
             $fileName = basename($file);
             $filePath = 'revista/' . $fileName;

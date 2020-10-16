@@ -82,7 +82,7 @@
                     <div class="col-auto">
                         <h4>{{ $revista->titulo }}</h4>
                         <a href="/ver_revista/{{$revista->id}}" class="btn btn-sm btn-outline-success mt-2 ver_en_linea">Ver en linea</a>
-                        <a href="#" class="btn btn-sm btn-success px-5 mt-2" data-toggle="modal" data-target=".modalRevista">Descargar</a>
+                        <a href="#" id="{{$revista->id}}" class="btn btn-sm btn-success px-5 mt-2 descargar_button" data-toggle="modal" data-target=".modalRevista">Descargar</a>
                     </div>
                 </div>
                 <hr class="my-4">
@@ -120,5 +120,21 @@
 @include('home.redes_sociales')
 
 @include('home.modal_revista')
+
+<script type="text/javascript">
+
+    //agregar id de la revista a descargar
+
+    const botonesDescargar = document.querySelectorAll('.descargar_button')
+    let revistaId = document.getElementById('revista_id')
+
+    if(botonesDescargar) {
+        botonesDescargar.forEach(boton => {
+            boton.addEventListener('click', e => {
+                revistaId.value = e.target.id
+            })
+        })
+    }
+</script>
 
 @endsection

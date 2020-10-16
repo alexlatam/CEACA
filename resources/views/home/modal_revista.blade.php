@@ -11,6 +11,7 @@
             <form class="pb-2" action="/user/createmagazine" method="POST" id="form-modalrevista">
                 @csrf
                 @method('POST')
+                <input type="hidden" id="revista_id" name="revista_id">
                 <div class="modal-body">
                     <div class="form-group">
                         <input class="form-control" type="text" name="name" placeholder="Nombre Completo*" required id="name">
