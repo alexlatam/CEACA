@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="row justify-content-center mt-3">
-        <a href="#" class="btn btn-sm btn-success px-5 mt-2" data-toggle="modal" data-target=".modalRevista">Descargar</a>
+        <a href="#" id="{{ $revista->id }}" class="btn btn-sm btn-success px-5 mt-2 descargar_button" data-toggle="modal" data-target=".modalRevista">Descargar</a>
         </div>
     </div>
 </section>
